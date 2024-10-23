@@ -1,0 +1,140 @@
+{
+  "Quadratic Functions, Equations and Inequalities": [
+    "Solving simultaneous equations by substitution",
+    "Finding coordinates of intersection points",
+    "Finding maximum and minimum value of a quadratic function by completing the square",
+    "Sketching graph of quadratic function",
+    "Solving quadratic inequalities",
+    "Intersection of straight line and curve",
+    "Always positive/negative quadratic expression",
+    "Quadratic functions in real-world context"
+  ],
+  "Surds": [
+    "Rationalising denominator of surd",
+    "Adding and/or subtracting surds",
+    "Solving equations involving surds",
+    "Word problems involving surds"
+  ],
+  "Polynomials, cubic equations and partial fractions": [
+    "Identities",
+    "Identities with an unknown quotient",
+    "Long division/synthetic method/remainder theorem",
+    "Application of remainder theorem",
+    "Sum and difference of 2 cubes",
+    "Solving cubic equation",
+    "Factor theorem and solving a cubic equation",
+    "Factor theorem and sketching of cubic curve",
+    "Forming cubic equation/expression",
+    "Proper algebraic fraction with linear factors in denominator",
+    "Proper algebraic fraction with non-linear factor in denominator",
+    "Proper algebraic fraction with repeated factors in the denominator",
+    "Improper algebraic fraction"
+  ],
+  "Binomial theorem and its application": [
+    "Finding coefficients of specific terms",
+    "Finding values of unknown coefficients",
+    "Application of factorial",
+    "Application of general term formula",
+    "Applications of binomial theorem"
+  ],
+  "Exponential and logarithmic functions": [
+    "Simplifying exponential expressions",
+    "Solving exponential equations",
+    "Simplifying logarithmic expressions",
+    "Applications of laws of logarithms",
+    "Solving equations involving natural logarithms",
+    "Solving simultaneous equations involving logarithms",
+    "Application of change of base",
+    "Real-life applications of logarithms",
+    "Graphs of exponential and logarithmic functions",
+    "Graphical solutions involving exponential/logarithmic graphs"
+  ],
+  "Coordinate geometry": [
+    "Finding equation of perpendicular bisector",
+    "Finding fourth vertex of parallelogram",
+    "Finding coordinates of unknown collinear point",
+    "Finding equation of circle and determining if a point lies on, is inside, or outside a circle",
+    "Application of tangent in circle"
+  ],
+  "Linear law": [
+    "Converting from linear form to non-linear equation",
+    "Finding values of unknown constants when given non-linear graph",
+    "Application of linear law in real-world contexts"
+  ],
+  "Trigonometric functions and equations": [
+    "Finding trigonometric ratios",
+    "Solving trigonometric equations in degree mode",
+    "Solving trigonometric equations in radian mode",
+    "Finding principal values of inverse trigonometric functions",
+    "Sketching trigonometric graphs",
+    "Finding angle in a right-angled triangle",
+    "Real-life modeling using trigonometric function"
+  ],
+  "Trigonometric identities and formulae": [
+    "Finding trigonometric ratios",
+    "Solving trigonometric equations using basic trigonometric identity",
+    "Solving trigonometric equations using compound angle formulae",
+    "Proving trigonometric identities",
+    "Evaluating trigonometric ratios using compound angle formulae",
+    "Finding exact values of trigonometric ratios of specific angles",
+    "R-formula",
+    "Application of R-formula in word problems"
+  ],
+  "Gradients, derivatives and differentiation techniques": [
+    "Basic differentiation",
+    "Product rule",
+    "Quotient rule",
+    "Finding gradient of curve at a point",
+    "Increasing and decreasing functions",
+    "Higher derivatives"
+  ],
+  "Applications of differentiation": [
+    "Applications of differentiation to tangents and normals",
+    "Rate of change",
+    "Stationary point",
+    "Stationary value involving 3 variables",
+    "Problem on maxima and minima"
+  ],
+  "Differentiation of trigonometric, logarithmic, and exponential functions and their applications": [
+    "Differentiation of trigonometric functions",
+    "Differentiation of logarithmic functions",
+    "Differentiation of exponential functions",
+    "Applications of differentiation of trigonometric functions",
+    "Applications of differentiation of exponential functions",
+    "Applications of differentiation of logarithmic functions"
+  ],
+  "Integration": [
+    "Basic integration",
+    "Integration of trigonometric functions",
+    "Integration of trigonometric functions using trigonometric formulae",
+    "Integration of functions in the form of 1/(ax+b)",
+    "Integration of exponential functions",
+    "Integration involving partial fractions",
+    "Finding equation of curve",
+    "Integration as a reverse process of differentiation",
+    "Integration as a reverse process of differentiation involving multiple functions"
+  ],
+  "Applications of integration": [
+    "Definite integrals involving algebraic functions",
+    "Definite integrals involving trigonometric functions",
+    "Properties of definite integrals",
+    "Integration as a reverse process of differentiation",
+    "Integration as a reverse process of differentiation involving multiple functions",
+    "Area under curve",
+    "Area above and below x-axis",
+    "Area bounded by curve, y-axis, and line",
+    "Area bounded by curve and line",
+    "Applications of tangent and normal to shaded area"
+  ],
+  "Kinematics": [
+    "Applications of differentiation, given displacement",
+    "Application of differentiation and integration, given velocity",
+    "Application of integration, given acceleration",
+    "Problem involving 2 moving particles"
+  ],
+  "Proofs in plane geometry": [
+    "Proof involving congruent and similar triangles",
+    "Midpoint theorem",
+    "Tangent-chord theorem"
+  ]
+}

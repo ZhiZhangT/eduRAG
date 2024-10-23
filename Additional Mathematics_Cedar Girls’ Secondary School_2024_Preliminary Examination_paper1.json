@@ -1,0 +1,158 @@
+{
+  "meta_info": {
+    "subject": "Additional Mathematics",
+    "school": "Cedar Girls\u2019 Secondary School",
+    "year": "2024",
+    "exam_type": "Preliminary Examination",
+    "paper": "1"
+  },
+  "questions": [
+    {
+      "question": "Two cylinders are such that the ratio of their heights is 7 : 1. The height of the smaller cylinder is (22/7 - 1) cm. Without using a calculator, find the height of the larger cylinder, expressing your answer in the form (7a + b) cm, where a and b are integers.",
+      "page_start": 3,
+      "page_end": 3,
+      "category": "Polynomials, cubic equations and partial fractions",
+      "question_type": "Identities"
+    },
+    {
+      "question": "The profit, $y of a company can be modelled by the equation y = a(x - h)^2 + k, where x is the number of goods sold and a, h and k are constants. The company obtained the maximum profit of $24,500 when 800 goods were sold. The company incurred a loss of $7,500 when no goods were sold. (a) State the value of h and of k. (b) Using the values of h and k found in part (a), find the value of a. (c) Find the range of the number of goods the company needed to sell to earn a profit.",
+      "page_start": 4,
+      "page_end": 4,
+      "category": "Quadratic Functions, Equations and Inequalities",
+      "question_type": "Finding maximum and minimum value of a quadratic function by completing the square, Quadratic functions in real-world context"
+    },
+    {
+      "question": "Solve the equation 3log_3(p + 1) - log_3(8p + 1) = log_3(27).",
+      "page_start": 5,
+      "page_end": 5,
+      "category": "Exponential and logarithmic functions",
+      "question_type": "Applications of laws of logarithms, Solving exponential equations"
+    },
+    {
+      "question": "Solve the equation 12x^2 - 15x - 5 = -30.",
+      "page_start": 6,
+      "page_end": 6,
+      "category": "Quadratic Functions, Equations and Inequalities",
+      "question_type": "Solving quadratic inequalities, Intersection of straight line and curve"
+    },
+    {
+      "question": "Given that y = 3x^2 - 4x - 10 is decreasing for -3 < x < q, find the value of the constants p and q.",
+      "page_start": 7,
+      "page_end": 7,
+      "category": "Gradients, derivatives and differentiation techniques",
+      "question_type": "Increasing and decreasing functions, Basic differentiation"
+    },
+    {
+      "question": "The graph y = a + b cos(cx) is defined for 0 \u2264 x \u2264 2\u03c0, where a, b, and c are constants. The graph has a period of 4\u03c0/3 and a minimum value of 1 when x = 4\u03c0/3. The graph also passes through the point (3\u03c0/3, 3). (a) Show that a = 3, b = -2, and c = 3/2. (b) Sketch the graph of y = a + b cos(cx) for 0 \u2264 x \u2264 2\u03c0. (c) Given that there are exactly 3 solutions for the equation b cos(cx) = k - a, for 0 \u2264 x \u2264 2\u03c0, state the range of values of the constant k.",
+      "page_start": 8,
+      "page_end": 8,
+      "category": "Trigonometric functions and equations",
+      "question_type": "Solving trigonometric equations in radian mode, Sketching trigonometric graphs"
+    },
+    {
+      "question": "The graph of dy/dx of a function f(x) is shown in the diagram, passing through the x-axis at (-2,0), (0,0), and (2,0). (a) State the number of stationary points of the graph of f(x). (b) State the x-coordinate of the minimum point of f(x) and explain why it is the minimum point.",
+      "page_start": 9,
+      "page_end": 9,
+      "category": "Applications of differentiation",
+      "question_type": "Stationary point, Problem on maxima and minima"
+    },
+    {
+      "question": "The curve y = a(x^3) + b(2x - 1), where a and b are constants, has a stationary point at (11/3, 22). (a) Find the value of a and of b.",
+      "page_start": 10,
+      "page_end": 10,
+      "category": "Gradients, derivatives and differentiation techniques",
+      "question_type": "Basic differentiation, Finding gradient of curve at a point"
+    },
+    {
+      "question": "(b) Find the x-coordinate of the other stationary point.",
+      "page_start": 11,
+      "page_end": 11,
+      "category": "Applications of differentiation",
+      "question_type": "Stationary point"
+    },
+    {
+      "question": "(c) Find 2d^2y/dx^2.",
+      "page_start": 11,
+      "page_end": 11,
+      "category": "Applications of differentiation",
+      "question_type": "The most appropriate question type for the given question is:\n\nApplications of differentiation to tangents and normals"
+    },
+    {
+      "question": "(d) Hence, determine the nature of the stationary point at (11/3, 22).",
+      "page_start": 11,
+      "page_end": 11,
+      "category": "Applications of differentiation",
+      "question_type": "Stationary point, Problem on maxima and minima"
+    },
+    {
+      "question": "9 It is given that 2ln(5x) = y - x, where 0 < x < 5. (a) If y is decreasing at a rate of 10 units/s, find the rate of change of x when ln(y) = 8.",
+      "page_start": 12,
+      "page_end": 12,
+      "category": "Differentiation of trigonometric, logarithmic, and exponential functions and their applications",
+      "question_type": "Applications of differentiation of logarithmic functions"
+    },
+    {
+      "question": "(b) The equation of the normal to the curve at point A is 8y = 8ln(2x) + 25 - 10. Find the x-coordinate of point A.",
+      "page_start": 13,
+      "page_end": 13,
+      "category": "Coordinate geometry",
+      "question_type": "Finding coordinates of unknown collinear point"
+    },
+    {
+      "question": "10 The diagram shows a running track ABCD. D is a point on the straight line EC. It is given that AB = 280 m, AD = 150 m, angle BCD = angle DAB = 90\u00b0, and angle ADE = \u03b8, where 0\u00b0 < \u03b8 < 90\u00b0. (a) Show that L, the length of the running track, is given by L = 130cos(\u03b8) + 430sin(\u03b8) + p, where p is a constant.",
+      "page_start": 14,
+      "page_end": 14,
+      "category": "Trigonometric identities and formulae",
+      "question_type": "Application of R-formula in word problems, Proving trigonometric identities"
+    },
+    {
+      "question": "(b) Express L in the form Rcos(\u03b8 - \u03b1), where R > 0 and \u03b1 is an acute angle.",
+      "page_start": 14,
+      "page_end": 14,
+      "category": "Trigonometric identities and formulae",
+      "question_type": "R-formula"
+    },
+    {
+      "question": "(c) Xin Ting ran five complete laps around the track. She claims that she ran a total of 5 km. Explain why she might be wrong.",
+      "page_start": 15,
+      "page_end": 15,
+      "category": "Applications of integration",
+      "question_type": "Area under curve, Area above and below x-axis, Area bounded by curve and line"
+    },
+    {
+      "question": "(d) Given that the running track is 700 m long, find the value of \u03b8.",
+      "page_start": 15,
+      "page_end": 15,
+      "category": "Trigonometric functions and equations",
+      "question_type": "Finding angle in a right-angled triangle, Real-life modeling using trigonometric function"
+    },
+    {
+      "question": "After n years, the population, P, in thousands, of a certain species of foxes can be modelled by an equation knP = Ae, where A and k are constants. (a) On the grid on the next page, plot lnP against n and draw a straight line graph. (b) Use your graph to estimate the initial population of the foxes and the value of k. (c) If this model for the population remains valid, after how many whole years would the population of the foxes first decreased to 1000?",
+      "page_start": 16,
+      "page_end": 17,
+      "category": "Exponential and logarithmic functions",
+      "question_type": "Graphs of exponential and logarithmic functions, Real-life applications of logarithms, Solving equations involving natural logarithms"
+    },
+    {
+      "question": "(a) Show that 2 3 3d ln 2 1 2ln 2 d 3 3 3xx x x x x = \u2212 . (b) Integrate 3ln 2x x with respect to x. (c) Given that the curve f(y) = x passes through the point (1, 12) and is such that 3ln 2f(x) = x, find f(x).",
+      "page_start": 18,
+      "page_end": 19,
+      "category": "Differentiation of trigonometric, logarithmic, and exponential functions and their applications",
+      "question_type": "Differentiation of logarithmic functions, Applications of differentiation of logarithmic functions"
+    },
+    {
+      "question": "The diagram shows a circle, centre O. Points A, B, D and E lie on the circle. The line AD is a diameter of the circle and DCP is the tangent of the circle at D. The lines EB and AD intersect at point Q. The chord AB is produced to meet the tangent DCP at P. It is given that angle CBP = angle DEB. (a) Show that angle BCD = 90\u00b0.",
+      "page_start": 20,
+      "page_end": 20,
+      "category": "Proofs in plane geometry",
+      "question_type": "Tangent-chord theorem"
+    },
+    {
+      "question": "Show that 22DP BP DA BC= + \uf0b4.",
+      "page_start": 21,
+      "page_end": 21,
+      "category": "Proofs in plane geometry",
+      "question_type": "Proof involving congruent and similar triangles"
+    }
+  ]
+}
