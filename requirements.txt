@@ -78,3 +78,6 @@ typing_extensions==4.12.2
 urllib3==2.2.3
 wcwidth==0.2.13
 yarl==1.15.5
+fastapi==0.115.4
+pymongo==4.10.1
+uvicorn==0.32.0
