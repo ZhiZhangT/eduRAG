@@ -1,10 +1,11 @@
 {
+  "question_paper_filepath": "https://document.grail.moe/7871f70e5b78485c99cc4cf28cc68458.pdf",
   "meta_info": {
-    "subject": "Additional Mathematics",
+    "subject": "additional_mathematics",
     "school": "CHIJ St. Theresa\u2019s Convent",
-    "level": "O Level",
+    "level": "o_level",
     "year": "2023",
-    "exam_type": "Preliminary Examination",
+    "exam_type": "preliminary_exam",
     "paper": "2"
   },
   "questions": [

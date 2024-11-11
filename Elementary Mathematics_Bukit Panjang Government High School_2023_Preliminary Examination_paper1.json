@@ -1,10 +1,10 @@
 {
   "meta_info": {
-    "subject": "Elementary Mathematics",
+    "subject": "elementary_mathematics",
     "school": "Bukit Panjang Government High School",
     "level": "O Level",
     "year": "2023",
-    "exam_type": "Preliminary Examination",
+    "exam_type": "preliminary_exam",
     "paper": "1"
   },
   "questions": [

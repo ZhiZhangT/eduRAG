@@ -1,10 +1,11 @@
 {
+  "question_paper_filepath": "https://document.grail.moe/fad1557809cb4c8c8f9b7e450cef190c.pdf",
   "meta_info": {
-    "subject": "Additional Mathematics",
+    "subject": "additional_mathematics",
     "school": "Cedar Girls\u2019 Secondary School",
-    "level": "O Level",
+    "level": "o_level",
     "year": "2024",
-    "exam_type": "Preliminary Examination",
+    "exam_type": "preliminary_exam",
     "paper": "1"
   },
   "questions": [
