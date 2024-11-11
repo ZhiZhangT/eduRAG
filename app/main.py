@@ -20,38 +20,40 @@ question_collection = db["question"]
 
 # Endpoint to accept JSON data and store in MongoDB
 @app.post("/upload_questions")
-async def upload_questions(questions: QuestionData):
+async def upload_questions(request_obj: QuestionData):
     try:
         # Clean meta_info
-        meta_info_dict = questions.meta_info.model_dump()
+        meta_info_dict = request_obj.meta_info.model_dump()
         cleaned_meta_info = clean_meta_info(meta_info_dict)
 
         # Convert exam_type to enum value
         exam_type = convert_exam_type(cleaned_meta_info.get("exam_type", ""))
 
         # Iterate over each question and insert into MongoDB
-        for idx, question_item in enumerate(questions.questions, start=1):
+        for idx, question_item in enumerate(request_obj.questions, start=1):
             # Clean question data
             question_body = question_item.question.strip()
             category = question_item.category.strip()
             question_type = question_item.question_type.strip()
+            question_number = int(question_item.question_number.strip())
+            question_part = question_item.question_part.strip()
 
             # Prepare document to insert
             question_document = {
                 "page_start": question_item.page_start,
                 "page_end": question_item.page_end,
-                "question_number": idx,  # Assuming sequential numbering; TODO: add in question and sub-question
+                "question_number": question_number,
+                "question_part": question_part,
                 "question_body": question_body,
                 "topic": category,
                 "sub_topic": question_type,
                 "answer_body": "",
-                "question_filepath": questions.question_filepath.strip(),
-                "question_filename": questions.question_filename.strip(),
+                "question_filepath": request_obj.question_filepath.strip(),
                 "answer_filepath": "",
                 "answer_filename": "",
                 "subject": cleaned_meta_info.get("subject", ""),
                 "paper_number": cleaned_meta_info.get("paper", ""),
-                "level": questions.level.strip(),  # TODO: use AI to determine level
+                "level": cleaned_meta_info.get("level", ""),
                 "exam_type": exam_type,
                 "school": cleaned_meta_info.get("school", ""),
                 "created_utc": datetime.now(timezone.utc),
