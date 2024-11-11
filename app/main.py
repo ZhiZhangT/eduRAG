@@ -23,11 +23,10 @@ question_collection = db["question"]
 async def upload_questions(request_obj: QuestionData):
     try:
         # Clean meta_info
-        meta_info_dict = request_obj.meta_info.model_dump()
-        cleaned_meta_info = clean_meta_info(meta_info_dict)
+        meta_info = request_obj.meta_info.model_dump()
 
         # Convert exam_type to enum value
-        exam_type = convert_exam_type(cleaned_meta_info.get("exam_type", ""))
+        exam_type = convert_exam_type(meta_info.get("exam_type", ""))
 
         # Iterate over each question and insert into MongoDB
         for idx, question_item in enumerate(request_obj.questions, start=1):
@@ -48,14 +47,13 @@ async def upload_questions(request_obj: QuestionData):
                 "topic": category,
                 "sub_topic": question_type,
                 "answer_body": "",
-                "question_filepath": request_obj.question_filepath.strip(),
-                "answer_filepath": "",
-                "answer_filename": "",
-                "subject": cleaned_meta_info.get("subject", ""),
-                "paper_number": cleaned_meta_info.get("paper", ""),
-                "level": cleaned_meta_info.get("level", ""),
+                "question_paper_filepath": request_obj.question_paper_filepath.strip(),
+                "answer_paper_filepath": "",  # TODO: Add answer paper filepath
+                "subject": meta_info.get("subject", ""),
+                "paper_number": meta_info.get("paper", ""),
+                "level": meta_info.get("level", ""),
                 "exam_type": exam_type,
-                "school": cleaned_meta_info.get("school", ""),
+                "school": meta_info.get("school", ""),
                 "created_utc": datetime.now(timezone.utc),
                 "updated_utc": datetime.now(timezone.utc),
             }

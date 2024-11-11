@@ -6,6 +6,8 @@ from app.utils.format_utils import clean_meta_info
 
 class SubjectEnum(str, Enum):
     ADDITIONAL_MATHEMATICS = "additional_mathematics"
+    ELEMENTARY_MATHEMATICS = "elementary_mathematics"
+    H2_MATHEMATICS = "h2_mathematics"
 
     @classmethod
     def _missing_(cls, value):
@@ -114,7 +116,7 @@ class QuestionData(BaseModel):
     questions: List[QuestionItem] = Field(
         ..., min_items=1, description="Questions list cannot be empty"
     )
-    question_filepath: str = Field(
+    question_paper_filepath: str = Field(
         ..., min_length=1, description="Question filepath cannot be empty"
     )
 
