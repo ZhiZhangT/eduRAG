@@ -1,20 +1,23 @@
 import os
+import openai
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from pymongo import MongoClient
 from datetime import datetime, timezone
 from app.models import QuestionData
-from app.utils.format_utils import convert_exam_type
+from app.utils.format_utils import convert_exam_type, normalise_query
 from app.create_vector_embeddings import get_embedding
-from openai import OpenAI
+from app.vector_search import vector_search
+from app.utils.openai_utils import get_llm_response
+from app.models import Message
 
 load_dotenv()
 
 # initialise FastAPI app
 app = FastAPI()
 
-openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 # connect to MongoDB
 mongo_client = MongoClient(os.environ.get("MONGODB_URI"))
@@ -23,7 +26,7 @@ question_collection = db["question"]
 
 
 # endpoint to accept JSON data and store in MongoDB
-@app.post("/upload_questions")
+@app.post("/upload-questions")
 async def upload_questions(request_obj: QuestionData):
     try:
         meta_info = request_obj.meta_info.model_dump()
@@ -41,7 +44,7 @@ async def upload_questions(request_obj: QuestionData):
             question_part = question_item.question_part.strip()
 
             # get embedding for question body
-            question_body_embedding = get_embedding(openai_client, question_body)
+            question_body_embedding = get_embedding(question_body)
 
             # prepare document to insert
             question_document = {
@@ -72,5 +75,18 @@ async def upload_questions(request_obj: QuestionData):
             status_code=200, content={"message": "Exam data uploaded successfully."}
         )
 
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# endpoint to ask a question
+@app.post("/query")
+async def query(user_query: list[Message]):
+    try:
+        user_query = normalise_query(user_query)
+        results = vector_search(user_query[-1].content, question_collection)
+        user_query[-1].content += f"""\n\nSIMILAR_DOCUMENTS: {results}"""
+        response = get_llm_response(user_query)
+        return JSONResponse(status_code=200, content={"response": response})
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
