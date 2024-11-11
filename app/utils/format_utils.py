@@ -10,6 +10,8 @@ def clean_meta_info(meta_info):
         # Strip whitespace and convert to lowercase
         value = value.strip().lower()
         cleaned_meta_info[key] = value
+        # Replace spaces with underscores
+        cleaned_meta_info[key] = value.replace(" ", "_")
     return cleaned_meta_info
 
 
