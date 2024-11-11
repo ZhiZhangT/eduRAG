@@ -1,26 +1,23 @@
 import os
 import time
+import openai
 from pymongo import MongoClient, UpdateOne
-from openai import OpenAI
 from typing import List
 from dotenv import load_dotenv
 
 
-def get_embedding(
-    openai_client: OpenAI, text: str, model="text-embedding-3-small"
-) -> List[float]:
+def get_embedding(text: str, model="text-embedding-3-small") -> List[float]:
     """Get embedding for a given text using OpenAI's API"""
     try:
-        response = openai_client.embeddings.create(input=text, model=model)
+
+        response = openai.embeddings.create(input=text, model=model)
         return response.data[0].embedding
     except Exception as e:
         print(f"Error getting embedding: {e}")
         return None
 
 
-def process_documents(
-    openai_client: OpenAI, mongo_client: MongoClient, batch_size: int = 20
-):
+def process_documents(mongo_client: MongoClient, batch_size: int = 20):
     """Process documents in batches"""
     db = mongo_client["exam_db"]
     collection = db["question"]
@@ -36,7 +33,7 @@ def process_documents(
             continue
 
         # get embedding for question body
-        embedding = get_embedding(openai_client, doc["question_body"])
+        embedding = get_embedding(doc["question_body"])
 
         if embedding:
             update_operation = UpdateOne(
@@ -68,7 +65,7 @@ def process_documents(
 
 if __name__ == "__main__":
     load_dotenv()
-    openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    openai.api_key = os.environ.get("OPENAI_API_KEY")
     mongo_client = MongoClient(os.environ.get("MONGODB_URI"))
 
-    process_documents(openai_client, mongo_client)
+    process_documents(mongo_client)
