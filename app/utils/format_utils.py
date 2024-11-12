@@ -1,18 +1,5 @@
 import re
-
-
-def clean_meta_info(meta_info):
-    # Remove special characters, strip whitespace, and convert to lowercase
-    cleaned_meta_info = {}
-    for key, value in meta_info.items():
-        # Remove special characters using regex
-        value = re.sub(r"[^\w\s]", "", value)
-        # Strip whitespace and convert to lowercase
-        value = value.strip().lower()
-        cleaned_meta_info[key] = value
-        # Replace spaces with underscores
-        cleaned_meta_info[key] = value.replace(" ", "_")
-    return cleaned_meta_info
+from app.models import Message
 
 
 def convert_exam_type(exam_type):
@@ -24,3 +11,9 @@ def convert_exam_type(exam_type):
         "test": "test",
     }
     return exam_type_mapping.get(exam_type, exam_type)
+
+
+def normalise_query(query: list[Message]):
+    for i in range(len(query)):
+        query[i].content = re.sub(r"\s+", " ", query[i].content.strip().lower())
+    return query

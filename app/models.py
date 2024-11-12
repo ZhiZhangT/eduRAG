@@ -1,7 +1,9 @@
+import re
 from typing import List, Dict, Any
 from pydantic import BaseModel, Field, field_validator, ConfigDict, model_validator
 from enum import Enum
-from app.utils.format_utils import clean_meta_info
+from pydantic import BaseModel
+from enum import Enum
 
 
 class SubjectEnum(str, Enum):
@@ -53,7 +55,7 @@ class MetaInfo(BaseModel):
     @model_validator(mode="before")
     @classmethod
     def clean_data(cls, data: Dict[str, Any]) -> Dict[str, Any]:
-        cleaned_data = clean_meta_info(data)
+        cleaned_data = _clean_meta_info(data)
         # convert string values to Enum values for schema validation purposes
         if "subject" in cleaned_data:
             cleaned_data["subject"] = SubjectEnum(cleaned_data["subject"])
@@ -133,3 +135,32 @@ class QuestionData(BaseModel):
         if not v:
             raise ValueError("Questions list cannot be empty")
         return v
+
+
+class Role(str, Enum):
+    USER = "user"
+    ASSISTANT = "assistant"
+
+
+class BaseModelWithRoleEncoder(BaseModel):
+    class Config:
+        json_encoders = {Role: lambda v: v.value}
+
+
+class Message(BaseModelWithRoleEncoder):
+    role: Role
+    content: str
+
+
+def _clean_meta_info(meta_info):
+    # Remove special characters, strip whitespace, and convert to lowercase
+    cleaned_meta_info = {}
+    for key, value in meta_info.items():
+        # Remove special characters using regex
+        value = re.sub(r"[^\w\s]", "", value)
+        # Strip whitespace and convert to lowercase
+        value = value.strip().lower()
+        cleaned_meta_info[key] = value
+        # Replace spaces with underscores
+        cleaned_meta_info[key] = value.replace(" ", "_")
+    return cleaned_meta_info
