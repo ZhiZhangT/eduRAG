@@ -1,0 +1,445 @@
+{
+  "question_paper_filepath": "https://document.grail.moe/29fb504daeb441158e64840891c87796.pdf",
+  "meta_info": {
+    "subject": "elementary_mathematics",
+    "school": "Outram Secondary School",
+    "level": "o_level",
+    "year": "2024",
+    "exam_type": "preliminary_exam",
+    "paper": "1"
+  },
+  "questions": [
+    {
+      "question": "A running route is 42.2 km long and a runner took 4 hours 45 minutes to finish the route. Calculate the speed of the runner in metres per second.",
+      "question_number": "1",
+      "question_part": "1",
+      "page_start": 3,
+      "page_end": 3,
+      "category": "Rate and speed",
+      "question_type": "Finding the average speed"
+    },
+    {
+      "question": "(a) Simplify 1/(124/6256g)f.",
+      "question_number": "2",
+      "question_part": "2a",
+      "page_start": 3,
+      "page_end": 3,
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Simplifying an algebraic expression"
+    },
+    {
+      "question": "(b) 15^9 - 15^81k = 0. Find the value of k.",
+      "question_number": "2",
+      "question_part": "2b",
+      "page_start": 3,
+      "page_end": 3,
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Factorising an algebraic expression by extracting common factors"
+    },
+    {
+      "question": "Given that sin \u03b8 = 0.8211, find the two possible values of \u03b8, where 0\u00b0 \u2264 \u03b8 \u2264 180\u00b0.",
+      "question_number": "3",
+      "question_part": "3",
+      "page_start": 4,
+      "page_end": 4,
+      "category": "Trigonometry",
+      "question_type": "Unknown"
+    },
+    {
+      "question": "(a) Prove that A = 27 \u00d7 511 \u00d7 78 is divisible by 245.",
+      "question_number": "4",
+      "question_part": "4a",
+      "page_start": 4,
+      "page_end": 4,
+      "category": "Numbers and their operations",
+      "question_type": "Finding the prime factors of a composite number"
+    },
+    {
+      "question": "(b) The number A \u00d7 k is a perfect square. Find the smallest possible integer value of k.",
+      "question_number": "4",
+      "question_part": "4b",
+      "page_start": 4,
+      "page_end": 4,
+      "category": "Numbers and their operations",
+      "question_type": "Solving a problem involving a perfect square"
+    },
+    {
+      "question": "(c) The number B = 25 \u00d7 36 \u00d7 73. Find the highest common factor (HCF) and lowest common multiple (LCM) of A and B as a product of its prime factors.",
+      "question_number": "4",
+      "question_part": "4c",
+      "page_start": 4,
+      "page_end": 4,
+      "category": "Numbers and their operations",
+      "question_type": "Finding the highest common factor of 2 numbers"
+    },
+    {
+      "question": "Zen invests $42000 at a rate of 1.6% per annum compounded monthly. Calculate the value of the investment at the end of 3 years.",
+      "question_number": "5",
+      "question_part": "5",
+      "page_start": 5,
+      "page_end": 5,
+      "category": "Problems in real-world contexts",
+      "question_type": "Calculating compound interest"
+    },
+    {
+      "question": "(a) Express x^2 + 6x + 10 in the form of (x + h)^2 + k.",
+      "question_number": "6",
+      "question_part": "6a",
+      "page_start": 5,
+      "page_end": 5,
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Using algebraic identities to evaluate a perfect square"
+    },
+    {
+      "question": "(b)(i) Using your answer in (a), write down the equation of the line of symmetry of the curve y = x^2 + 6x + 10.",
+      "question_number": "6",
+      "question_part": "6bi",
+      "page_start": 5,
+      "page_end": 5,
+      "category": "Functions and graphs",
+      "question_type": "Sketching the graph of y=ax2+bx+c"
+    },
+    {
+      "question": "(b)(ii) Explain why the equation x^2 + 6x + 10 = 0 does not have any solutions.",
+      "question_number": "6",
+      "question_part": "6bii",
+      "page_start": 5,
+      "page_end": 5,
+      "category": "Equations and inequalities",
+      "question_type": "Solving quadratic equations by quadratic formula"
+    },
+    {
+      "question": "Paul is 25% heavier than Mike. Mike is 25% lighter than Oscar. Find the ratio of the weight of Paul to that of Oscar.",
+      "question_number": "7",
+      "question_part": "7a",
+      "page_start": 6,
+      "page_end": 6,
+      "category": "Ratio and proportion",
+      "question_type": "Finding the ratio involving 2 quantities"
+    },
+    {
+      "question": "Rachel bought 8 watches for $900 each. She sold 4 watches at a profit of 80%, and 3 watches at a loss of 50%. She kept one watch for herself. Calculate Rachel\u2019s net profit.",
+      "question_number": "7",
+      "question_part": "7b",
+      "page_start": 6,
+      "page_end": 6,
+      "category": "Percentage",
+      "question_type": "Applying percentage in real-world contexts"
+    },
+    {
+      "question": "A company produces light bulbs. The lifespan, in hours, of 240 light bulbs is tested. The cumulative frequency curve shows the distribution of lifespan of the light bulbs.",
+      "question_number": "8",
+      "question_part": "8",
+      "page_start": 7,
+      "page_end": 7,
+      "category": "Data analysis",
+      "question_type": "Interpreting a cumulative frequency curve"
+    },
+    {
+      "question": "Use the diagram to estimate the median lifespan of the light bulbs.",
+      "question_number": "8",
+      "question_part": "8a(i)",
+      "page_start": 8,
+      "page_end": 8,
+      "category": "Data analysis",
+      "question_type": "Interpreting a cumulative frequency curve"
+    },
+    {
+      "question": "Use the diagram to estimate the interquartile range of the lifespan of the light bulbs.",
+      "question_number": "8",
+      "question_part": "8a(ii)",
+      "page_start": 8,
+      "page_end": 8,
+      "category": "Data analysis",
+      "question_type": "Reading a box-and-whisker plot"
+    },
+    {
+      "question": "Light bulbs with a lifespan of over x hours can be sold. Only 80 of the light bulbs tested meet this requirement. Find the value of x.",
+      "question_number": "8",
+      "question_part": "8b",
+      "page_start": 8,
+      "page_end": 8,
+      "category": "Data analysis",
+      "question_type": "Interpreting a cumulative frequency curve"
+    },
+    {
+      "question": "The diagram, which is not drawn to scale, shows the three lines. Show that k = 1.",
+      "question_number": "9",
+      "question_part": "9a",
+      "page_start": 9,
+      "page_end": 9,
+      "category": "Coordinate geometry",
+      "question_type": "Finding the gradient of a line"
+    },
+    {
+      "question": "Find the coordinates of point D.",
+      "question_number": "9",
+      "question_part": "9b",
+      "page_start": 9,
+      "page_end": 9,
+      "category": "Coordinate geometry",
+      "question_type": "Unknown"
+    },
+    {
+      "question": "Write as a single fraction in its simplest form 79/(33yy) + (yy) - .",
+      "question_number": "10",
+      "question_part": "10",
+      "page_start": 10,
+      "page_end": 10,
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Adding and subtracting algebraic fractions"
+    },
+    {
+      "question": "Factorise completely. 33x^2y + 11xy.",
+      "question_number": "11",
+      "question_part": "11a(i)",
+      "page_start": 10,
+      "page_end": 10,
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Factorising an algebraic expression by extracting common factors"
+    },
+    {
+      "question": "Factorise completely. x^3 + x^2 \u2013 9x \u2013 9.",
+      "question_number": "11",
+      "question_part": "11a(ii)",
+      "page_start": 10,
+      "page_end": 10,
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Factorising an algebraic expression by grouping"
+    },
+    {
+      "question": "Expand and simplify ( x + 3y) (4x \u2013 3y).",
+      "question_number": 11,
+      "question_part": "11b",
+      "page_start": 11,
+      "page_end": 11,
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Finding the product of 2 algebraic expressions"
+    },
+    {
+      "question": "A bag contains blue, green and red marbles. There are 3 more green marbles than blue marbles. Half of the marbles in the bag are red. Given that the probability of choosing a blue marble is 6/25, find the number of green marbles in the bag.",
+      "question_number": 12,
+      "question_part": "12",
+      "page_start": 11,
+      "page_end": 11,
+      "category": "Probability",
+      "question_type": "Finding the probability of single events"
+    },
+    {
+      "question": "Show that 23(3x - 10) + 2(x - 10) - 8x is divisible by 5 for any integer x.",
+      "question_number": 13,
+      "question_part": "13",
+      "page_start": 12,
+      "page_end": 12,
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Simplifying an algebraic expression"
+    },
+    {
+      "question": "The diagram shows one interior angle of each of the three polygons, A, B and C. The polygons fit together at the point O. The interior angle of polygon A is 90\u00b0. The interior angle of polygon B is 130\u00b0. Explain why polygon C can be a regular polygon.",
+      "question_number": 14,
+      "question_part": "14",
+      "page_start": 13,
+      "page_end": 13,
+      "category": "Angles, triangles and polygons",
+      "question_type": "Finding the interior and exterior angles of a regular polygon"
+    },
+    {
+      "question": "The graph shows the average performance score of two companies from year 2011 to 2015. State one aspect of the graphs which may be misleading and explain how this may lead to a misinterpretation.",
+      "question_number": 15,
+      "question_part": "15",
+      "page_start": 14,
+      "page_end": 14,
+      "category": "Data analysis",
+      "question_type": "Reading a line graph"
+    },
+    {
+      "question": "On the Venn diagram, shade the region that represents 'PQ\u222a'.",
+      "question_number": 16,
+      "question_part": "16a",
+      "page_start": 14,
+      "page_end": 14,
+      "category": "Set language and notation",
+      "question_type": "Shading Venn diagrams, given the set notations"
+    },
+    {
+      "question": "It is given that {x : x is an integer and 10 \u2264 3x + 5 < 40}, A = {x : x is divisible by 4} and B = {x : x is a prime number}. (i) List the elements in A.",
+      "question_number": 16,
+      "question_part": "16bi",
+      "page_start": 15,
+      "page_end": 15,
+      "category": "Set language and notation",
+      "question_type": "Listing the elements of a set"
+    },
+    {
+      "question": "Use one of the symbols below to complete each statement. A \u2026\u2026 B",
+      "question_number": 16,
+      "question_part": "16bii",
+      "page_start": 15,
+      "page_end": 15,
+      "category": "Set language and notation",
+      "question_type": "Intersection of 2 sets"
+    },
+    {
+      "question": "Sketch the graph of y = 2x^2 + 3x - 8 on the axes below. Indicate clearly the points where the graph crosses the axes and its turning point.",
+      "question_number": 17,
+      "question_part": "17",
+      "page_start": 15,
+      "page_end": 15,
+      "category": "Functions and graphs",
+      "question_type": "Sketching the graph of y=ax2+bx+c"
+    },
+    {
+      "question": "Simplify 22 226 7 5 18 50x xy y xy\u2212\u2212\u2212.",
+      "question_number": "18",
+      "question_part": "18",
+      "page_start": 16,
+      "page_end": 16,
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Simplifying an algebraic expression"
+    },
+    {
+      "question": "y is proportional to the square root of x. If the value of x is increased by 300%, the value of y will be increased by r %. Find the value r.",
+      "question_number": "19",
+      "question_part": "19",
+      "page_start": 16,
+      "page_end": 16,
+      "category": "Ratio and proportion",
+      "question_type": "Finding an equation when y is directly proportional to square root of x"
+    },
+    {
+      "question": "A concert was held over a particular weekend. The matrix M shows the number of tickets sold on Saturday and Sunday respectively. (a) The concert tickets were priced at $6 for a child, $15 for an adult and $8 for a senior citizen. Represent this information in a 1 \u00d7 3 matrix P.",
+      "question_number": "20",
+      "question_part": "20a",
+      "page_start": 17,
+      "page_end": 17,
+      "category": "Matrices",
+      "question_type": "Row matrix"
+    },
+    {
+      "question": "Evaluate the matrix T = PM.",
+      "question_number": "20",
+      "question_part": "20b",
+      "page_start": 17,
+      "page_end": 17,
+      "category": "Matrices",
+      "question_type": "Multiplication of 2 matrices"
+    },
+    {
+      "question": "State what each of the elements in matrix T represents.",
+      "question_number": "20",
+      "question_part": "20c",
+      "page_start": 17,
+      "page_end": 17,
+      "category": "Matrices",
+      "question_type": "Displaying information in a matrix"
+    },
+    {
+      "question": "The elements of the matrix N, where N = QM, represents the number of tickets sold on each day of the concert. Write down the matrix Q.",
+      "question_number": "20",
+      "question_part": "20d",
+      "page_start": 17,
+      "page_end": 17,
+      "category": "Matrices",
+      "question_type": "Multiplication of 2 matrices"
+    },
+    {
+      "question": "The diagram shows a figure made up of four identical rectangles. The length of the rectangle is 7 cm longer than the breadth of the rectangle. The perimeter of this figure is 138 cm. Find the area of this figure.",
+      "question_number": "21",
+      "question_part": "21",
+      "page_start": 18,
+      "page_end": 18,
+      "category": "Mensuration",
+      "question_type": "Unknown"
+    },
+    {
+      "question": "In the diagram, \ud835\udc42\ud835\udc34\ud835\udc35 and \ud835\udc42\ud835\udc40\ud835\udc41 are sectors of two concentric circles with the same centre at \ud835\udc42. \ud835\udc42\ud835\udc34=\ud835\udc42\ud835\udc35=15 cm and angle \ud835\udc34\ud835\udc42\ud835\udc35 =2 radians. The area of the shaded region is 136 cm\u00b2. Find the length of AM.",
+      "question_number": "22",
+      "question_part": "22",
+      "page_start": 19,
+      "page_end": 19,
+      "category": "Properties of circles",
+      "question_type": "Unknown"
+    },
+    {
+      "question": "The diagram shows a park PQRS and a path PR. S is due north of P and the bearing of R from P is 018\u00b0. It is also given that PQ = 72 m, QR = 45 m, RS = 28 m and PR = 90 m. (a) Calculate (i) angle PSR.",
+      "question_number": "23",
+      "question_part": "23ai",
+      "page_start": 20,
+      "page_end": 20,
+      "category": "Angles, triangles and polygons",
+      "question_type": "Finding unknown angles in triangles"
+    },
+    {
+      "question": "The diagram shows a park PQRS and a path PR. S is due north of P and the bearing of R from P is 018\u00b0. It is also given that PQ = 72 m, QR = 45 m, RS = 28 m and PR = 90 m. (a) Calculate (ii) the bearing of P from R.",
+      "question_number": "23",
+      "question_part": "23aii",
+      "page_start": 20,
+      "page_end": 20,
+      "category": "Angles, triangles and polygons",
+      "question_type": "Unknown"
+    },
+    {
+      "question": "Show that angle PQR is 97.903\u00b0, correct to three decimal places.",
+      "question_number": "1",
+      "question_part": "1b",
+      "page_start": 21,
+      "page_end": 21,
+      "category": "Angles, triangles and polygons",
+      "question_type": "Unknown"
+    },
+    {
+      "question": "Find (i) area of triangle PQR.",
+      "question_number": "1",
+      "question_part": "1ci",
+      "page_start": 21,
+      "page_end": 21,
+      "category": "Mensuration",
+      "question_type": "Unknown"
+    },
+    {
+      "question": "Find (ii) the shortest distance from Q to PR.",
+      "question_number": "1",
+      "question_part": "1cii",
+      "page_start": 21,
+      "page_end": 21,
+      "category": "Mensuration",
+      "question_type": "Unknown"
+    },
+    {
+      "question": "A lamp post stands vertically at point Q. The greatest angle of elevation of the top of the lamp post when viewed from a point along PR is 8\u00b0. Calculate the height of the lamp post.",
+      "question_number": "1",
+      "question_part": "1d",
+      "page_start": 21,
+      "page_end": 21,
+      "category": "Pythagoras\u2019 theorem and trigonometry",
+      "question_type": "Finding an unknown side in a right-angled triangle"
+    },
+    {
+      "question": "OWXY is a parallelogram. P is a point on WX such that 3/5 WP = WX. 54ab = YX + and 10 5ab = OY - . (a) Find YP in terms of a and b.",
+      "question_number": "2",
+      "question_part": "2a",
+      "page_start": 22,
+      "page_end": 22,
+      "category": "Vectors in 2 dimensions",
+      "question_type": "Solving a geometric problem involving vectors"
+    },
+    {
+      "question": "Q is on OY produced such that OY : YQ is 5 : 2. Show that QX and YP are equal vectors.",
+      "question_number": "2",
+      "question_part": "2b",
+      "page_start": 22,
+      "page_end": 22,
+      "category": "Vectors in 2 dimensions",
+      "question_type": "Equal vectors"
+    },
+    {
+      "question": "Find the value of area of triangle PXY / area of triangle OPY.",
+      "question_number": "2",
+      "question_part": "2c",
+      "page_start": 23,
+      "page_end": 23,
+      "category": "Mensuration",
+      "question_type": "Unknown"
+    }
+  ]
+}
