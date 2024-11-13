@@ -4,7 +4,7 @@
     "school": "XINMIN SECONDARY SCHOOL",
     "level": "o_level",
     "year": "2023",
-    "exam_type": "mid_year_exam",
+    "exam_type": "preliminary_exam",
     "paper": "2"
   },
   "questions": [
@@ -27,22 +27,13 @@
       "question_type": "Finding the mean, median and mode"
     },
     {
-      "question": "27 female patients and 30 male patients living in Xin-town are found to be infected with the E-virus. The ages of the patients are shown in the stem-and-leaf diagram below. \\[ \\text{Female Patients:} \\] \\[ \\begin{array}{c} 7 \\mid 3 \\ 2 \\ 4 \\ 5 \\ 5 \\\\ 6 \\mid 1 \\ 4 \\ 2 \\ 2 \\ 3 \\ 5 \\ 7 \\\\ 5 \\mid 5 \\ 4 \\ 2 \\ 1 \\\\ 3 \\mid 1 \\ 1 \\ 0 \\ 0 \\end{array} \\] \\[ \\text{Male Patients:} \\] \\[ \\begin{array}{c} 7 \\mid 3 \\ 2 \\ 0 \\ 3 \\ 1 \\ 6 \\\\ 6 \\mid 6 \\ 4 \\ 4 \\ 2 \\ 5 \\ x \\ 7 \\ 8 \\ 8 \\\\ 5 \\mid 3 \\ 2 \\ 0 \\ 0 \\ 0 \\ 6 \\ 0 \\ 2 \\ 2 \\ 3 \\ 3 \\ 4 \\ 8 \\ 8 \\\\ 4 \\mid 5 \\ 6 \\ 7 \\\\ 3 \\mid 2 \\ 4 \\ 5 \\end{array} \\] Key (Female Patients): \\( 2 \\mid 7 \\) means 72 Key (Male Patients): \\( 2 \\mid 4 \\) means 24",
-      "question_number": "3",
-      "question_part": "3",
-      "page_start": 4,
-      "page_end": 5,
-      "category": "Data analysis",
-      "question_type": "Finding the mean, median and mode"
-    },
-    {
-      "question": "(a) Write down the range of the ages of the female patients.",
+      "question": "27 female patients and 30 male patients living in Xin-town are found to be infected with the E-virus. The ages of the patients are shown in the stem-and-leaf diagram below. \n\nFemale Patients: \n7 | 3 2 4 5 5 \n6 | 3 2 0 3 1 6 \n5 | 1 4 2 2 3 5 7 \n4 | 6 4 2 5 x 7 8 8 \n3 | 5 2 0 0 0 6 0 2 2 3 3 4 8 8 \n2 | 5 4 2 1 7 4 5 6 7 \n1 | 3 1 1 0 0 8 2 4 4 5 \n\nKey (Female Patients): 2 | 7 means 72 \nKey (Male Patients): 2 | 4 means 24 \n\n(a) Write down the range of the ages of the female patients.",
       "question_number": "3",
       "question_part": "3a",
       "page_start": 4,
       "page_end": 4,
       "category": "Data analysis",
-      "question_type": "Reading a box-and-whisker plot"
+      "question_type": "Drawing a stem-and-leaf diagram"
     },
     {
       "question": "(b) Find the median age of the male patients.",
@@ -159,7 +150,7 @@
       "page_start": 8,
       "page_end": 8,
       "category": "Data analysis",
-      "question_type": "Interpreting a cumulative frequency curve"
+      "question_type": "Reading a box-and-whisker plot"
     },
     {
       "question": "(iii) the 30th percentile.",
@@ -284,11 +275,11 @@
       "question_part": "3d",
       "page_start": 11,
       "page_end": 11,
-      "category": "Equations and inequalities",
-      "question_type": "Finding the largest and smallest values of an expression"
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Evaluating an algebraic formula"
     },
     {
-      "question": "(a) \\begin{pmatrix} 35 & 43 \\ 23 \\end{pmatrix}",
+      "question": "(a) \\begin{pmatrix} 35 & 43 & 23 \\end{pmatrix}",
       "question_number": "4",
       "question_part": "4a",
       "page_start": 11,
@@ -297,13 +288,13 @@
       "question_type": "Row matrix"
     },
     {
-      "question": "(b) \\begin{pmatrix} 74.3 & 99.7 \\ 59.6 & 4 \\ 91 & 3 \\end{pmatrix} xx",
+      "question": "(b) \\begin{pmatrix} 74.3 & 99.7 \\\\ 59.6 & 4 & 91 & 3 & xx \\end{pmatrix}",
       "question_number": "4",
       "question_part": "4b",
       "page_start": 11,
       "page_end": 11,
       "category": "Matrices",
-      "question_type": "Multiplication of 2 matrices"
+      "question_type": "Displaying information in a matrix"
     },
     {
       "question": "(c) \\text{The elements represent the amount of money Ron and Zoe have to pay respectively for the items purchased from supermarket A.}",
@@ -320,11 +311,11 @@
       "question_part": "4d",
       "page_start": 11,
       "page_end": 11,
-      "category": "Equations and inequalities",
-      "question_type": "Solving linear equations"
+      "category": "Algebraic expressions and formulae",
+      "question_type": "Unknown"
     },
     {
-      "question": "(e)(i) \\begin{pmatrix} 0.8 & 0 \\ 0 & 0.9 \\end{pmatrix}",
+      "question": "(e)(i) \\begin{pmatrix} 0.8 & 0 \\\\ 0 & 0.9 \\end{pmatrix}",
       "question_number": "4",
       "question_part": "4ei",
       "page_start": 11,
@@ -333,7 +324,7 @@
       "question_type": "Square matrix"
     },
     {
-      "question": "(e)(ii) \\begin{pmatrix} 59.44 & 79.76 \\ 68.04 & 92.7 \\end{pmatrix}",
+      "question": "(e)(ii) \\begin{pmatrix} 59.44 & 79.76 \\\\ 68.04 & 92.7 \\end{pmatrix}",
       "question_number": "4",
       "question_part": "4eii",
       "page_start": 11,
