@@ -17,3 +17,40 @@ def normalise_query(query: list[Message]):
     for i in range(len(query)):
         query[i].content = re.sub(r"\s+", " ", query[i].content.strip().lower())
     return query
+
+
+def format_question_details(similar_documents: list):
+    questions_str = ""
+
+    for i, doc in enumerate(similar_documents):
+        formatted_text = (
+            f"Question: {doc['question_body']}\n"
+            f"Topic: {doc['topic']}\n"
+            f"Sub-topic: {doc['sub_topic']}\n"
+            f"Relevance Score: {doc['score']}\n"
+            f"Link: {_format_question_url(doc)}"
+        )
+        questions_str += f"{i+1}. {formatted_text}\n\n"
+
+    return questions_str
+
+
+def _format_question_url(question):
+    # append page number to filepath
+    filepath = f"{question['question_paper_filepath']}#page={question['page_start']}"
+
+    # replace underscores with spaces and convert to title case
+    school = question["school"].replace("_", " ").title()
+    subject = question["subject"].replace("_", " ").title()
+    exam_type = question["exam_type"].replace("_", " ").title()
+    year = question["year"]
+    paper_num = question["paper_number"]
+    question_part = question["question_part"]
+
+    # create text for hyperlink
+    link_text = f"{school} {subject} {exam_type} {year} Paper {paper_num} Question {question_part}"
+
+    # create markdown hyperlink
+    link = f"[{link_text}]({filepath})"
+
+    return link

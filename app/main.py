@@ -6,7 +6,11 @@ from fastapi.responses import JSONResponse
 from pymongo import MongoClient
 from datetime import datetime, timezone
 from app.models import QuestionData
-from app.utils.format_utils import convert_exam_type, normalise_query
+from app.utils.format_utils import (
+    convert_exam_type,
+    normalise_query,
+    format_question_details,
+)
 from app.utils.openai_utils import get_embedding
 from app.db.vector_search import vector_search
 from app.utils.openai_utils import get_llm_response
@@ -86,8 +90,12 @@ def query(user_query: list[Message]):
     try:
         user_query = normalise_query(user_query)
         results = vector_search(user_query[-1].content, question_collection)
-        user_query[-1].content += f"""\n\nSIMILAR_DOCUMENTS: {results}"""
+        question_details = format_question_details(results)
+        user_query[-1].content += f"""\n\nSIMILAR_DOCUMENTS: {question_details}"""
         response = get_llm_response(user_query)
-        return JSONResponse(status_code=200, content={"response": response})
+        return JSONResponse(
+            status_code=200,
+            content={"response": response, "similar_documents": question_details},
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
