@@ -63,6 +63,7 @@ def upload_questions(request_obj: QuestionData):
                 "paper_number": meta_info.get("paper", ""),
                 "level": meta_info.get("level", ""),
                 "exam_type": exam_type,
+                "year": int(meta_info.get("year", -1)),
                 "school": meta_info.get("school", ""),
                 "created_utc": datetime.now(timezone.utc),
                 "updated_utc": datetime.now(timezone.utc),
