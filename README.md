@@ -5,7 +5,9 @@
 1. Install all dependencies using `pip install -r requirements.txt`
 2. Create a `.env` file with the following variables
 ```shell
+OPENAI_MODEL=
 MONGODB_URI=
+OPENAI_API_KEY=
 ```
 3. Start the server by running `uvicorn app.main:app --reload`
 
