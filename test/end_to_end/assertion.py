@@ -35,8 +35,6 @@ def get_relevance_score(
     ]
 
     completion = openai.beta.chat.completions.parse(
-        # NOTE: hardcode the model for now as this is the only gpt4o model that supports structured outputs
-        # see here for more information: https://platform.openai.com/docs/guides/structured-outputs/introduction
         model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
         response_format=RelevanceScoreResponse,
