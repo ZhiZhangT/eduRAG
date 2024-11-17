@@ -1,0 +1,26 @@
+# Learn more about building a configuration: https://promptfoo.dev/docs/configuration/guide
+description: "End-to-end evaluation"
+
+prompts:
+  - ""
+
+providers:
+  - "python:test.py"
+
+defaultTest:
+  assert:
+    - type: python
+      value: file://assertion.py
+    - type: llm-rubric
+      value: does not describe self as an AI, model, or chatbot
+    # - type: answer-relevance
+    #   threshold: 0.9
+    # - type: context-recall
+    #   threshold: 0.9
+    # - type: context-relevance
+    #   threshold: 0.9
+    # - type: context-faithfulness
+    #   threshold: 0.9
+
+tests:
+  - ../data.csv
