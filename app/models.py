@@ -119,6 +119,7 @@ class QuestionData(BaseModel):
     question_paper_filepath: str = Field(
         ..., min_length=1, description="Question filepath cannot be empty"
     )
+    answer_paper_filepath: str
 
     @field_validator("*")
     @classmethod

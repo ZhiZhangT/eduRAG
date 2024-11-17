@@ -39,13 +39,18 @@ def upload_questions(request_obj: QuestionData):
         exam_type = convert_exam_type(meta_info.get("exam_type", ""))
 
         # iterate over each question and insert into MongoDB
-        for idx, question_item in enumerate(request_obj.questions, start=1):
+        for question_item in request_obj.questions:
             # clean question data
             question_body = question_item.question.strip()
             category = question_item.category.strip()
             question_type = question_item.question_type.strip()
             question_number = int(question_item.question_number.strip())
             question_part = question_item.question_part.strip()
+            answer_paper_filepath = (
+                ""
+                if not request_obj.answer_paper_filepath
+                else request_obj.answer_paper_filepath.strip()
+            )
 
             # get embedding for question body
             question_body_embedding = get_embedding(question_body)
@@ -62,7 +67,7 @@ def upload_questions(request_obj: QuestionData):
                 "sub_topic": question_type,
                 "answer_body": "",
                 "question_paper_filepath": request_obj.question_paper_filepath.strip(),
-                "answer_paper_filepath": "",  # TODO: Add answer paper filepath
+                "answer_paper_filepath": answer_paper_filepath,
                 "subject": meta_info.get("subject", ""),
                 "paper_number": meta_info.get("paper", ""),
                 "level": meta_info.get("level", ""),
