@@ -27,7 +27,7 @@ question_collection = db["question"]
 
 # endpoint to accept JSON data and store in MongoDB
 @app.post("/upload-questions")
-async def upload_questions(request_obj: QuestionData):
+def upload_questions(request_obj: QuestionData):
     try:
         meta_info = request_obj.meta_info.model_dump()
 
@@ -81,7 +81,7 @@ async def upload_questions(request_obj: QuestionData):
 
 # endpoint to ask a question
 @app.post("/query")
-async def query(user_query: list[Message]):
+def query(user_query: list[Message]):
     try:
         user_query = normalise_query(user_query)
         results = vector_search(user_query[-1].content, question_collection)
