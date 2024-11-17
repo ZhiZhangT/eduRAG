@@ -7,8 +7,8 @@ from pymongo import MongoClient
 from datetime import datetime, timezone
 from app.models import QuestionData
 from app.utils.format_utils import convert_exam_type, normalise_query
-from app.create_vector_embeddings import get_embedding
-from app.vector_search import vector_search
+from app.utils.openai_utils import get_embedding
+from app.db.vector_search import vector_search
 from app.utils.openai_utils import get_llm_response
 from app.models import Message
 

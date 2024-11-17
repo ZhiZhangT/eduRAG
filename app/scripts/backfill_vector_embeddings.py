@@ -2,19 +2,14 @@ import os
 import time
 import openai
 from pymongo import MongoClient, UpdateOne
-from typing import List
 from dotenv import load_dotenv
+import sys
+from pathlib import Path
 
-
-def get_embedding(text: str, model="text-embedding-3-small") -> List[float]:
-    """Get embedding for a given text using OpenAI's API"""
-    try:
-
-        response = openai.embeddings.create(input=text, model=model)
-        return response.data[0].embedding
-    except Exception as e:
-        print(f"Error getting embedding: {e}")
-        return None
+sys.path.append(
+    str(Path(__file__).parent.parent.parent)
+)  # Go up three levels to reach root
+from app.utils.openai_utils import get_embedding
 
 
 def process_documents(mongo_client: MongoClient, batch_size: int = 20):

@@ -3,10 +3,10 @@ import openai
 from pymongo.collection import Collection
 
 # UNCOMMENT below to run the file from the main.py file
-from app.create_vector_embeddings import get_embedding
+from app.utils.openai_utils import get_embedding
 
 # UNCOMMENT below to run the file directly
-# from create_vector_embeddings import get_embedding
+# from utils.openai_utils import get_embedding
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
