@@ -91,9 +91,7 @@ class QuestionItem(BaseModel):
         ..., min_length=1, description="Question number cannot be empty"
     )
     question_part: str = Field(
-        ...,
-        pattern="^[a-zA-Z0-9]*$",
-        description="Question part must contain only alphanumeric characters",
+        ..., min_length=1, description="Question part cannot be empty"
     )
 
     @field_validator("*")
