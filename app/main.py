@@ -24,7 +24,9 @@ app = FastAPI()
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 # connect to MongoDB
-mongo_client = MongoClient(os.environ.get("MONGODB_URI"))
+MONGODB_URI = os.environ.get("MONGODB_URI")
+print(f"Connecting to MongoDB at {MONGODB_URI}")
+mongo_client = MongoClient(MONGODB_URI)
 db = mongo_client["exam_db"]
 question_collection = db["question"]
 
