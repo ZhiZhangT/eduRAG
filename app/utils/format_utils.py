@@ -35,6 +35,18 @@ def format_question_details(similar_documents: list):
     return questions_str
 
 
+def format_first_question_xml(similar_documents: list):
+    first_doc = similar_documents[0]
+
+    questions_str = (
+        f"<question>{first_doc['question_body']}</question>\n"
+        f"<topic>{first_doc['topic']}</topic>\n"
+        f"<sub_topic>{first_doc['sub_topic']}</sub_topic>\n"
+        f"<link>{_format_question_url(first_doc)}</link>"
+    )
+    return questions_str
+
+
 def _format_question_url(question):
     # append page number to filepath
     filepath = f"{question['question_paper_filepath']}#page={question['page_start']}"

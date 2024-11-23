@@ -1,7 +1,8 @@
 import os
 import openai
+from typing import List
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Body
 from fastapi.responses import JSONResponse
 from pymongo import MongoClient
 from datetime import datetime, timezone
@@ -10,10 +11,11 @@ from app.utils.format_utils import (
     convert_exam_type,
     normalise_query,
     format_question_details,
+    format_first_question_xml,
 )
 from app.utils.openai_utils import get_embedding
 from app.db.vector_search import vector_search
-from app.utils.openai_utils import get_llm_response
+from app.utils.openai_utils import get_llm_response, get_generated_questions_and_answers
 from app.models import Message
 
 load_dotenv()
@@ -102,5 +104,20 @@ def query(user_query: list[Message]):
             status_code=200,
             content={"response": response, "similar_documents": question_details},
         )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# endpoint to generate similar questions
+@app.post("/generate")
+def generate(user_query: List[Message] = Body(..., embed=True)):
+    try:
+        # TODO: when zz is ready, use his code to retrieve the first question
+        user_query = normalise_query(user_query)
+        results = vector_search(user_query[-1].content, question_collection)
+        first_question_xml = format_first_question_xml(results)
+        user_query[-1].content += first_question_xml
+        response = get_generated_questions_and_answers(user_query)
+        return {"response": response, "first_question": first_question_xml}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
