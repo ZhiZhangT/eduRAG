@@ -1,10 +1,13 @@
 import os
+from typing import Optional
 import openai
+from pydantic import BaseModel
 from pymongo.collection import Collection
 
 # UNCOMMENT below to run the file from the main.py file
 from app.utils.openai_utils import get_embedding
 from app.constants import SUBJECT_MAPPING
+from app.models import AMathTopicEnum, EMathTopicEnum
 
 # UNCOMMENT below to run the file directly
 # from utils.openai_utils import get_embedding
@@ -13,18 +16,10 @@ from app.constants import SUBJECT_MAPPING
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
-
-from langchain.chat_models import ChatOpenAI
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
 import json
 
-# Set your OpenAI API key
-openai.api_key = os.environ.get('OPENAI_API_KEY')
 
-llm = ChatOpenAI(temperature=0, model_name='gpt-4o', api_key=openai.api_key)
-
-def vector_search(user_query: str, collection: Collection, query_variables: list = ["elementary_mathematics", "All", "All"]) -> list:
+def vector_search(user_query: str, collection: Collection, query_variables: list = ["additional_mathematics", None, None]) -> list:
     """
     Perform a vector search in the MongoDB collection based on the user query.
 
@@ -39,51 +34,63 @@ def vector_search(user_query: str, collection: Collection, query_variables: list
     
     subject, level, exam_type = query_variables
     
-    # Generate MongoDB Query Language (MQL) based on the user query
-    text_to_mql_query_prompt_template = """
-        Convert the following user query to MongoDB Query Language (MQL).
+    # Set your OpenAI API key
+    openai.api_key = os.environ.get('OPENAI_API_KEY')
+    OPENAI_MODEL = os.environ.get("OPENAI_MODEL")
+    
+    client = openai.OpenAI()
+    
+    topics = SUBJECT_MAPPING.get(subject, {})
+    # print(topics)
+    
+    class Topic(BaseModel):
+        if subject == "elementary_mathematics":
+            topic: Optional[EMathTopicEnum]
+        else:
+            topic: Optional[AMathTopicEnum]
+    
+    topic_completion = client.beta.chat.completions.parse(
+        model=OPENAI_MODEL,
+        messages=[
+            {"role": "system", "content": "The user query is from a student who is preparing for a math exam. Determine the topic type that the user is asking about. If there are no relevant topics, return null."},
+            {"role": "user", "content": user_query}
+        ],
+        response_format=Topic,
+        )
 
-        User Query: "{user_query}"
-
-        Only focus on the following fields in the collection:
-        - "topic", e.g., "Surds"
-        - "sub_topic", e.g., "Rationalising denominator of surd"
-
-        You should refer to a list of valid topics and sub_topics from this JSON object:
-        {topics_json}
-
-        Note that the chosen sub_topic must be nested within the chosen topic.
-
-        The MQL query should return documents that match the user query based on the "topic" and "sub_topic" fields.
-        Return the MQL query as a JSON object only, without anything else. e.g.:
-
-        {{
-            "$and": [
-                {{"topic": "Surds"}},
-                {{"sub_topic": "Rationalising denominator of surd"}}
-            ]
-        }}
-    """
+    topic = topic_completion.choices[0].message.parsed.model_dump()['topic'].value
+    # print(f"topic: {topic}")
+    
+    class SubTopic(BaseModel):
+        sub_topic: str
+    
+    sub_topic_completion = client.beta.chat.completions.parse(
+        model=OPENAI_MODEL,
+        messages=[
+            {"role": "system", "content": "The user query is from a student who is preparing for a math exam. Determine one sub-topic from the list of possible sub-topics that is most relevant to the user query. If there are no relevant sub-topics, return null."},
+            {"role": "user", "content": "The list of sub-topics are: " + str(topics[topic]) + "/n The user query is: " + user_query}
+        ],
+        response_format=SubTopic,
+        )
+    
+    sub_topic = sub_topic_completion.choices[0].message.parsed.model_dump()['sub_topic']
+    print(f"sub_topic: {sub_topic}")
+    
+    # Define the MQL query:
+    mql = {
+    "$and": [
+        {"subject": {"$eq": subject} if subject else {"$exists": True}},
+        {"topic": {"$eq": topic} if topic else {"$ne": "None"}},
+        {"sub_topic": {"$eq": sub_topic} if sub_topic else {"$ne": "None"}},
+        {"level": {"$eq": level} if level else {"$ne": "None"}},
+        {"exam_type": {"$eq": exam_type} if exam_type else {"$ne": "None"}},
+        ]
+    }
 
     
-    topics_json = SUBJECT_MAPPING.get(subject, {})
-    # print(topics_json)
+    print(f"mql: {mql}")
     
-    text_to_mql_query_prompt = PromptTemplate(
-        template=text_to_mql_query_prompt_template,
-        input_variables=["user_query", "topics_json"]
-    )
-    '''
-    text_to_mql_chain = LLMChain(llm=llm, prompt=text_to_mql_query_prompt)
-    mql_response = text_to_mql_chain.run(
-        user_query=user_query,
-        topics_json=json.dumps(topics_json)
-    )
-    print(mql_response)
-    mql = json.loads(mql_response.strip('```json').strip('```').strip())
-    print(mql)
-    '''
-    mql = {'$and': [{'topic': 'Problems in real-world contexts'}, {'sub_topic': 'Calculating the percentage profit'}]}
+    # mql = {'$and': [{'subject': 'elementary_mathematics'}, {'topic': 'Pythagoras’ theorem and trigonometry'}, {'sub_topic': {'$exists': True}}, {'level': {'$exists': True}}, {'exam_type': {'$exists': True}}]}
     
     # Generate embedding for the user query
     query_embedding = get_embedding(user_query)
@@ -112,9 +119,6 @@ def vector_search(user_query: str, collection: Collection, query_variables: list
             }
         },
     ]
-    
-    query_plan = collection.aggregate(pipeline).explain()
-    print(query_plan)
 
     # Execute the search
     results = collection.aggregate(pipeline)
@@ -127,7 +131,7 @@ if __name__ == "__main__":
     mongo_client = MongoClient(os.environ.get("MONGODB_URI"))
     db = mongo_client["exam_db"]
     collection = db["question"]
-    user_query = "Where can I find the question related to a warehouse sale?"
+    user_query = "How do I find the equation of the perpendicular bisector? Are there examples?"
 
     results = vector_search(user_query, collection)
     print(f"results: {results}")
