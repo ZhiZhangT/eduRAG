@@ -139,6 +139,7 @@ class QuestionData(BaseModel):
 class Role(str, Enum):
     USER = "user"
     ASSISTANT = "assistant"
+    SYSTEM = "system"
 
 
 class BaseModelWithRoleEncoder(BaseModel):
@@ -149,6 +150,18 @@ class BaseModelWithRoleEncoder(BaseModel):
 class Message(BaseModelWithRoleEncoder):
     role: Role
     content: str
+
+
+class GeneratedQuestion(BaseModel):
+    question_text: str
+    answer: str
+    steps: List[str]
+    topic: str
+    sub_topic: str
+
+
+class GeneratedQuestionList(BaseModel):
+    questions: List[GeneratedQuestion]
 
 
 def _clean_meta_info(meta_info):
