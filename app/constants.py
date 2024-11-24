@@ -23,9 +23,54 @@ For each new question, provide the following in JSON format:
 - Question topic
 - Question sub-topic
 - Step-by-step workings to arrive at the final answer
-- Correct final answer
+- Correct final answer in the format: "Answer: <final_answer>"
 
 Ensure questions are distinct while maintaining consistency with the original."""
+
+SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT = """Given input containing:
+- A question in <question> tags
+- A suggested answer in <answer> tags
+
+Generate a Python script that can solve the question. The script should:
+- Be written in Python 3
+- Declare all variables and constants globally
+- Include all necessary imports and libraries
+- Include all necessary functions and variables
+- Include step-by-step code to solve the question
+- Output the final answer in the format of the suggested answer
+- Ensure the script is clear, concise, and correctly solves the question.
+
+Using the generated Python script, check if the suggested answer is correct.
+
+Output the following in JSON format:
+- "python_script": The generated Python script
+- "final_answer": The final answer obtained from the script
+- "is_suggested_answer_correct": A boolean indicating if the suggested answer is correct
+- "reason": A brief explanation justifying the correctness of the suggested answer
+
+Example Python script structure:
+```python
+# Imports
+import numpy as np
+import math
+import sympy as sp
+
+# Solution implementation
+def solve_problem():
+    # Solution steps
+    # Error handling
+    # Result verification
+
+# Main execution
+def main():
+    # Call solution
+    # Format output
+    # Return final answer
+
+if __name__ == "__main__":
+    main()
+```"""
+
 EMATH_TOPICS = {
     "Numbers and their operations": [
         "Classifying numbers",

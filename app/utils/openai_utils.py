@@ -2,7 +2,7 @@ import openai
 import os
 import base64
 from app import constants
-from app.models import Role, GeneratedQuestionList
+from app.models import Role, GeneratedQuestionList, GeneratedPythonScript
 from dotenv import load_dotenv
 from typing import List
 
@@ -39,6 +39,24 @@ def get_generated_questions_and_answers(question_details: str, image_filepath: s
         model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
         response_format=GeneratedQuestionList,
+    )
+
+    return completion.choices[0].message.parsed
+
+
+def get_python_script_and_answer(question_text: str) -> GeneratedPythonScript:
+    messages = [
+        {
+            "role": Role.SYSTEM,
+            "content": constants.SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT,
+        },
+        {"role": Role.USER, "content": question_text},
+    ]
+
+    completion = openai.beta.chat.completions.parse(
+        model=os.environ.get("OPENAI_MODEL"),
+        messages=messages,
+        response_format=GeneratedPythonScript,
     )
 
     return completion.choices[0].message.parsed

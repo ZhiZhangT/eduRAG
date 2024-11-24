@@ -14,7 +14,10 @@ from app.utils.format_utils import (
 )
 from app.utils.openai_utils import get_embedding
 from app.db.vector_search import vector_search
-from app.utils.openai_utils import get_generated_questions_and_answers
+from app.utils.openai_utils import (
+    get_generated_questions_and_answers,
+    get_python_script_and_answer,
+)
 from app.models import Message
 from app.utils.image_utils import extract_question_metadata, find_and_crop_image
 from app import constants
@@ -165,6 +168,21 @@ def query(
             question_details=first_question_xml, image_filepath=image_filepath
         )
         return {"response": response, "first_question": first_question_xml}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/verify")
+def verify(
+    question_text: str = Body(
+        ..., description="Question text to generate Python script", embed=True
+    )
+):
+    try:
+        response = get_python_script_and_answer(question_text=question_text)
+        return {"response": response}
     except HTTPException:
         raise
     except Exception as e:
