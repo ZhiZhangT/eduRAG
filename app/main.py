@@ -143,26 +143,13 @@ def query(
         results = vector_search(
             user_query[-1].content, question_collection, [subject, level, exam_type]
         )
-        question_details = format_question_details(results)
-        user_query[-1].content += f"""\n\nSIMILAR_DOCUMENTS: {question_details}"""
-        response = get_llm_response(user_query)
-        return JSONResponse(
-            status_code=200,
-            content={"response": response, "similar_documents": question_details},
-        )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-# endpoint to generate similar questions
-@app.post("/generate")
-def generate(user_query: List[Message] = Body(..., embed=True)):
-    try:
-        # TODO: when zz is ready, use his code to retrieve the first question
-        user_query = normalise_query(user_query)
-        results = vector_search(user_query[-1].content, question_collection)
+        if not results:
+            raise HTTPException(
+                status_code=404,
+                detail="No similar questions found. Please try again with a different question.",
+            )
         question_paper_filepath, question_body, image_filename, page_start, page_end = (
-            extract_question_metadata(results)
+            extract_question_metadata(results[0])
         )
         find_and_crop_image(
             pdf_url=question_paper_filepath,
@@ -177,5 +164,7 @@ def generate(user_query: List[Message] = Body(..., embed=True)):
             question_details=first_question_xml, image_filepath=image_filepath
         )
         return {"response": response, "first_question": first_question_xml}
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
