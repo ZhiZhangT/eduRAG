@@ -15,6 +15,17 @@ def _similar(a, b, threshold=0.6):
     return SequenceMatcher(None, a, b).ratio() > threshold
 
 
+def _save_image(img, output_path):
+    os.makedirs(constants.TEMP_DIR, exist_ok=True)
+    img.save(output_path)
+    return output_path
+
+
+def _get_page_image(page):
+    pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+    return Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+
+
 def find_and_crop_image(pdf_url, search_text, question_filename, page_start, page_end):
     # Download PDF content
     response = requests.get(pdf_url)
@@ -30,21 +41,20 @@ def find_and_crop_image(pdf_url, search_text, question_filename, page_start, pag
     page_start = max(0, min(page_start, len(doc) - 1))
     page_end = max(0, min(page_end, len(doc) - 1))
 
+    output_path = f"{constants.TEMP_DIR}/{question_filename}.png"
+
     # Search through specified page range
     for page_num in range(page_start, page_end + 1):
         page = doc[page_num]
 
-        # Get all text blocks on the page
-        blocks = page.get_text("blocks")
-
-        for block in blocks:
+        # Search for matching text block
+        for block in page.get_text("blocks"):
             block_text = block[4]  # The text content is at index 4
 
             # Check if this block is similar to our search text
             if _similar(block_text.lower(), search_text.lower()):
-                # Create rectangle from block coordinates
+                # Create and adjust rectangle for cropping
                 rect = fitz.Rect(block[:4])  # First 4 elements are coordinates
-
                 # Get page dimensions
                 page_rect = page.rect
 
@@ -54,28 +64,17 @@ def find_and_crop_image(pdf_url, search_text, question_filename, page_start, pag
                 rect.y0 -= 60
                 rect.y1 += 60
 
-                # Convert page to image
-                pix = page.get_pixmap(
-                    matrix=fitz.Matrix(2, 2)
-                )  # 2x zoom for better quality
-                img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
-
+                # Get and crop image
+                img = _get_page_image(page)
                 # Convert rect coordinates to zoomed image coordinates
                 crop_box = (rect.x0 * 2, rect.y0 * 2, rect.x1 * 2, rect.y1 * 2)
-
-                # Crop image
                 cropped_img = img.crop(crop_box)
 
-                # If temp directory does not exist, create it
-                os.makedirs(constants.TEMP_DIR, exist_ok=True)
-
-                # Save cropped image
-                output_path = f"{constants.TEMP_DIR}/test/{question_filename}.png"
-                cropped_img.save(output_path)
+                _save_image(cropped_img, output_path)
                 print(f"Found match on page {page_num + 1}. Saved to {output_path}")
                 return True
 
-    # If no match found, save all pages in range as one image
+    # If no match found, combine all pages into one image
     print("No matching text found in PDF - saving full pages")
 
     combined_height = 0
@@ -84,8 +83,7 @@ def find_and_crop_image(pdf_url, search_text, question_filename, page_start, pag
     # First pass - get dimensions and convert pages
     for page_num in range(page_start, page_end + 1):
         page = doc[page_num]
-        pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
-        img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+        img = _get_page_image(page)
         combined_height += img.height
         page_images.append(img)
 
@@ -98,12 +96,7 @@ def find_and_crop_image(pdf_url, search_text, question_filename, page_start, pag
         combined_img.paste(img, (0, y_offset))
         y_offset += img.height
 
-    # If temp directory does not exist, create it
-    os.makedirs(constants.TEMP_DIR, exist_ok=True)
-
-    # Save combined image
-    output_path = f"{constants.TEMP_DIR}/test/{question_filename}.png"
-    combined_img.save(output_path)
+    _save_image(combined_img, output_path)
     print(f"Saved combined pages {page_start+1} to {page_end+1} to {output_path}")
 
     return False
