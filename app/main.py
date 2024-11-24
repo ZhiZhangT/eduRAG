@@ -18,6 +18,8 @@ from app.utils.openai_utils import get_embedding
 from app.db.vector_search import vector_search
 from app.utils.openai_utils import get_llm_response, get_generated_questions_and_answers
 from app.models import Message
+from app.utils.image_utils import extract_question_metadata, find_and_crop_image
+from app import constants
 
 load_dotenv()
 
@@ -159,9 +161,21 @@ def generate(user_query: List[Message] = Body(..., embed=True)):
         # TODO: when zz is ready, use his code to retrieve the first question
         user_query = normalise_query(user_query)
         results = vector_search(user_query[-1].content, question_collection)
+        question_paper_filepath, question_body, image_filename, page_start, page_end = (
+            extract_question_metadata(results)
+        )
+        find_and_crop_image(
+            pdf_url=question_paper_filepath,
+            search_text=question_body,
+            question_filename=image_filename,
+            page_start=page_start,
+            page_end=page_end,
+        )
+        image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
         first_question_xml = format_first_question_xml(results)
-        user_query[-1].content += first_question_xml
-        response = get_generated_questions_and_answers(user_query)
+        response = get_generated_questions_and_answers(
+            question_details=first_question_xml, image_filepath=image_filepath
+        )
         return {"response": response, "first_question": first_question_xml}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

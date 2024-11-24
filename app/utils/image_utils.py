@@ -10,6 +10,35 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from app import constants
 
 
+# NOTE: this function is solely to support the find_and_crop_image function
+def extract_question_metadata(question_doc: dict):
+    # Extract required fields
+    question_body = question_doc["question_body"]
+    question_paper_filepath = question_doc["question_paper_filepath"]
+    page_start = question_doc["page_start"]
+    page_end = question_doc["page_end"]
+    school = question_doc["school"]
+    subject = question_doc["subject"]
+    exam_type = question_doc["exam_type"]
+    year = question_doc["year"]
+    paper_number = question_doc["paper_number"]
+    question_part = question_doc["question_part"]
+
+    # Create image filename
+    image_filename = "_".join(
+        [
+            str(school),
+            str(subject),
+            str(exam_type),
+            str(year),
+            str(paper_number),
+            str(question_part),
+        ]
+    )
+
+    return question_paper_filepath, question_body, image_filename, page_start, page_end
+
+
 def _similar(a, b, threshold=0.6):
     # Calculate similarity ratio between two strings
     return SequenceMatcher(None, a, b).ratio() > threshold
