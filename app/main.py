@@ -39,11 +39,9 @@ question_collection = db["question"]
 def upload_questions(request_obj: QuestionData):
     try:
         meta_info = request_obj.meta_info.model_dump()
-
-        # convert exam_type to enum value
         exam_type = convert_exam_type(meta_info.get("exam_type", ""))
+        update_count, insert_count = 0, 0
 
-        # iterate over each question and insert into MongoDB
         for question_item in request_obj.questions:
             # clean question data
             question_body = question_item.question.strip()
@@ -57,34 +55,70 @@ def upload_questions(request_obj: QuestionData):
                 else request_obj.answer_paper_filepath.strip()
             )
 
-            # get embedding for question body
-            question_body_embedding = get_embedding(question_body)
+            # check if question exists
+            existing_question = question_collection.find_one(
+                {"question_body": question_body}
+            )
 
-            # prepare document to insert
-            question_document = {
-                "page_start": question_item.page_start,
-                "page_end": question_item.page_end,
-                "question_number": question_number,
-                "question_part": question_part,
-                "question_body": question_body,
-                "question_body_embedding": question_body_embedding,
-                "topic": category,
-                "sub_topic": question_type,
-                "answer_body": "",
-                "question_paper_filepath": request_obj.question_paper_filepath.strip(),
-                "answer_paper_filepath": answer_paper_filepath,
-                "subject": meta_info.get("subject", ""),
-                "paper_number": meta_info.get("paper", ""),
-                "level": meta_info.get("level", ""),
-                "exam_type": exam_type,
-                "year": int(meta_info.get("year", -1)),
-                "school": meta_info.get("school", ""),
-                "created_utc": datetime.now(timezone.utc),
-                "updated_utc": datetime.now(timezone.utc),
-            }
+            if existing_question:
+                # update existing document
+                update_document = {
+                    "page_start": question_item.page_start,
+                    "page_end": question_item.page_end,
+                    "question_number": question_number,
+                    "question_part": question_part,
+                    "topic": category,
+                    "sub_topic": question_type,
+                    "answer_body": "",
+                    "question_paper_filepath": request_obj.question_paper_filepath.strip(),
+                    "answer_paper_filepath": answer_paper_filepath,
+                    "subject": meta_info.get("subject", ""),
+                    "paper_number": meta_info.get("paper", ""),
+                    "level": meta_info.get("level", ""),
+                    "exam_type": exam_type,
+                    "year": int(meta_info.get("year", -1)),
+                    "school": meta_info.get("school", ""),
+                    "updated_utc": datetime.now(timezone.utc),
+                }
 
-            # insert document into MongoDB
-            question_collection.insert_one(question_document)
+                question_collection.update_one(
+                    {"question_body": question_body}, {"$set": update_document}
+                )
+                print(f"[INFO] Updated question: {question_body}")
+                update_count += 1
+            else:
+                # get embedding for new question
+                question_body_embedding = get_embedding(question_body)
+
+                # prepare document to insert
+                question_document = {
+                    "page_start": question_item.page_start,
+                    "page_end": question_item.page_end,
+                    "question_number": question_number,
+                    "question_part": question_part,
+                    "question_body": question_body,
+                    "question_body_embedding": question_body_embedding,
+                    "topic": category,
+                    "sub_topic": question_type,
+                    "answer_body": "",
+                    "question_paper_filepath": request_obj.question_paper_filepath.strip(),
+                    "answer_paper_filepath": answer_paper_filepath,
+                    "subject": meta_info.get("subject", ""),
+                    "paper_number": meta_info.get("paper", ""),
+                    "level": meta_info.get("level", ""),
+                    "exam_type": exam_type,
+                    "year": int(meta_info.get("year", -1)),
+                    "school": meta_info.get("school", ""),
+                    "created_utc": datetime.now(timezone.utc),
+                    "updated_utc": datetime.now(timezone.utc),
+                }
+
+                question_collection.insert_one(question_document)
+                insert_count += 1
+                print(f"[INFO] Inserted question: {question_body}")
+        print(
+            f"[INFO] Inserted {insert_count} new questions and updated {update_count} existing questions."
+        )
 
         return JSONResponse(
             status_code=200, content={"message": "Exam data uploaded successfully."}
@@ -104,7 +138,9 @@ def query(
 ):
     try:
         user_query = normalise_query(user_query)
-        results = vector_search(user_query[-1].content, question_collection, [subject, level, exam_type])
+        results = vector_search(
+            user_query[-1].content, question_collection, [subject, level, exam_type]
+        )
         question_details = format_question_details(results)
         user_query[-1].content += f"""\n\nSIMILAR_DOCUMENTS: {question_details}"""
         response = get_llm_response(user_query)
