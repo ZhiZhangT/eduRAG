@@ -13,7 +13,7 @@ SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
 - Sub-topic in <sub_topic> tags
 - Reference URL in <link> tags
 
-Generate 5 similar questions that match:
+Generate 2 similar questions that match:
 - Same topic and sub-topic focus
 - Similar difficulty and complexity level
 - Identical question format
