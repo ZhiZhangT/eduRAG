@@ -1,6 +1,10 @@
 import os
-from typing import Optional
 import openai
+import json
+import types
+import sys
+import traceback
+from typing import Optional, Any
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.responses import JSONResponse
@@ -21,6 +25,7 @@ from app.utils.openai_utils import (
 from app.models import Message
 from app.utils.image_utils import extract_question_metadata, find_and_crop_image
 from app import constants
+from ulid import ULID
 
 load_dotenv()
 
@@ -167,7 +172,27 @@ def query(
         response = get_generated_questions_and_answers(
             question_details=first_question_xml, image_filepath=image_filepath
         )
-        return {"response": response, "first_question": first_question_xml}
+        # ensure that the output directory exists
+        os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
+        # store the generated questions and answers into a JSON file
+        json_filepath = f"{constants.OUTPUT_DIR}/{image_filename}_{str(ULID())}.json"
+        response_dict = response.model_dump()
+        response_dict["ground_truth"] = {
+            "topic": results[0]["topic"],
+            "sub_topic": results[0]["sub_topic"],
+            "question_part": results[0]["question_part"],
+            "subject": results[0]["subject"],
+            "paper_number": results[0]["paper_number"],
+            "level": results[0]["level"],
+            "exam_type": results[0]["exam_type"],
+            "year": results[0]["year"],
+            "school": results[0]["school"],
+            "question_url": f"{results[0]['question_paper_filepath']}#page={results[0]['page_start']}",
+        }
+        with open(json_filepath, "w") as f:
+            json.dump(response_dict, f, indent=4)
+
+        return {"response": response_dict, "first_question": first_question_xml}
     except HTTPException:
         raise
     except Exception as e:
