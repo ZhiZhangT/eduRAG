@@ -208,10 +208,10 @@ class Message(BaseModelWithRoleEncoder):
 
 class GeneratedQuestion(BaseModel):
     question_text: str
-    answer: str
-    steps: List[str]
     topic: str
     sub_topic: str
+    steps: List[str]
+    answer: str
 
 
 class GeneratedQuestionList(BaseModel):

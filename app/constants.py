@@ -21,10 +21,10 @@ Generate 2 similar questions that match:
 
 For each new question, provide the following in JSON format:
 - Question text
-- Correct answer
-- Step-by-step solution (if applicable)
 - Question topic
 - Question sub-topic
+- Step-by-step workings to arrive at the final answer
+- Correct final answer
 
 Ensure questions are distinct while maintaining consistency with the original."""
 EMATH_TOPICS = {
