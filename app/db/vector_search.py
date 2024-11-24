@@ -74,7 +74,7 @@ def vector_search(user_query: str, collection: Collection, query_variables: list
         )
     
     sub_topic = sub_topic_completion.choices[0].message.parsed.model_dump()['sub_topic']
-    print(f"sub_topic: {sub_topic}")
+    # print(f"sub_topic: {sub_topic}")
     
     # Define the MQL query:
     mql = {
