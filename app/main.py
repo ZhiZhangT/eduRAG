@@ -1,7 +1,6 @@
 import os
 from typing import Optional
 import openai
-from typing import List
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.responses import JSONResponse
@@ -11,12 +10,11 @@ from app.models import QuestionData
 from app.utils.format_utils import (
     convert_exam_type,
     normalise_query,
-    format_question_details,
     format_first_question_xml,
 )
 from app.utils.openai_utils import get_embedding
 from app.db.vector_search import vector_search
-from app.utils.openai_utils import get_llm_response, get_generated_questions_and_answers
+from app.utils.openai_utils import get_generated_questions_and_answers
 from app.models import Message
 from app.utils.image_utils import extract_question_metadata, find_and_crop_image
 from app import constants
