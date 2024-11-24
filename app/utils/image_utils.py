@@ -15,7 +15,7 @@ def _similar(a, b, threshold=0.6):
     return SequenceMatcher(None, a, b).ratio() > threshold
 
 
-def find_and_crop_image(pdf_url, search_text, question_filename):
+def find_and_crop_image(pdf_url, search_text, question_filename, page_start, page_end):
     # Download PDF content
     response = requests.get(pdf_url)
     pdf_content = BytesIO(response.content)
@@ -23,8 +23,15 @@ def find_and_crop_image(pdf_url, search_text, question_filename):
     # Open the PDF from memory
     doc = fitz.open(stream=pdf_content, filetype="pdf")
 
-    # Search through each page
-    for page_num in range(len(doc)):
+    # Validate page range
+    # convert both page_start and page_end to zero-based index
+    page_start -= 1
+    page_end -= 1
+    page_start = max(0, min(page_start, len(doc) - 1))
+    page_end = max(0, min(page_end, len(doc) - 1))
+
+    # Search through specified page range
+    for page_num in range(page_start, page_end + 1):
         page = doc[page_num]
 
         # Get all text blocks on the page
@@ -63,12 +70,42 @@ def find_and_crop_image(pdf_url, search_text, question_filename):
                 os.makedirs(constants.TEMP_DIR, exist_ok=True)
 
                 # Save cropped image
-                output_path = f"{constants.TEMP_DIR}/{question_filename}.png"
+                output_path = f"{constants.TEMP_DIR}/test/{question_filename}.png"
                 cropped_img.save(output_path)
                 print(f"Found match on page {page_num + 1}. Saved to {output_path}")
                 return True
 
-    print("No matching text found in PDF")
+    # If no match found, save all pages in range as one image
+    print("No matching text found in PDF - saving full pages")
+
+    combined_height = 0
+    page_images = []
+
+    # First pass - get dimensions and convert pages
+    for page_num in range(page_start, page_end + 1):
+        page = doc[page_num]
+        pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+        img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+        combined_height += img.height
+        page_images.append(img)
+
+    # Create new image with combined height
+    combined_img = Image.new("RGB", (page_images[0].width, combined_height))
+
+    # Paste all pages into combined image
+    y_offset = 0
+    for img in page_images:
+        combined_img.paste(img, (0, y_offset))
+        y_offset += img.height
+
+    # If temp directory does not exist, create it
+    os.makedirs(constants.TEMP_DIR, exist_ok=True)
+
+    # Save combined image
+    output_path = f"{constants.TEMP_DIR}/test/{question_filename}.png"
+    combined_img.save(output_path)
+    print(f"Saved combined pages {page_start+1} to {page_end+1} to {output_path}")
+
     return False
 
 
@@ -81,68 +118,112 @@ if __name__ == "__main__":
         "chij_4ii": (
             CHIJ_PAPER,
             "Given that y = 16x^3 - 5x, find (ii) the value of the integral from 0 to 1 of y dx, giving your answer correct to 3 significant figures.",
+            5,
+            5,
         ),
         "chij_5ai": (
             CHIJ_PAPER,
             "5(a)(i) Using the substitution z = 1 + x, write down all the terms in the expansion of (1 + x)^6, leaving each term in the form (1 + x)^pk where k and p are integers.",
+            6,
+            6,
         ),
         "chij_7iii": (
             CHIJ_PAPER,
             "7(iii) By expressing 5sin \u03b8 - cos \u03b8 in the form R sin(\u03b8 - \u03b1), where R > 0 and 0\u00b0 < \u03b1 < 90\u00b0, find the value of \u03b8.",
+            9,
+            9,
         ),
         "chij_9": (
             CHIJ_PAPER,
             "9 The equation of a circle is 224 12 36 x y x y+ \u2212 \u2212 + = 0. The equation of the line L is y = kx, where k is a constant. (i) Find the radius of the circle and the coordinates of its centre.",
+            12,
+            12,
         ),
         "acsi_7aii": (
             ACSI_PAPER,
             "Hence find the coefficient of 3x in the expansion of ( )( )6 23 14xx+\u2212 .",
+            10,
+            10,
         ),
         "acsi_2a": (
             ACSI_PAPER,
             "A circle with centre O passes through the points P(-1, 7) and Q(0, 8). (a) State the relationship between the perpendicular bisector of PQ and the point O.",
+            4,
+            4,
         ),
         "acsi_6ai": (
             ACSI_PAPER,
             "Prove the trigonometric identity: ( )2 2 2cosec 2cotcosec cos sinAAA AA+= +",
+            8,
+            8,
         ),
         "acsi_6b": (
             ACSI_PAPER,
             "Given that 1 sin 2cos11 2sin cosxx xx++=++ and x is acute, find the exact value of cos x.",
+            9,
+            9,
         ),
         "bpghs_2i": (
             BPGHS_PAPER,
             "At a warehouse sale, all prices are reduced by 15%. The price of a set of ear pods during the sale is $221. \n(i) Find its original price.",
+            3,
+            3,
         ),
         "bpghs_3a": (
             BPGHS_PAPER,
             "Ethan measures the amount of rain, in millimetres (mm), each day for 31 days. The bar chart shows his results. \n(a) Write down the median amount of rain.",
+            4,
+            4,
         ),
-        "bpghs_3b": (BPGHS_PAPER, "Find the mean amount of rain per day."),
+        "bpghs_3b": (
+            BPGHS_PAPER,
+            "Find the mean amount of rain per day.",
+            4,
+            4,
+        ),
         "bpghs_23": (
             BPGHS_PAPER,
             "Given that 2^{3x} = 6 \\times 8, find the value of x.",
+            19,
+            19,
         ),
         "bpghs_14": (
             BPGHS_PAPER,
-            "\\text{In the diagram, } O \\text{ is the centre of two concentric circles. A and B lie on the circumference of the smaller circle.} \\\\ \\text{C and D lie on the circumference of the larger circle. AD and BC intersect at O.} \\\\ \\text{Prove that} \\\\ (a) \\triangle AOC \\text{ and } \\triangle BOD \\text{ are congruent} \\\\ (b) \\triangle ADB \\text{ and } \\triangle BCA \\text{ are congruent.}",
+            "\\text{Andrea and Beatrice each have a savings account. The ratio of Andrea\u2019s savings to Beatrice\u2019s savings is } 2 : 3. \\\\ \\text{They each spend } \\$50 \\text{ from their savings. Andrea then gives Beatrice } \\$20 \\text{ from her savings.} \\\\ \\text{The new ratio of Andrea\u2019s savings to Beatrice\u2019s savings is } 5 : 9. \\text{ Find the amount of money Andrea now has in her account.}",
+            13,
+            13,
         ),
         "bpghs_17": (
             BPGHS_PAPER,
-            "PQRS \\text{ is a trapezium where } P \\text{ is the point } (-3, 2), Q \\text{ is the point } (5, 8) \\text{ and } R \\text{ is the point } (3, 2). \\\\ PQ \\text{ is parallel to } RS. \\\\ (a) \\text{ Find the equation of the line } RS. \\\\ (b)(i) \\text{ Find the length of } PQ. \\\\ (ii) \\text{ Hence find the perpendicular distance from } R \\text{ to } PQ.",
+            "PQRS \\text{ is a trapezium where } P \\text{ is the point } (-3, 2), Q \\text{ is the point } (5, 8) \\text{ and } R \\text{ is the point } (3, 2). \\ PQ \\text{ is parallel to } RS. \\ (a) \\text{ Find the equation of the line } RS. \\ (b)(i) \\text{ Find the length of } PQ. \\ (ii) \\text{ Hence find the perpendicular distance from } R \\text{ to } PQ.",
+            15,
+            15,
         ),
         "bpghs_20": (
             BPGHS_PAPER,
             "A, D, B, and C lie on a circle, center O. AP is a tangent to the circle at A and BP is a tangent to the circle at B. \\angle AOB = 142^\\circ \\text{ and } \\angle DAP = 42^\\circ. \\text{ (a) Find the value of } (i) \\angle ACB, (ii) \\angle ADB. \\text{ (b) Is OB parallel to AD? Explain.}",
+            17,
+            17,
         ),
         "bpghs_21": (
             BPGHS_PAPER,
-            "The admission tickets to the Singapore Zoo are \\$50 \\text{ for an adult}, \\$36 \\text{ for a child, and } \\$20 \\text{ for a senior citizen. On a particular Tuesday, there were 212 adults, 251 children, and 15 senior citizens who visited the Singapore Zoo and on a particular Wednesday, there were 231 adults, 266 children, and 12 senior citizens who visited the Singapore Zoo. The number of visitors on the particular Tuesday and Wednesday can be represented by the matrix V = \\begin{pmatrix} 212 & 251 & 15 \\\\ 231 & 266 & 12 \\end{pmatrix}. (i) Write a 3 \\times 1 matrix, P, to represent the price of the admission tickets. (ii) Find the matrix T = VP. (iii) Explain what each of the elements represents. (iv) Find the total amount collected from the sales of the tickets for the 2 days.",
+            "The admission tickets to the Singapore Zoo are $50 \\text{ for an adult}, $36 \\text{ for a child, and } $20 \\text{ for a senior citizen. On a particular Tuesday, there were 212 adults, 251 children, and 15 senior citizens who visited the Singapore Zoo and on a particular Wednesday, there were 231 adults, 266 children, and 12 senior citizens who visited the Singapore Zoo. The number of visitors on the particular Tuesday and Wednesday can be represented by the matrix V = \\begin{pmatrix} 212 & 251 & 15 \\\\ 231 & 266 & 12 \\end{pmatrix}. (i) Write a 3 \\times 1 matrix, P, to represent the price of the admission tickets. (ii) Find the matrix T = VP. (iii) Explain what each of the elements represents. (iv) Find the total amount collected from the sales of the tickets for the 2 days.",
+            18,
+            18,
         ),
         "bpghs_24": (
             BPGHS_PAPER,
             "The angle of elevation of the base of a lighthouse, L, from two fishing boats P and Q are 20^\\circ \\text{ and } 35^\\circ \\text{ respectively. Given that the fishing boat P is 250 m from the lighthouse, find the distance between the two fishing boats.}",
+            20,
+            20,
         ),
     }
-    for question_filename, (pdf_url, search_text) in search_text_dict.items():
-        success = find_and_crop_image(pdf_url, search_text, question_filename)
+    for question_filename, (
+        pdf_url,
+        search_text,
+        page_start,
+        page_end,
+    ) in search_text_dict.items():
+        success = find_and_crop_image(
+            pdf_url, search_text, question_filename, page_start, page_end
+        )
