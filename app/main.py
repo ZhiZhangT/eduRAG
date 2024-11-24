@@ -200,15 +200,93 @@ def query(
 
 
 @app.post("/verify")
-def verify(
-    question_text: str = Body(
-        ..., description="Question text to generate Python script", embed=True
-    )
-):
+def verify():
+    responses = []
+
+    # Iterate through JSON files in output directory
+    for filename in os.listdir(constants.OUTPUT_DIR):
+        if not filename.endswith(".json"):
+            continue
+
+        filename_without_extension = os.path.splitext(filename)[0]
+
+        skip_file = False
+        # if there already exists a python file that contains filename_without_extension, skip this file
+        for f in os.listdir(constants.OUTPUT_DIR):
+            if f.endswith(".py") and filename_without_extension in f:
+                skip_file = True
+                break
+        if skip_file:
+            continue
+
+        json_path = os.path.join(constants.OUTPUT_DIR, filename)
+
+        # Read JSON file
+        with open(json_path) as f:
+            data = json.load(f)
+
+        # Iterate through questions
+        for i, question_doc in enumerate(data.get("questions", [])):
+            num_tries = 0
+            # try to generate and run the python script up to 3 times
+            while num_tries < 3:
+                try:
+                    # Create question text with XML tags
+                    question_text = f"<question>{question_doc['question_text']}</question><answer>{question_doc['answer']}</answer>"
+
+                    # Generate python script and get answer
+                    response = get_python_script_and_answer(question_text=question_text)
+
+                    # Save python script to file
+                    script_filename = (
+                        f"{constants.OUTPUT_DIR}/{filename_without_extension}_{i}.py"
+                    )
+                    with open(script_filename, "w") as f:
+                        f.write(response.python_script)
+
+                    # Run the script
+                    computed_answer = _run_dynamic_code(response.python_script)
+
+                    # Add to responses
+                    responses.append(
+                        {
+                            "filename": filename,
+                            "question_index": i,
+                            "response": response,
+                            "computed_answer": computed_answer,
+                        }
+                    )
+
+                    # if the code runs successfully, break out of the while loop
+                    break
+
+                except HTTPException:
+                    raise
+                except Exception as e:
+                    # prints the full error trace
+                    print(traceback.format_exc())
+                finally:
+                    print(
+                        f"[INFO] Attempt {num_tries + 1} failed for {filename} question {i}"
+                    )
+                    num_tries += 1
+
+    return responses
+
+
+# runs python code in memory
+def _run_dynamic_code(code_string: str) -> Any:
+    module_name = "dynamic_solution"
+    # Creates a module object directly in memory
+    module = types.ModuleType("dynamic_solution")
+
+    # Registers module in sys.modules (Python's module cache)
+    sys.modules[module_name] = module
+
     try:
-        response = get_python_script_and_answer(question_text=question_text)
-        return {"response": response}
-    except HTTPException:
-        raise
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        # Executes code directly in the module's namespace
+        exec(code_string, module.__dict__)
+        return module.solve_problem()
+    finally:
+        # Only needs to clean up the module reference
+        del sys.modules[module_name]
