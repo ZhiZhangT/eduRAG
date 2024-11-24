@@ -1,4 +1,5 @@
 import os
+from typing import Optional
 import openai
 from typing import List
 from dotenv import load_dotenv
@@ -26,7 +27,9 @@ app = FastAPI()
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 # connect to MongoDB
-mongo_client = MongoClient(os.environ.get("MONGODB_URI"))
+MONGODB_URI = os.environ.get("MONGODB_URI")
+print(f"Connecting to MongoDB at {MONGODB_URI}")
+mongo_client = MongoClient(MONGODB_URI)
 db = mongo_client["exam_db"]
 question_collection = db["question"]
 
@@ -93,10 +96,15 @@ def upload_questions(request_obj: QuestionData):
 
 # endpoint to ask a question
 @app.post("/query")
-def query(user_query: list[Message]):
+def query(
+    user_query: list[Message],
+    subject: Optional[str] = Body(default="elementary_mathematics"),
+    level: Optional[str] = Body(default=None),
+    exam_type: Optional[str] = Body(default=None),
+):
     try:
         user_query = normalise_query(user_query)
-        results = vector_search(user_query[-1].content, question_collection)
+        results = vector_search(user_query[-1].content, question_collection, [subject, level, exam_type])
         question_details = format_question_details(results)
         user_query[-1].content += f"""\n\nSIMILAR_DOCUMENTS: {question_details}"""
         response = get_llm_response(user_query)
