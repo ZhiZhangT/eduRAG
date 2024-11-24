@@ -148,6 +148,7 @@ def query(
                 status_code=404,
                 detail="No similar questions found. Please try again with a different question.",
             )
+        # find the question text in the question paper PDF and crop out an image containing the question
         question_paper_filepath, question_body, image_filename, page_start, page_end = (
             extract_question_metadata(results[0])
         )
@@ -160,6 +161,8 @@ def query(
         )
         image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
         first_question_xml = format_first_question_xml(results)
+        # pass the question metadata (topic, subtopic, link) + question image to OpenAI
+        # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
         response = get_generated_questions_and_answers(
             question_details=first_question_xml, image_filepath=image_filepath
         )
