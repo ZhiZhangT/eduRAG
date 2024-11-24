@@ -31,24 +31,32 @@ class ExamTypeEnum(str, Enum):
     FINAL = "final_exam"
     MID_YEAR = "mid_year_exam"
     # Add more exam types as needed
-    
+
+
 class AMathTopicEnum(str, Enum):
-    QUADRATIC_FUNCTIONS_EQUATIONS_AND_INEQUALITIES = "Quadratic Functions, Equations and Inequalities"
+    QUADRATIC_FUNCTIONS_EQUATIONS_AND_INEQUALITIES = (
+        "Quadratic Functions, Equations and Inequalities"
+    )
     SURDS = "Surds"
-    POLYNOMIALS_CUBIC_EQUATIONS_AND_PARTIAL_FRACTIONS = "Polynomials, cubic equations and partial fractions"
+    POLYNOMIALS_CUBIC_EQUATIONS_AND_PARTIAL_FRACTIONS = (
+        "Polynomials, cubic equations and partial fractions"
+    )
     BINOMIAL_THEOREM_AND_ITS_APPLICATION = "Binomial theorem and its application"
     EXPONENTIAL_AND_LOGARITHMIC_FUNCTIONS = "Exponential and logarithmic functions"
     COORDINATE_GEOMETRY = "Coordinate geometry"
     LINEAR_LAW = "Linear law"
     TRIGONOMETRIC_FUNCTIONS_AND_EQUATIONS = "Trigonometric functions and equations"
     TRIGONOMETRIC_IDENTITIES_AND_FORMULAE = "Trigonometric identities and formulae"
-    GRADIENTS_DERIVATIVES_AND_DIFFERENTIATION_TECHNIQUES = "Gradients, derivatives and differentiation techniques"
+    GRADIENTS_DERIVATIVES_AND_DIFFERENTIATION_TECHNIQUES = (
+        "Gradients, derivatives and differentiation techniques"
+    )
     APPLICATIONS_OF_DIFFERENTIATION = "Applications of differentiation"
     DIFFERENTIATION_OF_TRIGONOMETRIC_LOGARITHMIC_AND_EXPONENTIAL_FUNCTIONS_AND_APPLICATIONS = "Differentiation of trigonometric, logarithmic, and exponential functions and their applications"
     INTEGRATION = "Integration"
     APPLICATIONS_OF_INTEGRATION = "Applications of integration"
     KINEMATICS = "Kinematics"
     PROOFS_IN_PLANE_GEOMETRY = "Proofs in plane geometry"
+
 
 class EMathTopicEnum(str, Enum):
     NUMBERS_AND_OPERATIONS = "Numbers and their operations"
@@ -132,6 +140,13 @@ class QuestionItem(BaseModel):
     question_part: str = Field(
         ..., min_length=1, description="Question part cannot be empty"
     )
+
+    @model_validator(mode="before")
+    @classmethod
+    def clean_data(cls, data: Dict[str, Any]) -> Dict[str, Any]:
+        # ensure that each question_number is of str type
+        data["question_number"] = str(data["question_number"])
+        return data
 
     @field_validator("*")
     @classmethod
