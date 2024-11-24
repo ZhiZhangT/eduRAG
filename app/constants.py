@@ -1,4 +1,5 @@
 TEMP_DIR = "temp"
+OUTPUT_DIR = "output"
 SYSTEM_PROMPT_EVALUATE = """You are a content relevance evaluator. You will receive a language model's response ("llm_response") and a set of reference documents ("similar_documents"). Your task is to:
 1. Analyse how well the concepts, information, and details from similar_documents are incorporated into llm_response
 2. Evaluate both semantic similarity and factual consistency
@@ -38,7 +39,8 @@ Generate a Python script that can solve the question. The script should:
 - Include all necessary functions and variables
 - Include step-by-step code to solve the question
 - Output the final answer in the format of the suggested answer
-- Ensure the script is clear, concise, and correctly solves the question.
+- The python script must contain a function named 'solve_problem' that returns the final answer
+- Note: symbols CANNOT be converted into integers
 
 Using the generated Python script, check if the suggested answer is correct.
 
@@ -59,16 +61,8 @@ import sympy as sp
 def solve_problem():
     # Solution steps
     # Error handling
-    # Result verification
-
-# Main execution
-def main():
-    # Call solution
     # Format output
     # Return final answer
-
-if __name__ == "__main__":
-    main()
 ```"""
 
 EMATH_TOPICS = {

@@ -57,6 +57,8 @@ def get_python_script_and_answer(question_text: str) -> GeneratedPythonScript:
         model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
         response_format=GeneratedPythonScript,
+        temperature=0.2,
+        top_p=0.2,
     )
 
     return completion.choices[0].message.parsed
