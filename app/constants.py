@@ -1,3 +1,4 @@
+TEMP_DIR = "temp"
 SYSTEM_PROMPT = "You will be presented with a user query and a list of similar documents (SIMILAR_DOCUMENTS). Your job is to find the most similar document to the user query and to generate a list of similar documents. Please provide citations for all similar documents returned."
 SYSTEM_PROMPT_EVALUATE = """You are a content relevance evaluator. You will receive a language model's response ("llm_response") and a set of reference documents ("similar_documents"). Your task is to:
 1. Analyse how well the concepts, information, and details from similar_documents are incorporated into llm_response
@@ -7,7 +8,7 @@ SYSTEM_PROMPT_EVALUATE = """You are a content relevance evaluator. You will rece
    - "reason": A brief explanation justifying the assigned score"""
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
-- Question text in <question> tags
+- An image which shows a math question
 - Topic in <topic> tags
 - Sub-topic in <sub_topic> tags
 - Reference URL in <link> tags
