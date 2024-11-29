@@ -1,22 +1,67 @@
 import openai
 import os
+import base64
 from app import constants
-from app.models import Message
+from app.models import Role, GeneratedQuestionList, GeneratedPythonScript
 from dotenv import load_dotenv
 from typing import List
+
 
 load_dotenv()
 
 
-def get_llm_response(prompt: list[Message]):
+def _encode_image(image_path):
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode("utf-8")
+
+
+def get_generated_questions_and_answers(question_details: str, image_filepath: str):
+    base64_image = _encode_image(image_filepath)
+    # TODO: update the system prompt to generate a specific number of questions defined by the original user query (currently it is hardcoded to 5)
     messages = [
-        {"role": "system", "content": constants.SYSTEM_PROMPT},
-    ] + prompt
-    completion = openai.chat.completions.create(
-        model=os.environ.get("OPENAI_MODEL"), messages=messages
+        {"role": Role.SYSTEM, "content": constants.SYSTEM_PROMPT_GENERATE_QUESTIONS},
+        {
+            "role": Role.USER,
+            "content": [
+                {
+                    "type": "text",
+                    "text": question_details,
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/png;base64,{base64_image}"},
+                },
+            ],
+        },
+    ]
+
+    completion = openai.beta.chat.completions.parse(
+        model=os.environ.get("OPENAI_MODEL"),
+        messages=messages,
+        response_format=GeneratedQuestionList,
     )
 
-    return completion.choices[0].message.content
+    return completion.choices[0].message.parsed
+
+
+def get_python_script_and_answer(question_text: str) -> GeneratedPythonScript:
+    messages = [
+        {
+            "role": Role.SYSTEM,
+            "content": constants.SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT,
+        },
+        {"role": Role.USER, "content": question_text},
+    ]
+
+    completion = openai.beta.chat.completions.parse(
+        model=os.environ.get("OPENAI_MODEL"),
+        messages=messages,
+        response_format=GeneratedPythonScript,
+        temperature=0.2,
+        top_p=0.2,
+    )
+
+    return completion.choices[0].message.parsed
 
 
 def get_embedding(text: str, model="text-embedding-3-small") -> List[float]:

@@ -19,19 +19,14 @@ def normalise_query(query: list[Message]):
     return query
 
 
-def format_question_details(similar_documents: list):
-    questions_str = ""
+def format_first_question_xml(similar_documents: list):
+    first_doc = similar_documents[0]
 
-    for i, doc in enumerate(similar_documents):
-        formatted_text = (
-            f"Question: {doc['question_body']}\n"
-            f"Topic: {doc['topic']}\n"
-            f"Sub-topic: {doc['sub_topic']}\n"
-            f"Relevance Score: {doc['score']}\n"
-            f"Link: {_format_question_url(doc)}"
-        )
-        questions_str += f"{i+1}. {formatted_text}\n\n"
-
+    questions_str = (
+        f"<topic>{first_doc['topic']}</topic>\n"
+        f"<sub_topic>{first_doc['sub_topic']}</sub_topic>\n"
+        f"<link>{_format_question_url(first_doc)}</link>"
+    )
     return questions_str
 
 

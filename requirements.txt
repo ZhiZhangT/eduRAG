@@ -81,3 +81,4 @@ yarl==1.15.5
 fastapi==0.115.4
 pymongo==4.10.1
 uvicorn==0.32.0
+PyMuPDF==1.24.14

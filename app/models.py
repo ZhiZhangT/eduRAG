@@ -33,6 +33,53 @@ class ExamTypeEnum(str, Enum):
     # Add more exam types as needed
 
 
+class AMathTopicEnum(str, Enum):
+    QUADRATIC_FUNCTIONS_EQUATIONS_AND_INEQUALITIES = (
+        "Quadratic Functions, Equations and Inequalities"
+    )
+    SURDS = "Surds"
+    POLYNOMIALS_CUBIC_EQUATIONS_AND_PARTIAL_FRACTIONS = (
+        "Polynomials, cubic equations and partial fractions"
+    )
+    BINOMIAL_THEOREM_AND_ITS_APPLICATION = "Binomial theorem and its application"
+    EXPONENTIAL_AND_LOGARITHMIC_FUNCTIONS = "Exponential and logarithmic functions"
+    COORDINATE_GEOMETRY = "Coordinate geometry"
+    LINEAR_LAW = "Linear law"
+    TRIGONOMETRIC_FUNCTIONS_AND_EQUATIONS = "Trigonometric functions and equations"
+    TRIGONOMETRIC_IDENTITIES_AND_FORMULAE = "Trigonometric identities and formulae"
+    GRADIENTS_DERIVATIVES_AND_DIFFERENTIATION_TECHNIQUES = (
+        "Gradients, derivatives and differentiation techniques"
+    )
+    APPLICATIONS_OF_DIFFERENTIATION = "Applications of differentiation"
+    DIFFERENTIATION_OF_TRIGONOMETRIC_LOGARITHMIC_AND_EXPONENTIAL_FUNCTIONS_AND_APPLICATIONS = "Differentiation of trigonometric, logarithmic, and exponential functions and their applications"
+    INTEGRATION = "Integration"
+    APPLICATIONS_OF_INTEGRATION = "Applications of integration"
+    KINEMATICS = "Kinematics"
+    PROOFS_IN_PLANE_GEOMETRY = "Proofs in plane geometry"
+
+
+class EMathTopicEnum(str, Enum):
+    NUMBERS_AND_OPERATIONS = "Numbers and their operations"
+    RATIO_AND_PROPORTION = "Ratio and proportion"
+    PERCENTAGE = "Percentage"
+    RATE_AND_SPEED = "Rate and speed"
+    ALGEBRAIC_EXPRESSIONS_AND_FORMULAE = "Algebraic expressions and formulae"
+    FUNCTIONS_AND_GRAPHS = "Functions and graphs"
+    EQUATIONS_AND_INEQUALITIES = "Equations and inequalities"
+    SET_LANGUAGE_AND_NOTATION = "Set language and notation"
+    MATRICES = "Matrices"
+    PROBLEMS_IN_REAL_WORLD_CONTEXTS = "Problems in real-world contexts"
+    ANGLES_TRIANGLES_AND_POLYGONS = "Angles, triangles and polygons"
+    CONGRUENCE_AND_SIMILARITY = "Congruence and similarity"
+    PROPERTIES_OF_CIRCLES = "Properties of circles"
+    PYTHAGORAS_THEOREM_AND_TRIGONOMETRY = "Pythagoras’ theorem and trigonometry"
+    MENSURATION = "Mensuration"
+    COORDINATE_GEOMETRY = "Coordinate geometry"
+    VECTORS_IN_2_DIMENSIONS = "Vectors in 2 dimensions"
+    DATA_ANALYSIS = "Data analysis"
+    PROBABILITY = "Probability"
+
+
 class MetaInfo(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, strict=True)
 
@@ -94,6 +141,13 @@ class QuestionItem(BaseModel):
         ..., min_length=1, description="Question part cannot be empty"
     )
 
+    @model_validator(mode="before")
+    @classmethod
+    def clean_data(cls, data: Dict[str, Any]) -> Dict[str, Any]:
+        # ensure that each question_number is of str type
+        data["question_number"] = str(data["question_number"])
+        return data
+
     @field_validator("*")
     @classmethod
     def check_not_empty(cls, v, info):
@@ -139,6 +193,7 @@ class QuestionData(BaseModel):
 class Role(str, Enum):
     USER = "user"
     ASSISTANT = "assistant"
+    SYSTEM = "system"
 
 
 class BaseModelWithRoleEncoder(BaseModel):
@@ -149,6 +204,25 @@ class BaseModelWithRoleEncoder(BaseModel):
 class Message(BaseModelWithRoleEncoder):
     role: Role
     content: str
+
+
+class GeneratedQuestion(BaseModel):
+    question_text: str
+    topic: str
+    sub_topic: str
+    steps: List[str]
+    answer: str
+
+
+class GeneratedQuestionList(BaseModel):
+    questions: List[GeneratedQuestion]
+
+
+class GeneratedPythonScript(BaseModel):
+    python_script: str
+    final_answer: str
+    is_suggested_answer_correct: bool
+    reason: str
 
 
 def _clean_meta_info(meta_info):
