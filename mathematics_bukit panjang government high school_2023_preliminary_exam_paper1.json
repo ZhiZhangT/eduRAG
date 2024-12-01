@@ -1,0 +1,292 @@
+{
+  "meta_info": {
+    "subject": "mathematics",
+    "school": "bukit panjang government high school",
+    "level": "o_level",
+    "year": "2023",
+    "exam_type": "preliminary_exam",
+    "paper": "1"
+  },
+  "questions": [
+    {
+      "question": "Calculate $33 \times 2.13 \times 81.23 \times 3.23 \times 5.24$, giving your answer correct to 4 significant figures.",
+      "question_number": 1,
+      "question_part": "1",
+      "page_start": 3,
+      "page_end": 3,
+      "category": "Numbers and their operations",
+      "score": 1.75,
+      "marks": 1
+    },
+    {
+      "question": "At a warehouse sale, all prices are reduced by 15%. The price of a set of ear pods during the sale is $221. (i) Find its original price.",
+      "question_number": 2,
+      "question_part": "2i",
+      "page_start": 3,
+      "page_end": 3,
+      "category": "Percentage",
+      "score": 1.75,
+      "marks": 1
+    },
+    {
+      "question": "If the salesman still earns a profit of 10.5% during the sale, find the percentage profit he earns from selling the pair of ear pods if it is not on sale.",
+      "question_number": 2,
+      "question_part": "2ii",
+      "page_start": 3,
+      "page_end": 3,
+      "category": "Percentage",
+      "score": 1.75,
+      "marks": 3
+    },
+    {
+      "question": "Ethan measures the amount of rain, in millimetres (mm), each day for 31 days. The bar chart shows his results. (a) Write down the median amount of rain.",
+      "question_number": 3,
+      "question_part": "3a",
+      "page_start": 4,
+      "page_end": 4,
+      "category": "Data analysis",
+      "score": 1.75,
+      "marks": 1
+    },
+    {
+      "question": "Find the mean amount of rain per day.",
+      "question_number": 3,
+      "question_part": "3b",
+      "page_start": 4,
+      "page_end": 4,
+      "category": "Data analysis",
+      "score": 1.75,
+      "marks": 2
+    },
+    {
+      "question": "Ethan picks one of these days at random. Find the probability that, on that day, the amount of rain was 3 mm or more.",
+      "question_number": 3,
+      "question_part": "3c",
+      "page_start": 4,
+      "page_end": 4,
+      "category": "Probability",
+      "score": 1.75,
+      "marks": 1
+    },
+    {
+      "question": "These are the first four terms in a sequence. $9, 5, 1, -3$ Find an expression, in term of n, for the nth term of the sequence.",
+      "question_number": 4,
+      "question_part": "4a",
+      "page_start": 5,
+      "page_end": 5,
+      "category": "Algebraic expressions and formulae",
+      "score": 1.75,
+      "marks": 1
+    },
+    {
+      "question": "The nth term of another sequence is given by $T_n = 4n + 3 - \frac{4}{3n}$. Determine if it is possible to have a term in the sequence to be greater than 1. Explain your answer.",
+      "question_number": 4,
+      "question_part": "4b",
+      "page_start": 5,
+      "page_end": 5,
+      "category": "Algebraic expressions and formulae",
+      "score": 1.75,
+      "marks": 2
+    },
+    {
+      "question": "A drawer contains 40 balls. 15 balls are black, 5 balls are grey and 20 balls are white. Samuel chooses one ball from the drawer at random. \n\n (a) Find the probability that the ball is not black. \n\n Samuel adds a few more grey balls. The probability of choosing a grey ball is now \\frac{2}{7} . \n (b) Find the number of grey balls he added.",
+      "question_number": 5,
+      "question_part": "5",
+      "page_start": 6,
+      "page_end": 7,
+      "category": "Probability",
+      "score": 1.75,
+      "marks": 1
+    },
+    {
+      "question": "Solve the simultaneous equations. \n\n $7x + 2y = 8$ \n $2x - 3y = 1$",
+      "question_number": 6,
+      "question_part": "6",
+      "page_start": 7,
+      "page_end": 7,
+      "category": "Equations and inequalities",
+      "score": 1.75,
+      "marks": 3
+    },
+    {
+      "question": "The diagram shows part of a polygon A and part of polygon B. \n A is a regular polygon with n sides. \n B is a regular hexagon. \n Find the value of n.",
+      "question_number": 7,
+      "question_part": "7",
+      "page_start": 8,
+      "page_end": 8,
+      "category": "Angles, triangles and polygons",
+      "score": 1.75,
+      "marks": 4
+    },
+    {
+      "question": "Mary needs to pack 210 oranges, 252 apples and 294 pears into identical fruit baskets. \n\n (i) What is the largest possible number of fruit baskets that can be packed? \n\n (ii) State the number of each fruit in a fruit basket.",
+      "question_number": 8,
+      "question_part": "8",
+      "page_start": 9,
+      "page_end": 9,
+      "category": "Problems in real-world contexts",
+      "score": 1.75,
+      "marks": 1
+    },
+    {
+      "question": "The diagram shows a sector OPR with centre O. \n ORQ is a straight line. \n Angle POQ = 0.6 radians. \n OP = 5 cm and RQ = 7 cm. \n\n (i) Calculate the perimeter of the shaded region PQR. \n\n (ii) Calculate the area of the shaded region PQR.",
+      "question_number": 9,
+      "question_part": "9",
+      "page_start": 10,
+      "page_end": 10,
+      "category": "Mensuration",
+      "score": 1.75,
+      "marks": 3
+    },
+    {
+      "question": "A, B and C are three ports. \n\n(a) Show that angle ABC = 107.2o correct to 1 decimal place. \n\n(b) The bearing of B from A is 305o. \nFind the bearing of C from A.",
+      "question_number": 10,
+      "question_part": "10",
+      "page_start": 11,
+      "page_end": 11,
+      "category": "Angles, triangles and polygons",
+      "score": 1.75,
+      "marks": 2
+    },
+    {
+      "question": "Expand and simplify $(7x - 3)^2$.",
+      "question_number": 11,
+      "question_part": "11",
+      "page_start": 12,
+      "page_end": 12,
+      "category": "Algebraic expressions and formulae",
+      "score": 1.75,
+      "marks": 2
+    },
+    {
+      "question": "The length of one of the diagonals of a rhombus of side 13 cm is 24 cm. Find the area of the rhombus.",
+      "question_number": 12,
+      "question_part": "12",
+      "page_start": 12,
+      "page_end": 12,
+      "category": "Mensuration",
+      "score": 1.75,
+      "marks": 3
+    },
+    {
+      "question": "p varies inversely as the square root of q. \nWhen q = 9, p = 12. \nFind p when q = 16.",
+      "question_number": 13,
+      "question_part": "13",
+      "page_start": 13,
+      "page_end": 13,
+      "category": "Functions and graphs",
+      "score": 1.75,
+      "marks": 3
+    },
+    {
+      "question": "Andrea and Beatrice each have a savings account. \nThe ratio of Andrea\u2019s savings to Beatrice\u2019s savings is 2 : 3. \nThey each spend $50 from their savings. Andrea then gives Beatrice $20 from her savings. The new ratio of Andrea\u2019s savings to Beatrice\u2019s savings is 5 : 9. \nFind the amount of money Andrea now has in her account.",
+      "question_number": 14,
+      "question_part": "14",
+      "page_start": 13,
+      "page_end": 13,
+      "category": "Ratio and proportion",
+      "score": 1.75,
+      "marks": 4
+    },
+    {
+      "question": "Solve the inequalities $2x + 6 \\leq 11 < 24x - 23$.",
+      "question_number": 15,
+      "question_part": "15",
+      "page_start": 14,
+      "page_end": 14,
+      "category": "Equations and inequalities",
+      "score": 1.75,
+      "marks": 3
+    },
+    {
+      "question": "In the diagram, O is the centre of two concentric circles. A and B lie on the circumference of the smaller circle. C and D lie on the circumference of the larger circle. AD and BC intersect at O. \n\nProve that \n\n(a) $\\triangle AOC$ and $\\triangle BOD$ are congruent \n\n(b) $\\triangle ADB$ and $\\triangle BCA$ are congruent.",
+      "question_number": 16,
+      "question_part": "16",
+      "page_start": 14,
+      "page_end": 14,
+      "category": "Congruence and similarity",
+      "score": 1.75,
+      "marks": 2
+    },
+    {
+      "question": "PQRS is a trapezium where P is the point (-3, 2), Q is the point (5, 8) and R is the point (3, 2). PQ is parallel to RS. \n\n(a) Find the equation of the line RS. \n\n(b)(i) Find the length of PQ. \n\n(ii) Hence find the perpendicular distance from R to PQ.",
+      "question_number": 17,
+      "question_part": "17",
+      "page_start": 15,
+      "page_end": 15,
+      "category": "Coordinate geometry",
+      "score": 1.75,
+      "marks": 2
+    },
+    {
+      "question": "In the diagram, points A, B and C lies on a straight line. BC = 12 cm, DC = 5 cm and angle BCD = 90o. Find the value of cos \uf0d0ABD.",
+      "question_number": 18,
+      "question_part": "18",
+      "page_start": 16,
+      "page_end": 16,
+      "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
+      "score": 1.75,
+      "marks": 2
+    },
+    {
+      "question": "Write as a single fraction in its simplest form $\\frac{2}{\\frac{12}{9} - \\frac{1}{3}}$.",
+      "question_number": 19,
+      "question_part": "19",
+      "page_start": 16,
+      "page_end": 16,
+      "category": "Numbers and their operations",
+      "score": 1.75,
+      "marks": 3
+    },
+    {
+      "question": "A, D, B and C lie on a circle, centre O. AP is a tangent to the circle at A and BP is a tangent to the circle at B. Angle AOB = 142o and angle DAP = 42o. (a) Find the value of (i) angle ACB, (ii) angle ADB, (b) Is OB parallel to AD? Explain.",
+      "question_number": 20,
+      "question_part": "20",
+      "page_start": 17,
+      "page_end": 17,
+      "category": "Properties of circles",
+      "score": 1.75,
+      "marks": 1
+    },
+    {
+      "question": "The admission tickets to the Singapore Zoo are $50 for an adult, $36 for a child and $20 for a senior citizen. On a particular Tuesday, there were 212 adults, 251 children and 15 senior citizens who visited the Singapore Zoo and on a particular Wednesday, there were 231 adults, 266 children and 12 senior citizens who visited the Singapore Zoo. The number of visitors on the particular Tuesday and Wednesday can be represented by the matrix V = $\\begin{pmatrix} 212 & 251 & 15 \\ 231 & 266 & 12 \\ \\end{pmatrix}$. (i) Write a 31\uf0b4  matrix, P, to represent the price of the admission tickets. (ii) Find the matrix T = VP. (iii) Explain what does each of the elements represents. (iv) Find the total amount collected from the sales of the tickets for the 2 days.",
+      "question_number": 21,
+      "question_part": "21",
+      "page_start": 18,
+      "page_end": 18,
+      "category": "Matrices",
+      "score": 1.75,
+      "marks": 1
+    },
+    {
+      "question": "Rearrange this equation to make x the subject. $\\frac{5}{x} = a - b$",
+      "question_number": 22,
+      "question_part": "22",
+      "page_start": 19,
+      "page_end": 19,
+      "category": "Algebraic expressions and formulae",
+      "score": 1.75,
+      "marks": 3
+    },
+    {
+      "question": "Given that $2^{3x} = 6^8$, find the value of x.",
+      "question_number": 23,
+      "question_part": "23",
+      "page_start": 19,
+      "page_end": 19,
+      "category": "Algebraic expressions and formulae",
+      "score": 1.75,
+      "marks": 3
+    },
+    {
+      "question": "The angle of elevation of the base of a lighthouse, L, from two fishing boat P and Q are 20o and 35o respectively. Given that the fishing boat P is 250 m from the lighthouse, find the distance between the two fishing boats.",
+      "question_number": 24,
+      "question_part": "24",
+      "page_start": 20,
+      "page_end": 20,
+      "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
+      "score": 1.75,
+      "marks": 3
+    }
+  ]
+}

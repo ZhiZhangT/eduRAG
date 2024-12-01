@@ -1,0 +1,302 @@
+{
+  "meta_info": {
+    "subject": "additional_mathematics",
+    "school": "CEDAR GIRLS\u2019 SECONDARY SCHOOL",
+    "level": "o_level",
+    "year": "2024",
+    "exam_type": "preliminary_exam",
+    "paper": "1"
+  },
+  "questions": [
+    {
+      "question": "Two cylinders are such that the ratio of their heights is 7 : 1. The height of the smaller cylinder is \\( \\frac{2(7^2 - 1)}{27} \\) cm. Without using a calculator, find the height of the larger cylinder, expressing your answer in the form \\( a + b\\sqrt{7} \\) cm, where \\( a \\) and \\( b \\) are integers.",
+      "question_number": 1,
+      "question_part": "1",
+      "page_start": 3,
+      "page_end": 3,
+      "category": "Surds",
+      "marks": 4,
+      "difficulty_level": "difficult"
+    },
+    {
+      "question": "The profit, \\( y \\) of a company can be modelled by the equation \\( y = a(x - h)^2 + k \\), where \\( x \\) is the number of goods sold and \\( a, h, \\) and \\( k \\) are constants. The company obtained the maximum profit of \\$24,500 when 800 goods were sold. The company incurred a loss of \\$7,500 when no goods were sold. \n\n(a) State the value of \\( h \\) and \\( k \\). \n\n(b) Using the values of \\( h \\) and \\( k \\) found in part (a), find the value of \\( a \\). \n\n(c) Find the range of the number of goods the company needed to sell to earn a profit.",
+      "question_number": 2,
+      "question_part": "2",
+      "page_start": 4,
+      "page_end": 4,
+      "category": "Quadratic Functions, Equations and Inequalities",
+      "marks": 2,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "Solve the equation \\( 3^{3p} + 27 = 12 \\log 1 + \\log (8p + 1) + \\log 3 \\).",
+      "question_number": 3,
+      "question_part": "3",
+      "page_start": 5,
+      "page_end": 5,
+      "category": "Exponential and logarithmic functions",
+      "marks": 5,
+      "difficulty_level": "difficult"
+    },
+    {
+      "question": "Solve the equation \\( 12x + 15 = 5x - 30 \\).",
+      "question_number": 4,
+      "question_part": "4",
+      "page_start": 6,
+      "page_end": 6,
+      "category": "Linear law",
+      "marks": 5,
+      "difficulty_level": "difficult"
+    },
+    {
+      "question": "Given that \\( y = 3x^2 - 4x - 10 + px \\) is decreasing for \\( -3 < x < q \\), find the value of the constants \\( p \\) and \\( q \\).",
+      "question_number": 5,
+      "question_part": "5",
+      "page_start": 7,
+      "page_end": 7,
+      "category": "Gradients, derivatives and differentiation techniques",
+      "marks": 5,
+      "difficulty_level": "difficult"
+    },
+    {
+      "question": "The graph \\( y = a + b \\cos(cx) \\) is defined for \\( 0 \\leq x \\leq 2\\pi \\), where \\( a, b, \\) and \\( c \\) are constants. The graph has a period of \\( \\frac{4\\pi}{3} \\) and a minimum value of 1 when \\( x = \\frac{4\\pi}{3} \\). The graph also passes through the point \\( \\left( \\frac{\\pi}{3}, 3 \\right) \\).",
+      "question_number": 6,
+      "question_part": "6",
+      "page_start": 8,
+      "page_end": 8,
+      "category": "Trigonometric functions and equations",
+      "marks": 3,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "(a) Show that \\( a = 3 \\), \\( b = -2 \\), and \\( c = \\frac{3}{2} \\).",
+      "question_number": 6,
+      "question_part": "6a",
+      "page_start": 8,
+      "page_end": 8,
+      "category": "Trigonometric functions and equations",
+      "marks": 2,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "(b) Sketch the graph of \\( y = a + b \\cos(cx) \\) for \\( 0 \\leq x \\leq 2\\pi \\).",
+      "question_number": 6,
+      "question_part": "6b",
+      "page_start": 8,
+      "page_end": 8,
+      "category": "Trigonometric functions and equations",
+      "marks": 1,
+      "difficulty_level": "easy"
+    },
+    {
+      "question": "(c) Given that there are exactly 3 solutions for the equation \\( b \\cos(cx) = k - a \\), for \\( 0 \\leq x \\leq 2\\pi \\), state the range of values of the constant \\( k \\).",
+      "question_number": 6,
+      "question_part": "6c",
+      "page_start": 8,
+      "page_end": 8,
+      "category": "Trigonometric functions and equations",
+      "marks": 1,
+      "difficulty_level": "easy"
+    },
+    {
+      "question": "The graph of \\( \\frac{dy}{dx} \\) of a function \\( y = f(x) \\) is shown in the diagram, passing through the x-axis at \\((-2,0), (0,0)\\), and \\((2,0)\\).",
+      "question_number": 7,
+      "question_part": "7",
+      "page_start": 9,
+      "page_end": 9,
+      "category": "Applications of differentiation",
+      "marks": 1,
+      "difficulty_level": "easy"
+    },
+    {
+      "question": "(a) State the number of stationary points of the graph of \\( y = f(x) \\).",
+      "question_number": 7,
+      "question_part": "7a",
+      "page_start": 9,
+      "page_end": 9,
+      "category": "Applications of differentiation",
+      "marks": 2,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "(b) State the x-coordinate of the minimum point of \\( y = f(x) \\) and explain why it is the minimum point.",
+      "question_number": 7,
+      "question_part": "7b",
+      "page_start": 9,
+      "page_end": 9,
+      "category": "Applications of differentiation",
+      "marks": 1,
+      "difficulty_level": "easy"
+    },
+    {
+      "question": "The curve \\( y = ax^3 + b(2x - 1) \\), where \\( a \\) and \\( b \\) are constants, has a stationary point at \\( \\left( \\frac{11}{3}, 22 \\right) \\).",
+      "question_number": 8,
+      "question_part": "8",
+      "page_start": 10,
+      "page_end": 10,
+      "category": "Gradients, derivatives and differentiation techniques",
+      "marks": 4,
+      "difficulty_level": "difficult"
+    },
+    {
+      "question": "(a) Find the value of \\( a \\) and \\( b \\).",
+      "question_number": 8,
+      "question_part": "8a",
+      "page_start": 10,
+      "page_end": 10,
+      "category": "Gradients, derivatives and differentiation techniques",
+      "marks": 1,
+      "difficulty_level": "easy"
+    },
+    {
+      "question": "Find the x-coordinate of the other stationary point.",
+      "question_number": "8",
+      "question_part": "8b",
+      "page_start": 11,
+      "page_end": 11,
+      "category": "Gradients, derivatives and differentiation techniques",
+      "marks": 3,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "Find \\( \\frac{d^2y}{dx^2} \\).",
+      "question_number": "8",
+      "question_part": "8c",
+      "page_start": 11,
+      "page_end": 11,
+      "category": "Gradients, derivatives and differentiation techniques",
+      "marks": 1,
+      "difficulty_level": "easy"
+    },
+    {
+      "question": "Hence, determine the nature of the stationary point at \\( \\left( \\frac{11}{3}, 22 \\right) \\).",
+      "question_number": "8",
+      "question_part": "8d",
+      "page_start": 11,
+      "page_end": 11,
+      "category": "Applications of differentiation",
+      "marks": 2,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "It is given that \\( y = \\ln \\left( \\frac{2x}{5} \\right) \\), where \\( 0 < x < 5 \\). If y is decreasing at a rate of 10 units/s, find the rate of change of x when \\( y = \\ln 8 \\).",
+      "question_number": "9",
+      "question_part": "9a",
+      "page_start": 12,
+      "page_end": 12,
+      "category": "Differentiation of trigonometric, logarithmic, and exponential functions and their applications",
+      "marks": 5,
+      "difficulty_level": "difficult"
+    },
+    {
+      "question": "The equation of the normal to the curve at point A is \\( y = 8x + 8\\ln 2 - 25 \\). Find the x-coordinate of point A.",
+      "question_number": "9",
+      "question_part": "9b",
+      "page_start": 13,
+      "page_end": 13,
+      "category": "Coordinate geometry",
+      "marks": 4,
+      "difficulty_level": "difficult"
+    },
+    {
+      "question": "The diagram shows a running track ABCD. D is a point on the straight line EC. It is given that \\( AB = 280 \\text{ m} \\), \\( AD = 150 \\text{ m} \\), angle \\( BCD = 90^\\circ \\), angle \\( DAB = 90^\\circ \\), and angle \\( ADE = \\theta \\), where \\( 0^\\circ < \\theta < 90^\\circ \\). Show that \\( L \\text{ m} \\), the length of the running track, is given by \\( L = 130\\cos\\theta + 430\\sin\\theta + p \\), where p is a constant.",
+      "question_number": "10",
+      "question_part": "10a",
+      "page_start": 14,
+      "page_end": 14,
+      "category": "Trigonometric identities and formulae",
+      "marks": 3,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "Express L in the form \\( R\\cos(\\theta - \\alpha) \\), where \\( R > 0 \\) and \\( \\alpha \\) is an acute angle.",
+      "question_number": "10",
+      "question_part": "10b",
+      "page_start": 14,
+      "page_end": 14,
+      "category": "Trigonometric identities and formulae",
+      "marks": 3,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "Xin Ting ran five complete laps around the track. She claims that she ran a total of 5 km. Explain why she might be wrong.",
+      "question_number": "10",
+      "question_part": "10c",
+      "page_start": 15,
+      "page_end": 15,
+      "category": "Applications of integration",
+      "marks": 2,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "Given that the running track is 700 m long, find the value of \\( \\theta \\).",
+      "question_number": "10",
+      "question_part": "10d",
+      "page_start": 15,
+      "page_end": 15,
+      "category": "Trigonometric functions and equations",
+      "marks": 3,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "After n years, the population, P, in thousands, of a certain species of foxes can be modeled by an equation $P = Ae^{kn}$, where A and k are constants. The table below shows the values of n and P. \\[ \\begin{array}{c|ccccc} n & 5 & 10 & 15 & 20 & 25 \\\\ \\hline P & 6.23 & 4.85 & 3.78 & 2.94 & 2.29 \\end{array} \\] (a) On the grid on the next page, plot \\( \\ln P \\) against \\( n \\) and draw a straight line graph. (b) Use your graph to estimate the initial population of the foxes and the value of \\( k \\). (c) If this model for the population remains valid, after how many whole years would the population of the foxes first decrease to 1000?",
+      "question_number": "11",
+      "question_part": "11",
+      "page_start": 16,
+      "page_end": 17,
+      "category": "Exponential and logarithmic functions",
+      "marks": 2,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "(a) Show that \\( \\frac{d}{dx} \\left( x^3 \\ln 2x \\right) = x^2 \\left( 3 \\ln 2x - 2 \\right) \\).",
+      "question_number": "12",
+      "question_part": "12a",
+      "page_start": 18,
+      "page_end": 18,
+      "category": "Differentiation of trigonometric, logarithmic, and exponential functions and their applications",
+      "marks": 3,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "(b) Integrate \\( x^3 \\ln 2x \\) with respect to \\( x \\).",
+      "question_number": "12",
+      "question_part": "12b",
+      "page_start": 19,
+      "page_end": 19,
+      "category": "Integration",
+      "marks": 3,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "(c) Given that the curve \\( y = f(x) \\) passes through the point \\( \\left( \\frac{1}{2}, 1 \\right) \\) and is such that \\( f'(x) = x^3 \\ln 2x \\), find \\( f(x) \\).",
+      "question_number": "12",
+      "question_part": "12c",
+      "page_start": 19,
+      "page_end": 19,
+      "category": "Differentiation of trigonometric, logarithmic, and exponential functions and their applications",
+      "marks": 3,
+      "difficulty_level": "medium"
+    },
+    {
+      "question": "The diagram shows a circle, centre O. Points A, B, D, and E lie on the circle. The line AD is a diameter of the circle and DCP is the tangent of the circle at D. The lines EB and AD intersect at point Q. The chord AB is produced to meet the tangent DCP at P. It is given that angle CBP = angle DEB. (a) Show that angle BCD = 90\u00b0.",
+      "question_number": "13",
+      "question_part": "13a",
+      "page_start": 20,
+      "page_end": 20,
+      "category": "Proofs in plane geometry",
+      "marks": 4,
+      "difficulty_level": "difficult"
+    },
+    {
+      "question": "Show that \\( 22DP \\times BP = DA + BC \\).",
+      "question_number": "1",
+      "question_part": "1b",
+      "page_start": 21,
+      "page_end": 21,
+      "category": "Proofs in plane geometry",
+      "marks": 4,
+      "difficulty_level": "difficult"
+    }
+  ]
+}

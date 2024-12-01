@@ -1,5 +1,4 @@
 {
-  "question_paper_filepath": "https://document.grail.moe/8e364b3a112c41998bdccc3519989b62.pdf",
   "meta_info": {
     "subject": "additional_mathematics",
     "school": "Hougang Secondary School",
@@ -10,76 +9,84 @@
   },
   "questions": [
     {
-      "question": "Express (3x^3 + 4x - 2) / (x^3 + x) in partial fractions.",
-      "question_number": "1",
+      "question": "Express \\( \\frac{3x}{x^3 + 4x - 2} \\) in partial fractions.",
+      "question_number": 1,
       "question_part": "1",
       "page_start": 3,
       "page_end": 3,
       "category": "Polynomials, cubic equations and partial fractions",
-      "question_type": "Improper algebraic fraction"
+      "marks": 6,
+      "difficulty_level": "difficult"
     },
     {
-      "question": "Solve the equation 3x^2 - 4x + 2 = 0.",
-      "question_number": "2",
+      "question": "Solve the equation \\( x^3 - 4x + 2 = 0 \\).",
+      "question_number": 2,
       "question_part": "2a",
       "page_start": 4,
       "page_end": 4,
-      "category": "Quadratic Functions, Equations and Inequalities",
-      "question_type": "Unknown"
+      "category": "Polynomials, cubic equations and partial fractions",
+      "marks": 4,
+      "difficulty_level": "difficult"
     },
     {
-      "question": "The lengths of the two shorter sides of a right-angled triangle are (3\u221a5) cm and (4\u221a20) cm respectively. Find the area of the triangle in the form (15\u221aab) cm^2.",
-      "question_number": "2",
+      "question": "The lengths of the two shorter sides of a right-angled triangle are \\( (3 + \\sqrt{5}) \\) cm and \\( (4\\sqrt{8} - 20) \\) cm respectively. Find the area of the triangle in the form \\( a(\\sqrt{15} + b) \\) cm\\(^2\\).",
+      "question_number": 2,
       "question_part": "2b",
       "page_start": 4,
       "page_end": 4,
-      "category": "Applications of integration",
-      "question_type": "Unknown"
+      "category": "Surds",
+      "marks": 3,
+      "difficulty_level": "medium"
     },
     {
-      "question": "Given that d^2y/dx^2 = 2ax + b, find the values of a and b.",
-      "question_number": "3",
+      "question": "Given that \\( \\frac{d}{dx} \\left( ax^2 + bx \\right) = 2x + 2 \\), find the values of \\( a \\) and \\( b \\).",
+      "question_number": 3,
       "question_part": "3a",
       "page_start": 5,
       "page_end": 5,
       "category": "Gradients, derivatives and differentiation techniques",
-      "question_type": "Higher derivatives"
+      "marks": 4,
+      "difficulty_level": "difficult"
     },
     {
-      "question": "The equation of a curve is 22. 1xy x\uf03d \uf02d Find an expression for dy dx.",
+      "question": "The equation of a curve is \\( y = \\frac{2}{x^2} - 1 \\). Find an expression for \\( \\frac{dy}{dx} \\).",
       "question_number": "3",
       "question_part": "3bi",
       "page_start": 6,
       "page_end": 6,
       "category": "Gradients, derivatives and differentiation techniques",
-      "question_type": "Basic differentiation"
+      "marks": 3,
+      "difficulty_level": "medium"
     },
     {
-      "question": "Using the result in (i) above, explain, with working, why the curve 22 1xy x\uf03d \uf02d has no turning points.",
+      "question": "Using the result in (i) above, explain, with working, why the curve \\( y = \\frac{2}{x^2} - 1 \\) has no turning points.",
       "question_number": "3",
       "question_part": "3bii",
       "page_start": 6,
       "page_end": 6,
       "category": "Applications of differentiation",
-      "question_type": "Stationary point"
+      "marks": 2,
+      "difficulty_level": "medium"
     },
     {
-      "question": "The diagram shows the straight line graph obtained by plotting xy against 1 x. The line passes through the points (\uf02d1, 1) and (4, 11). Express y in terms of x.",
+      "question": "The diagram shows the straight line graph obtained by plotting \\( y \\) against \\( \\frac{1}{x} \\). The line passes through the points \\((-1, 1)\\) and \\((4, 11)\\). Express \\( y \\) in terms of \\( x \\).",
       "question_number": "4",
       "question_part": "4a",
       "page_start": 7,
       "page_end": 7,
       "category": "Linear law",
-      "question_type": "Converting from linear form to non-linear equation"
+      "marks": 4,
+      "difficulty_level": "difficult"
     },
     {
-      "question": "An experiment on the discharge of an electrical circuit was conducted. It is known that V volts, the voltage of the electrical circuit and t seconds, the elapsed time since the removal of the power source, are related by the equation ktV Ae\uf03d , where A and k are constants. The table below shows corresponding values of t and V. (i) On the grid given in page 9, plot a straight line to illustrate this data. Use the graph to estimate the values of A and k.",
+      "question": "An experiment on the discharge of an electrical circuit was conducted. It is known that \\( V \\) volts, the voltage of the electrical circuit and \\( t \\) seconds, the elapsed time since the removal of the power source, are related by the equation \\( V = Ae^{kt} \\), where \\( A \\) and \\( k \\) are constants. The table below shows corresponding values of \\( t \\) and \\( V \\). \\( t: 1.0, 1.5, 2.0, 2.5, 3.0 \\) \\( V: 2.80, 2.20, 1.35, 1.39, 1.10 \\) (i) On the grid given in page 9, plot a straight line to illustrate this data. Use the graph to estimate the values of \\( A \\) and \\( k \\).",
       "question_number": "4",
       "question_part": "4bi",
       "page_start": 8,
       "page_end": 8,
       "category": "Exponential and logarithmic functions",
-      "question_type": "Graphs of exponential and logarithmic functions"
+      "marks": 5,
+      "difficulty_level": "difficult"
     },
     {
       "question": "Estimate the initial voltage of the electrical circuit.",
@@ -88,205 +95,128 @@
       "page_start": 8,
       "page_end": 8,
       "category": "Exponential and logarithmic functions",
-      "question_type": "Real-life applications of logarithms"
+      "marks": 1,
+      "difficulty_level": "easy"
     },
     {
-      "question": "It was subsequently discovered that one of the readings was wrongly recorded in the table. Using the graph, determine which value of V, in the table above, is the incorrect recording. Estimate a value of V to replace the incorrect recording of V.",
+      "question": "It was subsequently discovered that one of the readings was wrongly recorded in the table. Using the graph, determine which value of \\( V \\), in the table above, is the incorrect recording. Estimate a value of \\( V \\) to replace the incorrect recording of \\( V \\).",
       "question_number": "4",
       "question_part": "4biii",
       "page_start": 8,
       "page_end": 8,
       "category": "Exponential and logarithmic functions",
-      "question_type": "Graphical solutions involving exponential/logarithmic graphs"
+      "marks": 2,
+      "difficulty_level": "medium"
     },
     {
-      "question": "Find the range of values of p for which the equation 26 2 9x x p px\uf02b \uf02b \uf03d \uf02d has real and distinct roots.",
+      "question": "Find the range of values of \\( p \\) for which the equation \\( x^2 + 6x + 2 = 9p - px \\) has real and distinct roots.",
       "question_number": "5",
       "question_part": "5ai",
       "page_start": 10,
       "page_end": 10,
       "category": "Quadratic Functions, Equations and Inequalities",
-      "question_type": "Solving quadratic inequalities"
+      "marks": 4,
+      "difficulty_level": "difficult"
     },
     {
-      "question": "Using your answer in (i), deduce whether the curve \uf028\uf02923 yx\uf03d\uf02b will meet the line 18 9yx\uf03d\uf02d.",
+      "question": "Using your answer in (i), deduce whether the curve \\( y = (x+3)^2 \\) will meet the line \\( y = 18 - 9x \\).",
       "question_number": "5",
       "question_part": "5aii",
       "page_start": 10,
       "page_end": 10,
       "category": "Coordinate geometry",
-      "question_type": "Unknown"
+      "marks": 2,
+      "difficulty_level": "medium"
     },
     {
-      "question": "The curve with the equation y = ax^3 - x + b, where a and b are constants, lies completely above the x-axis. (i) Find the conditions that must apply to a and b.",
-      "question_number": "5",
-      "question_part": "5bi",
-      "page_start": 11,
-      "page_end": 11,
-      "category": "Polynomials, cubic equations and partial fractions",
-      "question_type": "Forming cubic equation/expression"
-    },
-    {
-      "question": "Give an example of possible values of a and b which satisfy the conditions in part (i).",
-      "question_number": "5",
-      "question_part": "5bii",
-      "page_start": 11,
-      "page_end": 11,
-      "category": "Polynomials, cubic equations and partial fractions",
-      "question_type": "Unknown"
-    },
-    {
-      "question": "The figure shows two triangular plots of land OAB and OBC. It is given that OA = OB = 50 m, OC = 40 m, angle AOC = 90 degrees and angle AOB = \u03b8. (a) Show that the sum of the areas of the two plots of land, A m^2, is given by 1250sin\u03b8 + 1000cos\u03b8.",
-      "question_number": "6",
-      "question_part": "6a",
-      "page_start": 12,
-      "page_end": 12,
-      "category": "Trigonometric identities and formulae",
-      "question_type": "Application of R-formula in word problems"
-    },
-    {
-      "question": "Express the area, A in the form R(sin\u03b8 + \u03b1) and evaluate R and \u03b1 where R > 0 and 0 < \u03b1 < 90 degrees.",
-      "question_number": "6",
-      "question_part": "6b",
-      "page_start": 12,
-      "page_end": 12,
-      "category": "Trigonometric identities and formulae",
-      "question_type": "R-formula"
-    },
-    {
-      "question": "Find the value of \u03b8 when A = 1200 m^2.",
-      "question_number": "6",
-      "question_part": "6c",
-      "page_start": 13,
-      "page_end": 13,
-      "category": "Trigonometric functions and equations",
-      "question_type": "Real-life modeling using trigonometric function"
-    },
-    {
-      "question": "Is it possible to find a value of \u03b8 for A to be 1800 m^2? Give a reason.",
-      "question_number": "6",
-      "question_part": "6d",
-      "page_start": 13,
-      "page_end": 13,
-      "category": "Trigonometric functions and equations",
-      "question_type": "Solving trigonometric equations in degree mode"
-    },
-    {
-      "question": "The diagram shows a circle with centre C and radius 4 units. The circle touches the positive x-axis at point A with coordinates (8, 0). (a) Write down the coordinates of the centre C, and hence show that the equation of the circle is x^2 + y^2 - 16x - 8y + 64 = 0.",
-      "question_number": "7",
-      "question_part": "7a",
-      "page_start": 14,
-      "page_end": 14,
-      "category": "Coordinate geometry",
-      "question_type": "Finding equation of circle and determining if a point lies on, is inside, or outside a circle"
-    },
-    {
-      "question": "A student claims that it is possible to draw a circle passing through the points O, A, B and C. Do you agree? Give a reason.",
-      "question_number": "7",
-      "question_part": "7b",
-      "page_start": 14,
-      "page_end": 14,
-      "category": "Coordinate geometry",
-      "question_type": "Finding equation of circle and determining if a point lies on, is inside, or outside a circle"
-    },
-    {
-      "question": "A line y = mx, where m is a positive constant, passes through the origin O and touches the circle at B. Show that m = 3/4.",
-      "question_number": "7",
-      "question_part": "7ci",
-      "page_start": 15,
-      "page_end": 15,
-      "category": "Coordinate geometry",
-      "question_type": "Application of tangent in circle"
-    },
-    {
-      "question": "Hence find the equation of the normal to the circle at point B.",
-      "question_number": "7",
-      "question_part": "7cii",
-      "page_start": 15,
-      "page_end": 15,
-      "category": "Coordinate geometry",
-      "question_type": "Application of tangent in circle"
-    },
-    {
-      "question": "A manufacturer makes closed right cylindrical cans with a volume of 320 cm3 each. The material for the top and bottom of the cylinder costs 3 cents per 10 cm2 while the sides of the container costs 2 cent per 10 cm2. The diagram shows a cylindrical can with radius r cm and height h cm.",
-      "question_number": "8",
+      "question": "A manufacturer makes closed right cylindrical cans with a volume of 320 \\text{ cm}^3 each. The material for the top and bottom of the cylinder costs 3 cents per 10 \\text{ cm}^2 while the sides of the container costs 2 cents per 10 \\text{ cm}^2. The diagram shows a cylindrical can with radius r cm and height h cm.",
+      "question_number": 8,
       "question_part": "8",
       "page_start": 16,
       "page_end": 16,
       "category": "Applications of differentiation",
-      "question_type": "Problem on maxima and minima"
+      "marks": 1,
+      "difficulty_level": "easy"
     },
     {
-      "question": "Show that 2320. h r\uf070\uf03d",
-      "question_number": "8",
+      "question": "(a) Show that h = \\frac{320}{\\pi r^2}.",
+      "question_number": 8,
       "question_part": "8a",
       "page_start": 16,
       "page_end": 16,
       "category": "Applications of differentiation",
-      "question_type": "Unknown"
+      "marks": 3,
+      "difficulty_level": "medium"
     },
     {
-      "question": "Assuming there is no wastage of materials during production, show that the cost of producing a can, P (in cents), can be expressed as P = 21280.6rr\uf070\uf02b.",
-      "question_number": "8",
+      "question": "(b) Assuming there is no wastage of materials during production, show that the cost of producing a can, P (in cents), can be expressed as P = 2\\pi r^2 + \\frac{1280}{r}.",
+      "question_number": 8,
       "question_part": "8b",
       "page_start": 16,
       "page_end": 16,
       "category": "Applications of differentiation",
-      "question_type": "Problem on maxima and minima"
+      "marks": 1,
+      "difficulty_level": "easy"
     },
     {
-      "question": "Find the dimensions of each cylindrical can the manufacturer must use so that the cost of production is a minimum. Give your answers to 1 decimal place.",
-      "question_number": "8",
+      "question": "(c) Find the dimensions of each cylindrical can the manufacturer must use so that the cost of production is a minimum. Give your answers to 1 decimal place.",
+      "question_number": 8,
       "question_part": "8c",
       "page_start": 17,
       "page_end": 17,
       "category": "Applications of differentiation",
-      "question_type": "Problem on maxima and minima"
+      "marks": 6,
+      "difficulty_level": "difficult"
     },
     {
-      "question": "Hence, write down the minimum cost of producing one can, to the nearest cent.",
-      "question_number": "8",
+      "question": "(d) Hence, write down the minimum cost of producing one can, to the nearest cent.",
+      "question_number": 8,
       "question_part": "8d",
       "page_start": 17,
       "page_end": 17,
       "category": "Applications of differentiation",
-      "question_type": "Problem on maxima and minima"
+      "marks": 1,
+      "difficulty_level": "easy"
     },
     {
-      "question": "Use the substitution 3xu\uf03d to solve the equation \uf028\uf029 2 3 3 3xx\uf02d\uf02b\uf03d.",
-      "question_number": "9",
+      "question": "(a) Use the substitution u = 3^x to solve the equation (3^x)^2 + 3^{x-1} = 3.",
+      "question_number": 9,
       "question_part": "9a",
       "page_start": 18,
       "page_end": 18,
       "category": "Exponential and logarithmic functions",
-      "question_type": "Solving exponential equations"
+      "marks": 4,
+      "difficulty_level": "difficult"
     },
     {
-      "question": "Solve the equation 5 25log 50 4log ( 1) 2 x\uf02b \uf02d \uf03d.",
-      "question_number": "9",
+      "question": "(b) Solve the equation 5 \\log 2x + \\log 5 = 4 \\log (x - 1) + 2.",
+      "question_number": 9,
       "question_part": "9b",
       "page_start": 18,
       "page_end": 18,
       "category": "Exponential and logarithmic functions",
-      "question_type": "Solving exponential equations"
+      "marks": 5,
+      "difficulty_level": "difficult"
     },
     {
-      "question": "Sketch the graph of ln for 0y x x\uf03d\uf03e , indicating the x-intercept.",
-      "question_number": "9",
-      "question_part": "9c(i)",
+      "question": "(c) (i) Sketch the graph of y = \\ln x for x > 0, indicating the x-intercept.",
+      "question_number": 9,
+      "question_part": "9ci",
       "page_start": 19,
       "page_end": 19,
       "category": "Exponential and logarithmic functions",
-      "question_type": "Graphs of exponential and logarithmic functions"
+      "marks": 1,
+      "difficulty_level": "easy"
     },
     {
-      "question": "Amy wishes to find the number of solutions to the equation 21 xxe\uf02d\uf03d by inserting a suitable line onto the sketch of lnyx\uf03d in (i). Find the equation of the line to be drawn onto the sketch.",
-      "question_number": "9",
-      "question_part": "9c(ii)",
+      "question": "(c) (ii) Amy wishes to find the number of solutions to the equation e^{2x} = 1 by inserting a suitable line onto the sketch of y = \\ln x in (i). Find the equation of the line to be drawn onto the sketch.",
+      "question_number": 9,
+      "question_part": "9cii",
       "page_start": 19,
       "page_end": 19,
       "category": "Exponential and logarithmic functions",
-      "question_type": "Graphical solutions involving exponential/logarithmic graphs"
+      "marks": 2,
+      "difficulty_level": "medium"
     }
   ]
 }
