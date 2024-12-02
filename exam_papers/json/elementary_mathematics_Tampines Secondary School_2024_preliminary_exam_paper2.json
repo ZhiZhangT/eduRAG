@@ -18,27 +18,30 @@
       "page_end": 3,
       "category": "Algebraic expressions and formulae",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Multiplying and dividing algebraic fractions"
     },
     {
-      "question": "Given \\( a = 2bv + k \\), find \\( x \\) when \\( a = 2 \\), \\( b = 3 \\), \\( v = -4 \\), and \\( k = 5 \\).",
+      "question": "Given \\( a = 2bv + xk \\), find \\( x \\) when \\( a = 2 \\), \\( b = 3 \\), \\( v = -4 \\), and \\( k = 5 \\).",
       "question_number": 1,
       "question_part": "1bi",
       "page_start": 3,
       "page_end": 3,
       "category": "Algebraic expressions and formulae",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Evaluating an algebraic formula"
     },
     {
-      "question": "Rearrange the formula \\( a = 2bv + k \\) to make \\( v \\) the subject.",
+      "question": "Rearrange the formula \\( a = 2bv + xk \\) to make \\( v \\) the subject.",
       "question_number": 1,
       "question_part": "1bii",
       "page_start": 3,
       "page_end": 3,
       "category": "Algebraic expressions and formulae",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Changing the subject of a formula"
     },
     {
       "question": "Solve the simultaneous equations: \\( 4x + 7y = 23 \\) and \\( 6x - 2y = 3 \\).",
@@ -48,17 +51,19 @@
       "page_end": 4,
       "category": "Equations and inequalities",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving simultaneous equations using the method of elimination"
     },
     {
-      "question": "Write as a single fraction in its simplest form: \\( \\frac{2}{x(x - 3)} - \\frac{3}{y(xy - x)} \\).",
+      "question": "Write as a single fraction in its simplest form: \\( \\frac{2x - 3y}{(x - y)(xy)} + \\frac{3}{xy} \\).",
       "question_number": 1,
       "question_part": "1d",
       "page_start": 4,
       "page_end": 4,
       "category": "Algebraic expressions and formulae",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Adding and subtracting algebraic fractions"
     },
     {
       "question": "Faiz invested $25,000 in an account which paid simple interest. At the end of 9 months, the value of the investment was $26,500. Calculate the interest rate per annum of the investment.",
@@ -68,7 +73,8 @@
       "page_end": 5,
       "category": "Percentage",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applying percentage in real-world contexts"
     },
     {
       "question": "Jane exchanged 500 Singapore dollars ($) into Thai baht (THB) when the exchange rate was $1 = 26.77 THB. She travelled to Thailand and spent 10,600 THB. On her return to Singapore, she exchanged the remaining Thai baht into dollars with the exchange rate $1 = 26.88 THB. Calculate the amount she received in dollars. Correct your answer to the nearest cent.",
@@ -78,7 +84,8 @@
       "page_end": 5,
       "category": "Rate and speed",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applying rates in real-world contexts"
     },
     {
       "question": "The cash price of a furniture set was $2700. Kim bought the set under a hire purchase scheme: 15\\% deposit and monthly instalments of $68 for 36 months. Calculate the amount of interest paid as a percentage of the cash price.",
@@ -88,7 +95,8 @@
       "page_end": 6,
       "category": "Percentage",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applying percentage in real-world contexts"
     },
     {
       "question": "By selling an item at 25\\% discount off the marked price, a shopkeeper still makes 10\\% profit on his cost. If the cost price is $180, calculate the marked price of the item.",
@@ -98,7 +106,8 @@
       "page_end": 6,
       "category": "Percentage",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the original value using reverse percentages"
     },
     {
       "question": "The diagram shows a rectangular cardboard ABCD with AB = (3x + 1) cm and AD = (x + 13) cm. A square of side 3 cm is cut from each corner. The remaining cardboard is then folded along the dotted lines to form an open rectangular box with base PQRS and height 3 cm. The volume of the tray is 930 cm^3. (a) Form an equation, in terms of x, to represent this information and show that it simplifies to 3x^2 + 16x - 345 = 0.",
@@ -108,7 +117,8 @@
       "page_end": 7,
       "category": "Algebraic expressions and formulae",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Simplifying an algebraic expression"
     },
     {
       "question": "Solve the equation 3x^2 + 16x - 345 = 0. Give your solutions correct to two decimal places.",
@@ -118,7 +128,8 @@
       "page_end": 8,
       "category": "Equations and inequalities",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving quadratic equations by quadratic formula"
     },
     {
       "question": "Find the length of the diagonal SQ.",
@@ -128,7 +139,8 @@
       "page_end": 8,
       "category": "Mensuration",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
       "question": "A is the point (3, 7) and B is the point (13, -8). (i) Find \\overrightarrow{AB}.",
@@ -138,7 +150,8 @@
       "page_end": 9,
       "category": "Vectors in 2 dimensions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Relating coordinates to position vectors"
     },
     {
       "question": "Given that 2\\overrightarrow{BA} = \\overrightarrow{AP}, find the coordinates of P.",
@@ -148,7 +161,8 @@
       "page_end": 9,
       "category": "Vectors in 2 dimensions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Relating coordinates to position vectors"
     },
     {
       "question": "In triangle OCB, A is the midpoint of OC and P is the point on CB such that \\frac{3}{4}CP = CB. The line OB is produced to D such that OB = 2BD. 2\\overrightarrow{OA} = \\mathbf{a} and 2\\overrightarrow{OB} = \\mathbf{b}. (i) Express \\overrightarrow{CP} in terms of \\mathbf{a} and \\mathbf{b}, as simply as possible.",
@@ -158,7 +172,8 @@
       "page_end": 10,
       "category": "Vectors in 2 dimensions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving a geometric problem involving vectors"
     },
     {
       "question": "Express \\overrightarrow{AP} in terms of \\mathbf{a} and \\mathbf{b}, as simply as possible.",
@@ -168,7 +183,8 @@
       "page_end": 10,
       "category": "Vectors in 2 dimensions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Sum or difference of 2 vectors"
     },
     {
       "question": "Show that A, P and D lie on the same straight line.",
@@ -178,27 +194,41 @@
       "page_end": 11,
       "category": "Coordinate geometry",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the equation of a straight line"
     },
     {
-      "question": "Find \\( \\text{Area of } \\triangle OCB \\text{ and } \\triangle CPD \\).",
+      "question": "Find \\( \\text{Area of } \\triangle OCB \\) and \\( \\text{Area of } \\triangle CPD \\).",
       "question_number": 4,
       "question_part": "4iv",
       "page_start": 11,
       "page_end": 11,
       "category": "Mensuration",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
-      "question": "A, B, C and D are four points on level ground, with B due east of A. AC = 43 \\text{ m}, CD = 32 \\text{ m}, AD = 67 \\text{ m}, \\angle CAB = 52^\\circ \\text{ and } \\angle ABC = 33^\\circ. \\newline (a) Calculate the bearing of B from C.",
+      "question": "A, B, C and D are four points on level ground, with B due east of A. AC = 43 \\text{ m}, CD = 32 \\text{ m}, AD = 67 \\text{ m}, \\angle CAB = 52^\\circ \\text{ and } \\angle ABC = 33^\\circ.",
+      "question_number": 5,
+      "question_part": "5",
+      "page_start": 12,
+      "page_end": 12,
+      "category": "Coordinate geometry",
+      "marks": 2,
+      "difficulty_level": "medium",
+      "question_type": "Finding the length of a line segment"
+    },
+    {
+      "question": "Calculate the bearing of B from C.",
       "question_number": 5,
       "question_part": "5a",
       "page_start": 12,
       "page_end": 12,
-      "category": "Angles, triangles and polygons",
+      "category": "Coordinate geometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
       "question": "Calculate AB.",
@@ -206,9 +236,10 @@
       "question_part": "5b",
       "page_start": 12,
       "page_end": 12,
-      "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
-      "marks": 2,
-      "difficulty_level": "medium"
+      "category": "Coordinate geometry",
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Finding the length of a line segment"
     },
     {
       "question": "Calculate \\( \\angle CDA \\).",
@@ -218,7 +249,8 @@
       "page_end": 13,
       "category": "Angles, triangles and polygons",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding unknown angles in a parallelogram"
     },
     {
       "question": "A drone hovers 60 m vertically above D. Find the angle of depression of A from the drone.",
@@ -228,47 +260,63 @@
       "page_end": 13,
       "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the distance, given the angle of depression"
     },
     {
-      "question": "The diagram shows a circle with centre O. TA and TB are tangents to the circle at A and B respectively. AT produced meets OB produced at X. \\newline (a) Show that triangle OAX is similar to triangle TBX. Give a reason for each statement you make.",
+      "question": "The diagram shows a circle with centre O. TA and TB are tangents to the circle at A and B respectively. AT produced meets OB produced at X.",
+      "question_number": 6,
+      "question_part": "6",
+      "page_start": 14,
+      "page_end": 14,
+      "category": "Properties of circles",
+      "marks": 2,
+      "difficulty_level": "medium",
+      "question_type": "Applying the angles properties of circles"
+    },
+    {
+      "question": "Show that triangle OAX is similar to triangle TBX. Give a reason for each statement you make.",
       "question_number": 6,
       "question_part": "6a",
       "page_start": 14,
       "page_end": 14,
-      "category": "Properties of circles",
-      "marks": 2,
-      "difficulty_level": "medium"
+      "category": "Congruence and similarity",
+      "marks": 3,
+      "difficulty_level": "medium",
+      "question_type": "Determining if 2 triangles are similar"
     },
     {
-      "question": "XB = 12 \\text{ cm and } TX = 13 \\text{ cm}. \\newline (i) Find OA.",
+      "question": "XB = 12 \\text{ cm} and TX = 13 \\text{ cm}. Find OA.",
       "question_number": 6,
-      "question_part": "6bi",
+      "question_part": "6b(i)",
       "page_start": 14,
       "page_end": 14,
       "category": "Properties of circles",
-      "marks": 3,
-      "difficulty_level": "medium"
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
       "question": "Calculate, as a fraction in its simplest form, the numerical value of the ratio \\( \\frac{\\text{area of triangle } TBX}{\\text{area of quadrilateral } OATB} \\).",
       "question_number": 6,
-      "question_part": "6bii",
+      "question_part": "6b(ii)",
       "page_start": 15,
       "page_end": 15,
       "category": "Mensuration",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
       "question": "Calculate the reflex angle AOB in radians.",
       "question_number": 6,
-      "question_part": "6biii",
+      "question_part": "6b(iii)",
       "page_start": 15,
       "page_end": 15,
       "category": "Properties of circles",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applying the angles properties of circles"
     },
     {
       "question": "Complete the table of values for \\( y = 16 - 10x - x^2 \\).",
@@ -278,7 +326,8 @@
       "page_end": 16,
       "category": "Functions and graphs",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Sketching the graph of y=ax2+bx+c"
     },
     {
       "question": "On the grid opposite, draw the graph of \\( y = 16 - 10x - x^2 \\) for \\( 1 \\leq x \\leq 9 \\).",
@@ -288,7 +337,8 @@
       "page_end": 16,
       "category": "Functions and graphs",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Sketching the graph of y=ax2+bx+c"
     },
     {
       "question": "By drawing a tangent, find the gradient of the curve at \\( x = 3 \\).",
@@ -298,7 +348,8 @@
       "page_end": 16,
       "category": "Functions and graphs",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Estimating the gradient of a curve"
     },
     {
       "question": "Use your graph to solve \\( 16 - 10x - x^2 = 0 \\).",
@@ -308,7 +359,8 @@
       "page_end": 16,
       "category": "Functions and graphs",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the solutions of an equation graphically"
     },
     {
       "question": "The straight line \\( y = mx - 1 \\) intersects the curve \\( y = 16 - 10x - x^2 \\) at two points. (i) Write down and simplify the equation, in terms of \\( m \\), in the form \\( Ax^2 + Bx + 16 = 0 \\), which is satisfied by the values of \\( x \\) at the points of intersection.",
@@ -318,7 +370,8 @@
       "page_end": 16,
       "category": "Functions and graphs",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the solutions of an equation graphically"
     },
     {
       "question": "(ii) If the values of \\( y \\) at the points of intersection are greater than or equal to zero, find the least value of \\( m \\).",
@@ -328,7 +381,8 @@
       "page_end": 16,
       "category": "Functions and graphs",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the solutions of an equation graphically"
     },
     {
       "question": "Use the curve to find (i) the median mass of the eggs.",
@@ -338,7 +392,8 @@
       "page_end": 18,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Interpreting a cumulative frequency curve"
     },
     {
       "question": "(ii) the interquartile range.",
@@ -348,7 +403,8 @@
       "page_end": 18,
       "category": "Data analysis",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Interpreting a cumulative frequency curve"
     },
     {
       "question": "(iii) the 10th percentile.",
@@ -358,7 +414,8 @@
       "page_end": 18,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Interpreting a cumulative frequency curve"
     },
     {
       "question": "An egg is classified as \u2018Medium\u2019 if its mass is greater than or equal to 50 g but less than 56 g. Two eggs are chosen at random. Calculate the probability that both are \u2018Medium\u2019 eggs.",
@@ -368,7 +425,8 @@
       "page_end": 19,
       "category": "Probability",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the probability involving independent events"
     },
     {
       "question": "The masses, in grams, of a second batch of 300 eggs are recorded and are represented by the box-and-whisker diagram below. (i) Which batch of the eggs has more consistent mass? Justify your answer using appropriate figures.",
@@ -378,7 +436,8 @@
       "page_end": 19,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Reading a box-and-whisker plot"
     },
     {
       "question": "(ii) The right whisker is longer than the left whisker. Explain what this tells us about the distribution of the data set.",
@@ -388,7 +447,8 @@
       "page_end": 19,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Reading a box-and-whisker plot"
     }
   ]
 }

@@ -18,7 +18,8 @@
       "page_end": 3,
       "category": "Polynomials, cubic equations and partial fractions",
       "marks": 6,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Proper algebraic fraction with non-linear factor in denominator"
     },
     {
       "question": "Solve the equation \\( x^3 - 4x + 2 = 0 \\).",
@@ -28,7 +29,8 @@
       "page_end": 4,
       "category": "Polynomials, cubic equations and partial fractions",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Solving cubic equation"
     },
     {
       "question": "The lengths of the two shorter sides of a right-angled triangle are \\( (3 + \\sqrt{5}) \\) cm and \\( (4\\sqrt{8} - 20) \\) cm respectively. Find the area of the triangle in the form \\( a(\\sqrt{15} + b) \\) cm\\(^2\\).",
@@ -38,97 +40,107 @@
       "page_end": 4,
       "category": "Surds",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Word problems involving surds"
     },
     {
-      "question": "Given that \\( \\frac{d}{dx} \\left( ax^2 + bx \\right) = 2x + 2 \\), find the values of \\( a \\) and \\( b \\).",
+      "question": "Given that \\( \\frac{d}{dx} \\left( ax^2 + bx \\right) = 2x^2 + 2 \\), find the values of \\( a \\) and \\( b \\).",
       "question_number": 3,
       "question_part": "3a",
       "page_start": 5,
       "page_end": 5,
       "category": "Gradients, derivatives and differentiation techniques",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Basic differentiation"
     },
     {
       "question": "The equation of a curve is \\( y = \\frac{2}{x^2} - 1 \\). Find an expression for \\( \\frac{dy}{dx} \\).",
-      "question_number": "3",
+      "question_number": 3,
       "question_part": "3bi",
       "page_start": 6,
       "page_end": 6,
       "category": "Gradients, derivatives and differentiation techniques",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Basic differentiation"
     },
     {
       "question": "Using the result in (i) above, explain, with working, why the curve \\( y = \\frac{2}{x^2} - 1 \\) has no turning points.",
-      "question_number": "3",
+      "question_number": 3,
       "question_part": "3bii",
       "page_start": 6,
       "page_end": 6,
       "category": "Applications of differentiation",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Stationary point"
     },
     {
       "question": "The diagram shows the straight line graph obtained by plotting \\( y \\) against \\( \\frac{1}{x} \\). The line passes through the points \\((-1, 1)\\) and \\((4, 11)\\). Express \\( y \\) in terms of \\( x \\).",
-      "question_number": "4",
+      "question_number": 4,
       "question_part": "4a",
       "page_start": 7,
       "page_end": 7,
       "category": "Linear law",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Converting from linear form to non-linear equation"
     },
     {
       "question": "An experiment on the discharge of an electrical circuit was conducted. It is known that \\( V \\) volts, the voltage of the electrical circuit and \\( t \\) seconds, the elapsed time since the removal of the power source, are related by the equation \\( V = Ae^{kt} \\), where \\( A \\) and \\( k \\) are constants. The table below shows corresponding values of \\( t \\) and \\( V \\). \\( t: 1.0, 1.5, 2.0, 2.5, 3.0 \\) \\( V: 2.80, 2.20, 1.35, 1.39, 1.10 \\) (i) On the grid given in page 9, plot a straight line to illustrate this data. Use the graph to estimate the values of \\( A \\) and \\( k \\).",
-      "question_number": "4",
+      "question_number": 4,
       "question_part": "4bi",
       "page_start": 8,
       "page_end": 8,
       "category": "Exponential and logarithmic functions",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Graphs of exponential and logarithmic functions"
     },
     {
       "question": "Estimate the initial voltage of the electrical circuit.",
-      "question_number": "4",
+      "question_number": 4,
       "question_part": "4bii",
       "page_start": 8,
       "page_end": 8,
       "category": "Exponential and logarithmic functions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Real-life applications of logarithms"
     },
     {
       "question": "It was subsequently discovered that one of the readings was wrongly recorded in the table. Using the graph, determine which value of \\( V \\), in the table above, is the incorrect recording. Estimate a value of \\( V \\) to replace the incorrect recording of \\( V \\).",
-      "question_number": "4",
+      "question_number": 4,
       "question_part": "4biii",
       "page_start": 8,
       "page_end": 8,
       "category": "Exponential and logarithmic functions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Graphical solutions involving exponential/logarithmic graphs"
     },
     {
       "question": "Find the range of values of \\( p \\) for which the equation \\( x^2 + 6x + 2 = 9p - px \\) has real and distinct roots.",
-      "question_number": "5",
+      "question_number": 5,
       "question_part": "5ai",
       "page_start": 10,
       "page_end": 10,
       "category": "Quadratic Functions, Equations and Inequalities",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Solving quadratic inequalities"
     },
     {
       "question": "Using your answer in (i), deduce whether the curve \\( y = (x+3)^2 \\) will meet the line \\( y = 18 - 9x \\).",
-      "question_number": "5",
+      "question_number": 5,
       "question_part": "5aii",
       "page_start": 10,
       "page_end": 10,
       "category": "Coordinate geometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
       "question": "A manufacturer makes closed right cylindrical cans with a volume of 320 \\text{ cm}^3 each. The material for the top and bottom of the cylinder costs 3 cents per 10 \\text{ cm}^2 while the sides of the container costs 2 cents per 10 \\text{ cm}^2. The diagram shows a cylindrical can with radius r cm and height h cm.",
@@ -138,87 +150,96 @@
       "page_end": 16,
       "category": "Applications of differentiation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Problem on maxima and minima"
     },
     {
-      "question": "(a) Show that h = \\frac{320}{\\pi r^2}.",
+      "question": "Show that h = \\frac{320}{\\pi r^2}.",
       "question_number": 8,
       "question_part": "8a",
       "page_start": 16,
       "page_end": 16,
       "category": "Applications of differentiation",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Problem on maxima and minima"
     },
     {
-      "question": "(b) Assuming there is no wastage of materials during production, show that the cost of producing a can, P (in cents), can be expressed as P = 2\\pi r^2 + \\frac{1280}{r}.",
+      "question": "Assuming there is no wastage of materials during production, show that the cost of producing a can, P (in cents), can be expressed as P = 2\\pi r^2 + \\frac{1280}{r}.",
       "question_number": 8,
       "question_part": "8b",
       "page_start": 16,
       "page_end": 16,
       "category": "Applications of differentiation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Problem on maxima and minima"
     },
     {
-      "question": "(c) Find the dimensions of each cylindrical can the manufacturer must use so that the cost of production is a minimum. Give your answers to 1 decimal place.",
+      "question": "Find the dimensions of each cylindrical can the manufacturer must use so that the cost of production is a minimum. Give your answers to 1 decimal place.",
       "question_number": 8,
       "question_part": "8c",
       "page_start": 17,
       "page_end": 17,
       "category": "Applications of differentiation",
       "marks": 6,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Problem on maxima and minima"
     },
     {
-      "question": "(d) Hence, write down the minimum cost of producing one can, to the nearest cent.",
+      "question": "Hence, write down the minimum cost of producing one can, to the nearest cent.",
       "question_number": 8,
       "question_part": "8d",
       "page_start": 17,
       "page_end": 17,
       "category": "Applications of differentiation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Problem on maxima and minima"
     },
     {
-      "question": "(a) Use the substitution u = 3^x to solve the equation (3^x)^2 + 3^{x-1} = 3.",
+      "question": "Use the substitution u = 3^x to solve the equation (3^x)^2 + 3^x - 3 = 0.",
       "question_number": 9,
       "question_part": "9a",
       "page_start": 18,
       "page_end": 18,
       "category": "Exponential and logarithmic functions",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Solving exponential equations"
     },
     {
-      "question": "(b) Solve the equation 5 \\log 2x + \\log 5 = 4 \\log (x - 1) + 2.",
+      "question": "Solve the equation 5 \\log 2x + \\log 5 = 4 \\log (x - 1) + 2.",
       "question_number": 9,
       "question_part": "9b",
       "page_start": 18,
       "page_end": 18,
       "category": "Exponential and logarithmic functions",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Applications of laws of logarithms"
     },
     {
-      "question": "(c) (i) Sketch the graph of y = \\ln x for x > 0, indicating the x-intercept.",
+      "question": "Sketch the graph of y = \\ln x for x > 0, indicating the x-intercept.",
       "question_number": 9,
-      "question_part": "9ci",
+      "question_part": "9c(i)",
       "page_start": 19,
       "page_end": 19,
       "category": "Exponential and logarithmic functions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Graphs of exponential and logarithmic functions"
     },
     {
-      "question": "(c) (ii) Amy wishes to find the number of solutions to the equation e^{2x} = 1 by inserting a suitable line onto the sketch of y = \\ln x in (i). Find the equation of the line to be drawn onto the sketch.",
+      "question": "Amy wishes to find the number of solutions to the equation e^{2x} = 1 by inserting a suitable line onto the sketch of y = \\ln x in (i). Find the equation of the line to be drawn onto the sketch.",
       "question_number": 9,
-      "question_part": "9cii",
+      "question_part": "9c(ii)",
       "page_start": 19,
       "page_end": 19,
       "category": "Exponential and logarithmic functions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Graphical solutions involving exponential/logarithmic graphs"
     }
   ]
 }

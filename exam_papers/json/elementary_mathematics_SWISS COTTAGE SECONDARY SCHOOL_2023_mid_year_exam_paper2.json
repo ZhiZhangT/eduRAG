@@ -18,7 +18,8 @@
       "page_end": 3,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Interpreting a cumulative frequency curve"
     },
     {
       "question": "(b) Estimate the number of students who answered that the mass of the jar of marbles is at least 500 g. Answer ....................................... [2]",
@@ -28,7 +29,8 @@
       "page_end": 4,
       "category": "Data analysis",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Interpreting a cumulative frequency curve"
     },
     {
       "question": "(c) To increase the difficulty of the competition, the organiser announced that a jar with greater mass of marbles will be used next week. Describe how the cumulative frequency curve for the estimation by students next week will differ from the current competition. ................................................................................................................................................ ...........................................................................................................................................[1]",
@@ -38,27 +40,30 @@
       "page_end": 4,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Interpreting a cumulative frequency curve"
     },
     {
       "question": "The table below shows the distance, in km, ran by each of the members of a club, in a week. Distance (km) Number of members 0 \\leq x < 5 2 5 \\leq x < 10 4 10 \\leq x < 15 11 15 \\leq x < 20 d 20 \\leq x < 25 4 25 \\leq x < 30 3 (a) (i) Complete the following cumulative frequency table for the data given. [1] Answer Distance (km) Number of members x < 5 2 x < 10 x < 15 x < 20 23 x < 25 x < 30",
       "question_number": 2,
       "question_part": "2a",
       "page_start": 4,
-      "page_end": 4,
+      "page_end": 5,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Interpreting a cumulative frequency curve"
     },
     {
       "question": "(ii) Find the value of d. Answer d =................................ [1]",
       "question_number": 2,
       "question_part": "2aii",
-      "page_start": 4,
-      "page_end": 4,
+      "page_start": 5,
+      "page_end": 5,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
       "question": "(b) Find an estimate of the (i) mean of the distance ran, Answer .................................km [1]",
@@ -68,7 +73,8 @@
       "page_end": 5,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the mean, median and mode"
     },
     {
       "question": "(ii) standard deviation of the distance ran. Answer .................................km [1]",
@@ -78,7 +84,8 @@
       "page_end": 5,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the mean and standard deviation"
     },
     {
       "question": "A = \\begin{pmatrix} 6 & 3.1 \\\\ 5 & 1 \\end{pmatrix}, B = \\begin{pmatrix} 2 & 3 \\\\ 4 & 1.8 \\end{pmatrix} \\text{ and } C = \\begin{pmatrix} 2 & 3 \\\\ 5 & 4 \\\\ y & 6 \\end{pmatrix}. (a) Evaluate A + B. Answer ....................................... [1]",
@@ -88,7 +95,8 @@
       "page_end": 5,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Addition and subtraction of matrices"
     },
     {
       "question": "(b) It is given that B = C, find the value of y. Answer ....................................... [1]",
@@ -98,7 +106,8 @@
       "page_end": 5,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
       "question": "A dance school offers dance sessions for cultural and international dance students on weekdays and weekends. Each student has a 10-week block of lessons with one session per week. The matrix D shows the number of students attending the dance lessons each week in one 10-week block. \\[ D = \\begin{pmatrix} 10 & 5 \\\\ 8 & 3 \\end{pmatrix} \\] (a) Evaluate the matrix L = 10D.",
@@ -108,7 +117,8 @@
       "page_end": 6,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Scalar multiplication of matrices"
     },
     {
       "question": "(b) The dance school charges $80 for each cultural dance session and $90 for each international dance session. Represent the session charges in a \\(2 \\times 1\\) column matrix C.",
@@ -118,7 +128,8 @@
       "page_end": 6,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Column matrix"
     },
     {
       "question": "(c) Evaluate the matrix G = LC.",
@@ -128,7 +139,8 @@
       "page_end": 6,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Multiplication of 2 matrices"
     },
     {
       "question": "(d) State what the elements of G represent.",
@@ -138,7 +150,8 @@
       "page_end": 6,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
       "question": "(e) The dance school wants to attract more students, so in the next 10-week block, the dance school reduces the price for cultural and international dance sessions by 10%. For this block of sessions, on weekdays, there are 5 cultural dance students and 12 international dance students. On weekends, there are 8 cultural dance students and 15 international dance students. By using matrix multiplication, calculate the total amount of money the dance school earns for this 10-week block of sessions.",
@@ -148,7 +161,8 @@
       "page_end": 7,
       "category": "Matrices",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Multiplication of 2 matrices"
     },
     {
       "question": "Given that P is the point (1, 1), \\( \\overrightarrow{PQ} = \\begin{pmatrix} 3 \\\\ -1 \\end{pmatrix} \\) and \\( \\overrightarrow{PR} = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} \\), find (a) \\( \\overrightarrow{QR} \\).",
@@ -158,7 +172,8 @@
       "page_end": 8,
       "category": "Vectors in 2 dimensions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Sum or difference of 2 vectors"
     },
     {
       "question": "(b) the coordinates of the point X such that PQXR is a parallelogram.",
@@ -168,7 +183,8 @@
       "page_end": 8,
       "category": "Vectors in 2 dimensions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Relating coordinates to position vectors"
     },
     {
       "question": "In the diagram, ABCD is a parallelogram. Y is the midpoint of BD, X is the midpoint of BY and Z is the point on AB such that AB = 3AZ. (a) Given that \\( \\overrightarrow{AZ} = 2p \\) and \\( \\overrightarrow{AD} = 2q \\), express as simply as possible, in terms of p and/or q (i) \\( \\overrightarrow{BD} \\).",
@@ -178,7 +194,8 @@
       "page_end": 9,
       "category": "Vectors in 2 dimensions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Solving a geometric problem involving vectors"
     },
     {
       "question": "(ii) \\( \\overrightarrow{ZY} \\).",
@@ -188,7 +205,8 @@
       "page_end": 9,
       "category": "Vectors in 2 dimensions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Vector notations"
     },
     {
       "question": "(iii) \\( \\overrightarrow{XC} \\).",
@@ -198,7 +216,8 @@
       "page_end": 9,
       "category": "Vectors in 2 dimensions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Vector notations"
     },
     {
       "question": "(b) Using your answers in (a)(ii) and (a)(iii), deduce two facts about XC and ZY.",
@@ -208,7 +227,8 @@
       "page_end": 9,
       "category": "Vectors in 2 dimensions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Solving a geometric problem involving vectors"
     }
   ]
 }

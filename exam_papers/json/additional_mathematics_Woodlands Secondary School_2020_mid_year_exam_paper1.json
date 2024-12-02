@@ -18,7 +18,8 @@
       "page_end": 3,
       "category": "Exponential and logarithmic functions",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Solving simultaneous equations involving logarithms"
     },
     {
       "question": "Find the range of values of $p$ for which the quadratic equation $x^2 - 2px + p + 5 = 0$ has (i) real roots, (ii) one positive and one negative root.",
@@ -28,7 +29,8 @@
       "page_end": 4,
       "category": "Quadratic Functions, Equations and Inequalities",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Always positive/negative quadratic expression"
     },
     {
       "question": "Consider the function $f$ such that its derivative $f'(x) = 2x^2 + 5x + 3 + 2k$, where $x$ and $k$ are real numbers. Given that $f$ is an increasing function, find the range of values of $k$.",
@@ -38,7 +40,8 @@
       "page_end": 4,
       "category": "Gradients, derivatives and differentiation techniques",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Increasing and decreasing functions"
     },
     {
       "question": "The diagram shows a trapezium $ABCD$ such that $AD$ is perpendicular to $DC$ and $AB$ is parallel to $DC$. It is given that $AB = (4 + 3\\sqrt{5})$ cm, $DC = (11 + 2\\sqrt{5})$ cm and the area of the trapezium is $(65 + 25\\sqrt{5})$ cm$^2$. Find the (i) length of $AD$ in the form $(a + b\\sqrt{5})$ cm.",
@@ -48,7 +51,8 @@
       "page_end": 5,
       "category": "Coordinate geometry",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
       "question": "length of BC, giving your answer in the simplest surd form.",
@@ -58,27 +62,30 @@
       "page_end": 6,
       "category": "Surds",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
-      "question": "Given that \\( \\log_a x = p \\) and \\( \\log_a y = q \\), find, in terms of \\( p \\) and \\( q \\), \\( 2\\log_a (xy) \\).",
+      "question": "Given that \\( \\log_a x = p \\) and \\( \\log_a y = q \\), find, in terms of \\( p \\) and \\( q \\),\n(i) \\( 2\\log_a (xy) \\)",
       "question_number": 4,
       "question_part": "4ai",
       "page_start": 7,
       "page_end": 7,
       "category": "Exponential and logarithmic functions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of laws of logarithms"
     },
     {
-      "question": "Given that \\( \\log_a x = p \\) and \\( \\log_a y = q \\), find, in terms of \\( p \\) and \\( q \\), \\( \\log_x a - \\log_y a \\).",
+      "question": "Given that \\( \\log_a x = p \\) and \\( \\log_a y = q \\), find, in terms of \\( p \\) and \\( q \\),\n(ii) \\( \\log_x a - \\log_y a \\)",
       "question_number": 4,
       "question_part": "4aii",
       "page_start": 7,
       "page_end": 7,
       "category": "Exponential and logarithmic functions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of laws of logarithms"
     },
     {
       "question": "Solve the equation \\( \\log_5 z + \\log_3 (z + 2) = 1 \\).",
@@ -88,17 +95,19 @@
       "page_end": 7,
       "category": "Exponential and logarithmic functions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of laws of logarithms"
     },
     {
-      "question": "The table shows values of the variables \\( x \\) and \\( y \\) such that \\( y = A b^{2x} \\), where \\( A \\) and \\( b \\) are constants. Draw the graph of \\( \\ln y \\) plotted against \\( 2x \\), using a scale of 1 cm for 1 unit on the \\( 2x \\)-axis and a scale of 1 cm for 1 unit on the \\( \\ln y \\)-axis.",
+      "question": "The table shows values of the variables \\( x \\) and \\( y \\) such that \\( y = A b^{2x} \\), where \\( A \\) and \\( b \\) are constants.\n(i) Draw the graph of \\( \\ln y \\) plotted against \\( 2x \\), using a scale of 1 cm for 1 unit on the \\( 2x \\)-axis and a scale of 1 cm for 1 unit on the \\( \\ln y \\)-axis.",
       "question_number": 5,
       "question_part": "5i",
       "page_start": 8,
       "page_end": 8,
       "category": "Exponential and logarithmic functions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Graphs of exponential and logarithmic functions"
     },
     {
       "question": "Use your graph to find the value of \\( A \\) and of \\( b \\).",
@@ -108,7 +117,8 @@
       "page_end": 9,
       "category": "Exponential and logarithmic functions",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Graphical solutions involving exponential/logarithmic graphs"
     },
     {
       "question": "Estimate the value of \\( x \\) when \\( y = 200 \\).",
@@ -118,7 +128,8 @@
       "page_end": 9,
       "category": "Exponential and logarithmic functions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving exponential equations"
     },
     {
       "question": "On the axes below, sketch the graph of \\( y = x^2 - 4x - 12 \\), showing the coordinates of the points where the graph meets the axes.",
@@ -128,7 +139,8 @@
       "page_end": 10,
       "category": "Quadratic Functions, Equations and Inequalities",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Sketching graph of quadratic function"
     },
     {
       "question": "State the set of values of \\( p \\) for which the line \\( y = p \\) intersects the curve \\( y = x^2 - 4x - 12 \\) at four distinct points.",
@@ -138,7 +150,8 @@
       "page_end": 10,
       "category": "Quadratic Functions, Equations and Inequalities",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Intersection of straight line and curve"
     },
     {
       "question": "Find the x-coordinate(s) of the points of intersection between the curve $y = x^2 - 4x - 12$ and a line with equation $y = 3x$.",
@@ -148,17 +161,19 @@
       "page_end": 11,
       "category": "Coordinate geometry",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
-      "question": "Given that $y = 2\\sin x + 3\\cos 3x$, show that $\\frac{d^2y}{dx^2} + 3\\frac{dy}{dx} + ky = 0$, where $k$ is a constant to be determined.",
+      "question": "Given that $y = 2\\sin x + 3\\cos 3x$, show that $\\frac{d^2y}{dx^2} + 3\\sin x + k = 0$, where $k$ is a constant to be determined.",
       "question_number": 7,
       "question_part": "7",
       "page_start": 12,
       "page_end": 12,
       "category": "Differentiation of trigonometric, logarithmic, and exponential functions and their applications",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Applications of differentiation of trigonometric functions"
     },
     {
       "question": "Find, in ascending powers of $x$, the first three terms in the expansion of $(3 + 2x)^6$.",
@@ -168,7 +183,8 @@
       "page_end": 13,
       "category": "Binomial theorem and its application",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of binomial theorem"
     },
     {
       "question": "Hence find the coefficient of $x^2$ in the expansion of $(1 - 4x)(3 + 2x)^6$.",
@@ -178,7 +194,8 @@
       "page_end": 13,
       "category": "Binomial theorem and its application",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of binomial theorem"
     },
     {
       "question": "Consider $\\left(1 - \\frac{2x}{6}\\right)^{16}$. Write down the general term.",
@@ -188,7 +205,8 @@
       "page_end": 13,
       "category": "Binomial theorem and its application",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Application of general term formula"
     },
     {
       "question": "Find the term independent of $x$ in the expansion of $\\left(1 - \\frac{2x}{6}\\right)^{16}$.",
@@ -198,7 +216,8 @@
       "page_end": 13,
       "category": "Binomial theorem and its application",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of binomial theorem"
     },
     {
       "question": "Find the x-coordinates of the two stationary points on the curve $y = x^2 \\ln x - 10x$.",
@@ -208,7 +227,8 @@
       "page_end": 14,
       "category": "Applications of differentiation",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Stationary point"
     },
     {
       "question": "Determine the nature of each stationary point.",
@@ -218,7 +238,8 @@
       "page_end": 14,
       "category": "Applications of differentiation",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Stationary point"
     },
     {
       "question": "It is given that $y = (5x + 2)^5 - x$. Find an expression for $\\frac{dy}{dx}$ and show that it can be written in the form $\\frac{k}{x^2} - 5x$.",
@@ -228,37 +249,41 @@
       "page_end": 15,
       "category": "Gradients, derivatives and differentiation techniques",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Basic differentiation"
     },
     {
-      "question": "Hence evaluate $\\int_3^7 \\frac{5}{x^2} - 5x \\, dx$.",
+      "question": "Hence evaluate $\\int_3^7 \\frac{25}{x^2} - 5x \\, dx$.",
       "question_number": 10,
       "question_part": "10ii",
       "page_start": 15,
       "page_end": 15,
       "category": "Integration",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Basic integration"
     },
     {
       "question": "Show that \\( \\tan x + \\sec x = \\frac{1 + \\sec x \\tan x}{\\sin x} \\).",
-      "question_number": "11",
+      "question_number": 11,
       "question_part": "11i",
       "page_start": 16,
       "page_end": 16,
       "category": "Trigonometric identities and formulae",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Proving trigonometric identities"
     },
     {
-      "question": "Hence solve the equation \\( \\tan x + \\sec x = 1 + 6\\sin x + \\sec x \\tan x \\) for \\( 0^\\circ \\leq x \\leq 360^\\circ \\).",
-      "question_number": "11",
+      "question": "Hence solve the equation \\( \\tan x + \\sec x = 1 + 6 \\sin x + \\sec x \\tan x \\) for \\( 0^\\circ \\leq x \\leq 360^\\circ \\).",
+      "question_number": 11,
       "question_part": "11ii",
       "page_start": 17,
       "page_end": 17,
       "category": "Trigonometric equations",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Unknown"
     }
   ]
 }

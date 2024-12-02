@@ -1,5 +1,6 @@
 {
   "question_paper_filepath": "https://document.grail.moe/4559c11ce4184c8c8277c4726939c100.pdf",
+  "answer_paper_filepath": "",
   "meta_info": {
     "subject": "additional_mathematics",
     "school": "Woodlands Secondary School",
@@ -17,7 +18,8 @@
       "page_end": 3,
       "category": "Binomial theorem and its application",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Finding values of unknown coefficients"
     },
     {
       "question": "Given that the curve $y = \\log_a x$ passes through the point $\\left(1, -\\frac{3}{2}\\right)$, find the value of $a$.",
@@ -27,7 +29,8 @@
       "page_end": 4,
       "category": "Exponential and logarithmic functions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving exponential equations"
     },
     {
       "question": "Sketch the graph of $y = \\log_a x$ for $0 < x \\leq 27$.",
@@ -37,17 +40,19 @@
       "page_end": 4,
       "category": "Exponential and logarithmic functions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Graphs of exponential and logarithmic functions"
     },
     {
-      "question": "Find the equation of a suitable straight line that can be inserted in part (b)(i) to solve the equation $27^x = 9x$.",
+      "question": "Find the equation of a suitable straight line that can be inserted in part (b)(i) to solve the equation $27x = 9^x$.",
       "question_number": 2,
       "question_part": "2bii",
       "page_start": 5,
       "page_end": 5,
       "category": "Exponential and logarithmic functions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Graphical solutions involving exponential/logarithmic graphs"
     },
     {
       "question": "Without using a calculator, solve the equation $3^{2x} - 5 \\cdot 3^x = 4$, giving your answer in the form $5^{m+n}$.",
@@ -57,7 +62,8 @@
       "page_end": 5,
       "category": "Exponential and logarithmic functions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving exponential equations"
     },
     {
       "question": "Solve the equation \\( \\log(x) = 1 + \\log(x - 2) \\).",
@@ -67,7 +73,8 @@
       "page_end": 6,
       "category": "Exponential and logarithmic functions",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of laws of logarithms"
     },
     {
       "question": "Given that \\( \\log_2 p = a \\), \\( \\log_8 q = b \\) and \\( \\frac{2c}{p} = q \\), express \\( c \\) in terms of \\( a \\) and \\( b \\).",
@@ -77,7 +84,8 @@
       "page_end": 6,
       "category": "Exponential and logarithmic functions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of laws of logarithms"
     },
     {
       "question": "The equation of a curve is \\( y = x^2 - 3kx - k \\), where \\( k \\) is a constant. Find the range of values of \\( k \\) for which the curve lies completely above the x-axis.",
@@ -87,7 +95,8 @@
       "page_end": 7,
       "category": "Quadratic Functions, Equations and Inequalities",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Always positive/negative quadratic expression"
     },
     {
       "question": "Find the range of values of \\( k \\) for which the line \\( y + k + 1 = 0 \\) and the curve \\( y = x^2 - 3kx - k \\) have two distinct roots.",
@@ -97,7 +106,8 @@
       "page_end": 7,
       "category": "Quadratic Functions, Equations and Inequalities",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Intersection of straight line and curve"
     },
     {
       "question": "The value, \\( V \\) dollars, of Hi Watch in \\( t \\) months\u2019 time from its launch is modelled by the equation \\( V = V_0 e^{-kt} \\), where \\( k \\) is a constant and \\( V_0 \\) is the original value of the watch. After 36 months from its launch, the value of the watch is half of its original value. Find the value of \\( k \\).",
@@ -107,7 +117,8 @@
       "page_end": 8,
       "category": "Exponential and logarithmic functions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving equations involving natural logarithms"
     },
     {
       "question": "Twelve months after the launch, the price of Hi Watch is $855. Calculate the minimum number of months needed from the time of launch, for the watch value to fall below $600.",
@@ -117,7 +128,8 @@
       "page_end": 8,
       "category": "Exponential and logarithmic functions",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Real-life applications of logarithms"
     },
     {
       "question": "Express \\( \\frac{2x^2 - 4x - 4}{x^2 - 1} \\) in partial fractions.",
@@ -127,7 +139,8 @@
       "page_end": 9,
       "category": "Polynomials, cubic equations and partial fractions",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Improper algebraic fraction"
     },
     {
       "question": "Hence, find \\( \\int \\frac{2x^2 - 4x - 4}{x^2 - 1} \\, dx \\).",
@@ -137,17 +150,19 @@
       "page_end": 9,
       "category": "Integration",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Integration involving partial fractions"
     },
     {
-      "question": "It is given that \\( y = 2x^3 + px^2 + qx - 1 \\) where \\( p \\) and \\( q \\) are integers. \\( y \\) is a decreasing function when \\( 2 < x < 5 \\). Find the value of \\( p \\) and \\( q \\).",
+      "question": "It is given that \\( y = 3x^2 + px + qx - 1 \\) where \\( p \\) and \\( q \\) are integers. \\( y \\) is a decreasing function when \\( 2 < x < 5 \\). Find the value of \\( p \\) and \\( q \\).",
       "question_number": 8,
       "question_part": "8",
       "page_start": 9,
       "page_end": 9,
       "category": "Applications of differentiation",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Problem on maxima and minima"
     },
     {
       "question": "Prove that \\( \\csc A - \\cot A = 1 - \\cos A \\).",
@@ -157,7 +172,8 @@
       "page_end": 10,
       "category": "Trigonometric identities and formulae",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Proving trigonometric identities"
     },
     {
       "question": "Hence, find all values of \\( \\theta \\), where \\( 0 \\leq \\theta \\leq 2\\pi \\), which satisfy the equation \\( 1 - (\\csc \\theta - \\cot \\theta) = 1 - \\cos 2\\theta \\).",
@@ -167,7 +183,8 @@
       "page_end": 10,
       "category": "Trigonometric functions and equations",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Solving trigonometric equations in radian mode"
     },
     {
       "question": "The remainder when \\( 3x^3 + ax^2 + bx + 3 \\), where \\( a \\) and \\( b \\) are constants, is divided by \\( x^2 + 2x - 2 \\) is \\( 6x - 9 \\).",
@@ -177,7 +194,8 @@
       "page_end": 11,
       "category": "Polynomials, cubic equations and partial fractions",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Identities with an unknown quotient"
     },
     {
       "question": "Show that \\( a = 5 \\) and \\( b = -7 \\).",
@@ -187,17 +205,19 @@
       "page_end": 11,
       "category": "Polynomials, cubic equations and partial fractions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
-      "question": "Solve the equation \\( 3x^3 + ax^2 + bx + 3 = 3x + 3 \\), expressing non-integer roots in surd form.",
+      "question": "Solve the equation \\( 3x^3 + 5x^2 - 7x + 3 = x^3 + 3 \\), expressing non-integer roots in surd form.",
       "question_number": 10,
       "question_part": "10ii",
       "page_start": 11,
       "page_end": 11,
       "category": "Polynomials, cubic equations and partial fractions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Solving cubic equation"
     },
     {
       "question": "A circle \\( C_1 \\) has the equation \\( x^2 + y^2 - 6x + 2y + 1 = 0 \\).",
@@ -207,7 +227,8 @@
       "page_end": 12,
       "category": "Coordinate geometry",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding equation of circle and determining if a point lies on, is inside, or outside a circle"
     },
     {
       "question": "Find the coordinates of the centre of the circle and the radius of the circle.",
@@ -217,7 +238,8 @@
       "page_end": 12,
       "category": "Coordinate geometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding equation of circle and determining if a point lies on, is inside, or outside a circle"
     },
     {
       "question": "Determine if the origin lies inside or outside the circle. Show your workings clearly.",
@@ -227,7 +249,8 @@
       "page_end": 12,
       "category": "Coordinate geometry",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding equation of circle and determining if a point lies on, is inside, or outside a circle"
     },
     {
       "question": "Another circle \\( C_2 \\), with centre \\((-9, 4)\\) touches the circle \\( C_1 \\) such that the point of contact forms a straight line with the centres of \\( C_1 \\) and \\( C_2 \\). Find the equation of circle \\( C_2 \\).",
@@ -237,7 +260,8 @@
       "page_end": 12,
       "category": "Coordinate geometry",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding equation of circle and determining if a point lies on, is inside, or outside a circle"
     },
     {
       "question": "A curve is such that \\( \\frac{d^2y}{dx^2} = 3x^2 + 16 \\), and it has a stationary point at \\((2, 10)\\).",
@@ -247,7 +271,8 @@
       "page_end": 13,
       "category": "Gradients, derivatives and differentiation techniques",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Higher derivatives"
     },
     {
       "question": "Find the equation of the curve.",
@@ -257,7 +282,8 @@
       "page_end": 13,
       "category": "Gradients, derivatives and differentiation techniques",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Basic differentiation"
     },
     {
       "question": "Find the coordinates of the other stationary point and determine its nature.",
@@ -267,7 +293,8 @@
       "page_end": 13,
       "category": "Applications of differentiation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Stationary point"
     },
     {
       "question": "A regular cross section of a triangular prism is an isosceles triangle whose sides are \\( 5x \\) cm, \\( 5x \\) cm and \\( 6x \\) cm. The length of the prism is \\( h \\) cm. The volume of the prism is 600 cm\\(^3\\).",
@@ -277,7 +304,8 @@
       "page_end": 14,
       "category": "Applications of integration",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Unknown"
     },
     {
       "question": "Show that the total surface area of the prism is \\( A = 24x^2 + \\frac{800}{x} \\) cm\\(^2\\).",
@@ -287,7 +315,8 @@
       "page_end": 14,
       "category": "Applications of integration",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
       "question": "Hence, find the value of \\( x \\) for which \\( A \\) has a stationary value.",
@@ -297,7 +326,8 @@
       "page_end": 14,
       "category": "Applications of differentiation",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Stationary point"
     },
     {
       "question": "Calculate the stationary value of \\( A \\) and determine whether it is a maximum or minimum.",
@@ -307,7 +337,8 @@
       "page_end": 14,
       "category": "Applications of differentiation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Problem on maxima and minima"
     },
     {
       "question": "A particle moves in a straight line, such that, \\( t \\) seconds after leaving a fixed point \\( O \\), its acceleration is given by \\( a = 2t^2 + 1 \\). The particle comes to an instantaneous rest when \\( t = 3 \\).",
@@ -317,7 +348,8 @@
       "page_end": 15,
       "category": "Kinematics",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Application of integration, given acceleration"
     },
     {
       "question": "Find an expression for the velocity of the particle in terms of \\( t \\).",
@@ -327,7 +359,8 @@
       "page_end": 15,
       "category": "Kinematics",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of differentiation, given displacement"
     },
     {
       "question": "Find the distance travelled in the next 4 seconds after the rest.",
@@ -337,7 +370,8 @@
       "page_end": 15,
       "category": "Kinematics",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Application of integration, given acceleration"
     }
   ]
 }
