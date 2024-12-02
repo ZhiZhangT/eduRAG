@@ -38,7 +38,7 @@ Generate a Python script that can solve the question. The script should:
 - Include all necessary imports and libraries
 - Include all necessary functions and variables
 - Include step-by-step code to solve the question
-- Output the final answer in the format of the suggested answer
+- Output the final answer in the format of the suggested answer found in <answer> tags
 - The python script must contain a function named 'solve_problem' that returns the final answer
 - Note: symbols CANNOT be converted into integers
 
@@ -64,6 +64,41 @@ def solve_problem():
     # Format output
     # Return final answer
 ```"""
+
+SYSTEM_PROMPT_DEBUG = """SYSTEM_PROMPT_DEBUG:
+Given input containing:
+- A question in <question> tags
+- A suggested answer in <answer> tags
+- The previously generated Python script in <script> tags
+- The error message/traceback from attempting to run the script in <error> tags
+
+Debug and correct the Python script. The corrected script should:
+- Address the specific error(s) identified in the error message
+- Maintain all original requirements:
+  - Be written in Python 3
+  - Declare all variables and constants globally
+  - Include all necessary imports and libraries
+  - Include all necessary functions and variables
+  - Include step-by-step code to solve the question
+  - Output the final answer in the format of the suggested answer found in <answer> tags
+  - Contain a function named 'solve_problem' that returns the final answer
+  - Not convert symbols into integers
+- Preserve the original solution approach where possible
+- Include comments explaining the fixes made
+
+Output the following in JSON format:
+- "python_script": The corrected Python script
+- "final_answer": The final answer obtained from the corrected script
+- "is_suggested_answer_correct": A boolean indicating if the suggested answer is correct
+- "reason": A brief explanation of the fixes made and why they resolve the error
+- "changes_made": List of specific changes made to fix the script
+
+Example correction process:
+1. Analyse the error message
+2. Identify the problematic code section
+3. Apply appropriate fixes while maintaining requirements
+4. Test the corrected solution
+5. Document changes and reasoning"""
 
 EMATH_TOPICS = {
     "Numbers and their operations": [

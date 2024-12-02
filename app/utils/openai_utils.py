@@ -2,7 +2,12 @@ import openai
 import os
 import base64
 from app import constants
-from app.models import Role, GeneratedQuestionList, GeneratedPythonScript
+from app.models import (
+    Role,
+    GeneratedQuestionList,
+    GeneratedPythonScript,
+    CorrectedGeneratedPythonScript,
+)
 from dotenv import load_dotenv
 from typing import List
 
@@ -57,6 +62,29 @@ def get_python_script_and_answer(question_text: str) -> GeneratedPythonScript:
         model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
         response_format=GeneratedPythonScript,
+        temperature=0.2,
+        top_p=0.2,
+    )
+
+    return completion.choices[0].message.parsed
+
+
+def get_corrected_python_script(
+    question_text: str, previous_script: str, error_message: str
+) -> CorrectedGeneratedPythonScript:
+    user_content = f"{question_text}\n<script>{previous_script}</script>\n<error>{error_message}</error>"
+    messages = [
+        {
+            "role": Role.SYSTEM,
+            "content": constants.SYSTEM_PROMPT_DEBUG,
+        },
+        {"role": Role.USER, "content": user_content},
+    ]
+
+    completion = openai.beta.chat.completions.parse(
+        model=os.environ.get("OPENAI_MODEL"),
+        messages=messages,
+        response_format=CorrectedGeneratedPythonScript,
         temperature=0.2,
         top_p=0.2,
     )

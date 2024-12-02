@@ -225,6 +225,13 @@ class GeneratedPythonScript(BaseModel):
     reason: str
 
 
+class CorrectedGeneratedPythonScript(BaseModel):
+    python_script: str
+    final_answer: str
+    is_suggested_answer_correct: bool
+    reason: str
+
+
 def _clean_meta_info(meta_info):
     # Remove special characters, strip whitespace, and convert to lowercase
     cleaned_meta_info = {}

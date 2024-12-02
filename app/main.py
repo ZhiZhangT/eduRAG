@@ -21,6 +21,7 @@ from app.db.vector_search import vector_search
 from app.utils.openai_utils import (
     get_generated_questions_and_answers,
     get_python_script_and_answer,
+    get_corrected_python_script,
 )
 from app.models import Message
 from app.utils.image_utils import extract_question_metadata, find_and_crop_image
@@ -228,14 +229,30 @@ def verify():
         # Iterate through questions
         for i, question_doc in enumerate(data.get("questions", [])):
             num_tries = 0
+            last_script = None
+            last_error = None
+            # Create question text with XML tags
+            question_text = f"<question>{question_doc['question_text']}</question><answer>{question_doc['answer']}</answer>"
+
             # try to generate and run the python script up to 3 times
             while num_tries < 3:
                 try:
-                    # Create question text with XML tags
-                    question_text = f"<question>{question_doc['question_text']}</question><answer>{question_doc['answer']}</answer>"
 
                     # Generate python script and get answer
-                    response = get_python_script_and_answer(question_text=question_text)
+                    if last_script is None:
+                        # First attempt - generate new script
+                        response = get_python_script_and_answer(
+                            question_text=question_text
+                        )
+                    else:
+                        print(f"Attempting to correct Python script...")
+                        # Subsequent attempts - pass previous script and error for correction
+                        response = get_corrected_python_script(
+                            question_text=question_text,
+                            previous_script=last_script,
+                            error_message=last_error,
+                        )
+                        print(f"response: {response}")
 
                     # Save python script to file
                     script_filename = (
@@ -247,6 +264,8 @@ def verify():
                     # Run the script
                     computed_answer = _run_dynamic_code(response.python_script)
 
+                    is_exact_match = computed_answer == question_doc["answer"]
+
                     # Add to responses
                     responses.append(
                         {
@@ -254,6 +273,7 @@ def verify():
                             "question_index": i,
                             "response": response,
                             "computed_answer": computed_answer,
+                            "is_exact_match": is_exact_match,
                         }
                     )
 
@@ -263,12 +283,17 @@ def verify():
                 except HTTPException:
                     raise
                 except Exception as e:
+                    # Store the script and error for next iteration
+                    last_script = (
+                        response.python_script if "response" in locals() else None
+                    )
+                    last_error = str(e)
                     # prints the full error trace
                     print(traceback.format_exc())
-                finally:
                     print(
                         f"[INFO] Attempt {num_tries + 1} failed for {filename} question {i}"
                     )
+                finally:
                     num_tries += 1
 
     return responses
