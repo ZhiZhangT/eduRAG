@@ -19,6 +19,12 @@ def normalise_query(query: list[Message]):
     return query
 
 
+def format_generated_answer(text):
+    # used to remove the 'answer: ' (case-insensitive) prefix from the generated answer
+    parts = re.split(r"answer:\s*", text, flags=re.IGNORECASE)
+    return parts[1] if len(parts) > 1 else text
+
+
 def format_first_question_xml(similar_documents: list):
     first_doc = similar_documents[0]
 

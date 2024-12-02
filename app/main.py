@@ -15,12 +15,15 @@ from app.utils.format_utils import (
     convert_exam_type,
     normalise_query,
     format_first_question_xml,
+    format_generated_answer,
 )
 from app.utils.openai_utils import get_embedding
 from app.db.vector_search import vector_search
 from app.utils.openai_utils import (
     get_generated_questions_and_answers,
     get_python_script_and_answer,
+    get_corrected_python_script,
+    get_format_matched_script,
 )
 from app.models import Message
 from app.utils.image_utils import extract_question_metadata, find_and_crop_image
@@ -228,14 +231,40 @@ def verify():
         # Iterate through questions
         for i, question_doc in enumerate(data.get("questions", [])):
             num_tries = 0
-            # try to generate and run the python script up to 3 times
-            while num_tries < 3:
-                try:
-                    # Create question text with XML tags
-                    question_text = f"<question>{question_doc['question_text']}</question><answer>{question_doc['answer']}</answer>"
+            last_script = None
+            last_error = None
+            last_computed_answer = None
+            suggested_answer = format_generated_answer(question_doc["answer"])
 
+            # try to generate and run the python script up to 6 times
+            while num_tries < 6:
+                try:
                     # Generate python script and get answer
-                    response = get_python_script_and_answer(question_text=question_text)
+                    if last_script is None and last_computed_answer is None:
+                        # First attempt - generate new script
+                        response = get_python_script_and_answer(
+                            question_text=question_doc["question_text"],
+                            suggested_answer=suggested_answer,
+                        )
+                    elif last_script is not None and last_computed_answer is None:
+                        # Attempt to correct Python script for syntax errors
+                        print(f"Attempting to correct Python script...")
+                        response = get_corrected_python_script(
+                            question_text=question_doc["question_text"],
+                            suggested_answer=suggested_answer,
+                            previous_script=last_script,
+                            error_message=last_error,
+                        )
+                        print(f"response: {response}")
+                    else:
+                        # Attempt to match output format
+                        print(f"Attempting to match output format...")
+                        response = get_format_matched_script(
+                            question_text=question_doc["question_text"],
+                            suggested_answer=suggested_answer,
+                            previous_script=last_script,
+                            computed_answer=last_computed_answer,
+                        )
 
                     # Save python script to file
                     script_filename = (
@@ -247,28 +276,43 @@ def verify():
                     # Run the script
                     computed_answer = _run_dynamic_code(response.python_script)
 
+                    is_exact_match = computed_answer == suggested_answer
+
                     # Add to responses
                     responses.append(
                         {
                             "filename": filename,
+                            "attempt": num_tries + 1,
                             "question_index": i,
                             "response": response,
+                            "suggested_answer": suggested_answer,
                             "computed_answer": computed_answer,
+                            "is_exact_match": is_exact_match,
                         }
                     )
 
-                    # if the code runs successfully, break out of the while loop
-                    break
+                    # if the code runs successfully and there is an exact match, break out of the loop
+                    if is_exact_match:
+                        break
+                    else:
+                        # store the script and computed answer so that we can try correcting the format of the computed answer
+                        last_script = response.python_script
+                        last_computed_answer = computed_answer
 
                 except HTTPException:
                     raise
                 except Exception as e:
+                    # Store the script and error for next iteration
+                    last_script = (
+                        response.python_script if "response" in locals() else None
+                    )
+                    last_error = str(e)
                     # prints the full error trace
                     print(traceback.format_exc())
-                finally:
                     print(
                         f"[INFO] Attempt {num_tries + 1} failed for {filename} question {i}"
                     )
+                finally:
                     num_tries += 1
 
     return responses

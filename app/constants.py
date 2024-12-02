@@ -30,7 +30,7 @@ Ensure questions are distinct while maintaining consistency with the original.""
 
 SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT = """Given input containing:
 - A question in <question> tags
-- A suggested answer in <answer> tags
+- A suggested answer in <suggested_answer> tags
 
 Generate a Python script that can solve the question. The script should:
 - Be written in Python 3
@@ -38,7 +38,7 @@ Generate a Python script that can solve the question. The script should:
 - Include all necessary imports and libraries
 - Include all necessary functions and variables
 - Include step-by-step code to solve the question
-- Output the final answer in the format of the suggested answer
+- Output the final answer in the format of the suggested answer found in <suggested_answer> tags
 - The python script must contain a function named 'solve_problem' that returns the final answer
 - Note: symbols CANNOT be converted into integers
 
@@ -64,6 +64,90 @@ def solve_problem():
     # Format output
     # Return final answer
 ```"""
+
+SYSTEM_PROMPT_DEBUG = """Given input containing:
+- A question in <question> tags
+- A suggested answer in <suggested_answer> tags
+- The previously generated Python script in <script> tags
+- The error message/traceback from attempting to run the script in <error> tags
+
+Debug and correct the Python script. The corrected script should:
+- Address the specific error(s) identified in the error message
+- Maintain all original requirements:
+  - Be written in Python 3
+  - Declare all variables and constants globally
+  - Include all necessary imports and libraries
+  - Include all necessary functions and variables
+  - Include step-by-step code to solve the question
+  - Output the final answer in the format of the suggested answer found in <suggested_answer> tags
+  - Contain a function named 'solve_problem' that returns the final answer
+  - Not convert symbols into integers
+- Preserve the original solution approach where possible
+- Include comments explaining the fixes made
+
+Output the following in JSON format:
+- "python_script": The corrected Python script
+- "final_answer": The final answer obtained from the corrected script
+- "is_suggested_answer_correct": A boolean indicating if the suggested answer is correct
+- "reason": A brief explanation of the fixes made and why they resolve the error
+- "changes_made": List of specific changes made to fix the script
+
+Example correction process:
+1. Analyse the error message
+2. Identify the problematic code section
+3. Apply appropriate fixes while maintaining requirements
+4. Test the corrected solution
+5. Document changes and reasoning"""
+
+SYSTEM_PROMPT_FORMAT_PYTHON_SCRIPT_OUTPUT = """Given input containing:
+- A question in <question> tags
+- A suggested answer in <suggested_answer> tags
+- The previously generated Python script in <script> tags
+- The computed answer from the script in <computed_answer> tags
+
+Generate an updated Python script that matches the format of the suggested answer while preserving the original calculations. The updated script should:
+
+1. Analyse Format Differences:
+   - Compare the structure and presentation of computed_answer vs suggested_answer
+   - Identify differences in:
+     * Number formatting (decimal places, thousand separators)
+     * Unit representation
+     * Text case and spacing
+     * Symbol usage and placement
+     * Array/list formatting
+     * Mathematical expression formatting
+
+2. Preserve Core Logic:
+   - Maintain all mathematical calculations from the original script
+   - Keep the core problem-solving approach intact
+   - Preserve accuracy of numerical results
+
+3. Format Matching Requirements:
+   - Add format conversion functions/steps after core calculations
+   - Match exact spacing and delimiters
+   - Match exact symbol usage and placement
+   - Match exact number formatting (decimals, scientific notation)
+   - Match exact text case and punctuation
+   - Match exact list/array representation
+   - Match any special characters or mathematical notation
+
+4. Maintain Original Requirements:
+   - Be written in Python 3
+   - Declare all variables globally
+   - Include all necessary imports
+   - Include a solve_problem() function
+   - Include clear comments
+
+Output the following in JSON format:
+- "python_script": The format-matched Python script
+- "format_changes": List of format adjustments made
+
+Example format matching process:
+1. Extract format pattern from suggested answer
+2. Identify format differences in computed answer
+3. Add formatting logic while preserving calculations
+4. Verify exact format match
+5. Document format changes applied"""
 
 EMATH_TOPICS = {
     "Numbers and their operations": [
