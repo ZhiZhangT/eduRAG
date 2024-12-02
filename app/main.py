@@ -89,6 +89,8 @@ def upload_questions(request_obj: QuestionData):
                     "exam_type": exam_type,
                     "year": int(meta_info.get("year", -1)),
                     "school": meta_info.get("school", ""),
+                    "marks": question_item.marks,
+                    "difficulty": question_item.difficulty,
                     "updated_utc": datetime.now(timezone.utc),
                 }
 
@@ -120,6 +122,8 @@ def upload_questions(request_obj: QuestionData):
                     "exam_type": exam_type,
                     "year": int(meta_info.get("year", -1)),
                     "school": meta_info.get("school", ""),
+                    "marks": question_item.marks,
+                    "difficulty": question_item.difficulty,
                     "created_utc": datetime.now(timezone.utc),
                     "updated_utc": datetime.now(timezone.utc),
                 }
