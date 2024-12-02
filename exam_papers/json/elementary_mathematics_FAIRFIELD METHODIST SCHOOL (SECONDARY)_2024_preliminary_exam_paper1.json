@@ -18,7 +18,8 @@
       "page_end": 3,
       "category": "Ratio and proportion",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Applying direct proportion"
     },
     {
       "question": "(a) Factorise completely \\( 2a^2c - ad - abc + bd \\).",
@@ -28,17 +29,19 @@
       "page_end": 3,
       "category": "Algebraic expressions and formulae",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Factorising an algebraic expression by grouping"
     },
     {
-      "question": "(b) Expand and simplify \\( (7x - 4y)(3x + y) \\).",
+      "question": "(b) Expand and simplify \\((7x - 4y)(3x + y)\\).",
       "question_number": 2,
       "question_part": "2b",
       "page_start": 3,
       "page_end": 3,
       "category": "Algebraic expressions and formulae",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the product of 2 algebraic expressions"
     },
     {
       "question": "Tristen has written five positive integers. The median of these numbers is 8, the mode is 7 and the mean is 13. The range of these numbers is 21. Find the five numbers.",
@@ -48,7 +51,8 @@
       "page_end": 3,
       "category": "Data analysis",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the mean, median and mode"
     },
     {
       "question": "(a) Show that triangles \\( \\triangle ABC \\) and \\( \\triangle ADB \\) are similar.",
@@ -58,7 +62,8 @@
       "page_end": 4,
       "category": "Congruence and similarity",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Determining if 2 triangles are similar"
     },
     {
       "question": "(b) Given that \\( AB = 8 \\text{ m} \\) and \\( AD = 5 \\text{ m} \\), find \\( AC \\).",
@@ -68,7 +73,8 @@
       "page_end": 4,
       "category": "Congruence and similarity",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Solving a problem involving triangles"
     },
     {
       "question": "The graph shows the number of electric vehicles (EVs) manufactured by a company for the years 2022 and 2023. Explain how the graph above may be misleading.",
@@ -78,567 +84,547 @@
       "page_end": 5,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
-      "question": "A map has a scale of \\( 1 : 2,000,000 \\). The area of Johor Bahru on the map is \\( 0.55 \\text{ cm}^2 \\). Calculate the actual area, in square kilometres of Johor Bahru.",
+      "question": "A map has a scale of 1 : 2,000,000. The area of Johor Bahru on the map is 0.55 cm\\(^2\\). Calculate the actual area, in square kilometres of Johor Bahru.",
       "question_number": 6,
       "question_part": "6",
       "page_start": 5,
       "page_end": 5,
-      "category": "Ratio and proportion",
-      "marks": 2,
-      "difficulty_level": "medium"
-    },
-    {
-      "question": "In a sequence, the same number is added each time to obtain the next term. The second term of the sequence is 11 and the fifth term of the sequence is 32. (a) Write an expression in terms of n, for the nth term of the sequence.",
-      "question_number": 7,
-      "question_part": "7a",
-      "page_start": 6,
-      "page_end": 6,
-      "category": "Algebraic expressions and formulae",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(b) Explain why 121 is not a term in the sequence.",
-      "question_number": 7,
-      "question_part": "7b",
-      "page_start": 6,
-      "page_end": 6,
-      "category": "Algebraic expressions and formulae",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "The force, F, between two particles is inversely proportional to the square of the distance, d, between them. Calculate the percentage change in force when the distance between the two particles is increased by 350%.",
-      "question_number": 8,
-      "question_part": "8",
-      "page_start": 6,
-      "page_end": 6,
-      "category": "Percentage",
-      "marks": 2,
-      "difficulty_level": "medium"
-    },
-    {
-      "question": "(a) The sketch represents the graph of y = nx. Write down a possible value of n.",
-      "question_number": 9,
-      "question_part": "9a",
-      "page_start": 7,
-      "page_end": 7,
-      "category": "Functions and graphs",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(b) The point (1, 1) is marked on each diagram below. On these diagrams, sketch the graphs of (i) y = 2x + 1.",
-      "question_number": 9,
-      "question_part": "9bi",
-      "page_start": 7,
-      "page_end": 7,
-      "category": "Functions and graphs",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(ii) y = 2^2.",
-      "question_number": 9,
-      "question_part": "9bii",
-      "page_start": 7,
-      "page_end": 7,
-      "category": "Functions and graphs",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "The diagram shows a parallelogram ABCD. The perpendicular height is h cm. The area of parallelogram is increased by 150% when AB is reduced by 20% and h is increased by x %. Find the value of x.",
-      "question_number": 10,
-      "question_part": "10",
-      "page_start": 8,
-      "page_end": 8,
       "category": "Mensuration",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "The frequency table shows the Mathematics quiz marks of 25 students. The mean marks is 13.8. Marks: 12, 13, 14, 15, 16. Number of students: 5, 5, 7, 6, 2. (a) Find the standard deviation of the marks.",
-      "question_number": 11,
-      "question_part": "11a",
-      "page_start": 8,
-      "page_end": 8,
-      "category": "Data analysis",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(b) It was discovered that there was a mistake in the recording of the quiz marks. The correct mark for each student was 3 more than the recorded mark. A student commented that the spread of the quiz marks in the class is now wider after the addition of marks. Explain why his comment is wrong using mean and standard deviation of the marks.",
-      "question_number": 11,
-      "question_part": "11b",
-      "page_start": 8,
-      "page_end": 8,
-      "category": "Data analysis",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "Three points A, B and C are shown below. (a) Construct the perpendicular bisector of BC.",
-      "question_number": 12,
-      "question_part": "12a",
-      "page_start": 9,
-      "page_end": 9,
-      "category": "Geometry",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(b) Construct the angle bisector of angle ACB.",
-      "question_number": 12,
-      "question_part": "12b",
-      "page_start": 9,
-      "page_end": 9,
-      "category": "Geometry",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(c) These two bisectors meet at P. Complete the statement below. The point P is equidistant from the lines ... and ... and equidistant from the points ... and ....",
-      "question_number": 12,
-      "question_part": "12c",
-      "page_start": 9,
-      "page_end": 9,
-      "category": "Geometry",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(a) Use prime factors to explain why \\( \\sqrt{54 \\times 150} \\) is a perfect square.",
-      "question_number": 13,
-      "question_part": "13a",
-      "page_start": 10,
-      "page_end": 10,
-      "category": "Numbers and their operations",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Conversion of units"
     },
     {
-      "question": "(b) The number 150k is a perfect cube. Find the smallest possible integer value of k.",
-      "question_number": 13,
-      "question_part": "13b",
-      "page_start": 10,
-      "page_end": 10,
-      "category": "Numbers and their operations",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "ABC is an equilateral triangle with lengths $(5x + y)$ cm, $(16y - x)$ cm, and $(4x + 5 - 3y)$ cm. (a) Write down two simultaneous equations, in terms of $x$ and $y$, to represent this information.",
-      "question_number": "14",
+      "question": "ABC is an equilateral triangle with lengths \\((5x + y)\\) cm, \\((16y - x)\\) cm and \\((4x + 5 - 3y)\\) cm. (a) Write down two simultaneous equations, in terms of \\(x\\) and \\(y\\), to represent this information.",
+      "question_number": 14,
       "question_part": "14a",
       "page_start": 11,
       "page_end": 11,
       "category": "Equations and inequalities",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving simultaneous equations using the method of elimination"
     },
     {
       "question": "(b) Solve the simultaneous equations and hence find the area of triangle ABC.",
-      "question_number": "14",
+      "question_number": 14,
       "question_part": "14b",
       "page_start": 11,
       "page_end": 11,
       "category": "Equations and inequalities",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Solving simultaneous equations using the method of elimination"
     },
     {
-      "question": "(a) Given that $\\frac{1}{2}y - \\frac{2}{1} + 4 = 816$, find the value of $y$.",
-      "question_number": "15",
+      "question": "(a) Given that \\(\\frac{1}{2}y - \\frac{2}{1} + 4 = 816\\), find the value of \\(y\\).",
+      "question_number": 15,
       "question_part": "15a",
       "page_start": 12,
       "page_end": 12,
       "category": "Equations and inequalities",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving simple fractional equations that can be reduced to linear equations"
     },
     {
-      "question": "(b) Jasmine says that $500^2$ is greater than $250^5$. Do you agree with her statement? Justify your answer with mathematical working.",
-      "question_number": "15",
+      "question": "(b) Jasmine says that \\(500^2\\) is greater than \\(250^5\\). Do you agree with her statement? Justify your answer with mathematical working.",
+      "question_number": 15,
       "question_part": "15b",
       "page_start": 12,
       "page_end": 12,
       "category": "Numbers and their operations",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applying the laws of indices"
     },
     {
       "question": "A solid cone, C is cut into two parts, X and Y, by a plane parallel to the base. The ratio of the areas of the bases of X and C is 25 : 49. (a) Find the ratio of the circumference of the bases of X and C.",
-      "question_number": "16",
+      "question_number": 16,
       "question_part": "16a",
       "page_start": 13,
       "page_end": 13,
       "category": "Mensuration",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
       "question": "(b) The mass of C is 36 kg. Find the mass of Y.",
-      "question_number": "16",
+      "question_number": 16,
       "question_part": "16b",
       "page_start": 13,
       "page_end": 13,
       "category": "Mensuration",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
-      "question": "(a) (i) The expression $x^2 - 12x + 5$ is equivalent to $(x - a)^2 + b$. Find the value of $a$ and the value of $b$.",
-      "question_number": "17",
+      "question": "(a) (i) The expression \\(x^2 - 12x + 5\\) is equivalent to \\((x - a)^2 + b\\). Find the value of \\(a\\) and the value of \\(b\\).",
+      "question_number": 17,
       "question_part": "17ai",
       "page_start": 14,
       "page_end": 14,
       "category": "Algebraic expressions and formulae",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Using algebraic identities to evaluate a perfect square"
     },
     {
-      "question": "(ii) The curve $y = x^2 - 12x + 5$ is drawn. Write the equation of the line of symmetry of the curve.",
-      "question_number": "17",
+      "question": "(ii) The curve \\(y = x^2 - 12x + 5\\) is drawn. Write the equation of the line of symmetry of the curve.",
+      "question_number": 17,
       "question_part": "17aii",
       "page_start": 14,
       "page_end": 14,
       "category": "Functions and graphs",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Sketching the graph of y=ax2+bx+c"
     },
     {
-      "question": "(b) (i) Sketch the graph of $y = -(x - 3)(x - 5)$ on the axes below. Indicate clearly the values where the graph crosses the x- and y-axes.",
-      "question_number": "17",
+      "question": "(b) (i) Sketch the graph of \\(y = -(x - 3)(x + 5)\\) on the axes below. Indicate clearly the values where the graph crosses the x- and y-axes.",
+      "question_number": 17,
       "question_part": "17bi",
       "page_start": 14,
       "page_end": 14,
       "category": "Functions and graphs",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Sketching the graph of y=(x-p)(x-q)"
     },
     {
-      "question": "(ii) State the coordinates of the maximum point of the graph of $y = -(x - 3)(x - 5)$. ",
-      "question_number": "17",
+      "question": "(ii) State the coordinates of the maximum point of the graph of \\(y = -(x - 3)(x + 5)\\).",
+      "question_number": 17,
       "question_part": "17bii",
       "page_start": 14,
       "page_end": 14,
       "category": "Functions and graphs",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Sketching the graph of y=(x-p)(x-q)"
     },
     {
-      "question": "In the diagram, $R(-3, 4)$ is on $PQ$ such that the midpoint of $RQ$ lies on the y-axis. Point $Q$ lies on the x-axis. (a) Find the coordinates of $Q$.",
-      "question_number": "18",
+      "question": "In the diagram, \\(R(-3, 4)\\) is on \\(PQ\\) such that the midpoint of \\(RQ\\) lies on the y-axis. Point \\(Q\\) lies on the x-axis. (a) Find the coordinates of \\(Q\\).",
+      "question_number": 18,
       "question_part": "18a",
       "page_start": 15,
       "page_end": 15,
       "category": "Coordinate geometry",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
-      "question": "(b) Given that the point $P$ has coordinates $(x, 6)$, find the value of $x$.",
-      "question_number": "18",
+      "question": "(b) Given that the point \\(P\\) has coordinates \\((x, 6)\\), find the value of \\(x\\).",
+      "question_number": 18,
       "question_part": "18b",
       "page_start": 15,
       "page_end": 15,
       "category": "Coordinate geometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
-      "question": "(c) Find the equation of the line $PQ$.",
-      "question_number": "18",
+      "question": "(c) Find the equation of the line \\(PQ\\).",
+      "question_number": 18,
       "question_part": "18c",
       "page_start": 15,
       "page_end": 15,
       "category": "Coordinate geometry",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the equation of a straight line"
     },
     {
-      "question": "A, B, C \\text{ and } D \\text{ lie on a circle with centre } O \\text{ and radius } 5 \\text{ cm. } \\angle AOB = 1.8 \\text{ radians. } \\text{(a) (i) Write down an expression, in terms of } \\pi, \\text{ for the reflex angle } AOB.",
-      "question_number": 19,
+      "question": "A, B, C \\text{ and } D \\text{ lie on a circle with centre } O \\text{ and radius } 5 \\text{ cm. } \\angle AOB = 1.8 \\text{ radians. }",
+      "question_number": "19",
       "question_part": "19a(i)",
       "page_start": 16,
       "page_end": 16,
       "category": "Properties of circles",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Applying the angles properties of circles"
     },
     {
-      "question": "\\text{(ii) Find an expression, in terms of } \\pi, \\text{ for the length of the arc } ACB.",
-      "question_number": 19,
-      "question_part": "19a(ii)",
+      "question": "\\text{Write down an expression, in terms of } \\pi, \\text{ for the reflex angle } AOB.",
+      "question_number": "19",
+      "question_part": "19a(i)",
       "page_start": 16,
       "page_end": 16,
       "category": "Properties of circles",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Applying the angles properties of circles"
     },
     {
-      "question": "\\text{(b) Find the area of the shaded segment } ADB.",
-      "question_number": 19,
-      "question_part": "19b",
+      "question": "\\text{Find an expression, in terms of } \\pi, \\text{ for the length of the arc } ACB.",
+      "question_number": "19",
+      "question_part": "19a(ii)",
       "page_start": 16,
       "page_end": 16,
       "category": "Properties of circles",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
-      "question": "\\text{(a) } \\xi = \\{ x : 1 \\leq x \\leq 18 \\text{ and } x \\text{ is an integer} \\}, \\text{ A = \\{1, 4, 9, 16\\}, B = \\{integers that are divisible by 2\\}} \\text{(i) Describe the elements of set A.}",
-      "question_number": 20,
+      "question": "\\text{Find the area of the shaded segment } ADB.",
+      "question_number": "19",
+      "question_part": "19b",
+      "page_start": 16,
+      "page_end": 16,
+      "category": "Properties of circles",
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Applying the angles properties of circles"
+    },
+    {
+      "question": "\\{ x : x \\text{ is an integer and } 1 \\leq x \\leq 18 \\}",
+      "question_number": "20",
+      "question_part": "20a",
+      "page_start": 17,
+      "page_end": 17,
+      "category": "Set language and notation",
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Listing the elements of a set"
+    },
+    {
+      "question": "\\{ 1, 4, 9, 16 \\}",
+      "question_number": "20",
+      "question_part": "20a",
+      "page_start": 17,
+      "page_end": 17,
+      "category": "Set language and notation",
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Listing the elements of a set"
+    },
+    {
+      "question": "\\{ x : x \\text{ is an integer divisible by 2} \\}",
+      "question_number": "20",
+      "question_part": "20a",
+      "page_start": 17,
+      "page_end": 17,
+      "category": "Set language and notation",
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Listing the elements of a set"
+    },
+    {
+      "question": "\\text{Describe the elements of set } A.",
+      "question_number": "20",
       "question_part": "20a(i)",
       "page_start": 17,
       "page_end": 17,
       "category": "Set language and notation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Listing the elements of a set"
     },
     {
-      "question": "\\text{(ii) List the elements contained in the set } A' \\cap B.",
-      "question_number": 20,
+      "question": "\\text{List the elements contained in the set } A \\cap B'.",
+      "question_number": "20",
       "question_part": "20a(ii)",
       "page_start": 17,
       "page_end": 17,
       "category": "Set language and notation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Listing the elements of the intersection and union of 2 sets"
     },
     {
-      "question": "\\text{(iii) Write down the number of elements contained in the set } A \\cup B.",
-      "question_number": 20,
+      "question": "\\text{Write down the number of elements contained in the set } A \\cup B.",
+      "question_number": "20",
       "question_part": "20a(iii)",
       "page_start": 17,
       "page_end": 17,
       "category": "Set language and notation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Listing the elements of the intersection and union of 2 sets"
     },
     {
-      "question": "\\text{(b) (i) On the Venn diagram, shade the region which represents } (P \\cup Q)'.",
-      "question_number": 20,
+      "question": "\\text{On the Venn diagram, shade the region which represents } (P \\cup Q)'.",
+      "question_number": "20",
       "question_part": "20b(i)",
       "page_start": 17,
       "page_end": 17,
       "category": "Set language and notation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Shading Venn diagrams, given the set notations"
     },
     {
-      "question": "\\text{(ii) Using set notation to describe the shaded region.}",
-      "question_number": 20,
+      "question": "\\text{Using set notation to describe the shaded region.}",
+      "question_number": "20",
       "question_part": "20b(ii)",
       "page_start": 17,
       "page_end": 17,
       "category": "Set language and notation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Shading Venn diagrams, given the set notations"
     },
     {
-      "question": "\\text{(a) In the diagram below, } DCB \\text{ is a straight line. } AD = 8 \\text{ m, } AC = 10 \\text{ m, } CD = 6 \\text{ m and } AB = 17 \\text{ m. (i) Show that } \\angle ADC \\text{ is a right angle.}",
-      "question_number": 21,
+      "question": "\\text{In the diagram below, } DCB \\text{ is a straight line. } AD = 8 \\text{ m, } AC = 10 \\text{ m, } CD = 6 \\text{ m and } AB = 17 \\text{ m.}",
+      "question_number": "21",
+      "question_part": "21a",
+      "page_start": 18,
+      "page_end": 18,
+      "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
+      "marks": 2,
+      "difficulty_level": "medium",
+      "question_type": "Using the Cosine rule to find an unknown side"
+    },
+    {
+      "question": "\\text{Show that } \\angle ADC \\text{ is a right angle.}",
+      "question_number": "21",
       "question_part": "21a(i)",
       "page_start": 18,
       "page_end": 18,
       "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
-      "marks": 2,
-      "difficulty_level": "medium"
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Determining if a triangle is right-angled"
     },
     {
-      "question": "\\text{(ii) Express the value of } \\cos \\angle ACB \\text{ as a fraction in its lowest term.}",
-      "question_number": 21,
+      "question": "\\text{Express the value of } \\cos \\angle ACB \\text{ as a fraction in its lowest term.}",
+      "question_number": "21",
       "question_part": "21a(ii)",
       "page_start": 18,
       "page_end": 18,
       "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
-      "marks": 1,
-      "difficulty_level": "easy"
+      "marks": 2,
+      "difficulty_level": "medium",
+      "question_type": "Finding the trigonometric ratios of acute and obtuse angles"
     },
     {
-      "question": "\\text{(b) } \\sin x = 0.8929 \\text{ Find two possible values of } x \\text{ in the range } 0^\\circ \\leq x \\leq 180^\\circ.",
-      "question_number": 21,
+      "question": "\\sin x = 0.8929 \\text{. Find two possible values of } x \\text{ in the range } 0^\\circ \\leq x \\leq 180^\\circ.",
+      "question_number": "21",
       "question_part": "21b",
       "page_start": 18,
       "page_end": 18,
       "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
-      "marks": 2,
-      "difficulty_level": "medium"
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Solving simple trigonometric equations"
     },
     {
-      "question": "\\text{In the diagram, } ABCDE \\text{ is a regular pentagon. (a) Calculate (i) } \\angle BAE.",
-      "question_number": 22,
+      "question": "\\text{In the diagram, } ABCDE \\text{ is a regular pentagon.}",
+      "question_number": "22",
+      "question_part": "22a",
+      "page_start": 19,
+      "page_end": 19,
+      "category": "Angles, triangles and polygons",
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Finding the interior and exterior angles of a regular polygon"
+    },
+    {
+      "question": "\\text{Calculate } \\angle BAE.",
+      "question_number": "22",
       "question_part": "22a(i)",
       "page_start": 19,
       "page_end": 19,
       "category": "Angles, triangles and polygons",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding an unknown angle involving angles at a point"
     },
     {
-      "question": "\\text{(ii) } \\angle AEB.",
-      "question_number": 22,
+      "question": "\\text{Calculate } \\angle AEB.",
+      "question_number": "22",
       "question_part": "22a(ii)",
       "page_start": 19,
       "page_end": 19,
       "category": "Angles, triangles and polygons",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding an unknown angle involving angles at a point"
     },
     {
-      "question": "\\text{(iii) } \\angle BEC.",
-      "question_number": 22,
+      "question": "\\text{Calculate } \\angle BEC.",
+      "question_number": "22",
       "question_part": "22a(iii)",
       "page_start": 19,
       "page_end": 19,
       "category": "Angles, triangles and polygons",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding an unknown angle involving angles at a point"
     },
     {
-      "question": "\\text{(b) Explain why } BE \\text{ is parallel to } CD.",
-      "question_number": 22,
+      "question": "\\text{Explain why } BE \\text{ is parallel to } CD.",
+      "question_number": "22",
       "question_part": "22b",
       "page_start": 19,
       "page_end": 19,
       "category": "Angles, triangles and polygons",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding an unknown angle involving parallel lines"
     },
     {
-      "question": "\\text{The stem-and-leaf diagram below shows the times, in minutes, taken by 15 students to complete a task. (a) The modal time is 25 minutes. Find the value of } p.",
-      "question_number": 23,
+      "question": "\\text{The stem-and-leaf diagram below shows the times, in minutes, taken by 15 students to complete a task.}",
+      "question_number": "23",
       "question_part": "23a",
       "page_start": 20,
       "page_end": 20,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the mean, median and mode"
     },
     {
-      "question": "\\text{(b) Find the interquartile range.}",
-      "question_number": 23,
-      "question_part": "23b",
+      "question": "\\text{The modal time is 25 minutes. Find the value of } p.",
+      "question_number": "23",
+      "question_part": "23a",
       "page_start": 20,
       "page_end": 20,
       "category": "Data analysis",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the mean, median and mode"
     },
     {
-      "question": "\\text{(c) When the time taken for the 16th student is added to the diagram, the median is 23 minutes. What is the possible time taken by this student to complete a task?}",
-      "question_number": 23,
+      "question": "\\text{Find the interquartile range.}",
+      "question_number": "23",
+      "question_part": "23b",
+      "page_start": 20,
+      "page_end": 20,
+      "category": "Data analysis",
+      "marks": 1,
+      "difficulty_level": "easy",
+      "question_type": "Reading a box-and-whisker plot"
+    },
+    {
+      "question": "\\text{When the time taken for the 16th student is added to the diagram, the median is 23 minutes. What is the possible time taken by this student to complete a task?}",
+      "question_number": "23",
       "question_part": "23c",
       "page_start": 20,
       "page_end": 20,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the mean, median and mode"
     },
     {
       "question": "There are 30 blue balls, 20 green balls and 14 yellow balls in a bag. A ball is chosen at random from the bag and then replaced. (i) Find the probability of not picking a green ball, express your answer to the lowest term.",
-      "question_number": 24,
+      "question_number": "24",
       "question_part": "24i",
       "page_start": 21,
       "page_end": 21,
       "category": "Probability",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the probability of single events"
     },
     {
-      "question": "The probability of picking a green ball from the bag after x number of green balls are removed is \\( \\frac{3}{14} \\). Using algebra, find the value of x.",
-      "question_number": 24,
+      "question": "(ii) The probability of picking a green ball from the bag after x number of green balls are removed is \\( \\frac{3}{14} \\). Using algebra, find the value of x.",
+      "question_number": "24",
       "question_part": "24ii",
       "page_start": 21,
       "page_end": 21,
       "category": "Probability",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the probability involving dependent events"
     },
     {
-      "question": "Two outlets of a coffee chain sell three different types of coffee: espresso, flat white and mocha. The table shows the number of cups of each type of coffee sold on a particular day. Outlet A: Espresso 30, Flat White 30, Mocha 35. Outlet B: Espresso x, Flat White x + 2, Mocha 40. This information can be represented by the matrix \\( P = \\begin{pmatrix} 30 & 30 & 35 \\\\ x & x+2 & 40 \\end{pmatrix} \\). The coffee chain sells a cup of espresso at $2.50, a cup of flat white at $4 and a cup of mocha at $5.50. This information can be represented by the matrix \\( Q = \\begin{pmatrix} 2.5 \\\\ 4 \\\\ 5.5 \\end{pmatrix} \\). (a) Find, in terms of x, the matrix \\( R = PQ \\).",
-      "question_number": 25,
+      "question": "Two outlets of a coffee chain sell three different types of coffee: espresso, flat white and mocha. The table shows the number of cups of each type of coffee sold on a particular day. Outlet A: Espresso 30, Flat White 30, Mocha 35; Outlet B: Espresso x, Flat White x + 2, Mocha 40. This information can be represented by the matrix \\( P = \\begin{pmatrix} 30 & 30 & 35 \\\\ x & x+2 & 40 \\end{pmatrix} \\). The coffee chain sells a cup of espresso at $2.50, a cup of flat white at $4 and a cup of mocha at $5.50. This information can be represented by the matrix \\( Q = \\begin{pmatrix} 2.5 \\\\ 4 \\\\ 5.5 \\end{pmatrix} \\). (a) Find, in terms of x, the matrix \\( R = PQ \\).",
+      "question_number": "25",
       "question_part": "25a",
       "page_start": 22,
       "page_end": 22,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Multiplication of 2 matrices"
     },
     {
-      "question": "Explain what the elements of the first row of matrix R represent.",
-      "question_number": 25,
+      "question": "(b) Explain what the elements of the first row of matrix R represent.",
+      "question_number": "25",
       "question_part": "25b",
       "page_start": 22,
       "page_end": 22,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Displaying information in a matrix"
     },
     {
-      "question": "Outlet B collected $100.50 more than Outlet A from the sales of coffee on that particular day. Find x.",
-      "question_number": 25,
+      "question": "(c) Outlet B collected $100.50 more than Outlet A from the sales of coffee on that particular day. Find x.",
+      "question_number": "25",
       "question_part": "25c",
       "page_start": 22,
       "page_end": 22,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Addition and subtraction of matrices"
     },
     {
-      "question": "The elements of matrix T, where \\( T = SR \\), represents the total amount of money, in dollars, collected in outlets A and B on that particular day. Write down the matrix S.",
-      "question_number": 25,
+      "question": "(d) The elements of matrix T, where \\( T = SR \\), represents the total amount of money, in dollars, collected in outlets A and B on that particular day. Write down the matrix S.",
+      "question_number": "25",
       "question_part": "25d",
       "page_start": 22,
       "page_end": 22,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
       "question": "The diagram is the speed-time graph for the first k seconds of the motion of an object. (a) Find the acceleration when \\( t = 5 \\).",
-      "question_number": 26,
+      "question_number": "26",
       "question_part": "26a",
       "page_start": 23,
       "page_end": 23,
       "category": "Rate and speed",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Applying rates in real-world contexts"
     },
     {
-      "question": "Find the distance travelled in the first 10 seconds.",
-      "question_number": 26,
+      "question": "(b) Find the distance travelled in the first 10 seconds.",
+      "question_number": "26",
       "question_part": "26b",
       "page_start": 23,
       "page_end": 23,
       "category": "Rate and speed",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Applying rates in real-world contexts"
     },
     {
-      "question": "The distance travelled in the first k seconds is 520 m. Find the value of k.",
-      "question_number": 26,
+      "question": "(c) The distance travelled in the first k seconds is 520 m. Find the value of k.",
+      "question_number": "26",
       "question_part": "26c",
       "page_start": 23,
       "page_end": 23,
       "category": "Rate and speed",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Applying rates in real-world contexts"
     },
     {
-      "question": "On the axes in the answer space, sketch the distance-time graph for the first k seconds of the motion of the object.",
-      "question_number": 26,
+      "question": "(d) On the axes in the answer space, sketch the distance-time graph for the first k seconds of the motion of the object.",
+      "question_number": "26",
       "question_part": "26d",
       "page_start": 23,
       "page_end": 23,
       "category": "Rate and speed",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applying rates in real-world contexts"
     }
   ]
 }

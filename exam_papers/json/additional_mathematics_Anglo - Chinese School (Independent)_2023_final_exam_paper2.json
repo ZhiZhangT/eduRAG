@@ -11,164 +11,180 @@
   },
   "questions": [
     {
-      "question": "It is given that $a$ and $b$ are the roots of the quadratic equation $x^2 - 2x - 10 = 0$ and that $a > b$. Show that $a^3 - 2b = 2$.",
+      "question": "It is given that $a$ and $b$ are the roots of the quadratic equation $x^2 - 2x - 10 = 0$ and that $a > b$. Show that $3a - 2b = 2$. [5]",
       "question_number": 1,
       "question_part": "1",
       "page_start": 3,
       "page_end": 3,
       "category": "Quadratic Functions, Equations and Inequalities",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Unknown"
     },
     {
-      "question": "A circle with centre $O$ passes through the points $P(-1, 7)$ and $Q(0, 8)$. (a) State the relationship between the perpendicular bisector of $PQ$ and the point $O$.",
+      "question": "A circle with centre $O$ passes through the points $P(-1, 7)$ and $Q(0, 8)$. (a) State the relationship between the perpendicular bisector of $PQ$ and the point $O$. [1]",
       "question_number": 2,
       "question_part": "2a",
       "page_start": 4,
       "page_end": 4,
       "category": "Coordinate geometry",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding equation of perpendicular bisector"
     },
     {
-      "question": "Find the coordinates of $O$, given that the line $y = 2x - 2$ passes through the centre of the circle.",
+      "question": "A circle with centre $O$ passes through the points $P(-1, 7)$ and $Q(0, 8)$. (b) Find the coordinates of $O$, given that the line $y = 2x - 2$ passes through the centre of the circle. [5]",
       "question_number": 2,
       "question_part": "2b",
       "page_start": 4,
       "page_end": 4,
       "category": "Coordinate geometry",
       "marks": 5,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Finding coordinates of unknown collinear point"
     },
     {
-      "question": "Hence find the equation of the circle.",
+      "question": "A circle with centre $O$ passes through the points $P(-1, 7)$ and $Q(0, 8)$. (c) Hence find the equation of the circle. [2]",
       "question_number": 2,
       "question_part": "2c",
       "page_start": 4,
       "page_end": 4,
       "category": "Coordinate geometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding equation of circle and determining if a point lies on, is inside, or outside a circle"
     },
     {
-      "question": "The polynomial $f(x)$ is given by $f(x) = x^3 - 9x^2 - 30x - 23$. (a) Factorise $f(x)$ completely.",
+      "question": "The polynomial $f(x)$ is given by $f(x) = x^3 - 9x^2 - 30x - 23$. (a) Factorise $f(x)$ completely. [4]",
       "question_number": 3,
       "question_part": "3a",
       "page_start": 5,
       "page_end": 5,
       "category": "Polynomials, cubic equations and partial fractions",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Factor theorem and solving a cubic equation"
     },
     {
-      "question": "Hence, prove that the equation $x^3 - 9x^2 - 30x - 23 = 0$ has only one real root. Find the solution.",
+      "question": "The polynomial $f(x)$ is given by $f(x) = x^3 - 9x^2 - 30x - 23$. (b) Hence, prove that the equation $x^3 - 9x^2 - 30x - 23 = 0$ has only one real root. Find the solution. [3]",
       "question_number": 3,
       "question_part": "3b",
       "page_start": 5,
       "page_end": 5,
       "category": "Polynomials, cubic equations and partial fractions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving cubic equation"
     },
     {
       "question": "Solve the equation \\( 12x^2 + 23x - 5 = 0 \\).",
-      "question_number": 4,
+      "question_number": "4",
       "question_part": "4a",
       "page_start": 6,
       "page_end": 6,
       "category": "Quadratic Functions, Equations and Inequalities",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Unknown"
     },
     {
       "question": "The equation of a curve is \\( y = 2x^2 - ax + b \\) where \\( a \\) and \\( b \\) are non-zero constants. Explain why \\( y > 0 \\) if \\( 2a > b \\).",
-      "question_number": 4,
+      "question_number": "4",
       "question_part": "4b",
       "page_start": 6,
       "page_end": 6,
       "category": "Quadratic Functions, Equations and Inequalities",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Always positive/negative quadratic expression"
     },
     {
       "question": "Find an expression for \\( x \\), in terms of \\( e \\), for which \\( \\ln(x - 3) = \\ln(x + 3) \\).",
-      "question_number": 5,
+      "question_number": "5",
       "question_part": "5a",
       "page_start": 7,
       "page_end": 7,
       "category": "Exponential and logarithmic functions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving equations involving natural logarithms"
     },
     {
       "question": "Solve the equation \\( \\log_5(x) + \\log_5(x + 4) = 2 \\).",
-      "question_number": 5,
+      "question_number": "5",
       "question_part": "5b",
       "page_start": 7,
       "page_end": 7,
       "category": "Exponential and logarithmic functions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of laws of logarithms"
     },
     {
       "question": "Prove the trigonometric identity: \\( \\frac{\\csc A + 2\\cot A}{\\cos A + \\sin A} = \\csc A \\).",
-      "question_number": 6,
+      "question_number": "6",
       "question_part": "6ai",
       "page_start": 8,
       "page_end": 8,
       "category": "Trigonometric identities and formulae",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Proving trigonometric identities"
     },
     {
       "question": "Hence solve the equation: \\( \\csc^2 A + 2\\cot A = 4(\\cos A + \\sin A) \\) for \\( 0 \\leq x \\leq 360^\\circ \\).",
-      "question_number": 6,
+      "question_number": "6",
       "question_part": "6aii",
       "page_start": 8,
       "page_end": 8,
       "category": "Trigonometric functions and equations",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Solving trigonometric equations in degree mode"
     },
     {
-      "question": "Given that \\( 1 + \\sin x + 2\\cos x = 1 + 2\\sin x + \\cos x \\) and \\( x \\) is acute, find the exact value of \\( \\cos x \\).",
-      "question_number": 6,
+      "question": "Given that \\( 1 + \\sin x + 2\\cos x = 11 + 2\\sin x + \\cos x \\) and \\( x \\) is acute, find the exact value of \\( \\cos x \\).",
+      "question_number": "6",
       "question_part": "6b",
       "page_start": 9,
       "page_end": 9,
       "category": "Trigonometric functions and equations",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Solving trigonometric equations in radian mode"
     },
     {
       "question": "Write down the first four terms in the expansion of \\( (1 - 4x)^6 \\).",
-      "question_number": 7,
+      "question_number": "7",
       "question_part": "7ai",
       "page_start": 10,
       "page_end": 10,
       "category": "Binomial theorem and its application",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of binomial theorem"
     },
     {
-      "question": "Hence find the coefficient of \\( x^3 \\) in the expansion of \\( (2x + 3)(1 - 4x)^6 \\).",
-      "question_number": 7,
+      "question": "Hence find the coefficient of \\( x^3 \\) in the expansion of \\( (3x + 2)(1 - 4x)^6 \\).",
+      "question_number": "7",
       "question_part": "7aii",
       "page_start": 10,
       "page_end": 10,
       "category": "Binomial theorem and its application",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of binomial theorem"
     },
     {
-      "question": "Explain why there is no constant term in the expansion of \\( \\left( 12x + \\frac{3}{x^3} \\right)^{18} \\).",
+      "question": "Explain why there is no constant term in the expansion of \\( \\left( 12x + \\frac{3}{x} \\right)^{18} \\).",
       "question_number": "7",
       "question_part": "7b",
       "page_start": 11,
       "page_end": 11,
       "category": "Binomial theorem and its application",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Applications of binomial theorem"
     },
     {
       "question": "A solid was heated and left to cool in a container in a room. The difference between its temperature and the surrounding room temperature at time \\( t \\) hours was \\( T \\degree C \\). The table shows some recorded values of \\( t \\) and \\( T \\). \\[ \\begin{array}{c|ccccc} t \\text{ (hours)} & 5 & 10 & 15 & 22 & 25 \\\\ \\hline T \\text{ (} \\degree C \\text{)} & 15.1 & 8.4 & 5.2 & 2.7 & 1.6 \\end{array} \\] The variables \\( t \\) and \\( T \\) are related by the equation \\( T = ae^{bt} \\), where \\( a \\) and \\( b \\) are constants.",
@@ -178,7 +194,8 @@
       "page_end": 12,
       "category": "Exponential and logarithmic functions",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Real-life applications of logarithms"
     },
     {
       "question": "On the grid opposite, draw a straight line graph of \\( \\ln T \\) against \\( t \\).",
@@ -188,7 +205,8 @@
       "page_end": 12,
       "category": "Exponential and logarithmic functions",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Graphs of exponential and logarithmic functions"
     },
     {
       "question": "Use your graph to estimate the value of \\( a \\) and of \\( b \\).",
@@ -198,7 +216,8 @@
       "page_end": 12,
       "category": "Exponential and logarithmic functions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Graphical solutions involving exponential/logarithmic graphs"
     },
     {
       "question": "With reference to (a), explain why the value of \\( T \\) cannot be zero.",
@@ -208,7 +227,8 @@
       "page_end": 12,
       "category": "Exponential and logarithmic functions",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Real-life applications of logarithms"
     }
   ]
 }

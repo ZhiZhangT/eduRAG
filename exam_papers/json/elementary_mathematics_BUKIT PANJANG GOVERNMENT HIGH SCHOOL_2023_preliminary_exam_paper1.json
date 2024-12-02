@@ -12,83 +12,91 @@
   "questions": [
     {
       "question": "Calculate \\( 33 \\times 2.13 \\times 81.23 \\times 3.23.524 \\), giving your answer correct to 4 significant figures.",
-      "question_number": 1,
+      "question_number": "1",
       "question_part": "1",
       "page_start": 3,
       "page_end": 3,
       "category": "Numbers and their operations",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Rounding a decimal to a specified number of significant figures"
     },
     {
       "question": "At a warehouse sale, all prices are reduced by 15%. The price of a set of ear pods during the sale is $221. \n\n(i) Find its original price.",
-      "question_number": 2,
+      "question_number": "2",
       "question_part": "2i",
       "page_start": 3,
       "page_end": 3,
       "category": "Percentage",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the original value using reverse percentages"
     },
     {
-      "question": "(ii) If the salesman still earns a profit of 10.5% during the sale, find the percentage profit he earns from selling the pair of ear pods if it is not on sale.",
-      "question_number": 2,
+      "question": "If the salesman still earns a profit of 10.5% during the sale, find the percentage profit he earns from selling the pair of ear pods if it is not on sale.",
+      "question_number": "2",
       "question_part": "2ii",
       "page_start": 3,
       "page_end": 3,
       "category": "Percentage",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the original value using reverse percentages"
     },
     {
       "question": "Ethan measures the amount of rain, in millimetres (mm), each day for 31 days. The bar chart shows his results. \n\n(a) Write down the median amount of rain.",
-      "question_number": 3,
+      "question_number": "3",
       "question_part": "3a",
       "page_start": 4,
       "page_end": 4,
       "category": "Data analysis",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the mean, median and mode"
     },
     {
       "question": "(b) Find the mean amount of rain per day.",
-      "question_number": 3,
+      "question_number": "3",
       "question_part": "3b",
       "page_start": 4,
       "page_end": 4,
       "category": "Data analysis",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the mean, median and mode"
     },
     {
       "question": "(c) Ethan picks one of these days at random. Find the probability that, on that day, the amount of rain was 3 mm or more.",
-      "question_number": 3,
+      "question_number": "3",
       "question_part": "3c",
       "page_start": 4,
       "page_end": 4,
       "category": "Probability",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the probability of single events"
     },
     {
       "question": "These are the first four terms in a sequence: 9, 5, 1, -3. \n\n(a) Find an expression, in terms of \\( n \\), for the \\( n \\)-th term of the sequence.",
-      "question_number": 4,
+      "question_number": "4",
       "question_part": "4a",
       "page_start": 5,
       "page_end": 5,
       "category": "Algebraic expressions and formulae",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the nth term of a sequence with a common difference"
     },
     {
-      "question": "(b) The \\( n \\)-th term of another sequence is given by \\( T_n = \\frac{34}{43n} + n \\). Determine if it is possible to have a term in the sequence to be greater than 1. Explain your answer.",
-      "question_number": 4,
+      "question": "(b) The \\( n \\)-th term of another sequence is given by \\( T_n = \\frac{3n}{4} + 43 \\). Determine if it is possible to have a term in the sequence to be greater than 1. Explain your answer.",
+      "question_number": "4",
       "question_part": "4b",
       "page_start": 5,
       "page_end": 5,
       "category": "Algebraic expressions and formulae",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving a problem on number patterns"
     },
     {
       "question": "A drawer contains 40 balls. 15 balls are black, 5 balls are grey and 20 balls are white. Samuel chooses one ball from the drawer at random. (a) Find the probability that the ball is not black.",
@@ -98,7 +106,8 @@
       "page_end": 6,
       "category": "Probability",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Finding the probability of single events"
     },
     {
       "question": "Samuel adds a few more grey balls. The probability of choosing a grey ball is now \\( \\frac{2}{7} \\). (b) Find the number of grey balls he added.",
@@ -108,17 +117,19 @@
       "page_end": 6,
       "category": "Probability",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the probability of single events"
     },
     {
-      "question": "Solve the simultaneous equations: \\[ 7x + 2y = 8 \\] \\[ 2x - 3y = 1 \\]",
+      "question": "Solve the simultaneous equations: \\( 7x + 2y = 8 \\) and \\( 3x - y = 3 \\).",
       "question_number": 6,
       "question_part": "6",
       "page_start": 7,
       "page_end": 7,
       "category": "Equations and inequalities",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving simultaneous equations using the method of elimination"
     },
     {
       "question": "The diagram shows part of a polygon A and part of polygon B. A is a regular polygon with \\( n \\) sides. B is a regular hexagon. Find the value of \\( n \\).",
@@ -128,7 +139,8 @@
       "page_end": 8,
       "category": "Angles, triangles and polygons",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Finding the number of sides of a polygon"
     },
     {
       "question": "Mary needs to pack 210 oranges, 252 apples and 294 pears into identical fruit baskets. (i) What is the largest possible number of fruit baskets that can be packed?",
@@ -138,7 +150,8 @@
       "page_end": 9,
       "category": "Problems in real-world contexts",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
       "question": "(ii) State the number of each fruit in a fruit basket.",
@@ -148,7 +161,8 @@
       "page_end": 9,
       "category": "Problems in real-world contexts",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Unknown"
     },
     {
       "question": "The diagram shows a sector OPR with centre O. ORQ is a straight line. Angle POQ = 0.6 radians. OP = 5 cm and RQ = 7 cm. (i) Calculate the perimeter of the shaded region PQR.",
@@ -158,7 +172,8 @@
       "page_end": 10,
       "category": "Mensuration",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the arc length and area of a sector"
     },
     {
       "question": "(ii) Calculate the area of the shaded region PQR.",
@@ -168,7 +183,8 @@
       "page_end": 10,
       "category": "Mensuration",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the arc length and area of a sector"
     },
     {
       "question": "A, B \\text{ and } C \\text{ are three ports.} \\newline (a) \\text{ Show that angle } ABC = 107.2^\\circ \\text{ correct to 1 decimal place.}",
@@ -178,7 +194,8 @@
       "page_end": 11,
       "category": "Angles, triangles and polygons",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
       "question": "(b) \\text{ The bearing of B from A is } 305^\\circ. \\text{ Find the bearing of C from A.}",
@@ -188,7 +205,8 @@
       "page_end": 11,
       "category": "Angles, triangles and polygons",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
       "question": "\\text{Expand and simplify } (2x - 3)^2.",
@@ -198,17 +216,19 @@
       "page_end": 12,
       "category": "Algebraic expressions and formulae",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Using algebraic identities in algebraic expansion"
     },
     {
-      "question": "\\text{The length of one of the diagonals of a rhombus of side } 13 \\text{ cm is } 24 \\text{ cm. Find the area of the rhombus.}",
+      "question": "\\text{The length of one of the diagonals of a rhombus of side 13 cm is 24 cm. Find the area of the rhombus.}",
       "question_number": "12",
       "question_part": "12",
       "page_start": 12,
       "page_end": 12,
       "category": "Mensuration",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Unknown"
     },
     {
       "question": "p \\text{ varies inversely as the square root of } q. \\newline \\text{When } q = 9, p = 12. \\newline \\text{Find } p \\text{ when } q = 16.",
@@ -218,7 +238,8 @@
       "page_end": 13,
       "category": "Functions and graphs",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Graphs of functions in the form a/x and a/x2"
     },
     {
       "question": "\\text{Andrea and Beatrice each have a savings account.} \\newline \\text{The ratio of Andrea\u2019s savings to Beatrice\u2019s savings is } 2 : 3. \\newline \\text{They each spend } \\$50 \\text{ from their savings. Andrea then gives Beatrice } \\$20 \\text{ from her savings.} \\newline \\text{The new ratio of Andrea\u2019s savings to Beatrice\u2019s savings is } 5 : 9. \\newline \\text{Find the amount of money Andrea now has in her account.}",
@@ -228,17 +249,19 @@
       "page_end": 13,
       "category": "Ratio and proportion",
       "marks": 4,
-      "difficulty_level": "difficult"
+      "difficulty_level": "difficult",
+      "question_type": "Finding the ratio involving 2 quantities"
     },
     {
-      "question": "\\text{Solve the inequalities } 2x + 6 \\leq 11 < 24 - 3x.",
+      "question": "\\text{Solve the inequalities } 2x + 6 \\leq 11 < 24 - 23x.",
       "question_number": "15",
       "question_part": "15",
       "page_start": 14,
       "page_end": 14,
       "category": "Equations and inequalities",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving a linear inequality"
     },
     {
       "question": "\\text{In the diagram, } O \\text{ is the centre of two concentric circles. A and B lie on the circumference of the smaller circle. C and D lie on the circumference of the larger circle. AD and BC intersect at O.} \\newline (a) \\text{ Prove that } \\triangle AOC \\text{ and } \\triangle BOD \\text{ are congruent.}",
@@ -248,7 +271,8 @@
       "page_end": 14,
       "category": "Congruence and similarity",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Proving the 2 triangles are congruent"
     },
     {
       "question": "(b) \\text{ Prove that } \\triangle ADB \\text{ and } \\triangle BCA \\text{ are congruent.}",
@@ -258,7 +282,8 @@
       "page_end": 14,
       "category": "Congruence and similarity",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Proving the 2 triangles are congruent"
     },
     {
       "question": "PQRS \\text{ is a trapezium where } P \\text{ is the point } (-3, 2), Q \\text{ is the point } (5, 8) \\text{ and } R \\text{ is the point } (3, 2). \\newline PQ \\text{ is parallel to } RS. \\newline (a) \\text{ Find the equation of the line } RS.",
@@ -268,7 +293,8 @@
       "page_end": 15,
       "category": "Coordinate geometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the equation of a straight line"
     },
     {
       "question": "(b)(i) \\text{ Find the length of } PQ.",
@@ -278,27 +304,30 @@
       "page_end": 15,
       "category": "Coordinate geometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the length of a line segment"
     },
     {
-      "question": "(b)(ii) \\text{ Hence find the perpendicular distance from } R \\text{ to } PQ.",
+      "question": "(ii) \\text{ Hence find the perpendicular distance from } R \\text{ to } PQ.",
       "question_number": "17",
       "question_part": "17bii",
       "page_start": 15,
       "page_end": 15,
       "category": "Coordinate geometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the length of a line segment"
     },
     {
-      "question": "In the diagram, points A, B and C lie on a straight line. BC = 12 \\text{ cm}, DC = 5 \\text{ cm} \\text{ and } \\angle BCD = 90^\\circ. \\text{ Find the value of } \\cos \\angle ABD.",
+      "question": "In the diagram, points A, B, and C lie on a straight line. BC = 12 \\text{ cm}, DC = 5 \\text{ cm}, \\text{ and } \\angle BCD = 90^\\circ. \\text{ Find the value of } \\cos \\angle ABD.",
       "question_number": 18,
       "question_part": "18",
       "page_start": 16,
       "page_end": 16,
       "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the trigonometric ratios of acute and obtuse angles"
     },
     {
       "question": "Write as a single fraction in its simplest form \\frac{2}{12} - \\frac{9}{1} - \\frac{1}{3x}.",
@@ -308,97 +337,30 @@
       "page_end": 16,
       "category": "Algebraic expressions and formulae",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Adding and subtracting algebraic fractions"
     },
     {
-      "question": "A, D, B \\text{ and } C \\text{ lie on a circle, centre } O. \\text{ AP is a tangent to the circle at A and BP is a tangent to the circle at B. } \\angle AOB = 142^\\circ \\text{ and } \\angle DAP = 42^\\circ.",
+      "question": "A, D, B, and C lie on a circle, center O. AP is a tangent to the circle at A and BP is a tangent to the circle at B. \\angle AOB = 142^\\circ \\text{ and } \\angle DAP = 42^\\circ. \\text{ (a) Find the value of (i) } \\angle ACB, \\text{ (ii) } \\angle ADB. \\text{ (b) Is OB parallel to AD? Explain.}",
       "question_number": 20,
       "question_part": "20",
       "page_start": 17,
       "page_end": 17,
       "category": "Properties of circles",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Applying the angles properties of circles"
     },
     {
-      "question": "(a) \\text{ Find the value of } (i) \\angle ACB.",
-      "question_number": 20,
-      "question_part": "20a(i)",
-      "page_start": 17,
-      "page_end": 17,
-      "category": "Properties of circles",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(a) \\text{ Find the value of } (ii) \\angle ADB.",
-      "question_number": 20,
-      "question_part": "20a(ii)",
-      "page_start": 17,
-      "page_end": 17,
-      "category": "Properties of circles",
-      "marks": 2,
-      "difficulty_level": "medium"
-    },
-    {
-      "question": "(b) \\text{ Is OB parallel to AD? Explain.}",
-      "question_number": 20,
-      "question_part": "20b",
-      "page_start": 17,
-      "page_end": 17,
-      "category": "Properties of circles",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "The admission tickets to the Singapore Zoo are \\$50 \\text{ for an adult, } \\$36 \\text{ for a child and } \\$20 \\text{ for a senior citizen. On a particular Tuesday, there were 212 adults, 251 children and 15 senior citizens who visited the Singapore Zoo and on a particular Wednesday, there were 231 adults, 266 children and 12 senior citizens who visited the Singapore Zoo. The number of visitors on the particular Tuesday and Wednesday can be represented by the matrix V = \\begin{pmatrix} 212 & 251 & 15 \\\\ 231 & 266 & 12 \\end{pmatrix}.",
+      "question": "The admission tickets to the Singapore Zoo are $50 for an adult, $36 for a child, and $20 for a senior citizen. On a particular Tuesday, there were 212 adults, 251 children, and 15 senior citizens who visited the Singapore Zoo and on a particular Wednesday, there were 231 adults, 266 children, and 12 senior citizens who visited the Singapore Zoo. The number of visitors on the particular Tuesday and Wednesday can be represented by the matrix V = \\begin{pmatrix} 212 & 251 & 15 \\\\ 231 & 266 & 12 \\end{pmatrix}. \\text{ (i) Write a } 3 \\times 1 \\text{ matrix, P, to represent the price of the admission tickets. (ii) Find the matrix } T = VP. \\text{ (iii) Explain what each of the elements represents. (iv) Find the total amount collected from the sales of the tickets for the 2 days.}",
       "question_number": 21,
       "question_part": "21",
       "page_start": 18,
       "page_end": 18,
       "category": "Matrices",
       "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(i) \\text{ Write a } 3 \\times 1 \\text{ matrix, P, to represent the price of the admission tickets.}",
-      "question_number": 21,
-      "question_part": "21(i)",
-      "page_start": 18,
-      "page_end": 18,
-      "category": "Matrices",
-      "marks": 2,
-      "difficulty_level": "medium"
-    },
-    {
-      "question": "(ii) \\text{ Find the matrix } T = VP.",
-      "question_number": 21,
-      "question_part": "21(ii)",
-      "page_start": 18,
-      "page_end": 18,
-      "category": "Matrices",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(iii) \\text{ Explain what does each of the elements represents.}",
-      "question_number": 21,
-      "question_part": "21(iii)",
-      "page_start": 18,
-      "page_end": 18,
-      "category": "Matrices",
-      "marks": 1,
-      "difficulty_level": "easy"
-    },
-    {
-      "question": "(iv) \\text{ Find the total amount collected from the sales of the tickets for the 2 days.}",
-      "question_number": 21,
-      "question_part": "21(iv)",
-      "page_start": 18,
-      "page_end": 18,
-      "category": "Matrices",
-      "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Multiplication of 2 matrices"
     },
     {
       "question": "Rearrange this equation to make x the subject. \\frac{23}{5} = \\frac{ab}{x} - x",
@@ -408,7 +370,8 @@
       "page_end": 19,
       "category": "Equations and inequalities",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Solving fractional equations that can be reduced to quadratic equations"
     },
     {
       "question": "Given that 2^{32} \\times 1 = 6 \\times 8^x, \\text{ find the value of } x.",
@@ -416,19 +379,21 @@
       "question_part": "23",
       "page_start": 19,
       "page_end": 19,
-      "category": "Equations and inequalities",
+      "category": "Algebraic expressions and formulae",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Evaluating an algebraic formula"
     },
     {
-      "question": "The angle of elevation of the base of a lighthouse, L, from two fishing boats P and Q are 20^\\circ \\text{ and } 35^\\circ \\text{ respectively. Given that the fishing boat P is 250 \\text{ m from the lighthouse, find the distance between the two fishing boats.}",
+      "question": "The angle of elevation of the base of a lighthouse, L, from two fishing boats P and Q are 20^\\circ \\text{ and } 35^\\circ \\text{ respectively. Given that the fishing boat P is 250 m from the lighthouse, find the distance between the two fishing boats.}",
       "question_number": 24,
       "question_part": "24",
       "page_start": 20,
       "page_end": 20,
       "category": "Pythagoras\u00e2\u20ac\u2122 theorem and trigonometry",
       "marks": 3,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Using the Sine rule to find an unknown side"
     },
     {
       "question": "100 \\text{ newborn babies are weighed and their masses are recorded in the table below.} \\\\ \\begin{array}{|c|c|} \\hline \\text{Mass } (x \\text{ kg}) & \\text{Frequency} \\\\ \\hline 2.8 < x \\leq 3.0 & 6 \\\\ 3.0 < x \\leq 3.2 & 21 \\\\ 3.2 < x \\leq 3.4 & 47 \\\\ 3.4 < x \\leq 3.6 & 22 \\\\ 3.6 < x \\leq 3.8 & 4 \\\\ \\hline \\end{array} \\\\ \\text{(a) Calculate an estimate for} \\\\ \\text{(i) the mean mass of these newborn babies,} \\\\ \\text{(ii) the standard deviation of the mass of these newborn babies.} \\\\ \\text{(b) If the weighing machine has an error of weighing an extra 0.2 kg, comment on how this error affects the standard deviation of the mass of these newborn babies.}",
@@ -438,7 +403,8 @@
       "page_end": 21,
       "category": "Data analysis",
       "marks": 2,
-      "difficulty_level": "medium"
+      "difficulty_level": "medium",
+      "question_type": "Finding the mean and standard deviation using mid-values"
     },
     {
       "question": "\\text{20, 1, 3, 3, } \\pi, \\text{ 7} \\in \\xi = \\left\\{ -1, 3, 7 \\right\\} \\\\ A = \\left\\{ x : x \\text{ is a rational number} \\right\\} \\\\ B = \\left\\{ x : x \\text{ is an integer} \\right\\} \\\\ C = \\left\\{ x : x \\text{ is a positive number} \\right\\} \\\\ \\text{(i) Use one of the symbols below to fill in the blank in the answer space.} \\\\ =, \\subset, \\supset, \\in, \\notin \\\\ \\text{Answer } \\left\\{ -1, 3, 7 \\right\\} \\ldots B \\\\ \\text{(ii) List the elements of } A \\cap C. \\\\ \\text{Answer } A \\cap C = \\ldots \\\\ \\text{(iii) Write down, in set notation, in terms of A, B and/or C the set that represents rational numbers that are not integers.}",
@@ -448,7 +414,8 @@
       "page_end": 22,
       "category": "Set language and notation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Listing the elements of the intersection and union of 2 sets"
     },
     {
       "question": "\\text{(b) In the diagram, shade the region representing } P \\cap Q.",
@@ -458,7 +425,8 @@
       "page_end": 22,
       "category": "Set language and notation",
       "marks": 1,
-      "difficulty_level": "easy"
+      "difficulty_level": "easy",
+      "question_type": "Shading Venn diagrams, given the set notations"
     }
   ]
 }
