@@ -230,6 +230,12 @@ class CorrectedGeneratedPythonScript(BaseModel):
     final_answer: str
     is_suggested_answer_correct: bool
     reason: str
+    changes_made: List[str]
+
+
+class FormattedGeneratedPythonScript(BaseModel):
+    python_script: str
+    format_changes: List[str]
 
 
 def _clean_meta_info(meta_info):

@@ -7,6 +7,7 @@ from app.models import (
     GeneratedQuestionList,
     GeneratedPythonScript,
     CorrectedGeneratedPythonScript,
+    FormattedGeneratedPythonScript,
 )
 from dotenv import load_dotenv
 from typing import List
@@ -49,7 +50,10 @@ def get_generated_questions_and_answers(question_details: str, image_filepath: s
     return completion.choices[0].message.parsed
 
 
-def get_python_script_and_answer(question_text: str) -> GeneratedPythonScript:
+def get_python_script_and_answer(
+    question_text: str, suggested_answer: str
+) -> GeneratedPythonScript:
+    user_content = f"<question>{question_text}</question>\n<suggested_answer>{suggested_answer}</suggested_answer>"
     messages = [
         {
             "role": Role.SYSTEM,
@@ -70,9 +74,9 @@ def get_python_script_and_answer(question_text: str) -> GeneratedPythonScript:
 
 
 def get_corrected_python_script(
-    question_text: str, previous_script: str, error_message: str
+    question_text: str, suggested_answer: str, previous_script: str, error_message: str
 ) -> CorrectedGeneratedPythonScript:
-    user_content = f"{question_text}\n<script>{previous_script}</script>\n<error>{error_message}</error>"
+    user_content = f"<question>{question_text}</question>\n<suggested_answer>{suggested_answer}</suggested_answer>\n<script>{previous_script}</script>\n<error>{error_message}</error>"
     messages = [
         {
             "role": Role.SYSTEM,
@@ -85,6 +89,33 @@ def get_corrected_python_script(
         model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
         response_format=CorrectedGeneratedPythonScript,
+        temperature=0.2,
+        top_p=0.2,
+    )
+
+    return completion.choices[0].message.parsed
+
+
+def get_format_matched_script(
+    question_text: str,
+    suggested_answer: str,
+    previous_script: str,
+    computed_answer: str,
+) -> FormattedGeneratedPythonScript:
+    user_content = f"<question>{question_text}</question>\n<suggested_answer>{suggested_answer}</suggested_answer>\n<script>{previous_script}</script>\n<computed_answer>{computed_answer}</computed_answer>"
+    print(f"user_content: {user_content}")
+    messages = [
+        {
+            "role": Role.SYSTEM,
+            "content": constants.SYSTEM_PROMPT_FORMAT_PYTHON_SCRIPT_OUTPUT,
+        },
+        {"role": Role.USER, "content": user_content},
+    ]
+
+    completion = openai.beta.chat.completions.parse(
+        model=os.environ.get("OPENAI_MODEL"),
+        messages=messages,
+        response_format=FormattedGeneratedPythonScript,
         temperature=0.2,
         top_p=0.2,
     )
