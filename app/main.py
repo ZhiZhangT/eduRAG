@@ -28,7 +28,7 @@ from app.utils.openai_utils import (
 from app.models import Message
 from app.utils.image_utils import extract_question_metadata, find_and_crop_image
 from app import constants
-from ulid import ULID
+from ulid import ulid as ULID
 
 load_dotenv()
 
@@ -161,45 +161,53 @@ def query(
                 status_code=404,
                 detail="No similar questions found. Please try again with a different question.",
             )
+        output_jsons = []
+        questions_xml = ""
         # find the question text in the question paper PDF and crop out an image containing the question
-        question_paper_filepath, question_body, image_filename, page_start, page_end = (
-            extract_question_metadata(results[0])
-        )
-        find_and_crop_image(
-            pdf_url=question_paper_filepath,
-            search_text=question_body,
-            question_filename=image_filename,
-            page_start=page_start,
-            page_end=page_end,
-        )
-        image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
-        first_question_xml = format_first_question_xml(results)
-        # pass the question metadata (topic, subtopic, link) + question image to OpenAI
-        # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
-        response = get_generated_questions_and_answers(
-            question_details=first_question_xml, image_filepath=image_filepath
-        )
-        # ensure that the output directory exists
-        os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
-        # store the generated questions and answers into a JSON file
-        json_filepath = f"{constants.OUTPUT_DIR}/{image_filename}_{str(ULID())}.json"
-        response_dict = response.model_dump()
-        response_dict["ground_truth"] = {
-            "topic": results[0]["topic"],
-            "sub_topic": results[0]["sub_topic"],
-            "question_part": results[0]["question_part"],
-            "subject": results[0]["subject"],
-            "paper_number": results[0]["paper_number"],
-            "level": results[0]["level"],
-            "exam_type": results[0]["exam_type"],
-            "year": results[0]["year"],
-            "school": results[0]["school"],
-            "question_url": f"{results[0]['question_paper_filepath']}#page={results[0]['page_start']}",
-        }
+        for result in results:
+            question_paper_filepath, question_body, image_filename, page_start, page_end = (
+                extract_question_metadata(result)
+            )
+            find_and_crop_image(
+                pdf_url=question_paper_filepath,
+                search_text=question_body,
+                question_filename=image_filename,
+                page_start=page_start,
+                page_end=page_end,
+            )
+            image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
+            question_xml = format_first_question_xml(results)
+            questions_xml += question_xml
+            questions_xml += "\n"
+            # pass the question metadata (topic, subtopic, link) + question image to OpenAI
+            # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
+            response = get_generated_questions_and_answers(
+                question_details=question_xml, image_filepath=image_filepath
+            )
+            # ensure that the output directory exists
+            os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
+            # store the generated questions and answers into a JSON file
+            json_filepath = f"{constants.OUTPUT_DIR}/{image_filename}_{str(ULID())}.json"
+            response_dict = response.model_dump()
+            response_dict["ground_truth"] = {
+                "topic": result["topic"],
+                "sub_topic": result["sub_topic"],
+                "question_part": result["question_part"],
+                "subject": result["subject"],
+                "paper_number": result["paper_number"],
+                "level": result["level"],
+                "exam_type": result["exam_type"],
+                "year": result["year"],
+                "school": result["school"],
+                "question_url": f"{result['question_paper_filepath']}#page={result['page_start']}",
+            }
+            output_jsons.append(response_dict)
+            
         with open(json_filepath, "w") as f:
-            json.dump(response_dict, f, indent=4)
+            json.dump(output_jsons, f, indent=4)
 
-        return {"response": response_dict, "first_question": first_question_xml}
+        return {"response": output_jsons, "first_question": questions_xml}
+    
     except HTTPException:
         raise
     except Exception as e:
