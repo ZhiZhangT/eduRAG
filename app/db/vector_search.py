@@ -8,10 +8,12 @@ from pymongo.collection import Collection
 from app.utils.openai_utils import get_embedding
 from app.constants import SUBJECT_MAPPING
 from app.models import AMathTopicEnum, EMathTopicEnum
+from app.utils.retrieveal_eval_utils import evaluate_retrieval
 
 # UNCOMMENT below to run the file directly
-# from utils.openai_utils import get_embedding
-# from constants import SUBJECT_MAPPING
+# from app.constants import SUBJECT_MAPPING
+# from app.utils.openai_utils import get_embedding
+# from app.utils.retrieveal_eval_utils import evaluate_retrieval
 
 from dotenv import load_dotenv
 from pymongo import MongoClient
@@ -113,7 +115,7 @@ def vector_search(user_query: str, collection: Collection, query_variables: list
         # TODO: implement some form of empirical threshold based on vector score?
         {
             "$project": {
-                "_id": 0,  # Exclude the _id field
+                # "_id": 0,  # Exclude the _id field
                 "question_body_embedding": 0,  # Exclude the question_body_embedding field
                 "score": {"$meta": "vectorSearchScore"},  # Include the search score
             }
@@ -131,7 +133,20 @@ if __name__ == "__main__":
     mongo_client = MongoClient(os.environ.get("MONGODB_URI"))
     db = mongo_client["exam_db"]
     collection = db["question"]
-    user_query = "How do I find the equation of the perpendicular bisector? Are there examples?"
+    user_query = "Could you provide me with practice problems on applications of the binomial theorem?"
+    ground_truth_docIDs = "'674dcd3ab00b977d048c92e0'; '674dcd15b00b977d048c92b7'; '674dcd15b00b977d048c92b8'; '674dcd16b00b977d048c92b9'; '674dcd3bb00b977d048c92e2'"
+    ground_truth = [docID.strip() for docID in ground_truth_docIDs.split(";")]
 
     results = vector_search(user_query, collection)
+    
+    ground_truth_docIDs = "'674dcd3ab00b977d048c92e0'; '674dcd15b00b977d048c92b7'; '674dcd15b00b977d048c92b8'; '674dcd16b00b977d048c92b9'; '674dcd3bb00b977d048c92e2'"
+    ground_truth = [docID.strip()[1:-1] for docID in ground_truth_docIDs.split(";")]
+    results = [str(result["_id"]) for result in results]
+    
+    print(f"ground_truth: {ground_truth}")
+    print("\n\n")
     print(f"results: {results}")
+    
+    evaluate_retrieval(ground_truth, results)
+    results_dict = evaluate_retrieval(ground_truth, results)
+    print(f"results_dict: {results_dict}")
