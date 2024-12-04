@@ -15,7 +15,8 @@ from app.utils.format_utils import (
     convert_exam_type,
     normalise_query,
     format_first_question_xml,
-    format_generated_answer,
+    format_answer,
+    format_python_script,
 )
 from app.utils.openai_utils import get_embedding
 from app.db.vector_search import vector_search
@@ -252,11 +253,15 @@ def verify():
             last_script = None
             last_error = None
             last_computed_answer = None
-            suggested_answer = format_generated_answer(question_doc["answer"])
+            suggested_answer = format_answer(question_doc["answer"])
+            script_filename = (
+                f"{constants.OUTPUT_DIR}/{filename_without_extension}_{i}.py"
+            )
 
             # try to generate and run the python script up to 6 times
-            while num_tries < 6:
+            while num_tries < 3:
                 try:
+                    python_script = None
                     # Generate python script and get answer
                     if last_script is None and last_computed_answer is None:
                         # First attempt - generate new script
@@ -264,6 +269,9 @@ def verify():
                             question_text=question_doc["question_text"],
                             suggested_answer=suggested_answer,
                         )
+                        response = format_python_script(response)
+                        python_script = response
+
                     elif last_script is not None and last_computed_answer is None:
                         # Attempt to correct Python script for syntax errors
                         print(f"Attempting to correct Python script...")
@@ -274,6 +282,7 @@ def verify():
                             error_message=last_error,
                         )
                         print(f"response: {response}")
+                        python_script = response.python_script
                     else:
                         # Attempt to match output format
                         print(f"Attempting to match output format...")
@@ -283,16 +292,12 @@ def verify():
                             previous_script=last_script,
                             computed_answer=last_computed_answer,
                         )
+                        python_script = response.python_script
 
-                    # Save python script to file
-                    script_filename = (
-                        f"{constants.OUTPUT_DIR}/{filename_without_extension}_{i}.py"
-                    )
-                    with open(script_filename, "w") as f:
-                        f.write(response.python_script)
-
+                    _save_script_to_file(python_script, script_filename)
                     # Run the script
-                    computed_answer = _run_dynamic_code(response.python_script)
+                    computed_answer = _run_dynamic_code(python_script)
+                    computed_answer = format_answer(computed_answer)
 
                     is_exact_match = computed_answer == suggested_answer
 
@@ -314,16 +319,14 @@ def verify():
                         break
                     else:
                         # store the script and computed answer so that we can try correcting the format of the computed answer
-                        last_script = response.python_script
+                        last_script = python_script
                         last_computed_answer = computed_answer
 
                 except HTTPException:
                     raise
                 except Exception as e:
                     # Store the script and error for next iteration
-                    last_script = (
-                        response.python_script if "response" in locals() else None
-                    )
+                    last_script = python_script
                     last_error = str(e)
                     # prints the full error trace
                     print(traceback.format_exc())
@@ -352,3 +355,8 @@ def _run_dynamic_code(code_string: str) -> Any:
     finally:
         # Only needs to clean up the module reference
         del sys.modules[module_name]
+
+
+def _save_script_to_file(script: str, filename: str):
+    with open(filename, "w") as f:
+        f.write(script)
