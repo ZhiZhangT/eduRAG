@@ -46,14 +46,6 @@ Generate a Python script that can solve the question. The script should:
 - The python script must contain a function named 'solve_problem' that returns the final answer
 - Note: symbols CANNOT be converted into integers
 
-Using the generated Python script, check if the suggested answer is correct.
-
-Output the following in JSON format:
-- "python_script": The generated Python script
-- "final_answer": The final answer obtained from the script
-- "is_suggested_answer_correct": A boolean indicating if the suggested answer is correct
-- "reason": A brief explanation justifying the correctness of the suggested answer
-
 Example Python script structure:
 ```python
 # Imports
@@ -68,6 +60,7 @@ def solve_problem():
     # Format output
     # Return final answer
 ```"""
+
 
 SYSTEM_PROMPT_DEBUG = """Given input containing:
 - A question in <question> tags

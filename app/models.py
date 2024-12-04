@@ -80,6 +80,12 @@ class EMathTopicEnum(str, Enum):
     PROBABILITY = "Probability"
 
 
+class DifficultyEnum(str, Enum):
+    EASY = "easy"
+    MEDIUM = "medium"
+    DIFFICULT = "difficult"
+
+
 class MetaInfo(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True, strict=True)
 
@@ -140,13 +146,21 @@ class QuestionItem(BaseModel):
     question_part: str = Field(
         ..., min_length=1, description="Question part cannot be empty"
     )
+    marks: int = Field(
+        ..., ge=1, description="Marks must be greater than or equal to 1"
+    )
+    difficulty: DifficultyEnum = Field(..., description="Difficulty cannot be empty")
 
     @model_validator(mode="before")
     @classmethod
     def clean_data(cls, data: Dict[str, Any]) -> Dict[str, Any]:
+        cleaned_data = data.copy()
         # ensure that each question_number is of str type
-        data["question_number"] = str(data["question_number"])
-        return data
+        cleaned_data["question_number"] = str(data["question_number"])
+        # convert string values to Enum values for schema validation purposes
+        # NOTE: the 'difficulty_level' field is renamed to 'difficulty' in the schema
+        cleaned_data["difficulty"] = DifficultyEnum(data["difficulty_level"])
+        return cleaned_data
 
     @field_validator("*")
     @classmethod

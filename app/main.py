@@ -15,7 +15,8 @@ from app.utils.format_utils import (
     convert_exam_type,
     normalise_query,
     format_first_question_xml,
-    format_generated_answer,
+    format_answer,
+    format_python_script,
 )
 from app.utils.openai_utils import get_embedding
 from app.db.vector_search import vector_search
@@ -89,6 +90,8 @@ def upload_questions(request_obj: QuestionData):
                     "exam_type": exam_type,
                     "year": int(meta_info.get("year", -1)),
                     "school": meta_info.get("school", ""),
+                    "marks": question_item.marks,
+                    "difficulty": question_item.difficulty,
                     "updated_utc": datetime.now(timezone.utc),
                 }
 
@@ -120,6 +123,8 @@ def upload_questions(request_obj: QuestionData):
                     "exam_type": exam_type,
                     "year": int(meta_info.get("year", -1)),
                     "school": meta_info.get("school", ""),
+                    "marks": question_item.marks,
+                    "difficulty": question_item.difficulty,
                     "created_utc": datetime.now(timezone.utc),
                     "updated_utc": datetime.now(timezone.utc),
                 }
@@ -157,45 +162,59 @@ def query(
                 status_code=404,
                 detail="No similar questions found. Please try again with a different question.",
             )
+        output_jsons = []
+        questions_xml = ""
         # find the question text in the question paper PDF and crop out an image containing the question
-        question_paper_filepath, question_body, image_filename, page_start, page_end = (
-            extract_question_metadata(results[0])
-        )
-        find_and_crop_image(
-            pdf_url=question_paper_filepath,
-            search_text=question_body,
-            question_filename=image_filename,
-            page_start=page_start,
-            page_end=page_end,
-        )
-        image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
-        first_question_xml = format_first_question_xml(results)
-        # pass the question metadata (topic, subtopic, link) + question image to OpenAI
-        # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
-        response = get_generated_questions_and_answers(
-            question_details=first_question_xml, image_filepath=image_filepath
-        )
-        # ensure that the output directory exists
-        os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
-        # store the generated questions and answers into a JSON file
-        json_filepath = f"{constants.OUTPUT_DIR}/{image_filename}_{str(ULID())}.json"
-        response_dict = response.model_dump()
-        response_dict["ground_truth"] = {
-            "topic": results[0]["topic"],
-            "sub_topic": results[0]["sub_topic"],
-            "question_part": results[0]["question_part"],
-            "subject": results[0]["subject"],
-            "paper_number": results[0]["paper_number"],
-            "level": results[0]["level"],
-            "exam_type": results[0]["exam_type"],
-            "year": results[0]["year"],
-            "school": results[0]["school"],
-            "question_url": f"{results[0]['question_paper_filepath']}#page={results[0]['page_start']}",
-        }
-        with open(json_filepath, "w") as f:
-            json.dump(response_dict, f, indent=4)
+        for result in results:
+            (
+                question_paper_filepath,
+                question_body,
+                image_filename,
+                page_start,
+                page_end,
+            ) = extract_question_metadata(result)
+            find_and_crop_image(
+                pdf_url=question_paper_filepath,
+                search_text=question_body,
+                question_filename=image_filename,
+                page_start=page_start,
+                page_end=page_end,
+            )
+            image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
+            question_xml = format_first_question_xml(results)
+            questions_xml += question_xml
+            questions_xml += "\n"
+            # pass the question metadata (topic, subtopic, link) + question image to OpenAI
+            # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
+            response = get_generated_questions_and_answers(
+                question_details=question_xml, image_filepath=image_filepath
+            )
+            # ensure that the output directory exists
+            os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
+            # store the generated questions and answers into a JSON file
+            json_filepath = (
+                f"{constants.OUTPUT_DIR}/{image_filename}_{str(ULID())}.json"
+            )
+            response_dict = response.model_dump()
+            response_dict["ground_truth"] = {
+                "topic": result["topic"],
+                "sub_topic": result["sub_topic"],
+                "question_part": result["question_part"],
+                "subject": result["subject"],
+                "paper_number": result["paper_number"],
+                "level": result["level"],
+                "exam_type": result["exam_type"],
+                "year": result["year"],
+                "school": result["school"],
+                "question_url": f"{result['question_paper_filepath']}#page={result['page_start']}",
+            }
+            output_jsons.append(response_dict)
 
-        return {"response": response_dict, "first_question": first_question_xml}
+        with open(json_filepath, "w") as f:
+            json.dump(output_jsons, f, indent=4)
+
+        return {"response": output_jsons, "first_question": questions_xml}
+
     except HTTPException:
         raise
     except Exception as e:
@@ -234,11 +253,15 @@ def verify():
             last_script = None
             last_error = None
             last_computed_answer = None
-            suggested_answer = format_generated_answer(question_doc["answer"])
+            suggested_answer = format_answer(question_doc["answer"])
+            script_filename = (
+                f"{constants.OUTPUT_DIR}/{filename_without_extension}_{i}.py"
+            )
 
             # try to generate and run the python script up to 6 times
-            while num_tries < 6:
+            while num_tries < 3:
                 try:
+                    python_script = None
                     # Generate python script and get answer
                     if last_script is None and last_computed_answer is None:
                         # First attempt - generate new script
@@ -246,6 +269,9 @@ def verify():
                             question_text=question_doc["question_text"],
                             suggested_answer=suggested_answer,
                         )
+                        response = format_python_script(response)
+                        python_script = response
+
                     elif last_script is not None and last_computed_answer is None:
                         # Attempt to correct Python script for syntax errors
                         print(f"Attempting to correct Python script...")
@@ -256,6 +282,7 @@ def verify():
                             error_message=last_error,
                         )
                         print(f"response: {response}")
+                        python_script = response.python_script
                     else:
                         # Attempt to match output format
                         print(f"Attempting to match output format...")
@@ -265,16 +292,12 @@ def verify():
                             previous_script=last_script,
                             computed_answer=last_computed_answer,
                         )
+                        python_script = response.python_script
 
-                    # Save python script to file
-                    script_filename = (
-                        f"{constants.OUTPUT_DIR}/{filename_without_extension}_{i}.py"
-                    )
-                    with open(script_filename, "w") as f:
-                        f.write(response.python_script)
-
+                    _save_script_to_file(python_script, script_filename)
                     # Run the script
-                    computed_answer = _run_dynamic_code(response.python_script)
+                    computed_answer = _run_dynamic_code(python_script)
+                    computed_answer = format_answer(computed_answer)
 
                     is_exact_match = computed_answer == suggested_answer
 
@@ -296,16 +319,14 @@ def verify():
                         break
                     else:
                         # store the script and computed answer so that we can try correcting the format of the computed answer
-                        last_script = response.python_script
+                        last_script = python_script
                         last_computed_answer = computed_answer
 
                 except HTTPException:
                     raise
                 except Exception as e:
                     # Store the script and error for next iteration
-                    last_script = (
-                        response.python_script if "response" in locals() else None
-                    )
+                    last_script = python_script
                     last_error = str(e)
                     # prints the full error trace
                     print(traceback.format_exc())
@@ -334,3 +355,8 @@ def _run_dynamic_code(code_string: str) -> Any:
     finally:
         # Only needs to clean up the module reference
         del sys.modules[module_name]
+
+
+def _save_script_to_file(script: str, filename: str):
+    with open(filename, "w") as f:
+        f.write(script)
