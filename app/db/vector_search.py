@@ -40,7 +40,7 @@ def get_topic_from_openai(user_query: str, format):
             messages=[
                 {
                     "role": "system",
-                    "content": "The user query is from a student who is preparing for a math exam. Determine the topic type that the user is asking about. If there are no relevant topics, return null.",
+                    "content": "The user query is from a student who is preparing for a math exam. Determine the topic type that the user is asking about. If there are no relevant topics, return 'Unknown'.",
                 },
                 {"role": "user", "content": user_query},
             ],
@@ -66,7 +66,7 @@ def get_sub_topic_from_openai(user_query: str, topics_json: str, topic: str, for
             messages=[
                 {
                     "role": "system",
-                    "content": "The user query is from a student who is preparing for a math exam. Determine one sub-topic from the list of possible sub-topics that is most relevant to the user query. If there are no relevant sub-topics, return null.",
+                    "content": "The user query is from a student who is preparing for a math exam. Determine one sub-topic from the list of possible sub-topics that is most relevant to the user query. If there are no relevant sub-topics, return 'Unknown'.",
                 },
                 {
                     "role": "user",
