@@ -28,7 +28,7 @@ from app.utils.openai_utils import (
 from app.models import Message
 from app.utils.image_utils import extract_question_metadata, find_and_crop_image
 from app import constants
-from ulid import ulid as ULID
+from ulid import ULID
 
 load_dotenv()
 
@@ -165,9 +165,13 @@ def query(
         questions_xml = ""
         # find the question text in the question paper PDF and crop out an image containing the question
         for result in results:
-            question_paper_filepath, question_body, image_filename, page_start, page_end = (
-                extract_question_metadata(result)
-            )
+            (
+                question_paper_filepath,
+                question_body,
+                image_filename,
+                page_start,
+                page_end,
+            ) = extract_question_metadata(result)
             find_and_crop_image(
                 pdf_url=question_paper_filepath,
                 search_text=question_body,
@@ -187,7 +191,9 @@ def query(
             # ensure that the output directory exists
             os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
             # store the generated questions and answers into a JSON file
-            json_filepath = f"{constants.OUTPUT_DIR}/{image_filename}_{str(ULID())}.json"
+            json_filepath = (
+                f"{constants.OUTPUT_DIR}/{image_filename}_{str(ULID())}.json"
+            )
             response_dict = response.model_dump()
             response_dict["ground_truth"] = {
                 "topic": result["topic"],
@@ -202,12 +208,12 @@ def query(
                 "question_url": f"{result['question_paper_filepath']}#page={result['page_start']}",
             }
             output_jsons.append(response_dict)
-            
+
         with open(json_filepath, "w") as f:
             json.dump(output_jsons, f, indent=4)
 
         return {"response": output_jsons, "first_question": questions_xml}
-    
+
     except HTTPException:
         raise
     except Exception as e:
