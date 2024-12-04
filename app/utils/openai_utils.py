@@ -59,7 +59,7 @@ def get_python_script_and_answer(
             "role": Role.SYSTEM,
             "content": constants.SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT,
         },
-        {"role": Role.USER, "content": question_text},
+        {"role": Role.USER, "content": user_content},
     ]
 
     completion = openai.beta.chat.completions.parse(
