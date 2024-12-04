@@ -13,11 +13,15 @@ SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
 - Sub-topic in <sub_topic> tags
 - Reference URL in <link> tags
 
-Generate 2 similar questions that match:
-- Same topic and sub-topic focus
-- Similar difficulty and complexity level
-- Identical question format
-- Aligned learning objectives
+Generate 2 similar but distinct questions that:
+- Retain the same topic and sub-topic focus
+- Are similar in difficulty and complexity level
+- Follow the same question format
+- Align with the same learning objectives
+
+Additionally, introduce diversity by:
+- Using varied contexts or scenarios while keeping the mathematical principles intact
+- Exploring slightly different representations or formats for the same type of problem (e.g., equations vs. word problems)
 
 For each new question, provide the following in JSON format:
 - Question text
@@ -26,7 +30,7 @@ For each new question, provide the following in JSON format:
 - Step-by-step workings to arrive at the final answer
 - Correct final answer in the format: "Answer: <final_answer>"
 
-Ensure questions are distinct while maintaining consistency with the original."""
+Ensure the generated questions challenge the learner in diverse ways while maintaining coherence with the original."""
 
 SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT = """Given input containing:
 - A question in <question> tags
