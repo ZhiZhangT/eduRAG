@@ -56,17 +56,24 @@ def get_generated_questions_and_answers(
 
 
 def get_python_script_and_answer(question_text: str, suggested_answer: str) -> str:
-    user_content = f"{constants.SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT}\n<question>{question_text}</question>\n<suggested_answer>{suggested_answer}</suggested_answer>"
+    user_content = f"<question>{question_text}</question>\n<suggested_answer>{suggested_answer}</suggested_answer>"
     messages = [
+        {
+            "role": Role.SYSTEM,
+            "content": constants.SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT,
+        },
         {"role": Role.USER, "content": user_content},
     ]
 
-    completion = openai.chat.completions.create(
-        model="o1-preview",
+    completion = openai.beta.chat.completions.parse(
+        model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
+        response_format=GeneratedPythonScript,
+        temperature=0.2,
+        top_p=0.2,
     )
 
-    return completion.choices[0].message.content
+    return completion.choices[0].message.parsed
 
 
 def get_corrected_python_script(
