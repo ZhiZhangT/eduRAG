@@ -146,79 +146,87 @@ def upload_questions(request_obj: QuestionData):
 
 # endpoint to ask a question
 @app.post("/query")
+@app.post("/query")
 def query(
     user_query: list[Message],
     subject: Optional[str] = Body(default="elementary_mathematics"),
     level: Optional[str] = Body(default=None),
     exam_type: Optional[str] = Body(default=None),
 ):
-    try:
-        user_query = normalise_query(user_query)
-        results = vector_search(
-            user_query[-1].content, question_collection, [subject, level, exam_type]
+    # try:
+    # Normalize the query
+    user_query = normalise_query(user_query)
+    
+    # Perform vector search to find similar questions
+    results = vector_search(
+        user_query[-1].content, question_collection, [subject, level, exam_type]
+    )
+    if not results:
+        raise HTTPException(
+            status_code=404,
+            detail="No similar questions found. Please try again with a different question.",
         )
-        if not results:
-            raise HTTPException(
-                status_code=404,
-                detail="No similar questions found. Please try again with a different question.",
-            )
-        output_jsons = []
-        questions_xml = ""
-        # find the question text in the question paper PDF and crop out an image containing the question
-        for result in results:
-            (
-                question_paper_filepath,
-                question_body,
-                image_filename,
-                page_start,
-                page_end,
-            ) = extract_question_metadata(result)
-            find_and_crop_image(
-                pdf_url=question_paper_filepath,
-                search_text=question_body,
-                question_filename=image_filename,
-                page_start=page_start,
-                page_end=page_end,
-            )
-            image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
-            question_xml = format_first_question_xml(results)
-            questions_xml += question_xml
-            questions_xml += "\n"
-            # pass the question metadata (topic, subtopic, link) + question image to OpenAI
-            # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
-            response = get_generated_questions_and_answers(
-                question_details=question_xml, image_filepath=image_filepath
-            )
-            # ensure that the output directory exists
-            os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
-            # store the generated questions and answers into a JSON file
-            json_filepath = (
-                f"{constants.OUTPUT_DIR}/{image_filename}_{str(ULID())}.json"
-            )
-            response_dict = response.model_dump()
-            response_dict["ground_truth"] = {
-                "topic": result["topic"],
-                "sub_topic": result["sub_topic"],
-                "question_part": result["question_part"],
-                "subject": result["subject"],
-                "paper_number": result["paper_number"],
-                "level": result["level"],
-                "exam_type": result["exam_type"],
-                "year": result["year"],
-                "school": result["school"],
-                "question_url": f"{result['question_paper_filepath']}#page={result['page_start']}",
-            }
-            output_jsons.append(response_dict)
+    
+    # Initialize variables to store aggregated metadata and output
+    aggregated_metadata = {"topics": set(), "sub_topics": set(), "links": set()}
+    questions_xml = ""
+    output_jsons = []
 
-        with open(json_filepath, "w") as f:
-            json.dump(output_jsons, f, indent=4)
+    # Process each result to aggregate metadata and prepare XML
+    for result in results:
+        (
+            question_paper_filepath,
+            question_body,
+            image_filename,
+            page_start,
+            page_end,
+        ) = extract_question_metadata(result)
 
-        return {"response": output_jsons, "first_question": questions_xml}
+        # Crop the question image
+        find_and_crop_image(
+            pdf_url=question_paper_filepath,
+            search_text=question_body,
+            question_filename=image_filename,
+            page_start=page_start,
+            page_end=page_end,
+        )
+        image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
 
-    except HTTPException:
-        raise
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        # Aggregate metadata
+        aggregated_metadata["topics"].add(result["topic"])
+        aggregated_metadata["sub_topics"].add(result["sub_topic"])
+        aggregated_metadata["links"].add(result.get("question_paper_filepath", ""))
+
+        # Generate XML for this question
+        question_xml = format_first_question_xml([result])
+        questions_xml += question_xml + "\n"
+    
+    # Convert aggregated metadata sets to lists
+    aggregated_metadata = {key: list(value) for key, value in aggregated_metadata.items()}
+
+    # Generate questions based on aggregated metadata and all ground-truth documents
+    response = get_generated_questions_and_answers(
+        question_details=questions_xml,
+        image_filepath=image_filepath,
+        aggregated_metadata=aggregated_metadata  # Pass aggregated context
+    )
+
+    # Save the generated questions and answers to a JSON file
+    os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
+    json_filepath = f"{constants.OUTPUT_DIR}/{str(ULID())}.json"
+    response_dict = response.model_dump()
+    response_dict["ground_truth"] = aggregated_metadata
+    output_jsons.append(response_dict)
+
+    with open(json_filepath, "w") as f:
+        json.dump(output_jsons, f, indent=4)
+
+    return {"response": output_jsons, "first_question": questions_xml}
+
+    # except HTTPException:
+    #     raise
+    # except Exception as e:
+    #     raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/verify")

@@ -1,0 +1,96 @@
+{
+    "baseline_prompting": {
+        "response": [
+            {
+                "questions": [
+                    {
+                        "question_text": "Emma claims that \\( 3^{400} \\) is smaller than \\( 27^{200} \\). Do you agree with her statement? Justify your answer with mathematical calculations.",
+                        "topic": "Numbers and their operations",
+                        "sub_topic": "Applying the laws of indices",
+                        "steps": [
+                            "Rewrite \\( 27^{200} \\) as \\((3^3)^{200}\\), which equals \\(3^{600}\\).",
+                            "Compare \\(3^{400}\\) and \\(3^{600}\\): Since the bases are the same and 400 < 600, \\(3^{400} < 3^{600}\\).",
+                            "Thus, Emma's claim is correct."
+                        ],
+                        "answer": "Answer: Yes, \\( 3^{400} < 27^{200} \\)."
+                    },
+                    {
+                        "question_text": "Lucas argues that \\( 10^{150} \\) is less than \\( 100^{75} \\). Do you agree with his assertion? Provide a justification using mathematical reasoning.",
+                        "topic": "Numbers and their operations",
+                        "sub_topic": "Applying the laws of indices",
+                        "steps": [
+                            "Rewrite \\(100^{75}\\) as \\((10^2)^{75}\\), which is equal to \\(10^{150}\\).",
+                            "Compare \\(10^{150}\\) and \\(10^{150}\\): Since both expressions are equal, \\(10^{150} = 100^{75}\\).",
+                            "Therefore, Lucas's assertion is incorrect."
+                        ],
+                        "answer": "Answer: No, \\( 10^{150} = 100^{75} \\)."
+                    }
+                ],
+                "ground_truth": {
+                    "topics": [
+                        "Set language and notation",
+                        "Numbers and their operations",
+                        "Probability"
+                    ],
+                    "sub_topics": [
+                        "Listing the elements of the intersection and union of 2 sets",
+                        "Applying the laws of indices",
+                        "Finding the probability of single events"
+                    ],
+                    "links": [
+                        "https://document.grail.moe/b06fe71b3f3c4f5db97844c79c7a12c1.pdf",
+                        "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf"
+                    ]
+                }
+            }
+        ],
+        "first_question": "<topic>Probability</topic>\n<sub_topic>Finding the probability of single events</sub_topic>\n<link>[Fairfield Methodist School Secondary Elementary Mathematics Preliminary Exam 2024 Paper 1 Question 24i](https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=21)</link>\n<topic>Set language and notation</topic>\n<sub_topic>Listing the elements of the intersection and union of 2 sets</sub_topic>\n<link>[Bukit Panjang Government High School Elementary Mathematics Preliminary Exam 2023 Paper 1 Question 26a](https://document.grail.moe/b06fe71b3f3c4f5db97844c79c7a12c1.pdf#page=22)</link>\n<topic>Numbers and their operations</topic>\n<sub_topic>Applying the laws of indices</sub_topic>\n<link>[Fairfield Methodist School Secondary Elementary Mathematics Preliminary Exam 2024 Paper 1 Question 15b](https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=12)</link>\n"
+    },
+    "COT_0_shot_prompting": {
+        "response": [
+            {
+                "questions": [
+                    {
+                        "question_text": "Liam claims that \\(3^{600}\\) is greater than \\(9^{300}\\). Do you agree with his statement? Justify your answer with mathematical working.",
+                        "topic": "Numbers and their operations",
+                        "sub_topic": "Applying the laws of indices",
+                        "steps": [
+                            "Rewrite 9 as a power of 3: \\(9 = 3^2\\), so \\(9^{300} = (3^2)^{300} = 3^{600}\\).",
+                            "Compare \\(3^{600}\\) and \\(3^{600}\\): They are equal.",
+                            "Since \\(3^{600} = 3^{600}\\), Liam's claim that \\(3^{600}\\) is greater than \\(9^{300}\\) is incorrect."
+                        ],
+                        "answer": "Answer: No, 3^{600} is equal to 9^{300}."
+                    },
+                    {
+                        "question_text": "Ethan says that \\(4^{400}\\) is greater than \\(16^{100}\\). Do you agree with Ethan's statement? Justify your answer with mathematical working.",
+                        "topic": "Numbers and their operations",
+                        "sub_topic": "Applying the laws of indices",
+                        "steps": [
+                            "Rewrite 16 as a power of 4: \\(16 = 4^2\\), so \\(16^{100} = (4^2)^{100} = 4^{200}\\).",
+                            "Compare \\(4^{400}\\) and \\(4^{200}\\): \\(4^{400}\\) is greater than \\(4^{200}\\).",
+                            "Since \\(4^{400} > 4^{200}\\), Ethan's claim is correct."
+                        ],
+                        "answer": "Answer: Yes, 4^{400} is greater than 16^{100}."
+                    }
+                ],
+                "ground_truth": {
+                    "topics": [
+                        "Set language and notation",
+                        "Numbers and their operations",
+                        "Probability"
+                    ],
+                    "sub_topics": [
+                        "Listing the elements of the intersection and union of 2 sets",
+                        "Applying the laws of indices",
+                        "Finding the probability of single events"
+                    ],
+                    "links": [
+                        "https://document.grail.moe/b06fe71b3f3c4f5db97844c79c7a12c1.pdf",
+                        "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf"
+                    ]
+                }
+            }
+        ],
+        "first_question": "<topic>Probability</topic>\n<sub_topic>Finding the probability of single events</sub_topic>\n<link>[Fairfield Methodist School Secondary Elementary Mathematics Preliminary Exam 2024 Paper 1 Question 24i](https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=21)</link>\n<topic>Set language and notation</topic>\n<sub_topic>Listing the elements of the intersection and union of 2 sets</sub_topic>\n<link>[Bukit Panjang Government High School Elementary Mathematics Preliminary Exam 2023 Paper 1 Question 26a](https://document.grail.moe/b06fe71b3f3c4f5db97844c79c7a12c1.pdf#page=22)</link>\n<topic>Numbers and their operations</topic>\n<sub_topic>Applying the laws of indices</sub_topic>\n<link>[Fairfield Methodist School Secondary Elementary Mathematics Preliminary Exam 2024 Paper 1 Question 15b](https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=12)</link>\n"
+    }
+}

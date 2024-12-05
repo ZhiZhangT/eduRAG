@@ -21,11 +21,34 @@ def _encode_image(image_path):
         return base64.b64encode(image_file.read()).decode("utf-8")
 
 
-def get_generated_questions_and_answers(question_details: str, image_filepath: str):
+def get_generated_questions_and_answers(
+    question_details: str, 
+    image_filepath: str, 
+    aggregated_metadata: dict
+):
+    # Encode the image to base64 format
     base64_image = _encode_image(image_filepath)
-    # TODO: update the system prompt to generate a specific number of questions defined by the original user query (currently it is hardcoded to 5)
+    
+    # Extract aggregated metadata for context
+    topics = ", ".join(aggregated_metadata["topics"])
+    sub_topics = ", ".join(aggregated_metadata["sub_topics"])
+    links = ", ".join(aggregated_metadata["links"])
+
+    # Update the system prompt to include metadata and ensure diversity
+    system_prompt = f"""
+    {constants.SYSTEM_PROMPT_GENERATE_QUESTIONS}
+
+    Context for question generation:
+    - Topics: {topics}
+    - Sub-topics: {sub_topics}
+    - References: {links}
+
+    Generate questions that are aligned with the provided question details while incorporating the above context for diversity.
+    """
+
+    # Construct the messages for OpenAI API
     messages = [
-        {"role": Role.SYSTEM, "content": constants.SYSTEM_PROMPT_GENERATE_QUESTIONS},
+        {"role": Role.SYSTEM, "content": system_prompt},
         {
             "role": Role.USER,
             "content": [
@@ -41,12 +64,14 @@ def get_generated_questions_and_answers(question_details: str, image_filepath: s
         },
     ]
 
+    # Generate completion using OpenAI API
     completion = openai.beta.chat.completions.parse(
         model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
         response_format=GeneratedQuestionList,
     )
 
+    # Return the parsed response containing generated questions
     return completion.choices[0].message.parsed
 
 
