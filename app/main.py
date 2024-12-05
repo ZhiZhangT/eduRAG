@@ -207,6 +207,7 @@ def query(
                 "year": result["year"],
                 "school": result["school"],
                 "question_url": f"{result['question_paper_filepath']}#page={result['page_start']}",
+                "json_filepath": json_filepath,
             }
             output_jsons.append(response_dict)
 
@@ -226,119 +227,108 @@ def query(
 
 
 @app.post("/verify")
-def verify():
+def verify(json_filepath: str = Body(..., embed=True)):
     responses = []
 
-    # Iterate through JSON files in output directory
-    for filename in os.listdir(constants.OUTPUT_DIR):
-        if not filename.endswith(".json"):
-            continue
+    filename_without_extension = os.path.splitext(json_filepath)[0]
 
-        filename_without_extension = os.path.splitext(filename)[0]
+    # Read JSON file
+    with open(json_filepath) as f:
+        data = json.load(f)
+        data = data[0]
 
-        skip_file = False
-        # if there already exists a python file that contains filename_without_extension, skip this file
-        for f in os.listdir(constants.OUTPUT_DIR):
-            if f.endswith(".py") and filename_without_extension in f:
-                skip_file = True
-                break
-        if skip_file:
-            continue
+    response_filename = f"{filename_without_extension}_verify.json"
 
-        json_path = os.path.join(constants.OUTPUT_DIR, filename)
+    # Iterate through questions
+    for i, question_doc in enumerate(data.get("questions", [])):
+        if i > 0:
+            break
+        num_tries = 0
+        last_script = None
+        last_error = None
+        last_computed_answer = None
+        suggested_answer = format_answer(question_doc["answer"])
+        script_filename = f"{filename_without_extension}_{i}.py"
 
-        # Read JSON file
-        with open(json_path) as f:
-            data = json.load(f)
-
-        # Iterate through questions
-        for i, question_doc in enumerate(data.get("questions", [])):
-            num_tries = 0
-            last_script = None
-            last_error = None
-            last_computed_answer = None
-            suggested_answer = format_answer(question_doc["answer"])
-            script_filename = (
-                f"{constants.OUTPUT_DIR}/{filename_without_extension}_{i}.py"
-            )
-
-            # try to generate and run the python script up to 6 times
-            while num_tries < 3:
-                try:
-                    python_script = None
-                    # Generate python script and get answer
-                    if last_script is None and last_computed_answer is None:
-                        # First attempt - generate new script
-                        response = get_python_script_and_answer(
-                            question_text=question_doc["question_text"],
-                            suggested_answer=suggested_answer,
-                        )
-                        response = format_python_script(response)
-                        python_script = response
-
-                    elif last_script is not None and last_computed_answer is None:
-                        # Attempt to correct Python script for syntax errors
-                        print(f"Attempting to correct Python script...")
-                        response = get_corrected_python_script(
-                            question_text=question_doc["question_text"],
-                            suggested_answer=suggested_answer,
-                            previous_script=last_script,
-                            error_message=last_error,
-                        )
-                        print(f"response: {response}")
-                        python_script = response.python_script
-                    else:
-                        # Attempt to match output format
-                        print(f"Attempting to match output format...")
-                        response = get_format_matched_script(
-                            question_text=question_doc["question_text"],
-                            suggested_answer=suggested_answer,
-                            previous_script=last_script,
-                            computed_answer=last_computed_answer,
-                        )
-                        python_script = response.python_script
-
-                    _save_script_to_file(python_script, script_filename)
-                    # Run the script
-                    computed_answer = _run_dynamic_code(python_script)
-                    computed_answer = format_answer(computed_answer)
-
-                    is_exact_match = computed_answer == suggested_answer
-
-                    # Add to responses
-                    responses.append(
-                        {
-                            "filename": filename,
-                            "attempt": num_tries + 1,
-                            "question_index": i,
-                            "response": response,
-                            "suggested_answer": suggested_answer,
-                            "computed_answer": computed_answer,
-                            "is_exact_match": is_exact_match,
-                        }
+        # try to generate and run the python script up to 6 times
+        while num_tries < 3:
+            try:
+                python_script = None
+                # Generate python script and get answer
+                if last_script is None and last_computed_answer is None:
+                    # First attempt - generate new script
+                    response = get_python_script_and_answer(
+                        question_text=question_doc["question_text"],
+                        suggested_answer=suggested_answer,
                     )
+                    response = format_python_script(response)
+                    python_script = response
+                elif last_script is not None and last_computed_answer is None:
+                    # Attempt to correct Python script for syntax errors
+                    print(f"Attempting to correct Python script...")
+                    response = get_corrected_python_script(
+                        question_text=question_doc["question_text"],
+                        suggested_answer=suggested_answer,
+                        previous_script=last_script,
+                        error_message=last_error,
+                    )
+                    print(f"response: {response}")
+                    python_script = response.python_script
+                else:
+                    # Attempt to match output format
+                    print(f"Attempting to match output format...")
+                    response = get_format_matched_script(
+                        question_text=question_doc["question_text"],
+                        suggested_answer=suggested_answer,
+                        previous_script=last_script,
+                        computed_answer=last_computed_answer,
+                    )
+                    python_script = response.python_script
 
-                    # if the code runs successfully and there is an exact match, break out of the loop
-                    if is_exact_match:
-                        break
-                    else:
-                        # store the script and computed answer so that we can try correcting the format of the computed answer
-                        last_script = python_script
-                        last_computed_answer = computed_answer
+                _save_script_to_file(python_script, script_filename)
+                # Run the script
+                computed_answer = _run_dynamic_code(python_script)
+                computed_answer = format_answer(computed_answer)
 
-                except HTTPException:
-                    raise
-                except Exception as e:
-                    # Store the script and error for next iteration
+                is_exact_match = computed_answer == suggested_answer
+
+                # Add to responses
+                responses.append(
+                    {
+                        "filename": json_filepath,
+                        "attempt": num_tries + 1,
+                        "question_index": i,
+                        "response": response,
+                        "suggested_answer": suggested_answer,
+                        "computed_answer": computed_answer,
+                        "is_exact_match": is_exact_match,
+                    }
+                )
+
+                # if the code runs successfully and there is an exact match, break out of the loop
+                if is_exact_match:
+                    break
+                else:
+                    # store the script and computed answer so that we can try correcting the format of the computed answer
                     last_script = python_script
-                    last_error = str(e)
-                    # prints the full error trace
-                    print(traceback.format_exc())
-                    print(
-                        f"[INFO] Attempt {num_tries + 1} failed for {filename} question {i}"
-                    )
-                finally:
-                    num_tries += 1
+                    last_computed_answer = computed_answer
+            except HTTPException:
+                raise
+            except Exception as e:
+                # Store the script and error for next iteration
+                last_script = python_script
+                last_error = str(e)
+                # prints the full error trace
+                print(traceback.format_exc())
+                print(
+                    f"[INFO] Attempt {num_tries + 1} failed for {json_filepath} question {i}"
+                )
+            finally:
+                num_tries += 1
+
+    # save responses to file
+    with open(response_filename, "w") as f:
+        json.dump(responses, f, indent=4)
 
     return responses
 
