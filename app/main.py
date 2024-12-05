@@ -4,7 +4,7 @@ import json
 import types
 import sys
 import traceback
-from typing import Optional, Any
+from typing import Any
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.responses import JSONResponse
@@ -14,7 +14,6 @@ from app.models import QuestionData
 from app.utils.format_utils import (
     convert_exam_type,
     normalise_query,
-    format_first_question_xml,
     format_answer,
     format_python_script,
 )
@@ -26,7 +25,7 @@ from app.utils.openai_utils import (
     get_corrected_python_script,
     get_format_matched_script,
 )
-from app.models import Message
+from app.models import QueryRequest
 from app.utils.image_utils import extract_question_metadata, find_and_crop_image
 from app import constants
 from ulid import ULID
@@ -146,24 +145,25 @@ def upload_questions(request_obj: QuestionData):
 
 # endpoint to ask a question
 @app.post("/query")
-def query(
-    user_query: list[Message],
-    subject: Optional[str] = Body(default="elementary_mathematics"),
-    level: Optional[str] = Body(default=None),
-    exam_type: Optional[str] = Body(default=None),
-):
+def query(request: QueryRequest):
     try:
-        user_query = normalise_query(user_query)
+
+        query_id = str(ULID())
+        user_query = normalise_query(request.user_query)
         results = vector_search(
-            user_query[-1].content, question_collection, [subject, level, exam_type]
+            user_query[-1].content,
+            question_collection,
+            [request.subject, request.level, request.exam_type],
+            mql=True,
         )
         if not results:
             raise HTTPException(
                 status_code=404,
                 detail="No similar questions found. Please try again with a different question.",
             )
-        output_jsons = []
-        questions_xml = ""
+        image_filepaths = []
+        retrieved_documents = []
+        topic, sub_topic = "", ""
         # find the question text in the question paper PDF and crop out an image containing the question
         for result in results:
             (
@@ -180,43 +180,47 @@ def query(
                 page_start=page_start,
                 page_end=page_end,
             )
-            image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
-            question_xml = format_first_question_xml(results)
-            questions_xml += question_xml
-            questions_xml += "\n"
-            # pass the question metadata (topic, subtopic, link) + question image to OpenAI
-            # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
-            response = get_generated_questions_and_answers(
-                question_details=question_xml, image_filepath=image_filepath
-            )
             # ensure that the output directory exists
             os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
-            # store the generated questions and answers into a JSON file
-            json_filepath = (
-                f"{constants.OUTPUT_DIR}/{image_filename}_{str(ULID())}.json"
-            )
-            response_dict = response.model_dump()
-            response_dict["ground_truth"] = {
-                "topic": result["topic"],
-                "sub_topic": result["sub_topic"],
-                "question_part": result["question_part"],
-                "subject": result["subject"],
-                "paper_number": result["paper_number"],
-                "level": result["level"],
-                "exam_type": result["exam_type"],
-                "year": result["year"],
-                "school": result["school"],
-                "question_url": f"{result['question_paper_filepath']}#page={result['page_start']}",
-                "json_filepath": json_filepath,
-            }
-            output_jsons.append(response_dict)
 
+            img_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
+            image_filepaths.append(img_filepath)
+
+            topic = result["topic"]
+            sub_topic = result["sub_topic"]
+            retrieved_documents.append(
+                {
+                    "topic": topic,
+                    "sub_topic": sub_topic,
+                    "question_part": result["question_part"],
+                    "subject": result["subject"],
+                    "paper_number": result["paper_number"],
+                    "level": result["level"],
+                    "exam_type": result["exam_type"],
+                    "year": result["year"],
+                    "school": result["school"],
+                    "question_url": f"{result['question_paper_filepath']}#page={result['page_start']}",
+                    "image_filepath": img_filepath,
+                    "question_body": result["question_body"],
+                }
+            )
+
+        # pass the question metadata (topic, subtopic) + question image to OpenAI
+        # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
+        response = get_generated_questions_and_answers(
+            topic=topic, sub_topic=sub_topic, image_filepaths=image_filepaths
+        )
+        response_dict = response.model_dump()
+        response_dict["retrieved_documents"] = retrieved_documents
+        # store the generated questions and answers into a JSON file
+        json_filepath = f"{constants.OUTPUT_DIR}/{query_id}.json"
+        response_dict["json_filepath"] = json_filepath
+        response_dict["query_id"] = query_id
         with open(json_filepath, "w") as f:
-            json.dump(output_jsons, f, indent=4)
+            json.dump(response_dict, f, indent=4)
 
         return {
-            "response": output_jsons,
-            "first_question": questions_xml,
+            "response": response_dict,
             "json_filepath": json_filepath,
         }
 
@@ -234,97 +238,89 @@ def verify(json_filepath: str = Body(..., embed=True)):
 
     # Read JSON file
     with open(json_filepath) as f:
-        data = json.load(f)
-        data = data[0]
+        question_doc = json.load(f)
 
     response_filename = f"{filename_without_extension}_verify.json"
 
-    # Iterate through questions
-    for i, question_doc in enumerate(data.get("questions", [])):
-        if i > 0:
-            break
-        num_tries = 0
-        last_script = None
-        last_error = None
-        last_computed_answer = None
-        suggested_answer = format_answer(question_doc["answer"])
-        script_filename = f"{filename_without_extension}_{i}.py"
+    num_tries = 0
+    last_script = None
+    last_error = None
+    last_computed_answer = None
+    suggested_answer = format_answer(question_doc["answer"])
+    script_filename = f"{filename_without_extension}.py"
 
-        # try to generate and run the python script up to 6 times
-        while num_tries < 3:
-            try:
-                python_script = None
-                # Generate python script and get answer
-                if last_script is None and last_computed_answer is None:
-                    # First attempt - generate new script
-                    response = get_python_script_and_answer(
-                        question_text=question_doc["question_text"],
-                        suggested_answer=suggested_answer,
-                    )
-                    response = format_python_script(response)
-                    python_script = response
-                elif last_script is not None and last_computed_answer is None:
-                    # Attempt to correct Python script for syntax errors
-                    print(f"Attempting to correct Python script...")
-                    response = get_corrected_python_script(
-                        question_text=question_doc["question_text"],
-                        suggested_answer=suggested_answer,
-                        previous_script=last_script,
-                        error_message=last_error,
-                    )
-                    print(f"response: {response}")
-                    python_script = response.python_script
-                else:
-                    # Attempt to match output format
-                    print(f"Attempting to match output format...")
-                    response = get_format_matched_script(
-                        question_text=question_doc["question_text"],
-                        suggested_answer=suggested_answer,
-                        previous_script=last_script,
-                        computed_answer=last_computed_answer,
-                    )
-                    python_script = response.python_script
-
-                _save_script_to_file(python_script, script_filename)
-                # Run the script
-                computed_answer = _run_dynamic_code(python_script)
-                computed_answer = format_answer(computed_answer)
-
-                is_exact_match = computed_answer == suggested_answer
-
-                # Add to responses
-                responses.append(
-                    {
-                        "filename": json_filepath,
-                        "attempt": num_tries + 1,
-                        "question_index": i,
-                        "response": response,
-                        "suggested_answer": suggested_answer,
-                        "computed_answer": computed_answer,
-                        "is_exact_match": is_exact_match,
-                    }
+    # try to generate and run the python script up to 6 times
+    while num_tries < 3:
+        try:
+            # Generate python script and get answer
+            if last_script is None and last_computed_answer is None:
+                # First attempt - generate new script
+                response = get_python_script_and_answer(
+                    question_text=question_doc["question_text"],
+                    suggested_answer=suggested_answer,
+                )
+            elif last_script is not None and last_computed_answer is None:
+                # Attempt to correct Python script for syntax errors
+                print(f"Attempting to correct Python script...")
+                response = get_corrected_python_script(
+                    question_text=question_doc["question_text"],
+                    suggested_answer=suggested_answer,
+                    previous_script=last_script,
+                    error_message=last_error,
+                )
+                print(f"response: {response}")
+            else:
+                # Attempt to match output format
+                print(f"Attempting to match output format...")
+                response = get_format_matched_script(
+                    question_text=question_doc["question_text"],
+                    suggested_answer=suggested_answer,
+                    previous_script=last_script,
+                    computed_answer=last_computed_answer,
                 )
 
-                # if the code runs successfully and there is an exact match, break out of the loop
-                if is_exact_match:
-                    break
-                else:
-                    # store the script and computed answer so that we can try correcting the format of the computed answer
-                    last_script = python_script
-                    last_computed_answer = computed_answer
-            except HTTPException:
-                raise
-            except Exception as e:
-                # Store the script and error for next iteration
+            python_script = format_python_script(response.python_script)
+            _save_script_to_file(python_script, script_filename)
+            # Run the script
+            computed_answer = _run_dynamic_code(python_script)
+            computed_answer = format_answer(f"{computed_answer}")
+
+            is_exact_match = computed_answer == suggested_answer
+
+            # Add to responses
+            responses.append(
+                {
+                    "filename": json_filepath,
+                    "attempt": num_tries + 1,
+                    "response": response.model_dump_json(),
+                    "suggested_answer": suggested_answer,
+                    "computed_answer": computed_answer,
+                    "is_exact_match": is_exact_match,
+                    # where query refers to the question that user asked in the /query endpoint
+                    "query_id": question_doc["query_id"],
+                }
+            )
+
+            # if the code runs successfully and there is an exact match, break out of the loop
+            if is_exact_match:
+                break
+            else:
+                # store the script and computed answer so that we can try correcting the format of the computed answer
                 last_script = python_script
-                last_error = str(e)
-                # prints the full error trace
-                print(traceback.format_exc())
-                print(
-                    f"[INFO] Attempt {num_tries + 1} failed for {json_filepath} question {i}"
-                )
-            finally:
-                num_tries += 1
+                last_computed_answer = computed_answer
+        except HTTPException:
+            raise
+        except Exception as e:
+            # Store the script and error for next iteration
+            last_script = python_script
+            last_error = str(e)
+            # prints the full error trace
+            print(traceback.format_exc())
+            print(
+                f"[INFO] Attempt {num_tries + 1} failed for {json_filepath}. Error: {e}"
+            )
+        finally:
+            num_tries += 1
 
     # save responses to file
     with open(response_filename, "w") as f:

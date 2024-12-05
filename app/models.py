@@ -1,5 +1,5 @@
 import re
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from pydantic import BaseModel, Field, field_validator, ConfigDict, model_validator
 from enum import Enum
 from pydantic import BaseModel
@@ -220,6 +220,13 @@ class Message(BaseModelWithRoleEncoder):
     content: str
 
 
+class QueryRequest(BaseModel):
+    user_query: List[Message]
+    subject: str = "elementary_mathematics"
+    level: Optional[str] = None
+    exam_type: Optional[str] = None
+
+
 class GeneratedQuestion(BaseModel):
     question_text: str
     topic: str
@@ -228,15 +235,8 @@ class GeneratedQuestion(BaseModel):
     answer: str
 
 
-class GeneratedQuestionList(BaseModel):
-    questions: List[GeneratedQuestion]
-
-
 class GeneratedPythonScript(BaseModel):
     python_script: str
-    final_answer: str
-    is_suggested_answer_correct: bool
-    reason: str
 
 
 class CorrectedGeneratedPythonScript(BaseModel):
