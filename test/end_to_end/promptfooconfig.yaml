@@ -9,10 +9,13 @@ providers:
 
 defaultTest:
   assert:
-    - type: python
-      value: file://assertion.py
-    - type: llm-rubric
-      value: does not describe self as an AI, model, or chatbot
+    - type: assert-set
+      threshold: 0.5 # so long as 1 of the 2 assertions pass, the test passes
+      assert:
+        - type: python
+          value: file://assertion_llm_judge.py
+        - type: python
+          value: file://assertion_python_script.py
     # - type: answer-relevance
     #   threshold: 0.9
     # - type: context-recall

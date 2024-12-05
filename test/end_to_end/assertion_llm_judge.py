@@ -14,30 +14,30 @@ grandparent_dir = os.path.dirname(parent_dir)
 # Add the grandparent directory to sys.path
 sys.path.append(grandparent_dir)
 import app.constants as constants
+from app.models import Role
 
 load_dotenv()
 
 
-class RelevanceScoreResponse(BaseModel):
-    score: int
+class IsAnswerCorrect(BaseModel):
+    is_correct: bool
     reason: str
 
 
-def get_relevance_score(
-    llm_response: str, similar_documents: str
-) -> RelevanceScoreResponse:
+def is_answer_correct(question: str, suggested_answer: str) -> IsAnswerCorrect:
+    user_content = f"<question>{question}</question>\n<suggested_answer>{suggested_answer}</suggested_answer>"
     messages = [
-        {"role": "system", "content": constants.SYSTEM_PROMPT_EVALUATE},
+        {"role": Role.SYSTEM, "content": constants.SYSTEM_PROMPT_EVALUATE},
         {
-            "role": "user",
-            "content": f"'llm_response': {llm_response} 'similar_documents': {similar_documents}",
+            "role": Role.USER,
+            "content": user_content,
         },
     ]
 
     completion = openai.beta.chat.completions.parse(
         model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
-        response_format=RelevanceScoreResponse,
+        response_format=IsAnswerCorrect,
         temperature=0.2,
         top_p=0.2,
     )
@@ -48,6 +48,7 @@ def get_relevance_score(
 def get_assert(output, context) -> Union[bool, float, Dict[str, Any]]:
     print(f"context: {context}")
     enable_test = context["vars"]["enable_test"]
+    score, is_pass = 0, False
     if enable_test.upper() == "FALSE":
         return {
             "pass": True,
@@ -55,19 +56,19 @@ def get_assert(output, context) -> Union[bool, float, Dict[str, Any]]:
             "reason": "Test case is disabled. Set 'enable_test' to 'True' to enable it.",
         }
 
-    response = output["response"]
-    similar_documents = output["similar_documents"]
-    relevance_score_obj = get_relevance_score(response, similar_documents)
-    print(f"Relevance score object: {relevance_score_obj}")
-    if relevance_score_obj.score < 0.5:
-        return {
-            "pass": False,
-            "score": relevance_score_obj.score,
-            "reason": relevance_score_obj.reason,
-        }
-
+    generated_question = output["generated_question"]
+    generated_answer = output["generated_answer"]
+    # llm-as-judge
+    is_answer_correct_obj = is_answer_correct(
+        question=generated_question, suggested_answer=generated_answer
+    )
+    if is_answer_correct_obj.is_correct:
+        is_pass = True
+        score += 1
+    print(f"is_answer_correct_obj: {is_answer_correct_obj}")
+    print(f"Current Working Directory: {os.getcwd()}")
     return {
-        "pass": True,
-        "score": relevance_score_obj.score,
-        "reason": relevance_score_obj.reason,
+        "pass": is_pass,
+        "score": score,
+        "reason": is_answer_correct_obj.reason,
     }
