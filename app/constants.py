@@ -1,23 +1,24 @@
 TEMP_DIR = "temp"
 OUTPUT_DIR = "output"
-SYSTEM_PROMPT_EVALUATE = """You are a content relevance evaluator. You will receive a language model's response ("llm_response") and a set of reference documents ("similar_documents"). Your task is to:
-1. Analyse how well the concepts, information, and details from similar_documents are incorporated into llm_response
-2. Evaluate both semantic similarity and factual consistency
-3. Provide output in JSON format with two fields:
-   - "score": A decimal number between 0 and 1, where 0 = no content overlap and 1 = complete overlap
-   - "reason": A brief explanation justifying the assigned score"""
+SYSTEM_PROMPT_EVALUATE = """Given input containing:
+- A question in <question> tags
+- A suggested answer in <suggested_answer> tags
+
+Instructions:
+1. First solve the question independently without looking at the suggested answer
+2. Compare your solution with the suggested answer
+3. Return a JSON response with two fields:
+   - "is_correct": boolean (true if the suggested answer matches your solution, false otherwise)
+   - "reason": string explaining why you determined the answer is correct or incorrect"""
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
-- An image which shows a math question
+- Multiple images, where each image displays a mathematical problem
 - Topic in <topic> tags
 - Sub-topic in <sub_topic> tags
-- Reference URL in <link> tags
 
-Generate 2 similar but distinct questions that:
-- Retain the same topic and sub-topic focus
-- Are similar in difficulty and complexity level
-- Follow the same question format
-- Align with the same learning objectives
+Generate 1 similar but distinct question that:
+- Retains the same topic and sub-topic focus
+- Is similar in difficulty and complexity level
 
 Additionally, introduce diversity by:
 - Using varied contexts or scenarios while keeping the mathematical principles intact
@@ -28,9 +29,7 @@ For each new question, provide the following in JSON format:
 - Question topic
 - Question sub-topic
 - Step-by-step workings to arrive at the final answer
-- Correct final answer in the format: "Answer: <final_answer>"
-
-Ensure the generated questions challenge the learner in diverse ways while maintaining coherence with the original."""
+- Correct final answer in the format: "Answer: <final_answer>"""
 
 SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT = """Given input containing:
 - A question in <question> tags

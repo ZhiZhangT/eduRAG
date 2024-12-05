@@ -12,7 +12,7 @@ grandparent_dir = os.path.dirname(parent_dir)
 sys.path.append(grandparent_dir)
 
 from app.main import query
-from app.models import Message, Role
+from app.models import Message, Role, QueryRequest
 
 
 def call_api(prompt, options, context):
@@ -25,15 +25,21 @@ def call_api(prompt, options, context):
         }
     try:
         user_query = context["vars"]["query"]
+        subject = context["vars"]["subject"]
         messages = [Message(content=user_query, role=Role.USER)]
 
-        response = query(messages)
-        response_body = json.loads(response.body)
+        query_request = QueryRequest(user_query=messages, subject=subject)
+
+        res = query(request=query_request)
+        response = res["response"]
+        json_filepath = res["json_filepath"]
 
         result = {
             "output": {
-                "response": response_body["response"],
-                "similar_documents": response_body["similar_documents"],
+                "query_id": response["query_id"],
+                "generated_question": response["question_text"],
+                "generated_answer": response["answer"],
+                "json_filepath": json_filepath,
             }
         }
 

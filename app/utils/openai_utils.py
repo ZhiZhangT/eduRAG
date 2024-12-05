@@ -4,7 +4,7 @@ import base64
 from app import constants
 from app.models import (
     Role,
-    GeneratedQuestionList,
+    GeneratedQuestion,
     GeneratedPythonScript,
     CorrectedGeneratedPythonScript,
     FormattedGeneratedPythonScript,
@@ -22,6 +22,7 @@ def _encode_image(image_path):
 
 
 def get_generated_questions_and_answers(
+<<<<<<< HEAD
     question_details: str, 
     image_filepath: str, 
     aggregated_metadata: dict
@@ -62,13 +63,37 @@ def get_generated_questions_and_answers(
                 },
             ],
         },
+=======
+    topic: str, sub_topic: str, image_filepaths: List[str]
+) -> GeneratedQuestion:
+    question_details = f"<topic>{topic}</topic>\n<sub_topic>{sub_topic}</sub_topic>"
+    user_content = [
+        {
+            "type": "text",
+            "text": question_details,
+        }
+    ]
+    for _, img_filepath in enumerate(image_filepaths):
+        base64_image = _encode_image(img_filepath)
+        user_content += [
+            {
+                "type": "image_url",
+                "image_url": {"url": f"data:image/png;base64,{base64_image}"},
+            },
+        ]
+
+    # TODO: update the system prompt to generate a specific number of questions defined by the original user query (currently it is hardcoded to 5)
+    messages = [
+        {"role": Role.SYSTEM, "content": constants.SYSTEM_PROMPT_GENERATE_QUESTIONS},
+        {"role": Role.USER, "content": user_content},
+>>>>>>> 455589c84738e413574c52d1b2101eed4aaae6ed
     ]
 
     # Generate completion using OpenAI API
     completion = openai.beta.chat.completions.parse(
         model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
-        response_format=GeneratedQuestionList,
+        response_format=GeneratedQuestion,
     )
 
     # Return the parsed response containing generated questions
@@ -76,17 +101,24 @@ def get_generated_questions_and_answers(
 
 
 def get_python_script_and_answer(question_text: str, suggested_answer: str) -> str:
-    user_content = f"{constants.SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT}\n<question>{question_text}</question>\n<suggested_answer>{suggested_answer}</suggested_answer>"
+    user_content = f"<question>{question_text}</question>\n<suggested_answer>{suggested_answer}</suggested_answer>"
     messages = [
+        {
+            "role": Role.SYSTEM,
+            "content": constants.SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT,
+        },
         {"role": Role.USER, "content": user_content},
     ]
 
-    completion = openai.chat.completions.create(
-        model="o1-preview",
+    completion = openai.beta.chat.completions.parse(
+        model=os.environ.get("OPENAI_MODEL"),
         messages=messages,
+        response_format=GeneratedPythonScript,
+        temperature=0.2,
+        top_p=0.2,
     )
 
-    return completion.choices[0].message.content
+    return completion.choices[0].message.parsed
 
 
 def get_corrected_python_script(
