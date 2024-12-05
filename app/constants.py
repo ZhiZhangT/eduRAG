@@ -13,11 +13,9 @@ SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
 - Sub-topic in <sub_topic> tags
 - Reference URL in <link> tags
 
-Generate 2 similar but distinct questions that:
-- Retain the same topic and sub-topic focus
-- Are similar in difficulty and complexity level
-- Follow the same question format
-- Align with the same learning objectives
+Generate 1 similar but distinct question that:
+- Retains the same topic and sub-topic focus
+- Is similar in difficulty and complexity level
 
 Additionally, introduce diversity by:
 - Using varied contexts or scenarios while keeping the mathematical principles intact
