@@ -12,10 +12,9 @@ Instructions:
    - "reason": string explaining why you determined the answer is correct or incorrect"""
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
-- An image which shows a math question
+- Multiple images, where each image displays a mathematical problem
 - Topic in <topic> tags
 - Sub-topic in <sub_topic> tags
-- Reference URL in <link> tags
 
 Generate 1 similar but distinct question that:
 - Retains the same topic and sub-topic focus
@@ -30,9 +29,7 @@ For each new question, provide the following in JSON format:
 - Question topic
 - Question sub-topic
 - Step-by-step workings to arrive at the final answer
-- Correct final answer in the format: "Answer: <final_answer>"
-
-Ensure the generated questions challenge the learner in diverse ways while maintaining coherence with the original."""
+- Correct final answer in the format: "Answer: <final_answer>"""
 
 SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT = """Given input containing:
 - A question in <question> tags
