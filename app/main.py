@@ -213,7 +213,11 @@ def query(
         with open(json_filepath, "w") as f:
             json.dump(output_jsons, f, indent=4)
 
-        return {"response": output_jsons, "first_question": questions_xml}
+        return {
+            "response": output_jsons,
+            "first_question": questions_xml,
+            "json_filepath": json_filepath,
+        }
 
     except HTTPException:
         raise
