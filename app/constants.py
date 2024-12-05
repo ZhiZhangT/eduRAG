@@ -1,11 +1,15 @@
 TEMP_DIR = "temp"
 OUTPUT_DIR = "output"
-SYSTEM_PROMPT_EVALUATE = """You are a content relevance evaluator. You will receive a language model's response ("llm_response") and a set of reference documents ("similar_documents"). Your task is to:
-1. Analyse how well the concepts, information, and details from similar_documents are incorporated into llm_response
-2. Evaluate both semantic similarity and factual consistency
-3. Provide output in JSON format with two fields:
-   - "score": A decimal number between 0 and 1, where 0 = no content overlap and 1 = complete overlap
-   - "reason": A brief explanation justifying the assigned score"""
+SYSTEM_PROMPT_EVALUATE = """Given input containing:
+- A question in <question> tags
+- A suggested answer in <suggested_answer> tags
+
+Instructions:
+1. First solve the question independently without looking at the suggested answer
+2. Compare your solution with the suggested answer
+3. Return a JSON response with two fields:
+   - "is_correct": boolean (true if the suggested answer matches your solution, false otherwise)
+   - "reason": string explaining why you determined the answer is correct or incorrect"""
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
 - An image which shows a math question
