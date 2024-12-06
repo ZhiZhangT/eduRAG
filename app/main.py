@@ -145,53 +145,6 @@ def upload_questions(request_obj: QuestionData):
 
 # endpoint to ask a question
 @app.post("/query")
-<<<<<<< HEAD
-@app.post("/query")
-def query(
-    user_query: list[Message],
-    subject: Optional[str] = Body(default="elementary_mathematics"),
-    level: Optional[str] = Body(default=None),
-    exam_type: Optional[str] = Body(default=None),
-):
-    # try:
-    # Normalize the query
-    user_query = normalise_query(user_query)
-    
-    # Perform vector search to find similar questions
-    results = vector_search(
-        user_query[-1].content, question_collection, [subject, level, exam_type]
-    )
-    if not results:
-        raise HTTPException(
-            status_code=404,
-            detail="No similar questions found. Please try again with a different question.",
-        )
-    
-    # Initialize variables to store aggregated metadata and output
-    aggregated_metadata = {"topics": set(), "sub_topics": set(), "links": set()}
-    questions_xml = ""
-    output_jsons = []
-
-    # Process each result to aggregate metadata and prepare XML
-    for result in results:
-        (
-            question_paper_filepath,
-            question_body,
-            image_filename,
-            page_start,
-            page_end,
-        ) = extract_question_metadata(result)
-
-        # Crop the question image
-        find_and_crop_image(
-            pdf_url=question_paper_filepath,
-            search_text=question_body,
-            question_filename=image_filename,
-            page_start=page_start,
-            page_end=page_end,
-        )
-        image_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
-=======
 def query(request: QueryRequest):
     try:
 
@@ -270,7 +223,6 @@ def query(request: QueryRequest):
             "response": response_dict,
             "json_filepath": json_filepath,
         }
->>>>>>> 455589c84738e413574c52d1b2101eed4aaae6ed
 
         # Aggregate metadata
         aggregated_metadata["topics"].add(result["topic"])

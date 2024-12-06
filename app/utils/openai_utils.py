@@ -22,48 +22,6 @@ def _encode_image(image_path):
 
 
 def get_generated_questions_and_answers(
-<<<<<<< HEAD
-    question_details: str, 
-    image_filepath: str, 
-    aggregated_metadata: dict
-):
-    # Encode the image to base64 format
-    base64_image = _encode_image(image_filepath)
-    
-    # Extract aggregated metadata for context
-    topics = ", ".join(aggregated_metadata["topics"])
-    sub_topics = ", ".join(aggregated_metadata["sub_topics"])
-    links = ", ".join(aggregated_metadata["links"])
-
-    # Update the system prompt to include metadata and ensure diversity
-    system_prompt = f"""
-    {constants.SYSTEM_PROMPT_GENERATE_QUESTIONS}
-
-    Context for question generation:
-    - Topics: {topics}
-    - Sub-topics: {sub_topics}
-    - References: {links}
-
-    Generate questions that are aligned with the provided question details while incorporating the above context for diversity.
-    """
-
-    # Construct the messages for OpenAI API
-    messages = [
-        {"role": Role.SYSTEM, "content": system_prompt},
-        {
-            "role": Role.USER,
-            "content": [
-                {
-                    "type": "text",
-                    "text": question_details,
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/png;base64,{base64_image}"},
-                },
-            ],
-        },
-=======
     topic: str, sub_topic: str, image_filepaths: List[str]
 ) -> GeneratedQuestion:
     question_details = f"<topic>{topic}</topic>\n<sub_topic>{sub_topic}</sub_topic>"
@@ -86,7 +44,6 @@ def get_generated_questions_and_answers(
     messages = [
         {"role": Role.SYSTEM, "content": constants.SYSTEM_PROMPT_GENERATE_QUESTIONS},
         {"role": Role.USER, "content": user_content},
->>>>>>> 455589c84738e413574c52d1b2101eed4aaae6ed
     ]
 
     # Generate completion using OpenAI API
