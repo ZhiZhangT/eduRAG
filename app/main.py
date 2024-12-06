@@ -224,41 +224,10 @@ def query(request: QueryRequest):
             "json_filepath": json_filepath,
         }
 
-        # Aggregate metadata
-        aggregated_metadata["topics"].add(result["topic"])
-        aggregated_metadata["sub_topics"].add(result["sub_topic"])
-        aggregated_metadata["links"].add(result.get("question_paper_filepath", ""))
-
-        # Generate XML for this question
-        question_xml = format_first_question_xml([result])
-        questions_xml += question_xml + "\n"
-    
-    # Convert aggregated metadata sets to lists
-    aggregated_metadata = {key: list(value) for key, value in aggregated_metadata.items()}
-
-    # Generate questions based on aggregated metadata and all ground-truth documents
-    response = get_generated_questions_and_answers(
-        question_details=questions_xml,
-        image_filepath=image_filepath,
-        aggregated_metadata=aggregated_metadata  # Pass aggregated context
-    )
-
-    # Save the generated questions and answers to a JSON file
-    os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
-    json_filepath = f"{constants.OUTPUT_DIR}/{str(ULID())}.json"
-    response_dict = response.model_dump()
-    response_dict["ground_truth"] = aggregated_metadata
-    output_jsons.append(response_dict)
-
-    with open(json_filepath, "w") as f:
-        json.dump(output_jsons, f, indent=4)
-
-    return {"response": output_jsons, "first_question": questions_xml}
-
-    # except HTTPException:
-    #     raise
-    # except Exception as e:
-    #     raise HTTPException(status_code=500, detail=str(e))
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/verify")
