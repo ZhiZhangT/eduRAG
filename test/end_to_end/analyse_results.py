@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # Load JSON data
-with open("test/end_to_end/results.json") as f:
+with open("test/end_to_end/results_v2.json") as f:
     data = json.load(f)
 
 # Define base test types
@@ -22,6 +22,10 @@ for base_type in base_test_types:
 for result in data["results"]["results"]:
     if result["testCase"]["vars"]["enable_test"] == "TRUE":
         is_plain = result["testCase"]["vars"]["is_plain_text"]
+
+        if not result["gradingResult"]:
+            print(f"[INFO] Skipping result with no grading result")
+            continue
 
         for component in result["gradingResult"]["componentResults"]:
             test_type = component["assertion"]["value"]
