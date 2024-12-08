@@ -219,6 +219,7 @@ def query(request: QueryRequest):
         json_filepath = f"{constants.OUTPUT_DIR}/{query_id}.json"
         response_dict["json_filepath"] = json_filepath
         response_dict["query_id"] = query_id
+        response_dict["user_query"] = user_query[-1].content
         # format answer
         response_dict["answer"] = format_answer(response_dict["answer"])
         with open(json_filepath, "w") as f:
