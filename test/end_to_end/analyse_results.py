@@ -5,18 +5,18 @@ import pandas as pd
 with open("test/end_to_end/results.json") as f:
     data = json.load(f)
 
-test_types = [
-    "python_script",
-    "llm_step_by_step",
-    "llm_judge",
-    "python_script_remove_latex",
-    "llm_step_by_step_remove_latex",
-    "llm_judge_remove_latex",
-]
-test_types_set = set(test_types)
+# Define base test types
+base_test_types = ["python_script", "llm_step_by_step", "llm_judge"]
 
-total_tests = {"TRUE": {t: 0 for t in test_types}, "FALSE": {t: 0 for t in test_types}}
-passed_tests = {"TRUE": {t: 0 for t in test_types}, "FALSE": {t: 0 for t in test_types}}
+# Initialize dictionaries for counting
+counts = {}
+for base_type in base_test_types:
+    counts[base_type] = {
+        ("TRUE", "with_latex"): {"total": 0, "passed": 0},
+        ("TRUE", "no_latex"): {"total": 0, "passed": 0},
+        ("FALSE", "with_latex"): {"total": 0, "passed": 0},
+        ("FALSE", "no_latex"): {"total": 0, "passed": 0},
+    }
 
 # Process results
 for result in data["results"]["results"]:
@@ -25,52 +25,53 @@ for result in data["results"]["results"]:
 
         for component in result["gradingResult"]["componentResults"]:
             test_type = component["assertion"]["value"]
-            for t in test_types:
-                # the ".py" is used to ensure that the test type is not a substring of another test type
-                # eg: we need to distinguish between "llm_judge" and "llm_judge_remove_latex"_with_percentages
-                if f"{t}.py" in test_type:
-                    total_tests[is_plain][t] += 1
+
+            # Determine if this is a remove_latex test
+            has_remove_latex = "remove_latex" in test_type
+            latex_key = "no_latex" if has_remove_latex else "with_latex"
+
+            # Check which base test type this belongs to
+            for base_type in base_test_types:
+                if base_type in test_type:
+                    counts[base_type][(is_plain, latex_key)]["total"] += 1
                     if component["pass"]:
-                        passed_tests[is_plain][t] += 1
+                        counts[base_type][(is_plain, latex_key)]["passed"] += 1
                     break
 
-# Calculate percentages
-percentages = {"TRUE": {}, "FALSE": {}}
+# Create DataFrames for each base test type
+dfs = {}
+for base_type in base_test_types:
+    rows = []
+    for is_plain in ["TRUE", "FALSE"]:
+        for latex_type in ["with_latex", "no_latex"]:
+            total = counts[base_type][(is_plain, latex_type)]["total"]
+            passed = counts[base_type][(is_plain, latex_type)]["passed"]
+            percentage = (passed / total * 100) if total > 0 else 0
+            rows.append(
+                {
+                    "is_plain_text": is_plain,
+                    "latex_type": latex_type,
+                    "total": total,
+                    "passed": passed,
+                    "percentage": f"{percentage:.1f}%",
+                }
+            )
 
-for is_plain in ["TRUE", "FALSE"]:
-    for test_type in test_types:
-        total = total_tests[is_plain][test_type]
-        print(f"total: {total} passed: {passed_tests[is_plain][test_type]}")
-        if total > 0:
-            percentage = (passed_tests[is_plain][test_type] / total) * 100
-        else:
-            percentage = 0
-        percentages[is_plain][test_type] = f"{percentage:.1f}%"
+    df = pd.DataFrame(rows)
+    df["condition"] = df.apply(
+        lambda x: f"plain_text={x['is_plain_text']}, {x['latex_type']}", axis=1
+    )
+    dfs[base_type] = df.set_index("condition")[["total", "passed", "percentage"]]
 
-# Create DataFrames
-raw_counts_df = pd.DataFrame(passed_tests).T
-raw_counts_df.index.name = "is_plain_text"
-raw_counts_df.columns = [f"{col}_count" for col in raw_counts_df.columns]
-
-percentage_df = pd.DataFrame(percentages).T
-percentage_df.index.name = "is_plain_text"
-percentage_df.columns = [f"{col}_percentage" for col in percentage_df.columns]
-
-# Combine the DataFrames
-final_df = pd.concat([raw_counts_df, percentage_df], axis=1)
-
-# Reorder columns to alternate between count and percentage
-cols = []
-for test_type in test_types:
-    cols.extend([f"{test_type}_count", f"{test_type}_percentage"])
-final_df = final_df[cols]
-
-# Add total tests column
-total_df = pd.DataFrame(total_tests).T
-final_df["total_test_cases_per_column"] = total_tests["TRUE"]["python_script"]
-
-OUTPUT_CSV = "results_analysis_with_percentages.csv"
 # Save to CSV file
-final_df.to_csv(OUTPUT_CSV)
+OUTPUT_CSV = "results_analysis_by_test_type.csv"
+with open(OUTPUT_CSV, "w") as f:
+    for base_type in base_test_types:
+        f.write(f"\n{base_type}\n")
+        dfs[base_type].to_csv(f)
 
 print(f"\nResults have been saved to {OUTPUT_CSV}")
+print("\nFinal tables:")
+for base_type in base_test_types:
+    print(f"\n{base_type}:")
+    print(dfs[base_type])
