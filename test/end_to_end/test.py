@@ -39,8 +39,9 @@ def call_api(prompt, options, context):
                 "query_id": response["query_id"],
                 "generated_question": response["question_text"],
                 "generated_answer": response["answer"],
-                "json_filepath": json_filepath,
-            }
+            },
+            "json_filepath": json_filepath,
+            "steps": response["steps"],
         }
 
         return result

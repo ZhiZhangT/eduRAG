@@ -65,8 +65,6 @@ def get_assert(output, context) -> Union[bool, float, Dict[str, Any]]:
     if is_answer_correct_obj.is_correct:
         is_pass = True
         score += 1
-    print(f"is_answer_correct_obj: {is_answer_correct_obj}")
-    print(f"Current Working Directory: {os.getcwd()}")
     return {
         "pass": is_pass,
         "score": score,

@@ -27,7 +27,8 @@ def get_assert(output, context) -> Union[bool, float, Dict[str, Any]]:
             "reason": "Test case is disabled. Set 'enable_test' to 'True' to enable it.",
         }
 
-    json_filepath = output["json_filepath"]
+    provider_response = context["providerResponse"]
+    json_filepath = provider_response["json_filepath"]
     # exact match using generated python script
     verify_response = verify(json_filepath=json_filepath)
     last_response = verify_response[-1]
