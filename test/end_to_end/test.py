@@ -12,6 +12,7 @@ sys.path.append(grandparent_dir)
 
 from app.main import query
 from app.models import Message, Role, QueryRequest
+from app.constants import RETRIEVED_DOCUMENTS_FOR_SUB_TOPIC
 
 
 def call_api(prompt, options, context):
@@ -26,10 +27,15 @@ def call_api(prompt, options, context):
     try:
         user_query = context["vars"]["query"]
         subject = context["vars"]["subject"]
+        sub_topic = context["vars"]["sub_topic"]
+        retrieved_documents = RETRIEVED_DOCUMENTS_FOR_SUB_TOPIC[sub_topic]
         messages = [Message(content=user_query, role=Role.USER)]
 
         query_request = QueryRequest(
-            user_query=messages, subject=subject, is_plain_text=is_plain_text
+            user_query=messages,
+            subject=subject,
+            is_plain_text=is_plain_text,
+            retrieved_documents=retrieved_documents,
         )
 
         res = query(request=query_request)

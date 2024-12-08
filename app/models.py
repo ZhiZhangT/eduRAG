@@ -220,12 +220,28 @@ class Message(BaseModelWithRoleEncoder):
     content: str
 
 
+class RetrievedDocument(BaseModel):
+    topic: str
+    sub_topic: str
+    question_part: str
+    subject: SubjectEnum
+    paper_number: str
+    level: LevelEnum
+    exam_type: ExamTypeEnum
+    year: int
+    school: str
+    question_url: str
+    image_filepath: str
+    question_body: str
+
+
 class QueryRequest(BaseModel):
     user_query: List[Message]
     subject: str = "elementary_mathematics"
     level: Optional[str] = None
     exam_type: Optional[str] = None
     is_plain_text: bool = False
+    retrieved_documents: Optional[List[RetrievedDocument]] = None
 
 
 class GeneratedQuestion(BaseModel):

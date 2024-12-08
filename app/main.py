@@ -148,63 +148,69 @@ def upload_questions(request_obj: QuestionData):
 @app.post("/query")
 def query(request: QueryRequest):
     try:
-
+        # ensure that the output directory exists
+        os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
         query_id = str(ULID())
         user_query = normalise_query(request.user_query)
-        results = vector_search(
-            user_query[-1].content,
-            question_collection,
-            [request.subject, request.level, request.exam_type],
-            mql=True,
-        )
-        if not results:
-            raise HTTPException(
-                status_code=404,
-                detail="No similar questions found. Please try again with a different question.",
-            )
         image_filepaths = []
         retrieved_documents = []
         topic, sub_topic = "", ""
-        # find the question text in the question paper PDF and crop out an image containing the question
-        for result in results:
-            (
-                question_paper_filepath,
-                question_body,
-                image_filename,
-                page_start,
-                page_end,
-            ) = extract_question_metadata(result)
-            find_and_crop_image(
-                pdf_url=question_paper_filepath,
-                search_text=question_body,
-                question_filename=image_filename,
-                page_start=page_start,
-                page_end=page_end,
+        if request.retrieved_documents:
+            for doc in request.retrieved_documents:
+                image_filepaths.append(doc.image_filepath)
+                retrieved_documents.append(doc.model_dump())
+            topic = request.retrieved_documents[0].topic
+            sub_topic = request.retrieved_documents[0].sub_topic
+        else:
+            results = vector_search(
+                user_query[-1].content,
+                question_collection,
+                [request.subject, request.level, request.exam_type],
+                mql=True,
             )
-            # ensure that the output directory exists
-            os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
+            if not results:
+                raise HTTPException(
+                    status_code=404,
+                    detail="No similar questions found. Please try again with a different question.",
+                )
+            # find the question text in the question paper PDF and crop out an image containing the question
+            for result in results:
+                (
+                    question_paper_filepath,
+                    question_body,
+                    image_filename,
+                    page_start,
+                    page_end,
+                ) = extract_question_metadata(result)
+                find_and_crop_image(
+                    pdf_url=question_paper_filepath,
+                    search_text=question_body,
+                    question_filename=image_filename,
+                    page_start=page_start,
+                    page_end=page_end,
+                )
 
-            img_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
-            image_filepaths.append(img_filepath)
+                img_filepath = f"{constants.TEMP_DIR}/{image_filename}.png"
+                image_filepaths.append(img_filepath)
 
-            topic = result["topic"]
-            sub_topic = result["sub_topic"]
-            retrieved_documents.append(
-                {
-                    "topic": topic,
-                    "sub_topic": sub_topic,
-                    "question_part": result["question_part"],
-                    "subject": result["subject"],
-                    "paper_number": result["paper_number"],
-                    "level": result["level"],
-                    "exam_type": result["exam_type"],
-                    "year": result["year"],
-                    "school": result["school"],
-                    "question_url": f"{result['question_paper_filepath']}#page={result['page_start']}",
-                    "image_filepath": img_filepath,
-                    "question_body": result["question_body"],
-                }
-            )
+                topic = result["topic"]
+                sub_topic = result["sub_topic"]
+                retrieved_documents.append(
+                    {
+                        "topic": topic,
+                        "sub_topic": sub_topic,
+                        "question_part": result["question_part"],
+                        "subject": result["subject"],
+                        "paper_number": result["paper_number"],
+                        "level": result["level"],
+                        "exam_type": result["exam_type"],
+                        "year": result["year"],
+                        "school": result["school"],
+                        "question_url": f"{result['question_paper_filepath']}#page={result['page_start']}",
+                        "image_filepath": img_filepath,
+                        "question_body": result["question_body"],
+                    }
+                )
 
         # pass the question metadata (topic, subtopic) + question image to OpenAI
         # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
@@ -215,6 +221,7 @@ def query(request: QueryRequest):
             is_plain_text=request.is_plain_text,
         )
         response_dict = response.model_dump()
+        # use retrieved_documents and not request.retrieved_documents because the latter is of type List[RetrievedDocument] which is not JSON serialisable
         response_dict["retrieved_documents"] = retrieved_documents
         # store the generated questions and answers into a JSON file
         json_filepath = f"{constants.OUTPUT_DIR}/{query_id}.json"
