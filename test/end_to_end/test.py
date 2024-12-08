@@ -1,6 +1,6 @@
 import sys
 import os
-import json
+from pylatexenc.latex2text import LatexNodes2Text
 
 # Get the current file's directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -17,6 +17,8 @@ from app.models import Message, Role, QueryRequest
 
 def call_api(prompt, options, context):
     enable_test = context["vars"]["enable_test"]
+    is_plain_text = context["vars"]["is_plain_text"].upper() == "TRUE"
+    remove_latex = context["vars"]["remove_latex"].upper() == "TRUE"
     if enable_test.upper() == "FALSE":
         return {
             "output": {
@@ -28,11 +30,18 @@ def call_api(prompt, options, context):
         subject = context["vars"]["subject"]
         messages = [Message(content=user_query, role=Role.USER)]
 
-        query_request = QueryRequest(user_query=messages, subject=subject)
+        query_request = QueryRequest(
+            user_query=messages, subject=subject, is_plain_text=is_plain_text
+        )
 
         res = query(request=query_request)
         response = res["response"]
         json_filepath = res["json_filepath"]
+
+        answer = response["answer"]
+
+        if remove_latex:
+            answer = LatexNodes2Text().latex_to_text(answer)
 
         result = {
             "output": {

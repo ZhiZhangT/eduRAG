@@ -22,7 +22,7 @@ def _encode_image(image_path):
 
 
 def get_generated_questions_and_answers(
-    topic: str, sub_topic: str, image_filepaths: List[str]
+    topic: str, sub_topic: str, image_filepaths: List[str], is_plain_text: bool = False
 ) -> GeneratedQuestion:
     question_details = f"<topic>{topic}</topic>\n<sub_topic>{sub_topic}</sub_topic>"
     user_content = [
@@ -40,9 +40,12 @@ def get_generated_questions_and_answers(
             },
         ]
 
-    # TODO: update the system prompt to generate a specific number of questions defined by the original user query (currently it is hardcoded to 5)
+    system_prompt = constants.SYSTEM_PROMPT_GENERATE_QUESTIONS
+    if is_plain_text:
+        system_prompt = constants.SYSTEM_PROMPT_GENERATE_QUESTIONS_PLAIN_TEXT
+
     messages = [
-        {"role": Role.SYSTEM, "content": constants.SYSTEM_PROMPT_GENERATE_QUESTIONS},
+        {"role": Role.SYSTEM, "content": system_prompt},
         {"role": Role.USER, "content": user_content},
     ]
 

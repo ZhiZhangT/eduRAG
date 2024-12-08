@@ -45,28 +45,60 @@ SYSTEM_PROMPT_EVALUATE = """Given input containing:
 - A suggested answer in <suggested_answer> tags
 
 Return a JSON response with two fields:
-- "is_correct": boolean (true if the suggested answer is correct)
-- "reason": string explaining why you determined the answer is correct or incorrect"""
+- "reason": string explaining why you determined the answer is correct or incorrect
+- "is_correct": boolean (true if the suggested answer is correct)"""
+
+SYSTEM_PROMPT_GENERATE_QUESTIONS_PLAIN_TEXT = """Given input containing:
+- Multiple images, where each image displays a mathematical problem
+- Topic in <topic> tags
+- Sub-topic in <sub_topic> tags
+
+Instructions:
+1. Generate one similar but distinct question that:
+- Retains the same topic and sub-topic focus
+- Is similar in difficulty and complexity level
+- Uses plain text, not LaTeX
+2. Introduce diversity by:
+- Using varied contexts or scenarios while keeping the mathematical principles intact
+- Exploring slightly different representations or formats for the same type of problem (e.g., equations vs. word problems)
+
+Return a JSON response with:
+{
+"question_text": "Full question text",
+"topic": "Mathematical topic",
+"sub_topic": "Specific sub-topic",
+"steps": [
+"Step 1: Description and calculation",
+"Step 2: Description and calculation",
+],
+"answer": "Final numerical or algebraic answer in plain text. The format should be 'Answer: <answer>'"
+}"""
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
 - Multiple images, where each image displays a mathematical problem
 - Topic in <topic> tags
 - Sub-topic in <sub_topic> tags
 
-Generate 1 similar but distinct question that:
+Instructions:
+1. Generate one similar but distinct question that:
 - Retains the same topic and sub-topic focus
 - Is similar in difficulty and complexity level
-
-Additionally, introduce diversity by:
+- Uses LaTeX formatting for mathematical expressions
+2. Introduce diversity by:
 - Using varied contexts or scenarios while keeping the mathematical principles intact
 - Exploring slightly different representations or formats for the same type of problem (e.g., equations vs. word problems)
 
-For each new question, provide the following in JSON format:
-- Question text
-- Question topic
-- Question sub-topic
-- Step-by-step workings to arrive at the final answer
-- Correct final answer in the format: "Answer: <final_answer>"""
+Return a JSON response with:
+{
+"question_text": "Full question text",
+"topic": "Mathematical topic",
+"sub_topic": "Specific sub-topic",
+"steps": [
+"Step 1: Description and calculation",
+"Step 2: Description and calculation",
+],
+"answer": "Final numerical or algebraic answer. The format should be 'Answer: <answer>'"
+}"""
 
 SYSTEM_PROMPT_GENERATE_PYTHON_SCRIPT = """Given input containing:
 - A question in <question> tags

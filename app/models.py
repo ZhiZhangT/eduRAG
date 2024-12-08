@@ -225,6 +225,7 @@ class QueryRequest(BaseModel):
     subject: str = "elementary_mathematics"
     level: Optional[str] = None
     exam_type: Optional[str] = None
+    is_plain_text: bool = False
 
 
 class GeneratedQuestion(BaseModel):

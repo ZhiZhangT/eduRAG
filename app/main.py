@@ -208,7 +208,10 @@ def query(request: QueryRequest):
         # pass the question metadata (topic, subtopic) + question image to OpenAI
         # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate
         response = get_generated_questions_and_answers(
-            topic=topic, sub_topic=sub_topic, image_filepaths=image_filepaths
+            topic=topic,
+            sub_topic=sub_topic,
+            image_filepaths=image_filepaths,
+            is_plain_text=request.is_plain_text,
         )
         response_dict = response.model_dump()
         response_dict["retrieved_documents"] = retrieved_documents
@@ -216,6 +219,8 @@ def query(request: QueryRequest):
         json_filepath = f"{constants.OUTPUT_DIR}/{query_id}.json"
         response_dict["json_filepath"] = json_filepath
         response_dict["query_id"] = query_id
+        # format answer
+        response_dict["answer"] = format_answer(response_dict["answer"])
         with open(json_filepath, "w") as f:
             json.dump(response_dict, f, indent=4)
 

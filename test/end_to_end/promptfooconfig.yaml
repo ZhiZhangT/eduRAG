@@ -8,13 +8,17 @@ providers:
   - "python:test.py"
 
 defaultTest:
+  threshold: 0.5
   assert:
     - type: python
-      value: file://assertion_llm_judge.py
-    - type: python
       value: file://assertion_python_script.py
+      weight: 3
     - type: python
       value: file://assertion_llm_step_by_step.py
+      weight: 2
+    - type: python
+      value: file://assertion_llm_judge.py
+      weight: 1
     # - type: answer-relevance
     #   threshold: 0.9
     # - type: context-recall
