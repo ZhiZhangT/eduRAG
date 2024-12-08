@@ -44,6 +44,10 @@ SYSTEM_PROMPT_EVALUATE = """Given input containing:
 - A question in <question> tags
 - A suggested answer in <suggested_answer> tags
 
+Instructions:
+1. Analyse the question to understand what is being asked
+2. Evaluate, with mathematical reasoning, if the suggested answer is correct
+
 Return a JSON response with two fields:
 - "reason": string explaining why you determined the answer is correct or incorrect
 - "is_correct": boolean (true if the suggested answer is correct)"""
