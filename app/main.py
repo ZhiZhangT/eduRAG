@@ -10,6 +10,7 @@ from fastapi import FastAPI, HTTPException, Body
 from fastapi.responses import JSONResponse
 from pymongo import MongoClient
 from datetime import datetime, timezone
+from pylatexenc.latex2text import LatexNodes2Text
 from app.models import QuestionData
 from app.utils.format_utils import (
     convert_exam_type,
@@ -237,7 +238,10 @@ def query(request: QueryRequest):
 
 
 @app.post("/verify")
-def verify(json_filepath: str = Body(..., embed=True)):
+def verify(
+    json_filepath: str = Body(..., embed=True),
+    remove_latex: bool = Body(False, embed=True),
+):
     responses = []
 
     filename_without_extension = os.path.splitext(json_filepath)[0]
@@ -253,6 +257,8 @@ def verify(json_filepath: str = Body(..., embed=True)):
     last_error = None
     last_computed_answer = None
     suggested_answer = format_answer(question_doc["answer"])
+    if remove_latex:
+        suggested_answer = LatexNodes2Text().latex_to_text(suggested_answer)
     script_filename = f"{filename_without_extension}.py"
 
     # try to generate and run the python script up to 6 times

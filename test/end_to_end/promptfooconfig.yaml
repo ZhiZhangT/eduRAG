@@ -8,7 +8,6 @@ providers:
   - "python:test.py"
 
 defaultTest:
-  threshold: 0.5
   assert:
     - type: python
       value: file://assertion_python_script.py
@@ -18,6 +17,15 @@ defaultTest:
       weight: 2
     - type: python
       value: file://assertion_llm_judge.py
+      weight: 1
+    - type: python
+      value: file://assertion_python_script_remove_latex.py
+      weight: 3
+    - type: python
+      value: file://assertion_llm_step_by_step_remove_latex.py
+      weight: 2
+    - type: python
+      value: file://assertion_llm_judge_remove_latex.py
       weight: 1
     # - type: answer-relevance
     #   threshold: 0.9
