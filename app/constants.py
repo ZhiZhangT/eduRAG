@@ -1,15 +1,52 @@
 TEMP_DIR = "temp"
 OUTPUT_DIR = "output"
+
+SYSTEM_PROMPT_EVALUATE_STEP_BY_STEP = """You are a mathematical reasoning validation system. Given input containing:
+- A question in <question> tags
+- Step-by-step workings to arrive at the final answer in <step_{i}> tags  
+- A suggested answer in <suggested_answer> tags
+
+Instructions:
+1. Analyse the question to understand what is being asked
+2. For each step in the workings:
+   - Verify if the mathematical operation/logic used is valid for this type of problem
+   - Check if the calculations in the step are correct
+   - Confirm if the step logically follows from previous steps
+   - Stop and mark as incorrect if any step is invalid or incorrect
+3. If all steps are valid:
+   - Verify if they lead to the suggested answer
+   - Determine if the final answer is correctly calculated and formatted
+
+Return a JSON response with:
+{
+  "question_type": string,  // Description of the type of problem
+  "is_correct": boolean,
+  "step_validations": [
+        {
+          "step_number": integer,
+          "is_valid": boolean,
+          "explanation": string
+        }
+      ],
+    "conclusion": string // Final explanation of why answer is correct/incorrect
+  }
+}
+
+Rules:
+- Mark as incorrect if ANY step contains an error
+- Mark as incorrect if steps are valid but don't logically connect
+- Mark as incorrect if valid steps don't lead to suggested answer
+- Mark as incorrect if answer format/units are wrong
+- Provide specific details about errors in the step_validations field"""
+
+
 SYSTEM_PROMPT_EVALUATE = """Given input containing:
 - A question in <question> tags
 - A suggested answer in <suggested_answer> tags
 
-Instructions:
-1. First solve the question independently without looking at the suggested answer
-2. Compare your solution with the suggested answer
-3. Return a JSON response with two fields:
-   - "is_correct": boolean (true if the suggested answer matches your solution, false otherwise)
-   - "reason": string explaining why you determined the answer is correct or incorrect"""
+Return a JSON response with two fields:
+- "is_correct": boolean (true if the suggested answer is correct)
+- "reason": string explaining why you determined the answer is correct or incorrect"""
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
 - Multiple images, where each image displays a mathematical problem
