@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # Load JSON data
-with open("test/end_to_end/results_v4.json") as f:
+with open("test/end_to_end/results_updated_step_by_step.json") as f:
     data = json.load(f)
 
 # Define base test types
@@ -18,21 +18,26 @@ for base_type in base_test_types:
         ("FALSE", "no_latex"): {"total": 0, "passed": 0},
     }
 
-# Initialize counters and lists for new conditions
+# Initialize counters and lists for conditions
 python_fail_others_pass = 0
 all_fail = 0
 python_pass_others_fail = 0
 all_pass = 0
+python_judge_pass_step_fail = 0
+python_step_pass_judge_fail = 0
+
 python_fail_others_pass_ids = []
 all_fail_ids = []
 python_pass_others_fail_ids = []
 all_pass_ids = []
+python_judge_pass_step_fail_ids = []
+python_step_pass_judge_fail_ids = []
 
 # Process results
 for result in data["results"]["results"]:
     if result["testCase"]["vars"]["enable_test"] == "TRUE":
         is_plain = result["testCase"]["vars"]["is_plain_text"]
-        test_id = result["id"]
+        query_id = result["response"]["output"]["query_id"]
 
         if not result["gradingResult"]:
             print(f"[INFO] Skipping result with no grading result")
@@ -59,20 +64,40 @@ for result in data["results"]["results"]:
 
         # Check conditions after processing all components for this test case
         if all(test_type in test_results for test_type in base_test_types):
-            # Condition 1: Python script fails but at least one other passes
+            # Condition 1: Python and Judge pass but Step fails
+            # NOTE: this MIGHT show us the number of times where step-by-step LLM is hallucinating
+            if (
+                test_results["python_script"]
+                and test_results["llm_judge"]
+                and not test_results["llm_step_by_step"]
+            ):
+                python_judge_pass_step_fail += 1
+                python_judge_pass_step_fail_ids.append(query_id)
+
+            # Condition 2: Python and Step pass but Judge fails
+            # NOTE: this MIGHT show us the number of times where the LLM-as-judge is hallucinating
+            if (
+                test_results["python_script"]
+                and test_results["llm_step_by_step"]
+                and not test_results["llm_judge"]
+            ):
+                python_step_pass_judge_fail += 1
+                python_step_pass_judge_fail_ids.append(query_id)
+
+            # Condition 3: Python script fails but at least one other passes
             # TODO: manually check if the other test cases are hallucinating OR the python script is formatted wrongly
             if not test_results["python_script"] and (
                 test_results["llm_step_by_step"] or test_results["llm_judge"]
             ):
                 python_fail_others_pass += 1
-                python_fail_others_pass_ids.append(test_id)
+                python_fail_others_pass_ids.append(query_id)
 
-            # Condition 2: All test cases fail
+            # Condition 4: All test cases fail
             if not any(test_results.values()):
                 all_fail += 1
-                all_fail_ids.append(test_id)
+                all_fail_ids.append(query_id)
 
-            # Condition 3: Python script passes but all others fail
+            # Condition 5: Python script passes but all others fail
             # NOTE: this likely represents the number of times where the other llm-as-judge are hallucinating
             if (
                 test_results["python_script"]
@@ -80,12 +105,11 @@ for result in data["results"]["results"]:
                 and not test_results["llm_judge"]
             ):
                 python_pass_others_fail += 1
-                python_pass_others_fail_ids.append(test_id)
-
-            # Condition 4: All test cases pass
+                python_pass_others_fail_ids.append(query_id)
+            # Condition 6: All test cases pass
             if all(test_results.values()):
                 all_pass += 1
-                all_pass_ids.append(test_id)
+                all_pass_ids.append(query_id)
 
 # Create DataFrames for each base test type
 dfs = {}
@@ -112,7 +136,7 @@ for base_type in base_test_types:
     )
     dfs[base_type] = df.set_index("condition")[["total", "passed", "percentage"]]
 
-# Create additional statistics DataFrame
+# Update additional statistics DataFrame with new statistics
 additional_stats = pd.DataFrame(
     [
         {
@@ -125,10 +149,18 @@ additional_stats = pd.DataFrame(
             "Count": python_pass_others_fail,
         },
         {"Statistic": "All test cases pass", "Count": all_pass},
+        {
+            "Statistic": "Python & Judge pass but Step fails",
+            "Count": python_judge_pass_step_fail,
+        },
+        {
+            "Statistic": "Python & Step pass but Judge fails",
+            "Count": python_step_pass_judge_fail,
+        },
     ]
 ).set_index("Statistic")
 
-# Create DataFrame for IDs with separate rows
+# Update DataFrame for IDs with the new categories
 ids_rows = []
 for id_value in python_fail_others_pass_ids:
     ids_rows.append({"Category": "Python script fails but others pass", "ID": id_value})
@@ -140,10 +172,14 @@ for id_value in python_pass_others_fail_ids:
     )
 for id_value in all_pass_ids:
     ids_rows.append({"Category": "All test cases pass", "ID": id_value})
+for id_value in python_judge_pass_step_fail_ids:
+    ids_rows.append({"Category": "Python & Judge pass but Step fails", "ID": id_value})
+for id_value in python_step_pass_judge_fail_ids:
+    ids_rows.append({"Category": "Python & Step pass but Judge fails", "ID": id_value})
 ids_df = pd.DataFrame(ids_rows)
 
 # Save to CSV file
-OUTPUT_CSV = "results_analysis_by_test_type.csv"
+OUTPUT_CSV = "results_analysis_by_test_type_updated_step_by_step.csv"
 with open(OUTPUT_CSV, "w", newline="") as f:
     # Write test type statistics
     for base_type in base_test_types:
