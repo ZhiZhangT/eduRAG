@@ -224,6 +224,7 @@ def query(request: QueryRequest):
             is_plain_text=request.is_plain_text,
             use_image=request.use_image,
             questions=questions,
+            use_few_shot=request.use_few_shot,
         )
         response_dict = response.model_dump()
         # use retrieved_documents and not request.retrieved_documents because the latter is of type List[RetrievedDocument] which is not JSON serialisable

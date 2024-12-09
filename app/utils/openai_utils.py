@@ -1,6 +1,7 @@
 import openai
 import os
 import base64
+import json
 from app import constants
 from app.models import (
     Role,
@@ -28,8 +29,9 @@ def get_generated_questions_and_answers(
     is_plain_text: bool = False,
     use_image: bool = True,
     questions: List[str] = [],  # will be empty if use_image is True
+    use_few_shot: bool = False,
 ) -> GeneratedQuestion:
-    print(f"use_image: {use_image}")
+    print(f"use_image: {use_image}, use_few_shot: {use_few_shot}")
     if use_image:
         system_prompt = constants.SYSTEM_PROMPT_GENERATE_QUESTIONS_IMAGE
         question_details = f"<topic>{topic}</topic>\n<sub_topic>{sub_topic}</sub_topic>"
@@ -60,6 +62,16 @@ def get_generated_questions_and_answers(
             user_content += f"<question>Question {i + 1}: {qn}</question>"
         user_content += f"<topic>{topic}</topic>\n<sub_topic>{sub_topic}</sub_topic>"
         print(f"user_content_text: {user_content}")
+
+    if use_few_shot:
+        print(f"Using few-shot examples for sub-topic: {sub_topic}")
+        # load json file with few-shot examples
+        with open("app/data/few_shot_examples.json", "r") as f:
+            few_shot_examples = json.load(f)
+            few_shot_examples_for_sub_topic = few_shot_examples[sub_topic]
+            example_question = few_shot_examples_for_sub_topic["question"]
+            example_answer = few_shot_examples_for_sub_topic["answer"]
+        system_prompt += f"\n\nExample question:\n{example_question}\n\nExample answer:\n{example_answer}"
 
     messages = [
         {"role": Role.SYSTEM, "content": system_prompt},

@@ -243,6 +243,7 @@ class QueryRequest(BaseModel):
     is_plain_text: bool = False
     retrieved_documents: Optional[List[RetrievedDocument]] = None
     use_image: bool = True
+    use_few_shot: bool = False
 
 
 class GeneratedQuestion(BaseModel):

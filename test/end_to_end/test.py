@@ -19,6 +19,7 @@ def call_api(prompt, options, context):
     enable_test = context["vars"]["enable_test"]
     is_plain_text = context["vars"]["is_plain_text"].upper() == "TRUE"
     use_image = context["vars"]["use_image"].upper() == "TRUE"
+    use_few_shot = context["vars"]["use_few_shot"].upper() == "TRUE"
     retrieved_docs_count = int(context["vars"]["retrieved_docs_count"])
     if enable_test.upper() == "FALSE":
         return {
@@ -46,6 +47,7 @@ def call_api(prompt, options, context):
             is_plain_text=is_plain_text,
             retrieved_documents=retrieved_documents,
             use_image=use_image,
+            use_few_shot=use_few_shot,
         )
 
         res = query(request=query_request)
