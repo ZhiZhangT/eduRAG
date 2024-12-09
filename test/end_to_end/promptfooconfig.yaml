@@ -9,15 +9,16 @@ providers:
 
 defaultTest:
   assert:
-    - type: python
-      value: file://assertion_python_script.py
-      weight: 3
-    - type: python
-      value: file://assertion_llm_step_by_step.py
-      weight: 2
-    - type: python
-      value: file://assertion_llm_judge.py
-      weight: 1
+    # NOTE: based on empirical findings, the "remove_latex" versions of the scripts are more robust
+    # - type: python
+    #   value: file://assertion_python_script.py
+    #   weight: 3
+    # - type: python
+    #   value: file://assertion_llm_step_by_step.py
+    #   weight: 2
+    # - type: python
+    #   value: file://assertion_llm_judge.py
+    #   weight: 1
     - type: python
       value: file://assertion_python_script_remove_latex.py
       weight: 3
