@@ -1,0 +1,30 @@
+{
+  "Multiplication of 2 matrices": {
+    "question": "Consider a scenario where a bookstore offers seasonal discounts on two categories of books. During the winter sale, category A books are offered a 15% discount, and category B books receive a 5% discount. \\newline (i) Define a matrix $D$ to represent the discounted prices such that when multiplied by a matrix $Q$, representing the original prices, the resulting matrix will give the actual prices after discounts for both categories. \\newline (ii) If the original price matrix $Q$ is given as $\\begin{bmatrix} q_1 \\\\ q_2 \\end{bmatrix}$, where $q_1$ and $q_2$ are the original prices of category A and B books respectively, find the product $DQ$.",
+    "answer": "\\begin{bmatrix}0.85q_1\\\\0.95q_2\\end{bmatrix}"
+  },
+  "Finding the mean median and mode": {
+    "question": "",
+    "answer": ""
+  },
+  "Applying the angles properties of circles": {
+    "question": "",
+    "answer": ""
+  },
+  "Applying rates in real-world contexts": {
+    "question": "",
+    "answer": ""
+  },
+  "Finding the probability of single events": {
+    "question": "",
+    "answer": ""
+  },
+  "Solving simultaneous equations using the method of elimination": {
+    "question": "",
+    "answer": ""
+  },
+  "Evaluating an algebraic formula": {
+    "question": "",
+    "answer": ""
+  }
+}
