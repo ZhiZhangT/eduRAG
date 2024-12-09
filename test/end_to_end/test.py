@@ -1,5 +1,6 @@
 import sys
 import os
+import json
 
 # Get the current file's directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -12,7 +13,6 @@ sys.path.append(grandparent_dir)
 
 from app.main import query
 from app.models import Message, Role, QueryRequest
-from app.constants import RETRIEVED_DOCUMENTS_FOR_SUB_TOPIC
 
 
 def call_api(prompt, options, context):
@@ -28,7 +28,10 @@ def call_api(prompt, options, context):
         user_query = context["vars"]["query"]
         subject = context["vars"]["subject"]
         sub_topic = context["vars"]["sub_topic"]
-        retrieved_documents = RETRIEVED_DOCUMENTS_FOR_SUB_TOPIC[sub_topic]
+        # load retrieved documents from "retrieved_docs_for_sub_topic.json"
+        with open("test/end_to_end/retrieved_docs_for_sub_topic.json", "r") as f:
+            retrieved_documents_for_sub_topic = json.load(f)
+        retrieved_documents = retrieved_documents_for_sub_topic[sub_topic]
         messages = [Message(content=user_query, role=Role.USER)]
 
         query_request = QueryRequest(
