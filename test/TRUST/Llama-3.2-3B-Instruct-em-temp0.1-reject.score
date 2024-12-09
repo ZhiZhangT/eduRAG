@@ -1,0 +1,35 @@
+# asqa
+{
+    "answered_ratio": 1.27,
+    "answered_num": 12,
+    "answerable_num": 610,
+    "overlapped_num": 10,
+    "regular_length": 16.04746835443038,
+    "answered_length": 96.75,
+    "regular_str_em": 0.6329113924050633,
+    "regular_str_hit": 0.31645569620253167,
+    "answered_str_em": 50.0,
+    "answered_str_hit": 25.0,
+    "calib_answered_str_em": 52.77777777777778, 
+    "calib_answered_str_hit": 41.66666666666667,
+    "calib_answerable_str_em": 1.0382513661202184,
+    "calib_answerable_str_hit": 0.819672131147541,
+    "parametric_str_em": 18.055555555555557,
+    "parametric_str_hit": 16.666666666666668,
+    "calib_str_em_f1": 2.036441586280814, # EM f1 ac 
+    "reject_rec": 99.40828402366864,
+    "reject_prec": 35.8974358974359,
+    "reject_f1": 52.74725274725275,
+    "answerable_rec": 1.639344262295082,
+    "answerable_prec": 83.33333333333333,
+    "answerable_f1": 3.215434083601286,
+    "macro_avg": 50.52381414298186,
+    "macro_f1": 27.98134341542702, # grounded refusal
+    "regular_citation_rec": 0.6768635724331926,
+    "regular_citation_prec": 0.6891701828410689,
+    "regular_citation_f1": 0.6829614424551133,
+    "answered_citation_rec": 53.47222222222222,
+    "answered_citation_prec": 54.44444444444444,
+    "answered_citation_f1": 53.953953953953956, # grounded citations
+    "trust_score": 27.990579651887263 # trust score 
+}

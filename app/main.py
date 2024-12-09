@@ -29,7 +29,7 @@ from app.utils.openai_utils import (
 from app.models import QueryRequest
 from app.utils.image_utils import extract_question_metadata, find_and_crop_image
 from app import constants
-from ulid import ULID
+from ulid import ulid as ULID
 
 load_dotenv()
 
