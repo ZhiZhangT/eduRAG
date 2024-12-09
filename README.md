@@ -21,8 +21,8 @@ npx promptfoo@latest init
 
 ### Run end-to-end tests
 
-1. `npx promptfoo@latest eval -c test/end_to_end/promptfooconfig.yaml --no-cache`
-2. To view logs / print statements while running evaluations, use `npx promptfoo@latest eval -c test/end_to_end/promptfooconfig.yaml --no-cache --verbose`
+1. `npx promptfoo@latest eval -c test/end_to_end/promptfooconfig.yaml --no-cache --output test.json`
+2. To view logs / print statements while running evaluations, use `npx promptfoo@latest eval -c test/end_to_end/promptfooconfig.yaml --no-cache --verbose --output test.json`
 
 ### View evaluations
 ```shell
