@@ -1,0 +1,41 @@
+# eli5
+{
+    "answered_ratio": 21.9,
+    "answered_num": 219,
+    "answerable_num": 207,
+    "overlapped_num": 64,
+    "regular_length": 41.218,
+    "answered_length": 132.88584474885846,
+    "regular_str_em": 0.06666666666666667,
+    "regular_str_hit": 0.0,
+    "answered_str_em": 0.30441400304414,
+    "answered_str_hit": 0.0,
+    "calib_answered_str_em": 0.0,
+    "calib_answered_str_hit": 0.0,
+    "calib_answerable_str_em": 0.0,
+    "calib_answerable_str_hit": 0.0,
+    "parametric_str_em": 0.30441400304414,
+    "parametric_str_hit": 0.0,
+    "calib_str_em_f1": 0.0, 
+    "reject_rec": 80.45397225725094,
+    "reject_prec": 81.69014084507042,
+    "reject_f1": 81.06734434561626,
+    "answerable_rec": 30.917874396135264,
+    "answerable_prec": 29.22374429223744,
+    "answerable_f1": 30.046948356807516,
+    "macro_avg": 55.6859233266931,
+    "macro_f1": 55.55714635121189, # grounded refusal
+    "regular_citation_rec": 7.086645021645022,
+    "regular_citation_prec": 6.468821595071594,
+    "regular_citation_f1": 6.763653904188177,
+    "answered_citation_rec": 32.206902686354745,
+    "answered_citation_prec": 29.335055482315752,
+    "answered_citation_f1": 30.703971902497273, # grounded citations
+    "regular_claims_nli": 3.833333333333333,
+    "answered_claims_nli": 17.50380517503805,
+    "calib_answered_claims_nli": 18.036529680365295,
+    "calib_answerable_claims_nli": 19.082125603864732,
+    "parametric_answered_claims_nli": 9.74124809741248,
+    "calib_claims_nli_f1": 18.544600938967132, # EM f1 ac 
+    "trust_score": 34.9352397308921 # trust score
+}
