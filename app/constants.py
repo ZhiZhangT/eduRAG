@@ -71,6 +71,32 @@ Return a JSON response with:
 }"""
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
+- Multiple mathematical questions in <question> tags
+- Topic in <topic> tags
+- Sub-topic in <sub_topic> tags
+
+Instructions:
+1. Generate one similar but distinct question that:
+- Retains the same topic and sub-topic focus
+- Is similar in difficulty and complexity level
+- Uses LaTeX formatting for mathematical expressions
+2. Introduce diversity by:
+- Using varied contexts or scenarios while keeping the mathematical principles intact
+- Exploring slightly different representations or formats for the same type of problem (e.g., equations vs. word problems)
+
+Return a JSON response with:
+{
+"question_text": "Full question text",
+"topic": "Mathematical topic",
+"sub_topic": "Specific sub-topic",
+"steps": [
+"Step 1: Description and calculation",
+"Step 2: Description and calculation",
+],
+"answer": "Final numerical or algebraic answer. The format should be 'Answer: <answer>'"
+}"""
+
+SYSTEM_PROMPT_GENERATE_QUESTIONS_IMAGE = """Given input containing:
 - Multiple images, where each image displays a mathematical problem
 - Topic in <topic> tags
 - Sub-topic in <sub_topic> tags

@@ -18,6 +18,8 @@ from app.models import Message, Role, QueryRequest
 def call_api(prompt, options, context):
     enable_test = context["vars"]["enable_test"]
     is_plain_text = context["vars"]["is_plain_text"].upper() == "TRUE"
+    use_image = context["vars"]["use_image"].upper() == "TRUE"
+    retrieved_docs_count = int(context["vars"]["retrieved_docs_count"])
     if enable_test.upper() == "FALSE":
         return {
             "output": {
@@ -32,6 +34,10 @@ def call_api(prompt, options, context):
         with open("test/end_to_end/retrieved_docs_for_sub_topic.json", "r") as f:
             retrieved_documents_for_sub_topic = json.load(f)
         retrieved_documents = retrieved_documents_for_sub_topic[sub_topic]
+        retrieved_documents = retrieved_documents[:retrieved_docs_count]
+        print(
+            f"retrieved_docs_count: {retrieved_docs_count} num_retrieved_docs: {len(retrieved_documents)}"
+        )
         messages = [Message(content=user_query, role=Role.USER)]
 
         query_request = QueryRequest(
@@ -39,6 +45,7 @@ def call_api(prompt, options, context):
             subject=subject,
             is_plain_text=is_plain_text,
             retrieved_documents=retrieved_documents,
+            use_image=use_image,
         )
 
         res = query(request=query_request)

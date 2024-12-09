@@ -242,6 +242,7 @@ class QueryRequest(BaseModel):
     exam_type: Optional[str] = None
     is_plain_text: bool = False
     retrieved_documents: Optional[List[RetrievedDocument]] = None
+    use_image: bool = True
 
 
 class GeneratedQuestion(BaseModel):
