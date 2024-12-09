@@ -12,10 +12,9 @@ Instructions:
    - Verify if the mathematical operation/logic used is valid for this type of problem
    - Check if the calculations in the step are correct
    - Confirm if the step logically follows from previous steps
-   - Stop and mark as incorrect if any step is invalid or incorrect
-3. If all steps are valid:
-   - Verify if they lead to the suggested answer
-   - Determine if the final answer is correctly calculated and formatted
+3. Determine if the final answer is correctly calculated and formatted:
+   - Even if some steps are incorrect, mark the answer as correct if the final answer is right
+   - Even if all steps are correct, mark the answer as incorrect if the final answer is wrong
 
 Return a JSON response with:
 {
@@ -25,19 +24,12 @@ Return a JSON response with:
         {
           "step_number": integer,
           "is_valid": boolean,
-          "explanation": string
+          "explanation": string // Explanation of why the step is correct/incorrect
         }
       ],
     "conclusion": string // Final explanation of why answer is correct/incorrect
   }
-}
-
-Rules:
-- Mark as incorrect if ANY step contains an error
-- Mark as incorrect if steps are valid but don't logically connect
-- Mark as incorrect if valid steps don't lead to suggested answer
-- Mark as incorrect if answer format/units are wrong
-- Provide specific details about errors in the step_validations field"""
+}"""
 
 
 SYSTEM_PROMPT_EVALUATE = """Given input containing:
