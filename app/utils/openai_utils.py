@@ -76,6 +76,7 @@ def get_python_script_and_answer(question_text: str, suggested_answer: str) -> s
         response_format=GeneratedPythonScript,
         temperature=0.2,
         top_p=0.2,
+        max_completion_tokens=2500,
     )
 
     return completion.choices[0].message.parsed
