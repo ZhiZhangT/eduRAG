@@ -242,7 +242,7 @@ class QueryRequest(BaseModel):
     level: Optional[str] = None
     exam_type: Optional[str] = None
     is_plain_text: bool = False
-    retrieved_documents: Optional[List[RetrievedDocument]] = None
+    retrieved_documents: Optional[Dict[str, RetrievedDocument]] = None
     use_image: bool = True
     use_few_shot: bool = False
 

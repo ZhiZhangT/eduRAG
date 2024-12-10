@@ -157,7 +157,7 @@ def query(request: QueryRequest):
         questions = dict()
         topic, sub_topic = "", ""
         if request.retrieved_documents:
-            for doc in request.retrieved_documents:
+            for doc_id, doc in request.retrieved_documents.items():
                 retrieved_documents[doc.id] = doc.model_dump()
         else:
             results = vector_search(

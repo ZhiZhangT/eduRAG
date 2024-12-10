@@ -31,16 +31,18 @@ def call_api(prompt, options, context):
         user_query = context["vars"]["query"]
         subject = context["vars"]["subject"]
         sub_topic = context["vars"]["sub_topic"]
-        if sub_topic == "none":
-            retrieved_documents = None
-        else:
+        filtered_retrieved_documents = dict()
+        if sub_topic != "none":
             # load retrieved documents from "retrieved_docs_for_sub_topic.json"
             with open("test/end_to_end/retrieved_docs_for_sub_topic.json", "r") as f:
                 retrieved_documents_for_sub_topic = json.load(f)
             retrieved_documents = retrieved_documents_for_sub_topic[sub_topic]
-            retrieved_documents = retrieved_documents[:retrieved_docs_count]
+            # NOTE: since python 3.7, python dictionaries are technically already ordered
+            sorted_keys = sorted(retrieved_documents)
+            for key in sorted_keys[:retrieved_docs_count]:
+                filtered_retrieved_documents[key] = retrieved_documents[key]
             print(
-                f"retrieved_docs_count: {retrieved_docs_count} num_retrieved_docs: {len(retrieved_documents)}"
+                f"retrieved_docs_count: {retrieved_docs_count} num_retrieved_docs: {len(filtered_retrieved_documents)}"
             )
         messages = [Message(content=user_query, role=Role.USER)]
 
@@ -48,7 +50,7 @@ def call_api(prompt, options, context):
             user_query=messages,
             subject=subject,
             is_plain_text=is_plain_text,
-            retrieved_documents=retrieved_documents,
+            retrieved_documents=filtered_retrieved_documents,
             use_image=use_image,
             use_few_shot=use_few_shot,
         )
@@ -62,9 +64,11 @@ def call_api(prompt, options, context):
                 "query_id": response["query_id"],
                 "generated_question": response["question_text"],
                 "generated_answer": response["answer"],
+                "citations": response["citations"],
             },
             "json_filepath": json_filepath,
             "steps": response["steps"],
+            "retrieved_documents": response["retrieved_documents"],
         }
 
         return result
