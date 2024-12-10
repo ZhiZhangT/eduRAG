@@ -1,6 +1,7 @@
 {
-  "Multiplication of 2 matrices": [
-    {
+  "Multiplication of 2 matrices": {
+    "674dcdf9b00b977d048c937c": {
+      "id": "674dcdf9b00b977d048c937c",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "20b",
@@ -14,7 +15,8 @@
       "image_filepath": "temp/outram_secondary_school_elementary_mathematics_preliminary_exam_2024_1_20b.png",
       "question_body": "(b) Evaluate the matrix \\( T = PM \\)."
     },
-    {
+    "674dce93b00b977d048c93d2": {
+      "id": "674dce93b00b977d048c93d2",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "4e(i)",
@@ -28,7 +30,8 @@
       "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_4e(i).png",
       "question_body": "On a particular week, supermarket A was offering a store-wide 20% discount promotion while supermarket B was offering a store-wide 10% discount promotion. Write down a matrix P, such that the product of P and T would give the discounted prices which Ron and Zoe each has to pay if they purchase the items from supermarkets A and B respectively."
     },
-    {
+    "674dce93b00b977d048c93d3": {
+      "id": "674dce93b00b977d048c93d3",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "4e(ii)",
@@ -42,7 +45,8 @@
       "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_4e(ii).png",
       "question_body": "Hence, using the value of x found in (d), find the product of the matrices P and T."
     },
-    {
+    "674dce8db00b977d048c93c6": {
+      "id": "674dce8db00b977d048c93c6",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "1",
@@ -56,7 +60,8 @@
       "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_1.png",
       "question_body": "Given that \\[ \\begin{pmatrix} 1 & 2 & 0 \\\\ 3 & 0 & 3 \\\\ 2 & 2 & 1 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 13 \\\\ 4 \\end{pmatrix} \\], find the value of \\( x \\) and \\( y \\)."
     },
-    {
+    "674dce91b00b977d048c93cf": {
+      "id": "674dce91b00b977d048c93cf",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "4b",
@@ -70,7 +75,8 @@
       "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_4b.png",
       "question_body": "Find, in terms of x, the matrix T = CD."
     },
-    {
+    "674dce0fb00b977d048c9395": {
+      "id": "674dce0fb00b977d048c9395",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "4c",
@@ -84,7 +90,8 @@
       "image_filepath": "temp/swiss_cottage_secondary_school_elementary_mathematics_mid_year_exam_2023_2_4c.png",
       "question_body": "(c) Evaluate the matrix G = LC."
     },
-    {
+    "674dce10b00b977d048c9397": {
+      "id": "674dce10b00b977d048c9397",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "4e",
@@ -98,7 +105,8 @@
       "image_filepath": "temp/swiss_cottage_secondary_school_elementary_mathematics_mid_year_exam_2023_2_4e.png",
       "question_body": "(e) The dance school wants to attract more students, so in the next 10-week block, the dance school reduces the price for cultural and international dance sessions by 10%. For this block of sessions, on weekdays, there are 5 cultural dance students and 12 international dance students. On weekends, there are 8 cultural dance students and 15 international dance students. By using matrix multiplication, calculate the total amount of money the dance school earns for this 10-week block of sessions."
     },
-    {
+    "674dcdfab00b977d048c937e": {
+      "id": "674dcdfab00b977d048c937e",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "20d",
@@ -112,7 +120,8 @@
       "image_filepath": "temp/outram_secondary_school_elementary_mathematics_preliminary_exam_2024_1_20d.png",
       "question_body": "(d) The elements of the matrix N, where \\( N = QM \\), represents the number of tickets sold on each day of the concert. Write down the matrix Q."
     },
-    {
+    "674dcde1b00b977d048c9352": {
+      "id": "674dcde1b00b977d048c9352",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "25a",
@@ -126,7 +135,8 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_25a.png",
       "question_body": "Two outlets of a coffee chain sell three different types of coffee: espresso, flat white and mocha. The table shows the number of cups of each type of coffee sold on a particular day. Outlet A: Espresso 30, Flat White 30, Mocha 35; Outlet B: Espresso x, Flat White x + 2, Mocha 40. This information can be represented by the matrix \\( P = \\begin{pmatrix} 30 & 30 & 35 \\\\ x & x+2 & 40 \\end{pmatrix} \\). The coffee chain sells a cup of espresso at $2.50, a cup of flat white at $4 and a cup of mocha at $5.50. This information can be represented by the matrix \\( Q = \\begin{pmatrix} 2.5 \\\\ 4 \\\\ 5.5 \\end{pmatrix} \\). (a) Find, in terms of x, the matrix \\( R = PQ \\)."
     },
-    {
+    "674dcdb4b00b977d048c931b": {
+      "id": "674dcdb4b00b977d048c931b",
       "topic": "Matrices",
       "sub_topic": "Multiplication of 2 matrices",
       "question_part": "21",
@@ -140,151 +150,10 @@
       "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_21.png",
       "question_body": "The admission tickets to the Singapore Zoo are $50 for an adult, $36 for a child, and $20 for a senior citizen. On a particular Tuesday, there were 212 adults, 251 children, and 15 senior citizens who visited the Singapore Zoo and on a particular Wednesday, there were 231 adults, 266 children, and 12 senior citizens who visited the Singapore Zoo. The number of visitors on the particular Tuesday and Wednesday can be represented by the matrix V = \\begin{pmatrix} 212 & 251 & 15 \\\\ 231 & 266 & 12 \\end{pmatrix}. \\text{ (i) Write a } 3 \\times 1 \\text{ matrix, P, to represent the price of the admission tickets. (ii) Find the matrix } T = VP. \\text{ (iii) Explain what each of the elements represents. (iv) Find the total amount collected from the sales of the tickets for the 2 days.}"
     }
-  ],
-  "Finding the mean median and mode": [
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "3",
-      "subject": "elementary_mathematics",
-      "paper_number": "1",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2024,
-      "school": "fairfield_methodist_school_secondary",
-      "question_url": "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=3",
-      "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_3.png",
-      "question_body": "Tristen has written five positive integers. The median of these numbers is 8, the mode is 7 and the mean is 13. The range of these numbers is 21. Find the five numbers."
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "5e(ii)",
-      "subject": "elementary_mathematics",
-      "paper_number": "2",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2023,
-      "school": "xinmin_secondary_school",
-      "question_url": "https://document.grail.moe/7bf8c34303d54a78a503b712125baf2a.pdf#page=10",
-      "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_5e(ii).png",
-      "question_body": "Calculate an estimate of the mean speed."
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "3b",
-      "subject": "elementary_mathematics",
-      "paper_number": "1",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2023,
-      "school": "bukit_panjang_government_high_school",
-      "question_url": "https://document.grail.moe/b06fe71b3f3c4f5db97844c79c7a12c1.pdf#page=4",
-      "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_3b.png",
-      "question_body": "(b) Find the mean amount of rain per day."
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "2",
-      "subject": "elementary_mathematics",
-      "paper_number": "2",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2023,
-      "school": "xinmin_secondary_school",
-      "question_url": "https://document.grail.moe/7bf8c34303d54a78a503b712125baf2a.pdf#page=3",
-      "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_2.png",
-      "question_body": "Mr Gan weighed 8 male students. The median mass of the students was 63.5 kg. The interquartile range of the masses of the students was 4.5 kg. Mr Gan realised that the scale of the weighing machine was inaccurate. The correct mass of each student was 1.5 kg less than what he had recorded. Write down the correct values for the median mass and interquartile range."
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "3b",
-      "subject": "elementary_mathematics",
-      "paper_number": "2",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2023,
-      "school": "xinmin_secondary_school",
-      "question_url": "https://document.grail.moe/7bf8c34303d54a78a503b712125baf2a.pdf#page=4",
-      "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_3b.png",
-      "question_body": "(b) Find the median age of the male patients."
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "3a",
-      "subject": "elementary_mathematics",
-      "paper_number": "1",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2023,
-      "school": "bukit_panjang_government_high_school",
-      "question_url": "https://document.grail.moe/b06fe71b3f3c4f5db97844c79c7a12c1.pdf#page=4",
-      "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_3a.png",
-      "question_body": "Ethan measures the amount of rain, in millimetres (mm), each day for 31 days. The bar chart shows his results. \n\n(a) Write down the median amount of rain."
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "23c",
-      "subject": "elementary_mathematics",
-      "paper_number": "1",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2024,
-      "school": "fairfield_methodist_school_secondary",
-      "question_url": "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=20",
-      "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_23c.png",
-      "question_body": "\\text{When the time taken for the 16th student is added to the diagram, the median is 23 minutes. What is the possible time taken by this student to complete a task?}"
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "23a",
-      "subject": "elementary_mathematics",
-      "paper_number": "1",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2024,
-      "school": "fairfield_methodist_school_secondary",
-      "question_url": "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=20",
-      "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_23a.png",
-      "question_body": "\\text{The modal time is 25 minutes. Find the value of } p."
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "2bi",
-      "subject": "elementary_mathematics",
-      "paper_number": "2",
-      "level": "o_level",
-      "exam_type": "mid_year_exam",
-      "year": 2023,
-      "school": "swiss_cottage_secondary_school",
-      "question_url": "https://document.grail.moe/0cf04022183a456a90f4080def2fd263.pdf#page=5",
-      "image_filepath": "temp/swiss_cottage_secondary_school_elementary_mathematics_mid_year_exam_2023_2_2bi.png",
-      "question_body": "(b) Find an estimate of the (i) mean of the distance ran, Answer .................................km [1]"
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean median and mode",
-      "question_part": "23a",
-      "subject": "elementary_mathematics",
-      "paper_number": "1",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2024,
-      "school": "fairfield_methodist_school_secondary",
-      "question_url": "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=20",
-      "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_23a.png",
-      "question_body": "\\text{The stem-and-leaf diagram below shows the times, in minutes, taken by 15 students to complete a task.}"
-    }
-  ],
-  "Finding the mean, median and mode": [
-    {
+  },
+  "Finding the mean, median and mode": {
+    "674dcdc9b00b977d048c9325": {
+      "id": "674dcdc9b00b977d048c9325",
       "topic": "Data analysis",
       "sub_topic": "Finding the mean, median and mode",
       "question_part": "3",
@@ -298,7 +167,8 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_3.png",
       "question_body": "Tristen has written five positive integers. The median of these numbers is 8, the mode is 7 and the mean is 13. The range of these numbers is 21. Find the five numbers."
     },
-    {
+    "674dce98b00b977d048c93dc": {
+      "id": "674dce98b00b977d048c93dc",
       "topic": "Data analysis",
       "sub_topic": "Finding the mean, median and mode",
       "question_part": "5e(ii)",
@@ -312,7 +182,8 @@
       "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_5e(ii).png",
       "question_body": "Calculate an estimate of the mean speed."
     },
-    {
+    "674dcd9db00b977d048c9300": {
+      "id": "674dcd9db00b977d048c9300",
       "topic": "Data analysis",
       "sub_topic": "Finding the mean, median and mode",
       "question_part": "3b",
@@ -326,7 +197,8 @@
       "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_3b.png",
       "question_body": "(b) Find the mean amount of rain per day."
     },
-    {
+    "674dce8db00b977d048c93c7": {
+      "id": "674dce8db00b977d048c93c7",
       "topic": "Data analysis",
       "sub_topic": "Finding the mean, median and mode",
       "question_part": "2",
@@ -340,7 +212,8 @@
       "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_2.png",
       "question_body": "Mr Gan weighed 8 male students. The median mass of the students was 63.5 kg. The interquartile range of the masses of the students was 4.5 kg. Mr Gan realised that the scale of the weighing machine was inaccurate. The correct mass of each student was 1.5 kg less than what he had recorded. Write down the correct values for the median mass and interquartile range."
     },
-    {
+    "674dce8eb00b977d048c93ca": {
+      "id": "674dce8eb00b977d048c93ca",
       "topic": "Data analysis",
       "sub_topic": "Finding the mean, median and mode",
       "question_part": "3b",
@@ -354,7 +227,8 @@
       "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_3b.png",
       "question_body": "(b) Find the median age of the male patients."
     },
-    {
+    "674dcd9cb00b977d048c92ff": {
+      "id": "674dcd9cb00b977d048c92ff",
       "topic": "Data analysis",
       "sub_topic": "Finding the mean, median and mode",
       "question_part": "3a",
@@ -368,35 +242,8 @@
       "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_3a.png",
       "question_body": "Ethan measures the amount of rain, in millimetres (mm), each day for 31 days. The bar chart shows his results. \n\n(a) Write down the median amount of rain."
     },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean, median and mode",
-      "question_part": "23c",
-      "subject": "elementary_mathematics",
-      "paper_number": "1",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2024,
-      "school": "fairfield_methodist_school_secondary",
-      "question_url": "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=20",
-      "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_23c.png",
-      "question_body": "\\text{When the time taken for the 16th student is added to the diagram, the median is 23 minutes. What is the possible time taken by this student to complete a task?}"
-    },
-    {
-      "topic": "Data analysis",
-      "sub_topic": "Finding the mean, median and mode",
-      "question_part": "23a",
-      "subject": "elementary_mathematics",
-      "paper_number": "1",
-      "level": "o_level",
-      "exam_type": "preliminary_exam",
-      "year": 2024,
-      "school": "fairfield_methodist_school_secondary",
-      "question_url": "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=20",
-      "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_23a.png",
-      "question_body": "\\text{The modal time is 25 minutes. Find the value of } p."
-    },
-    {
+    "674dce0cb00b977d048c938f": {
+      "id": "674dce0cb00b977d048c938f",
       "topic": "Data analysis",
       "sub_topic": "Finding the mean, median and mode",
       "question_part": "2bi",
@@ -410,7 +257,38 @@
       "image_filepath": "temp/swiss_cottage_secondary_school_elementary_mathematics_mid_year_exam_2023_2_2bi.png",
       "question_body": "(b) Find an estimate of the (i) mean of the distance ran, Answer .................................km [1]"
     },
-    {
+    "674dcddfb00b977d048c934f": {
+      "id": "674dcddfb00b977d048c934f",
+      "topic": "Data analysis",
+      "sub_topic": "Finding the mean, median and mode",
+      "question_part": "23c",
+      "subject": "elementary_mathematics",
+      "paper_number": "1",
+      "level": "o_level",
+      "exam_type": "preliminary_exam",
+      "year": 2024,
+      "school": "fairfield_methodist_school_secondary",
+      "question_url": "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=20",
+      "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_23c.png",
+      "question_body": "\\text{When the time taken for the 16th student is added to the diagram, the median is 23 minutes. What is the possible time taken by this student to complete a task?}"
+    },
+    "674dcddeb00b977d048c934d": {
+      "id": "674dcddeb00b977d048c934d",
+      "topic": "Data analysis",
+      "sub_topic": "Finding the mean, median and mode",
+      "question_part": "23a",
+      "subject": "elementary_mathematics",
+      "paper_number": "1",
+      "level": "o_level",
+      "exam_type": "preliminary_exam",
+      "year": 2024,
+      "school": "fairfield_methodist_school_secondary",
+      "question_url": "https://document.grail.moe/30fd5c6dcfdc4ab8ab395c1806733768.pdf#page=20",
+      "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_23a.png",
+      "question_body": "\\text{The modal time is 25 minutes. Find the value of } p."
+    },
+    "674dcdddb00b977d048c934c": {
+      "id": "674dcdddb00b977d048c934c",
       "topic": "Data analysis",
       "sub_topic": "Finding the mean, median and mode",
       "question_part": "23a",
@@ -424,9 +302,10 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_23a.png",
       "question_body": "\\text{The stem-and-leaf diagram below shows the times, in minutes, taken by 15 students to complete a task.}"
     }
-  ],
-  "Applying the angles properties of circles": [
-    {
+  },
+  "Applying the angles properties of circles": {
+    "674dcdb4b00b977d048c931a": {
+      "id": "674dcdb4b00b977d048c931a",
       "topic": "Properties of circles",
       "sub_topic": "Applying the angles properties of circles",
       "question_part": "20",
@@ -440,7 +319,8 @@
       "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_20.png",
       "question_body": "A, D, B, and C lie on a circle, center O. AP is a tangent to the circle at A and BP is a tangent to the circle at B. \\angle AOB = 142^\\circ \\text{ and } \\angle DAP = 42^\\circ. \\text{ (a) Find the value of (i) } \\angle ACB, \\text{ (ii) } \\angle ADB. \\text{ (b) Is OB parallel to AD? Explain.}"
     },
-    {
+    "674dcdd3b00b977d048c9337": {
+      "id": "674dcdd3b00b977d048c9337",
       "topic": "Properties of circles",
       "sub_topic": "Applying the angles properties of circles",
       "question_part": "19a(i)",
@@ -454,7 +334,8 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_19a(i).png",
       "question_body": "A, B, C \\text{ and } D \\text{ lie on a circle with centre } O \\text{ and radius } 5 \\text{ cm. } \\angle AOB = 1.8 \\text{ radians. }"
     },
-    {
+    "674dcdd3b00b977d048c9338": {
+      "id": "674dcdd3b00b977d048c9338",
       "topic": "Properties of circles",
       "sub_topic": "Applying the angles properties of circles",
       "question_part": "19a(i)",
@@ -468,7 +349,8 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_19a(i).png",
       "question_body": "\\text{Write down an expression, in terms of } \\pi, \\text{ for the reflex angle } AOB."
     },
-    {
+    "674dce23b00b977d048c93b5": {
+      "id": "674dce23b00b977d048c93b5",
       "topic": "Properties of circles",
       "sub_topic": "Applying the angles properties of circles",
       "question_part": "6",
@@ -482,7 +364,8 @@
       "image_filepath": "temp/tampines_secondary_school_elementary_mathematics_preliminary_exam_2024_2_6.png",
       "question_body": "The diagram shows a circle with centre O. TA and TB are tangents to the circle at A and B respectively. AT produced meets OB produced at X."
     },
-    {
+    "674dce25b00b977d048c93b9": {
+      "id": "674dce25b00b977d048c93b9",
       "topic": "Properties of circles",
       "sub_topic": "Applying the angles properties of circles",
       "question_part": "6b(iii)",
@@ -496,7 +379,8 @@
       "image_filepath": "temp/tampines_secondary_school_elementary_mathematics_preliminary_exam_2024_2_6b(iii).png",
       "question_body": "Calculate the reflex angle AOB in radians."
     },
-    {
+    "674dcdd4b00b977d048c933a": {
+      "id": "674dcdd4b00b977d048c933a",
       "topic": "Properties of circles",
       "sub_topic": "Applying the angles properties of circles",
       "question_part": "19b",
@@ -510,9 +394,10 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_19b.png",
       "question_body": "\\text{Find the area of the shaded segment } ADB."
     }
-  ],
-  "Applying rates in real-world contexts": [
-    {
+  },
+  "Applying rates in real-world contexts": {
+    "674dcde3b00b977d048c9357": {
+      "id": "674dcde3b00b977d048c9357",
       "topic": "Rate and speed",
       "sub_topic": "Applying rates in real-world contexts",
       "question_part": "26b",
@@ -526,7 +411,8 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_26b.png",
       "question_body": "(b) Find the distance travelled in the first 10 seconds."
     },
-    {
+    "674dcde4b00b977d048c9359": {
+      "id": "674dcde4b00b977d048c9359",
       "topic": "Rate and speed",
       "sub_topic": "Applying rates in real-world contexts",
       "question_part": "26d",
@@ -540,7 +426,8 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_26d.png",
       "question_body": "(d) On the axes in the answer space, sketch the distance-time graph for the first k seconds of the motion of the object."
     },
-    {
+    "674dce1ab00b977d048c93a4": {
+      "id": "674dce1ab00b977d048c93a4",
       "topic": "Rate and speed",
       "sub_topic": "Applying rates in real-world contexts",
       "question_part": "2b",
@@ -554,7 +441,8 @@
       "image_filepath": "temp/tampines_secondary_school_elementary_mathematics_preliminary_exam_2024_2_2b.png",
       "question_body": "Jane exchanged 500 Singapore dollars ($) into Thai baht (THB) when the exchange rate was $1 = 26.77 THB. She travelled to Thailand and spent 10,600 THB. On her return to Singapore, she exchanged the remaining Thai baht into dollars with the exchange rate $1 = 26.88 THB. Calculate the amount she received in dollars. Correct your answer to the nearest cent."
     },
-    {
+    "674dcde3b00b977d048c9356": {
+      "id": "674dcde3b00b977d048c9356",
       "topic": "Rate and speed",
       "sub_topic": "Applying rates in real-world contexts",
       "question_part": "26a",
@@ -568,7 +456,8 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_26a.png",
       "question_body": "The diagram is the speed-time graph for the first k seconds of the motion of an object. (a) Find the acceleration when \\( t = 5 \\)."
     },
-    {
+    "674dcde4b00b977d048c9358": {
+      "id": "674dcde4b00b977d048c9358",
       "topic": "Rate and speed",
       "sub_topic": "Applying rates in real-world contexts",
       "question_part": "26c",
@@ -582,9 +471,10 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_26c.png",
       "question_body": "(c) The distance travelled in the first k seconds is 520 m. Find the value of k."
     }
-  ],
-  "Finding the probability of single events": [
-    {
+  },
+  "Finding the probability of single events": {
+    "674dcddfb00b977d048c9350": {
+      "id": "674dcddfb00b977d048c9350",
       "topic": "Probability",
       "sub_topic": "Finding the probability of single events",
       "question_part": "24i",
@@ -598,7 +488,8 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_24i.png",
       "question_body": "There are 30 blue balls, 20 green balls and 14 yellow balls in a bag. A ball is chosen at random from the bag and then replaced. (i) Find the probability of not picking a green ball, express your answer to the lowest term."
     },
-    {
+    "674dcd9eb00b977d048c9304": {
+      "id": "674dcd9eb00b977d048c9304",
       "topic": "Probability",
       "sub_topic": "Finding the probability of single events",
       "question_part": "5a",
@@ -612,7 +503,8 @@
       "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_5a.png",
       "question_body": "A drawer contains 40 balls. 15 balls are black, 5 balls are grey and 20 balls are white. Samuel chooses one ball from the drawer at random. (a) Find the probability that the ball is not black."
     },
-    {
+    "674dcd9db00b977d048c9301": {
+      "id": "674dcd9db00b977d048c9301",
       "topic": "Probability",
       "sub_topic": "Finding the probability of single events",
       "question_part": "3c",
@@ -626,7 +518,8 @@
       "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_3c.png",
       "question_body": "(c) Ethan picks one of these days at random. Find the probability that, on that day, the amount of rain was 3 mm or more."
     },
-    {
+    "674dcd9fb00b977d048c9305": {
+      "id": "674dcd9fb00b977d048c9305",
       "topic": "Probability",
       "sub_topic": "Finding the probability of single events",
       "question_part": "5b",
@@ -640,7 +533,8 @@
       "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_5b.png",
       "question_body": "Samuel adds a few more grey balls. The probability of choosing a grey ball is now \\( \\frac{2}{7} \\). (b) Find the number of grey balls he added."
     },
-    {
+    "674dcdf4b00b977d048c9371": {
+      "id": "674dcdf4b00b977d048c9371",
       "topic": "Probability",
       "sub_topic": "Finding the probability of single events",
       "question_part": "12",
@@ -654,9 +548,10 @@
       "image_filepath": "temp/outram_secondary_school_elementary_mathematics_preliminary_exam_2024_1_12.png",
       "question_body": "A bag contains blue, green and red marbles. There are 3 more green marbles than blue marbles. Half of the marbles in the bag are red. Given that the probability of choosing a blue marble is \\(\\frac{6}{25}\\), find the number of green marbles in the bag."
     }
-  ],
-  "Solving simultaneous equations using the method of elimination": [
-    {
+  },
+  "Solving simultaneous equations using the method of elimination": {
+    "674dce19b00b977d048c93a1": {
+      "id": "674dce19b00b977d048c93a1",
       "topic": "Equations and inequalities",
       "sub_topic": "Solving simultaneous equations using the method of elimination",
       "question_part": "1c",
@@ -670,7 +565,8 @@
       "image_filepath": "temp/tampines_secondary_school_elementary_mathematics_preliminary_exam_2024_2_1c.png",
       "question_body": "Solve the simultaneous equations: \\( 4x + 7y = 23 \\) and \\( 6x - 2y = 3 \\)."
     },
-    {
+    "674dcd9fb00b977d048c9306": {
+      "id": "674dcd9fb00b977d048c9306",
       "topic": "Equations and inequalities",
       "sub_topic": "Solving simultaneous equations using the method of elimination",
       "question_part": "6",
@@ -684,7 +580,8 @@
       "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_6.png",
       "question_body": "Solve the simultaneous equations: \\( 7x + 2y = 8 \\) and \\( 3x - y = 3 \\)."
     },
-    {
+    "674dcdccb00b977d048c932b": {
+      "id": "674dcdccb00b977d048c932b",
       "topic": "Equations and inequalities",
       "sub_topic": "Solving simultaneous equations using the method of elimination",
       "question_part": "14b",
@@ -698,7 +595,8 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_14b.png",
       "question_body": "(b) Solve the simultaneous equations and hence find the area of triangle ABC."
     },
-    {
+    "674dcdccb00b977d048c932a": {
+      "id": "674dcdccb00b977d048c932a",
       "topic": "Equations and inequalities",
       "sub_topic": "Solving simultaneous equations using the method of elimination",
       "question_part": "14a",
@@ -712,9 +610,10 @@
       "image_filepath": "temp/fairfield_methodist_school_secondary_elementary_mathematics_preliminary_exam_2024_1_14a.png",
       "question_body": "ABC is an equilateral triangle with lengths \\((5x + y)\\) cm, \\((16y - x)\\) cm and \\((4x + 5 - 3y)\\) cm. (a) Write down two simultaneous equations, in terms of \\(x\\) and \\(y\\), to represent this information."
     }
-  ],
-  "Evaluating an algebraic formula": [
-    {
+  },
+  "Evaluating an algebraic formula": {
+    "674dce9cb00b977d048c93e4": {
+      "id": "674dce9cb00b977d048c93e4",
       "topic": "Algebraic expressions and formulae",
       "sub_topic": "Evaluating an algebraic formula",
       "question_part": "3d",
@@ -728,7 +627,8 @@
       "image_filepath": "temp/xinmin_secondary_school_elementary_mathematics_preliminary_exam_2023_2_3d.png",
       "question_body": "(d) x = 5, 6, 7"
     },
-    {
+    "674dce18b00b977d048c939f": {
+      "id": "674dce18b00b977d048c939f",
       "topic": "Algebraic expressions and formulae",
       "sub_topic": "Evaluating an algebraic formula",
       "question_part": "1bi",
@@ -742,7 +642,8 @@
       "image_filepath": "temp/tampines_secondary_school_elementary_mathematics_preliminary_exam_2024_2_1bi.png",
       "question_body": "Given \\( a = 2bv + xk \\), find \\( x \\) when \\( a = 2 \\), \\( b = 3 \\), \\( v = -4 \\), and \\( k = 5 \\)."
     },
-    {
+    "674dcdeab00b977d048c935c": {
+      "id": "674dcdeab00b977d048c935c",
       "topic": "Algebraic expressions and formulae",
       "sub_topic": "Evaluating an algebraic formula",
       "question_part": "2b",
@@ -756,7 +657,8 @@
       "image_filepath": "temp/outram_secondary_school_elementary_mathematics_preliminary_exam_2024_1_2b.png",
       "question_body": "15 \\times 9^{15} = 81^k \\text{. Find the value of } k."
     },
-    {
+    "674dcdb5b00b977d048c931d": {
+      "id": "674dcdb5b00b977d048c931d",
       "topic": "Algebraic expressions and formulae",
       "sub_topic": "Evaluating an algebraic formula",
       "question_part": "23",
@@ -770,5 +672,5 @@
       "image_filepath": "temp/bukit_panjang_government_high_school_elementary_mathematics_preliminary_exam_2023_1_23.png",
       "question_body": "Given that 2^{32} \\times 1 = 6 \\times 8^x, \\text{ find the value of } x."
     }
-  ]
+  }
 }
