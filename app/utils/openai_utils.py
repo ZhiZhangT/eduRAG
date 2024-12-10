@@ -68,10 +68,11 @@ def get_generated_questions_and_answers(
         # load json file with few-shot examples
         with open("app/data/few_shot_examples.json", "r") as f:
             few_shot_examples = json.load(f)
+        if sub_topic in few_shot_examples:
             few_shot_examples_for_sub_topic = few_shot_examples[sub_topic]
             example_question = few_shot_examples_for_sub_topic["question"]
             example_answer = few_shot_examples_for_sub_topic["answer"]
-        system_prompt += f"\n\nExample question:\n{example_question}\n\nExample answer:\n{example_answer}"
+            system_prompt += f"\n\nExample question:\n{example_question}\n\nExample answer:\n{example_answer}"
 
     messages = [
         {"role": Role.SYSTEM, "content": system_prompt},
