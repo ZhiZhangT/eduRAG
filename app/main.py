@@ -193,8 +193,8 @@ def query(request: QueryRequest):
 
                 retrieved_documents.append(
                     {
-                        "topic": topic,
-                        "sub_topic": sub_topic,
+                        "topic": result["topic"],
+                        "sub_topic": result["sub_topic"],
                         "question_part": result["question_part"],
                         "subject": result["subject"],
                         "paper_number": result["paper_number"],
