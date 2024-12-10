@@ -1,30 +1,30 @@
 {
   "Multiplication of 2 matrices": {
-    "question": "Consider a scenario where a bookstore offers seasonal discounts on two categories of books. During the winter sale, category A books are offered a 15% discount, and category B books receive a 5% discount. \\newline (i) Define a matrix $D$ to represent the discounted prices such that when multiplied by a matrix $Q$, representing the original prices, the resulting matrix will give the actual prices after discounts for both categories. \\newline (ii) If the original price matrix $Q$ is given as $\\begin{bmatrix} q_1 \\\\ q_2 \\end{bmatrix}$, where $q_1$ and $q_2$ are the original prices of category A and B books respectively, find the product $DQ$.",
-    "answer": "\\begin{bmatrix}0.85q_1\\\\0.95q_2\\end{bmatrix}"
+    "question": "Evaluate the matrix \\( T = AB \\), where \\( A \\) and \\( B \\) are given matrices:\n\\[ A = \\begin{bmatrix} 3 & 2 \\\\ 7 & 8 \\end{bmatrix}, \\quad B = \\begin{bmatrix} 3 & 2 \\\\ 7 & 8 \\end{bmatrix}. \\]",
+    "answer": "\\[ \\begin{bmatrix} 23 & 22 \\\\ 77 & 78 \\end{bmatrix} \\]"
   },
   "Finding the mean median and mode": {
-    "question": "",
-    "answer": ""
+    "question": "The table shows the shoe sizes of 60 people:\n\\[\n\\begin{array}{|c|c|c|c|c|c|}\n\\hline\n\\text{Shoe size} & 5 & 6 & 7 & 8 & 9 \\\\\n\\hline\n\\text{Frequency} & 24 & x & 13 & y & 5 \\\\\n\\hline\n\\end{array}\n\\]\nGiven that the mean shoe size is 6.3, determine the median and mode shoe sizes.",
+    "answer": "The median shoe size is 6, and the mode shoe size is 5."
   },
   "Applying the angles properties of circles": {
-    "question": "",
-    "answer": ""
+    "question": "In the diagram, \\( A \\), \\( B \\), and \\( C \\) are three points on a circle with center \\( O \\). Given that \\( AOP \\) is a diameter of the circle and angle \\( \\angle COP = 68^\\circ \\), find \\( \\angle ABC \\).",
+    "answer": "124 degrees"
   },
   "Applying rates in real-world contexts": {
-    "question": "",
-    "answer": ""
+    "question": "The rates of renting a car by two car rental companies are as shown:\n\\[\n\\begin{array}{|c|c|}\n\\hline\n\\text{Company A} & \\text{Company B} \\\\\n\\hline\n\\$11 \\text{ per hour for the first 4 hours} & \\$30 \\text{ for the first 2 hours} \\\\\n\\$8 \\text{ per half-hour thereafter} & \\$12 \\text{ per hour thereafter} \\\\\n\\hline\n\\end{array}\n\\]\nKenneth plans to rent a car for 6 hours. Which company should he rent the car from so that he pays less?",
+    "answer": "Company A"
   },
   "Finding the probability of single events": {
-    "question": "",
-    "answer": ""
+    "question": "A bag contains three types of coffee sachets: 9 are caramel flavoured, 11 are hazelnut flavoured, and 12 are vanilla flavoured.\n(a) A sachet is chosen at random.\nWhat is the probability that it is not vanilla flavoured?",
+    "answer": "5/8"
   },
   "Solving simultaneous equations using the method of elimination": {
-    "question": "",
-    "answer": ""
+    "question": "Solve the simultaneous equations:\n\\[ 2x + 3y = 15 \\]\n\\[ -3y + 4x = 3 \\]",
+    "answer": "x = 3, y = 3"
   },
   "Evaluating an algebraic formula": {
-    "question": "",
-    "answer": ""
+    "question": "The length, breadth, and height of a cuboid are \\( l \\) cm, \\( b \\) cm, and \\( h \\) cm respectively. Find the volume \\( V \\) when \\( l = 8 \\), \\( b = 3 \\), and \\( h = 5 \\).",
+    "answer": "120"
   }
 }
