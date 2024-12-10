@@ -5,7 +5,6 @@ import os
 # Load and combine JSON data from multiple files
 json_files = [
     "test/end_to_end/results1.json",
-    "test/end_to_end/results1_mean_median.json",
     "test/end_to_end/results234.json",
 ]
 
@@ -17,7 +16,6 @@ for json_file in json_files:
     try:
         with open(json_file) as f:
             file_data = json.load(f)
-            # Append results from each file to the combined results
             combined_data["results"]["results"].extend(file_data["results"]["results"])
     except FileNotFoundError:
         print(f"Warning: File {json_file} not found")
@@ -27,8 +25,50 @@ for json_file in json_files:
 # Use combined_data instead of data for the rest of the script
 data = combined_data
 
+# Initialize lists to store the new data
+query_data = []
 
-# Initialize dictionary to store results
+# Process results for the new CSV
+for result in data["results"]["results"]:
+    if result["testCase"]["vars"]["enable_test"] != "TRUE":
+        continue
+
+    # Extract variables
+    use_image = result["testCase"]["vars"]["use_image"]
+    retrieved_docs_count = result["testCase"]["vars"]["retrieved_docs_count"]
+    use_few_shot = result["testCase"]["vars"]["use_few_shot"]
+
+    try:
+        # Extract nested fields
+        output = result["response"]["output"]
+        query_id = output.get("query_id", "")
+        generated_question = output.get("generated_question", "")
+        generated_answer = output.get("generated_answer", "")
+
+        # Create row
+        row = {
+            "use_image": use_image,
+            "retrieved_docs_count": retrieved_docs_count,
+            "use_few_shot": use_few_shot,
+            "query_id": query_id,
+            "generated_question": generated_question,
+            "generated_answer": generated_answer,
+        }
+        query_data.append(row)
+    except (KeyError, TypeError):
+        print(f"Warning: Missing or invalid data structure for a result")
+
+# Convert to DataFrame
+query_df = pd.DataFrame(query_data)
+
+# File path for the new CSV
+query_output_file = "query_results.csv"
+
+# Save to CSV
+query_df.to_csv(query_output_file, index=False)
+print(f"\nCreated query results file: {query_output_file}")
+
+# Original results processing continues below
 results = {}
 
 # Process results
