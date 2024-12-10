@@ -34,57 +34,66 @@ def get_topic_from_openai(user_query: str, format):
     if user_query in topics_cache:
         return topics_cache[user_query]
     else:
-        print("Sending request to OpenAI API to get topic...")
-        topic_completion = client.beta.chat.completions.parse(
-            model=OPENAI_MODEL,
-            messages=[
-                {
-                    "role": "system",
-                    "content": "The user query is from a student who is preparing for a math exam. Determine the topic type that the user is asking about. If there are no relevant topics, return 'Unknown'.",
-                },
-                {"role": "user", "content": user_query},
-            ],
-            response_format=format,
-        )
-        topic = topic_completion.choices[0].message.parsed.model_dump()["topic"].value
-        topics_cache[user_query] = topic
+        try:
+            print("Sending request to OpenAI API to get topic...")
+            topic_completion = client.beta.chat.completions.parse(
+                model=OPENAI_MODEL,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "The user query is from a student who is preparing for a math exam. Determine the topic type that the user is asking about. If there are no relevant topics, return 'Unknown'.",
+                    },
+                    {"role": "user", "content": user_query},
+                ],
+                response_format=format,
+            )
+            topic = (
+                topic_completion.choices[0].message.parsed.model_dump()["topic"].value
+            )
+            topics_cache[user_query] = topic
 
-        return topic
+            return topic
+        except Exception as e:
+            print(f"Error retrieving topic: {e}")
+            return None
 
 
 def get_sub_topic_from_openai(user_query: str, topics_json: str, topic: str, format):
     if (user_query, topic) in subtopics_cache:
         return subtopics_cache[(user_query, topic)]
     else:
+        try:
+            print("Sending request to OpenAI API to get sub-topic...")
+            # Convert topics_json back to a dictionary
+            topics = json.loads(topics_json)
 
-        print("Sending request to OpenAI API to get sub-topic...")
-        # Convert topics_json back to a dictionary
-        topics = json.loads(topics_json)
+            sub_topic_completion = client.beta.chat.completions.parse(
+                model=OPENAI_MODEL,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "The user query is from a student who is preparing for a math exam. Determine one sub-topic from the list of possible sub-topics that is most relevant to the user query. If there are no relevant sub-topics, return 'Unknown'.",
+                    },
+                    {
+                        "role": "user",
+                        "content": "The list of sub-topics are: "
+                        + str(topics[topic])
+                        + "/n The user query is: "
+                        + user_query,
+                    },
+                ],
+                response_format=format,
+            )
 
-        sub_topic_completion = client.beta.chat.completions.parse(
-            model=OPENAI_MODEL,
-            messages=[
-                {
-                    "role": "system",
-                    "content": "The user query is from a student who is preparing for a math exam. Determine one sub-topic from the list of possible sub-topics that is most relevant to the user query. If there are no relevant sub-topics, return 'Unknown'.",
-                },
-                {
-                    "role": "user",
-                    "content": "The list of sub-topics are: "
-                    + str(topics[topic])
-                    + "/n The user query is: "
-                    + user_query,
-                },
-            ],
-            response_format=format,
-        )
+            sub_topic = sub_topic_completion.choices[0].message.parsed.model_dump()[
+                "sub_topic"
+            ]
+            subtopics_cache[(user_query, topic)] = sub_topic
 
-        sub_topic = sub_topic_completion.choices[0].message.parsed.model_dump()[
-            "sub_topic"
-        ]
-        subtopics_cache[(user_query, topic)] = sub_topic
-
-        return sub_topic
+            return sub_topic
+        except Exception as e:
+            print(f"Error retrieving sub-topic: {e}")
+            return None
 
 
 def vector_search(
@@ -122,6 +131,9 @@ def vector_search(
 
         topic = get_topic_from_openai(user_query, format=Topic)
         # print(f"topic: {topic}")
+        # do not return any documents if the topic is not recognised
+        if not topic:
+            return []
 
         class SubTopic(BaseModel):
             sub_topic: str
