@@ -3,10 +3,7 @@ import pandas as pd
 import os
 
 # Load and combine JSON data from multiple files
-json_files = [
-    "test/end_to_end/results1.json",
-    "test/end_to_end/results234.json",
-]
+json_files = ["test/end_to_end/results_random_and_top4.json"]
 
 # Initialize combined data structure
 combined_data = {"results": {"results": []}}
@@ -40,31 +37,45 @@ for result in data["results"]["results"]:
     user_query = result["testCase"]["vars"]["query"]
 
     try:
-        # Extract nested fields
-        output = result["response"]["output"]
-        query_id = output.get("query_id", "")
-        generated_question = output.get("generated_question", "")
-        generated_answer = output.get("generated_answer", "")
+        if "response" in result:
+            # Extract nested fields
+            output = result["response"]["output"]
+            query_id = output.get("query_id", "")
+            generated_question = output.get("generated_question", "")
+            generated_answer = output.get("generated_answer", "")
+            citations = output.get("citations", [])
+            # Create row
+            row = {
+                "use_image": use_image,
+                "retrieved_docs_count": retrieved_docs_count,
+                "use_few_shot": use_few_shot,
+                "query_id": query_id,
+                "user_query": user_query,
+                "generated_question": generated_question,
+                "generated_answer": generated_answer,
+                "citations": ",".join(citations),
+            }
 
-        # Create row
-        row = {
-            "use_image": use_image,
-            "retrieved_docs_count": retrieved_docs_count,
-            "use_few_shot": use_few_shot,
-            "query_id": query_id,
-            "user_query": user_query,
-            "generated_question": generated_question,
-            "generated_answer": generated_answer,
-        }
-        query_data.append(row)
-    except (KeyError, TypeError):
-        print(f"Warning: Missing or invalid data structure for a result")
+            if "retrieved_documents" in result["response"]:
+                # '1' means start from 1, not 0
+                for i, citation_id in enumerate(citations, 1):
+                    if citation_id in result["response"]["retrieved_documents"]:
+                        citation_text = result["response"]["retrieved_documents"][
+                            citation_id
+                        ]["question_body"]
+                        row[f"citation_{i}_text"] = citation_text
+                    else:
+                        row[f"citation_{i}_text"] = ""
+
+            query_data.append(row)
+    except (KeyError, TypeError) as e:
+        print(f"Warning: Missing or invalid data structure for a result. Error: {e}")
 
 # Convert to DataFrame
 query_df = pd.DataFrame(query_data)
 
 # File path for the new CSV
-query_output_file = "query_results.csv"
+query_output_file = "query_results_random.csv"
 
 # Save to CSV
 query_df.to_csv(query_output_file, index=False)
@@ -139,7 +150,7 @@ new_df = pd.DataFrame(rows)
 new_df = new_df.sort_values(by="PASS_PERCENTAGE", ascending=False)
 
 # File path
-output_file = "results_matrix_analysis.csv"
+output_file = "results_matrix_analysis_random.csv"
 
 # Check if file exists and load it
 if os.path.exists(output_file):
