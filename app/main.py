@@ -269,8 +269,10 @@ def verify(
     last_script = None
     last_error = None
     last_computed_answer = None
+    suggested_answer = question_doc["answer"]
     if remove_latex:
-        suggested_answer = LatexNodes2Text().latex_to_text(question_doc["answer"])
+        suggested_answer = LatexNodes2Text().latex_to_text(suggested_answer)
+    # NOTE: formatting must only be done after removing LaTeX
     suggested_answer = format_answer(suggested_answer)
 
     script_filename = f"{filename_without_extension}.py"
