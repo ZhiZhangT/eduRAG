@@ -37,6 +37,7 @@ for result in data["results"]["results"]:
     use_image = result["testCase"]["vars"]["use_image"]
     retrieved_docs_count = result["testCase"]["vars"]["retrieved_docs_count"]
     use_few_shot = result["testCase"]["vars"]["use_few_shot"]
+    user_query = result["testCase"]["vars"]["query"]
 
     try:
         # Extract nested fields
@@ -51,6 +52,7 @@ for result in data["results"]["results"]:
             "retrieved_docs_count": retrieved_docs_count,
             "use_few_shot": use_few_shot,
             "query_id": query_id,
+            "user_query": user_query,
             "generated_question": generated_question,
             "generated_answer": generated_answer,
         }
