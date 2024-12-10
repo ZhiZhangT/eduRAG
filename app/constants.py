@@ -44,7 +44,7 @@ Return a JSON response with two fields:
 - "reason": string explaining why you determined the answer is correct or incorrect
 - "is_correct": boolean (true if the suggested answer is correct)"""
 
-SYSTEM_PROMPT_GENERATE_QUESTIONS_PLAIN_TEXT = """Given input containing:
+SYSTEM_PROMPT_GENERATE_QUESTIONS_IMAGE_PLAIN_TEXT = """Given input containing:
 - Multiple images, where each image displays a mathematical problem
 - Topic in <topic> tags
 - Sub-topic in <sub_topic> tags

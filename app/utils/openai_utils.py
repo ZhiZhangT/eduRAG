@@ -54,7 +54,7 @@ def get_generated_questions_and_answers(
         # is_plain_text flag was only tested with image questions
         # i.e. there is no plain text system prompt for textual questions
         if is_plain_text:
-            system_prompt = constants.SYSTEM_PROMPT_GENERATE_QUESTIONS_PLAIN_TEXT
+            system_prompt = constants.SYSTEM_PROMPT_GENERATE_QUESTIONS_IMAGE_PLAIN_TEXT
     else:
         system_prompt = constants.SYSTEM_PROMPT_GENERATE_QUESTIONS
         user_content = f""
