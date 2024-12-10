@@ -252,6 +252,7 @@ class GeneratedQuestion(BaseModel):
     sub_topic: str
     steps: List[str]
     answer: str
+    citations: List[str]
 
 
 class GeneratedPythonScript(BaseModel):

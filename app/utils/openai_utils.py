@@ -42,9 +42,15 @@ def get_generated_questions_and_answers(
             }
         ]
         print(f"user_content_image: {user_content}")
+        print(f"image_filepaths: {image_filepaths}")
         for _, img_filepath in enumerate(image_filepaths):
             base64_image = _encode_image(img_filepath)
+            image_name = os.path.basename(img_filepath)
             user_content += [
+                {
+                    "type": "text",
+                    "text": f"<image_name>{image_name}</image_name>",
+                },
                 {
                     "type": "image_url",
                     "image_url": {"url": f"data:image/png;base64,{base64_image}"},
