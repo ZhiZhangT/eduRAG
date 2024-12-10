@@ -221,6 +221,7 @@ class Message(BaseModelWithRoleEncoder):
 
 
 class RetrievedDocument(BaseModel):
+    id: str
     topic: str
     sub_topic: str
     question_part: str

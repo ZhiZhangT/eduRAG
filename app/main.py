@@ -152,13 +152,13 @@ def query(request: QueryRequest):
         os.makedirs(constants.OUTPUT_DIR, exist_ok=True)
         query_id = str(ULID())
         user_query = normalise_query(request.user_query)
-        image_filepaths = []
-        retrieved_documents = []
-        questions = []
+        image_filepaths = dict()
+        retrieved_documents = dict()
+        questions = dict()
         topic, sub_topic = "", ""
         if request.retrieved_documents:
             for doc in request.retrieved_documents:
-                retrieved_documents.append(doc.model_dump())
+                retrieved_documents[doc.id] = doc.model_dump()
         else:
             results = vector_search(
                 user_query[-1].content,
@@ -191,29 +191,31 @@ def query(request: QueryRequest):
                         page_end=page_end,
                     )
 
-                retrieved_documents.append(
-                    {
-                        "topic": result["topic"],
-                        "sub_topic": result["sub_topic"],
-                        "question_part": result["question_part"],
-                        "subject": result["subject"],
-                        "paper_number": result["paper_number"],
-                        "level": result["level"],
-                        "exam_type": result["exam_type"],
-                        "year": result["year"],
-                        "school": result["school"],
-                        "question_url": f"{question_paper_filepath}#page={page_start}",
-                        "image_filepath": img_filepath,
-                        "question_body": question_body,
-                    }
-                )
+                result_id = str(result["_id"])
 
-        if retrieved_documents:
-            topic = retrieved_documents[0]["topic"]
-            sub_topic = retrieved_documents[0]["sub_topic"]
-        for doc in retrieved_documents:
-            image_filepaths.append(doc["image_filepath"])
-            questions.append(doc["question_body"])
+                retrieved_documents[result_id] = {
+                    "id": result_id,
+                    "topic": result["topic"],
+                    "sub_topic": result["sub_topic"],
+                    "question_part": result["question_part"],
+                    "subject": result["subject"],
+                    "paper_number": result["paper_number"],
+                    "level": result["level"],
+                    "exam_type": result["exam_type"],
+                    "year": result["year"],
+                    "school": result["school"],
+                    "question_url": f"{question_paper_filepath}#page={page_start}",
+                    "image_filepath": img_filepath,
+                    "question_body": question_body,
+                }
+
+        for doc_id, doc in retrieved_documents.items():
+            if not topic:
+                topic = doc["topic"]
+            if not sub_topic:
+                sub_topic = doc["sub_topic"]
+            image_filepaths[doc_id] = doc["image_filepath"]
+            questions[doc_id] = doc["question_body"]
 
         # pass the question metadata (topic, subtopic) + question image to OpenAI
         # NOTE: the question image was used instead of the question_body field because the question_body field is generally inaccurate

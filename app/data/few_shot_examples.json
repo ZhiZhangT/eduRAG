@@ -3,7 +3,7 @@
     "question": "Evaluate the matrix \\( T = AB \\), where \\( A \\) and \\( B \\) are given matrices:\n\\[ A = \\begin{bmatrix} 3 & 2 \\\\ 7 & 8 \\end{bmatrix}, \\quad B = \\begin{bmatrix} 3 & 2 \\\\ 7 & 8 \\end{bmatrix}. \\]",
     "answer": "\\[ \\begin{bmatrix} 23 & 22 \\\\ 77 & 78 \\end{bmatrix} \\]"
   },
-  "Finding the mean median and mode": {
+  "Finding the mean, median and mode": {
     "question": "The table shows the shoe sizes of 60 people:\n\\[\n\\begin{array}{|c|c|c|c|c|c|}\n\\hline\n\\text{Shoe size} & 5 & 6 & 7 & 8 & 9 \\\\\n\\hline\n\\text{Frequency} & 24 & x & 13 & y & 5 \\\\\n\\hline\n\\end{array}\n\\]\nGiven that the mean shoe size is 6.3, determine the median and mode shoe sizes.",
     "answer": "The median shoe size is 6, and the mode shoe size is 5."
   },

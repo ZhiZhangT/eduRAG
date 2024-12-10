@@ -46,7 +46,7 @@ Return a JSON response with two fields:
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS_IMAGE = """Given input containing:
 - Multiple images, where each image displays a mathematical problem
-- Name of each image in <image_name> tags
+- ID of each image in <image_id> tags
 - Topic in <topic> tags
 - Sub-topic in <sub_topic> tags
 
@@ -68,13 +68,13 @@ Return a JSON response with:
 "Step 1: Description and calculation",
 "Step 2: Description and calculation",
 ],
-"citations": "Name of images used to generate the new question",
+"citations": "ID of images used to generate the new question",
 "answer": "Final numerical or algebraic answer. The format should be 'Answer: <answer>'"
 }"""
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS_IMAGE_PLAIN_TEXT = """Given input containing:
 - Multiple images, where each image displays a mathematical problem
-- Name of each image in <image_name> tags
+- ID of each image in <image_id> tags
 - Topic in <topic> tags
 - Sub-topic in <sub_topic> tags
 
@@ -96,12 +96,13 @@ Return a JSON response with:
 "Step 1: Description and calculation",
 "Step 2: Description and calculation",
 ],
-"citations": "Name of images used to generate the new question",
+"citations": "ID of images used to generate the new question",
 "answer": "Final numerical or algebraic answer in plain text. The format should be 'Answer: <answer>'"
 }"""
 
 SYSTEM_PROMPT_GENERATE_QUESTIONS = """Given input containing:
-- Multiple mathematical questions in <question> tags
+- ID of a mathematical question in <question_id> tags
+- Question in <question> tags
 - Topic in <topic> tags
 - Sub-topic in <sub_topic> tags
 
@@ -123,7 +124,7 @@ Return a JSON response with:
 "Step 1: Description and calculation",
 "Step 2: Description and calculation",
 ],
-"citations": "Question(s) used to generate the new question",
+"citations": "ID of the questions used to generate the new question",
 "answer": "Final numerical or algebraic answer. The format should be 'Answer: <answer>'"
 }"""
 

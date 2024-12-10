@@ -25,10 +25,10 @@ def _encode_image(image_path):
 def get_generated_questions_and_answers(
     topic: str,
     sub_topic: str,
-    image_filepaths: List[str],
+    image_filepaths: dict,
     is_plain_text: bool = False,
     use_image: bool = True,
-    questions: List[str] = [],  # will be empty if use_image is True
+    questions: dict = {},  # will be empty if use_image is True
     use_few_shot: bool = False,
 ) -> GeneratedQuestion:
     print(f"use_image: {use_image}, use_few_shot: {use_few_shot}")
@@ -43,13 +43,12 @@ def get_generated_questions_and_answers(
         ]
         print(f"user_content_image: {user_content}")
         print(f"image_filepaths: {image_filepaths}")
-        for _, img_filepath in enumerate(image_filepaths):
+        for doc_id, img_filepath in image_filepaths.items():
             base64_image = _encode_image(img_filepath)
-            image_name = os.path.basename(img_filepath)
             user_content += [
                 {
                     "type": "text",
-                    "text": f"<image_name>{image_name}</image_name>",
+                    "text": f"<image_id>{doc_id}</image_id>",
                 },
                 {
                     "type": "image_url",
@@ -64,8 +63,10 @@ def get_generated_questions_and_answers(
     else:
         system_prompt = constants.SYSTEM_PROMPT_GENERATE_QUESTIONS
         user_content = f""
-        for i, qn in enumerate(questions):
-            user_content += f"<question>Question {i + 1}: {qn}</question>"
+        for doc_id, qn in questions.items():
+            user_content += (
+                f"<question_id>{doc_id}</question_id>\n<question>{qn}</question>"
+            )
         user_content += f"<topic>{topic}</topic>\n<sub_topic>{sub_topic}</sub_topic>"
         print(f"user_content_text: {user_content}")
 
