@@ -31,14 +31,17 @@ def call_api(prompt, options, context):
         user_query = context["vars"]["query"]
         subject = context["vars"]["subject"]
         sub_topic = context["vars"]["sub_topic"]
-        # load retrieved documents from "retrieved_docs_for_sub_topic.json"
-        with open("test/end_to_end/retrieved_docs_for_sub_topic.json", "r") as f:
-            retrieved_documents_for_sub_topic = json.load(f)
-        retrieved_documents = retrieved_documents_for_sub_topic[sub_topic]
-        retrieved_documents = retrieved_documents[:retrieved_docs_count]
-        print(
-            f"retrieved_docs_count: {retrieved_docs_count} num_retrieved_docs: {len(retrieved_documents)}"
-        )
+        if sub_topic == "none":
+            retrieved_documents = None
+        else:
+            # load retrieved documents from "retrieved_docs_for_sub_topic.json"
+            with open("test/end_to_end/retrieved_docs_for_sub_topic.json", "r") as f:
+                retrieved_documents_for_sub_topic = json.load(f)
+            retrieved_documents = retrieved_documents_for_sub_topic[sub_topic]
+            retrieved_documents = retrieved_documents[:retrieved_docs_count]
+            print(
+                f"retrieved_docs_count: {retrieved_docs_count} num_retrieved_docs: {len(retrieved_documents)}"
+            )
         messages = [Message(content=user_query, role=Role.USER)]
 
         query_request = QueryRequest(
