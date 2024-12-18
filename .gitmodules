@@ -1,0 +1,3 @@
+[submodule "mathtrust-score"]
+	path = mathtrust-score
+	url = https://github.com/ZhiZhangT/mathtrust-score.git
