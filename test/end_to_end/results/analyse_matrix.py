@@ -3,7 +3,10 @@ import pandas as pd
 import os
 
 # Load and combine JSON data from multiple files
-json_files = ["test/end_to_end/results_random_and_top4.json"]
+json_files = [
+    "test/end_to_end/results/results_retrieved_docs_1_to_2_v2.json",
+    "test/end_to_end/results/results_retrieved_docs_3_to_4_v2.json",
+]
 
 # Initialize combined data structure
 combined_data = {"results": {"results": []}}
@@ -57,7 +60,6 @@ for result in data["results"]["results"]:
             }
 
             if "retrieved_documents" in result["response"]:
-                # '1' means start from 1, not 0
                 for i, citation_id in enumerate(citations, 1):
                     if citation_id in result["response"]["retrieved_documents"]:
                         citation_text = result["response"]["retrieved_documents"][
@@ -75,7 +77,7 @@ for result in data["results"]["results"]:
 query_df = pd.DataFrame(query_data)
 
 # File path for the new CSV
-query_output_file = "query_results_random.csv"
+query_output_file = "query_results_v2_full.csv"
 
 # Save to CSV
 query_df.to_csv(query_output_file, index=False)
@@ -99,7 +101,14 @@ for result in data["results"]["results"]:
 
     # Initialize counters for this group if not exists
     if group_key not in results:
-        results[group_key] = {"PASS": 0, "PARTIAL": 0, "FAIL": 0, "total": 0}
+        results[group_key] = {
+            "PASS": 0,
+            "PARTIAL": 0,
+            "FAIL": 0,
+            "total": 0,
+            "python_pass_llm_fail": 0,
+            "llm_pass_python_fail": 0,
+        }
 
     if not result["gradingResult"]:
         continue
@@ -117,6 +126,14 @@ for result in data["results"]["results"]:
 
     # Update counters
     results[group_key]["total"] += 1
+
+    # Update new counters
+    if python_result and not step_result:
+        results[group_key]["python_pass_llm_fail"] += 1
+    elif step_result and not python_result:
+        results[group_key]["llm_pass_python_fail"] += 1
+
+    # Update original counters
     if python_result and step_result:
         results[group_key]["PASS"] += 1
     elif python_result or step_result:
@@ -141,6 +158,8 @@ for (use_image, retrieved_docs_count, use_few_shot), counts in results.items():
         "FAIL": counts["FAIL"],
         "total": counts["total"],
         "PASS_PERCENTAGE": f"{pass_percentage:.2f}%",
+        "python_pass_llm_fail": counts["python_pass_llm_fail"],
+        "llm_pass_python_fail": counts["llm_pass_python_fail"],
     }
     rows.append(row)
 
@@ -150,7 +169,7 @@ new_df = pd.DataFrame(rows)
 new_df = new_df.sort_values(by="PASS_PERCENTAGE", ascending=False)
 
 # File path
-output_file = "results_matrix_analysis_random.csv"
+output_file = "results_matrix_analysis_v2_full.csv"
 
 # Check if file exists and load it
 if os.path.exists(output_file):
@@ -184,3 +203,10 @@ else:
 
 print("\nFinal Results (sorted by PASS_PERCENTAGE):")
 print(new_df)
+
+# Print total counts across all combinations
+total_python_pass_llm_fail = new_df["python_pass_llm_fail"].sum()
+total_llm_pass_python_fail = new_df["llm_pass_python_fail"].sum()
+
+print(f"\nTotal cases where Python passes but LLM fails: {total_python_pass_llm_fail}")
+print(f"Total cases where LLM passes but Python fails: {total_llm_pass_python_fail}")
